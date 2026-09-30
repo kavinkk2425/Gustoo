@@ -15,6 +15,10 @@ import {
   FileText,
   Play,
   Bus,
+  Gamepad2,
+  Coins,
+  Zap,
+  Flame,
 } from "lucide-react";
 import {
   RetroGamepad,
@@ -653,114 +657,268 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* 4. Action CTAs - Scroll Reveal */}
+            {/* 4. Action Arcade HUD & Controller Action Deck - Scroll Reveal */}
             <div
               ref={ctaRef}
-              className={`relative flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3.5 sm:gap-5 w-full max-w-3xl mx-auto px-2 scroll-reveal ${
+              className={`relative flex flex-col items-center justify-center gap-3.5 sm:gap-5 w-full max-w-4xl mx-auto px-2 select-none scroll-reveal ${
                 ctaInView ? "is-visible" : ""
               }`}
             >
-              <div className="w-full flex justify-center -mb-1 z-20">
-                <HandwrittenSticker text="⚡ Limited Slots! ₹250 All-Access Pass" color="#ec4899" textColor="#ffffff" rotation="-rotate-2" className="text-base sm:text-2xl lg:text-3xl shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] py-1.5 px-4 sm:px-6" />
+              {/* Mission Objective / Critical Drop Top Strip */}
+              <div className="w-full max-w-2xl flex flex-wrap items-center justify-between gap-2 px-3 py-1.5 rounded-xl bg-black text-white border-2 border-black shadow-[3px_3px_0px_#000]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 border border-black animate-pulse shadow-[0_0_8px_#34d399]" />
+                  <span className="font-mono text-[10px] sm:text-xs font-black tracking-widest text-[#fde047] uppercase">
+                    MISSION: LEVEL-26 ENTRY
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 font-mono text-[10px] sm:text-xs font-black text-pink-400">
+                  <Zap className="w-3.5 h-3.5 fill-pink-400" />
+                  <span>LIMITED SLOTS (₹{ABOUT_DATA.registrationFee})</span>
+                </div>
+                <div className="hidden xs:flex items-center gap-1 font-mono text-[10px] font-black text-zinc-400">
+                  <span>[ P1 READY ]</span>
+                </div>
               </div>
-              <button
-                onClick={onOpenRegister}
-                className="neo-btn w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 rounded-full font-['Chakra_Petch',sans-serif] font-black text-lg sm:text-xl text-white bg-[#ec4899] hover:bg-[#db2777] shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] flex items-center justify-center gap-3 cursor-pointer uppercase tracking-wider"
-              >
-                <Sparkles className="w-6 h-6 text-yellow-300" />
-                <span>Register Now • ₹{ABOUT_DATA.registrationFee}</span>
-                <ArrowRight className="w-6 h-6" />
-              </button>
 
-              <div className="grid grid-cols-3 gap-2 sm:flex sm:items-center sm:gap-4 w-full sm:w-auto">
+              {/* Master Arcade Coin-Op CTA Button ("PRESS START / REGISTER NOW") */}
+              <div className="w-full flex justify-center">
+                <button
+                  onClick={onOpenRegister}
+                  className="arcade-push-btn group relative overflow-hidden w-full max-w-2xl px-5 sm:px-8 py-3.5 sm:py-4.5 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#ec4899] via-[#f43f5e] to-[#ec4899] border-[3.5px] sm:border-[4.5px] border-black text-white cursor-pointer select-none"
+                >
+                  {/* Glowing Laser Sweep Animation */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    <div className="w-32 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] animate-laser-sweep" />
+                  </div>
+
+                  {/* Corner Arcade Screws */}
+                  <span className="absolute top-2 left-2.5 text-[9px] font-mono text-white/50 select-none">✚</span>
+                  <span className="absolute top-2 right-2.5 text-[9px] font-mono text-white/50 select-none">✚</span>
+                  <span className="absolute bottom-2 left-2.5 text-[9px] font-mono text-white/50 select-none">✚</span>
+                  <span className="absolute bottom-2 right-2.5 text-[9px] font-mono text-white/50 select-none">✚</span>
+
+                  <div className="relative flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+                    {/* Left: Glowing Coin Slot Graphic */}
+                    <div className="flex items-center gap-2 bg-black/35 backdrop-blur-xs px-3 sm:px-4 py-1.5 rounded-xl border border-white/30">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-200 border border-black flex items-center justify-center animate-coin-bounce shadow-[0_0_8px_#facc15]">
+                        <span className="text-[10px] font-black text-black">₹</span>
+                      </div>
+                      <div className="flex flex-col text-left">
+                        <span className="text-[8.5px] font-mono font-bold text-yellow-300 uppercase leading-none">INSERT COIN</span>
+                        <span className="text-xs sm:text-sm font-['Chakra_Petch',sans-serif] font-black text-white leading-tight">₹{ABOUT_DATA.registrationFee} PASS</span>
+                      </div>
+                    </div>
+
+                    {/* Center: Bold Arcade Text */}
+                    <div className="flex items-center gap-2 sm:gap-3 text-center">
+                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300 animate-pulse hidden xs:inline" />
+                      <span className="font-['Chakra_Petch',sans-serif] font-black text-lg sm:text-2xl md:text-3xl text-white tracking-wider uppercase drop-shadow-[2px_2px_0px_#000]">
+                        PRESS START • REGISTER NOW
+                      </span>
+                    </div>
+
+                    {/* Right: Controller Arrow Trigger */}
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-black border-2 border-white/40 flex items-center justify-center group-hover:translate-x-1.5 transition-transform shadow-[2px_2px_0px_#000]">
+                      <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300" />
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+              {/* Arcade Controller Face Buttons [A] [B] [X] */}
+              <div className="w-full max-w-2xl grid grid-cols-3 gap-2 sm:gap-3.5">
+                {/* [A] Button: 9 Events */}
                 <a
                   href="#events"
-                  className="neo-btn px-4 sm:px-8 py-3.5 sm:py-4.5 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-sm sm:text-base text-black bg-[#84cc16] hover:bg-[#65a30d] shadow-[3.5px_3.5px_0px_#000] sm:shadow-[6px_6px_0px_#000] text-center uppercase tracking-wide flex items-center justify-center"
+                  className="arcade-face-btn group relative overflow-hidden p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#84cc16] border-[3px] sm:border-[3.5px] border-black text-black flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 text-center cursor-pointer"
                 >
-                  9 Events
+                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black text-[#84cc16] font-mono font-black text-xs sm:text-sm flex items-center justify-center border border-black shadow-inner shrink-0 group-hover:scale-110 transition-transform">
+                    A
+                  </span>
+                  <div className="flex flex-col text-center sm:text-left">
+                    <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-base leading-tight uppercase">
+                      9 Events
+                    </span>
+                    <span className="text-[8px] sm:text-[9.5px] font-mono font-extrabold text-zinc-900 uppercase opacity-75">
+                      ⚔️ ARENA
+                    </span>
+                  </div>
                 </a>
 
+                {/* [B] Button: Rules */}
                 <a
                   href="#rules"
-                  className="neo-btn px-4 sm:px-8 py-3.5 sm:py-4.5 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-sm sm:text-base text-black bg-white hover:bg-zinc-100 shadow-[3.5px_3.5px_0px_#000] sm:shadow-[6px_6px_0px_#000] flex items-center justify-center gap-1.5 uppercase tracking-wide text-center"
+                  className="arcade-face-btn group relative overflow-hidden p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[3px] sm:border-[3.5px] border-black text-black flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 text-center cursor-pointer"
                 >
-                  <FileText className="w-4 h-4 text-[#3b0764] hidden xs:inline" />
-                  <span>Rules</span>
+                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black text-white font-mono font-black text-xs sm:text-sm flex items-center justify-center border border-black shadow-inner shrink-0 group-hover:scale-110 transition-transform">
+                    B
+                  </span>
+                  <div className="flex flex-col text-center sm:text-left">
+                    <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-base leading-tight uppercase">
+                      Rules
+                    </span>
+                    <span className="text-[8px] sm:text-[9.5px] font-mono font-extrabold text-zinc-700 uppercase opacity-75">
+                      📜 CODEX
+                    </span>
+                  </div>
                 </a>
 
+                {/* [X] Button: Teaser */}
                 <a
                   href="#youtube"
-                  className="neo-btn px-4 sm:px-8 py-3.5 sm:py-4.5 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-sm sm:text-base text-white bg-[#ef4444] hover:bg-[#dc2626] shadow-[3.5px_3.5px_0px_#000] sm:shadow-[6px_6px_0px_#000] flex items-center justify-center gap-1.5 uppercase tracking-wide text-center"
+                  className="arcade-face-btn group relative overflow-hidden p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#ef4444] border-[3px] sm:border-[3.5px] border-black text-white flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 text-center cursor-pointer"
                 >
-                  <Play className="w-4 h-4 fill-white hidden xs:inline" />
-                  <span>Teaser</span>
+                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black text-[#ef4444] font-mono font-black text-xs sm:text-sm flex items-center justify-center border border-black shadow-inner shrink-0 group-hover:scale-110 transition-transform">
+                    X
+                  </span>
+                  <div className="flex flex-col text-center sm:text-left">
+                    <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-base leading-tight uppercase">
+                      Teaser
+                    </span>
+                    <span className="text-[8px] sm:text-[9.5px] font-mono font-extrabold text-white uppercase opacity-75">
+                      🎬 TRAILER
+                    </span>
+                  </div>
                 </a>
               </div>
             </div>
 
-            {/* 5. Trust Badges - Scroll Reveal with Staggered Delays */}
+            {/* 5. RPG Quest Inventory & Perks Dock - Scroll Reveal */}
             <div
               ref={badgesRef}
-              className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs sm:text-sm font-black text-black w-full max-w-4xl mx-auto"
+              className={`mt-8 sm:mt-12 w-full max-w-4xl mx-auto px-2 select-none scroll-reveal ${
+                badgesInView ? "is-visible" : ""
+              }`}
             >
-              <div
-                style={{ transitionDelay: badgesInView ? "0ms" : "0ms" }}
-                className={`flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-all scroll-reveal ${
-                  badgesInView ? "is-visible" : ""
-                }`}
-              >
-                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0" />
-                <span>Official GUSTO Registration</span>
+              {/* Inventory Header HUD Tag */}
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <span className="text-zinc-600 font-mono text-[10px] sm:text-xs">◄ ◄ ◄</span>
+                <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm uppercase tracking-widest text-black bg-white px-3 py-1 rounded-full border-2 border-black shadow-[2px_2px_0px_#000] flex items-center gap-1.5">
+                  <Gamepad2 className="w-3.5 h-3.5 text-[#7c3aed]" />
+                  <span>ACTIVE PASS BUFFS &amp; REWARDS</span>
+                </span>
+                <span className="text-zinc-600 font-mono text-[10px] sm:text-xs">► ► ►</span>
               </div>
-              <div
-                style={{ transitionDelay: badgesInView ? "120ms" : "0ms" }}
-                className={`flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-all scroll-reveal ${
-                  badgesInView ? "is-visible" : ""
-                }`}
-              >
-                <Bus className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-600 shrink-0" />
-                <span>Buses from Erode, Chithode &amp; Bhavani</span>
-              </div>
-              <div
-                style={{ transitionDelay: badgesInView ? "240ms" : "0ms" }}
-                className={`flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-all scroll-reveal ${
-                  badgesInView ? "is-visible" : ""
-                }`}
-              >
-                <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 shrink-0" />
-                <span>Cash Prizes &amp; Certificates</span>
+
+              {/* 3 Gaming Perk Inventory Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+                {/* Perk 01: Verified Pass */}
+                <div
+                  style={{ transitionDelay: badgesInView ? "0ms" : "0ms" }}
+                  className="group relative p-3 sm:p-4 rounded-2xl bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] hover:shadow-[7px_7px_0px_#000] hover:-translate-y-1.5 transition-all duration-150 flex flex-col justify-between"
+                >
+                  {/* Top Gamer Pill */}
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[9px] font-mono font-black uppercase px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-400">
+                      ★ LEGENDARY PASS
+                    </span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse border border-black shadow-[0_0_6px_#10b981]" />
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-100 border-2 border-black flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform shadow-[2px_2px_0px_#000]">
+                      <ShieldCheck className="w-5 h-5 text-emerald-600" />
+                    </div>
+                    <div className="text-left">
+                      <span className="text-xs sm:text-sm font-['Chakra_Petch',sans-serif] font-black text-black block leading-tight">
+                        Official GUSTO Registration
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-zinc-500 block leading-tight mt-0.5">
+                        Direct Campus &amp; Event Access
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Perk 02: Free Fast Travel */}
+                <div
+                  style={{ transitionDelay: badgesInView ? "120ms" : "0ms" }}
+                  className="group relative p-3 sm:p-4 rounded-2xl bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] hover:shadow-[7px_7px_0px_#000] hover:-translate-y-1.5 transition-all duration-150 flex flex-col justify-between"
+                >
+                  {/* Top Gamer Pill */}
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[9px] font-mono font-black uppercase px-2 py-0.5 rounded-md bg-indigo-100 text-indigo-800 border border-indigo-400">
+                      ★ FAST TRAVEL
+                    </span>
+                    <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse border border-black shadow-[0_0_6px_#6366f1]" />
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-100 border-2 border-black flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform shadow-[2px_2px_0px_#000]">
+                      <Bus className="w-5 h-5 text-indigo-600" />
+                    </div>
+                    <div className="text-left">
+                      <span className="text-xs sm:text-sm font-['Chakra_Petch',sans-serif] font-black text-black block leading-tight">
+                        Free Transit Bus Fleet
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-zinc-500 block leading-tight mt-0.5">
+                        Erode • Chithode • Bhavani
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Perk 03: Cash Trophy Bounty */}
+                <div
+                  style={{ transitionDelay: badgesInView ? "240ms" : "0ms" }}
+                  className="group relative p-3 sm:p-4 rounded-2xl bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] hover:shadow-[7px_7px_0px_#000] hover:-translate-y-1.5 transition-all duration-150 flex flex-col justify-between"
+                >
+                  {/* Top Gamer Pill */}
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[9px] font-mono font-black uppercase px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-400">
+                      ★ BOUNTY VAULT
+                    </span>
+                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse border border-black shadow-[0_0_6px_#f59e0b]" />
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-amber-100 border-2 border-black flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform shadow-[2px_2px_0px_#000]">
+                      <Trophy className="w-5 h-5 text-amber-600" />
+                    </div>
+                    <div className="text-left">
+                      <span className="text-xs sm:text-sm font-['Chakra_Petch',sans-serif] font-black text-black block leading-tight">
+                        Cash Prizes &amp; Certificates
+                      </span>
+                      <span className="text-[10px] font-mono font-bold text-zinc-500 block leading-tight mt-0.5">
+                        Awarded to Event Champions
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* 6. Bottom Moving Text Ticker Strip - Scroll Reveal */}
+            {/* 6. Cyber Ground Data Streamer Strip - Scroll Reveal */}
             <div
               ref={bottomTickerRef}
-              className={`mt-8 sm:mt-10 w-full max-w-4xl mx-auto rounded-full bg-white/95 border-[2.5px] sm:border-[3.5px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] py-2 sm:py-3 px-6 overflow-hidden select-none hover:shadow-[8px_8px_0px_#000] transition-all scroll-reveal ${
+              className={`mt-8 sm:mt-10 w-full max-w-4xl mx-auto rounded-2xl bg-black border-[3px] sm:border-[3.5px] border-black shadow-[5px_5px_0px_#000] py-2 sm:py-2.5 px-4 overflow-hidden select-none scroll-reveal ${
                 bottomTickerInView ? "is-visible" : ""
               }`}
             >
               <div className="flex w-max animate-marquee-fast">
-                <span className="font-mono text-xs sm:text-sm md:text-base font-extrabold text-[#3b0764] tracking-widest uppercase flex items-center gap-5 sm:gap-6 pr-6">
-                  <span>⚡ CASH PRIZES &amp; CERTIFICATES FOR ALL WINNERS</span>
-                  <span>•</span>
-                  <span>FREE COLLEGE BUS TRANSIT AVAILABLE</span>
-                  <span>•</span>
-                  <span>TECHNICAL &amp; NON-TECHNICAL EVENTS</span>
-                  <span>•</span>
-                  <span>GCEE AUTONOMOUS CAMPUS</span>
-                  <span>•</span>
-                  <span>LIMITED SLOTS (₹250)</span>
+                <span className="font-mono text-xs sm:text-sm font-extrabold text-[#fde047] tracking-widest uppercase flex items-center gap-5 sm:gap-6 pr-6">
+                  <span className="text-emerald-400">● LIVE BROADCAST</span>
+                  <span>►►►</span>
+                  <span>🏆 BOUNTY POOL: CASH PRIZES &amp; CERTIFICATES</span>
+                  <span>►►►</span>
+                  <span>🚌 FAST TRAVEL: FREE BUS TRANSIT SYSTEM</span>
+                  <span>►►►</span>
+                  <span>⚔️ 9 BATTLE ARENAS: TECH &amp; NON-TECH</span>
+                  <span>►►►</span>
+                  <span>📍 ARENA HQ: GCEE AUTONOMOUS CAMPUS</span>
+                  <span>►►►</span>
+                  <span>🎟️ ENTRY: LIMITED PASSES ₹{ABOUT_DATA.registrationFee}</span>
                 </span>
-                <span className="font-mono text-xs sm:text-sm md:text-base font-extrabold text-[#3b0764] tracking-widest uppercase flex items-center gap-5 sm:gap-6 pr-6" aria-hidden="true">
-                  <span>⚡ CASH PRIZES &amp; CERTIFICATES FOR ALL WINNERS</span>
-                  <span>•</span>
-                  <span>FREE COLLEGE BUS TRANSIT AVAILABLE</span>
-                  <span>•</span>
-                  <span>TECHNICAL &amp; NON-TECHNICAL EVENTS</span>
-                  <span>•</span>
-                  <span>GCEE AUTONOMOUS CAMPUS</span>
-                  <span>•</span>
-                  <span>LIMITED SLOTS (₹250)</span>
+                <span className="font-mono text-xs sm:text-sm font-extrabold text-[#fde047] tracking-widest uppercase flex items-center gap-5 sm:gap-6 pr-6" aria-hidden="true">
+                  <span className="text-emerald-400">● LIVE BROADCAST</span>
+                  <span>►►►</span>
+                  <span>🏆 BOUNTY POOL: CASH PRIZES &amp; CERTIFICATES</span>
+                  <span>►►►</span>
+                  <span>🚌 FAST TRAVEL: FREE BUS TRANSIT SYSTEM</span>
+                  <span>►►►</span>
+                  <span>⚔️ 9 BATTLE ARENAS: TECH &amp; NON-TECH</span>
+                  <span>►►►</span>
+                  <span>📍 ARENA HQ: GCEE AUTONOMOUS CAMPUS</span>
+                  <span>►►►</span>
+                  <span>🎟️ ENTRY: LIMITED PASSES ₹{ABOUT_DATA.registrationFee}</span>
                 </span>
               </div>
             </div>

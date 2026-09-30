@@ -28,18 +28,21 @@ export function AboutSection() {
     <section id="about" className="py-14 sm:py-20 bg-[#fffbeb] text-black relative border-b-[4px] border-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 relative select-none">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] text-xs font-black uppercase tracking-wider mb-3">
-            <Sparkles className="w-4 h-4 text-[#ec4899]" />
-            <span>Legacy & Heritage</span>
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-10 sm:mb-14 relative select-none">
+          {/* Top Pill Badge - Dedicated Stacked Row */}
+          <div className="mb-2.5 sm:mb-3.5">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] text-xs font-black uppercase tracking-wider">
+              <Sparkles className="w-4 h-4 text-[#ec4899]" />
+              <span>Legacy & Heritage</span>
+            </div>
           </div>
 
           {/* Interactive Title with Letter-by-Letter Wave Bounce */}
-          <div className="relative inline-block my-1">
+          <div className="relative w-full flex justify-center items-center my-1">
             {/* Click to Jump hint sticker */}
             <div
               onClick={triggerJump}
-              className="absolute -top-5 sm:-top-7 -right-3 sm:-right-8 z-20 cursor-pointer hidden xs:block"
+              className="absolute -top-6 sm:-top-8 right-2 sm:right-12 z-20 cursor-pointer hidden xs:block"
               title="Click to see the letters jump!"
             >
               <HandwrittenSticker
@@ -53,7 +56,7 @@ export function AboutSection() {
 
             <h2
               onClick={triggerJump}
-              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer inline-flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group"
+              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group"
               title="Click to see the letters jump!"
             >
               {/* "About" with interactive letter wave */}
