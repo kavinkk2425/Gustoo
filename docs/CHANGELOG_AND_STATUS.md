@@ -43,10 +43,26 @@
 | **Gamification: Arcade** | `components/gamification/ArcadeStation.tsx` | 🟢 Active | Retro 8-bit playable arcade canvas minigame (Cyber Dash 2K26) with score tracking. |
 | **Audio Engine** | `src/lib/arcadeAudio.ts` | 🟢 Active | Pure Web Audio API synthesized 8-bit sound effects (coin, jump, powerup, victory). |
 | **Loader Screen** | `components/ui/PacmanGhostLoader.tsx` | 🟢 Active | Minimalist retro loader featuring centered animated 8-bit Pac-Man ghost (Blinky) and energizer dots. |
+| **Mascot: Spiderman** | `components/ui/Spiderman.tsx` | 🟢 Active | Pure CSS animated upside-down hanging Spider-Man swinging on web line below Register CTA button. |
 
 ---
 
 ## 📝 Prompt & Feature Changelog
+
+### `2026-09-30` — Added Upside-Down Hanging Spider-Man Below Register CTA Button
+- **Summary**: Implemented the pure CSS animated upside-down hanging Spider-Man swinging on a web thread right beneath the Navbar's `REGISTER (₹250)` button:
+  - **Component (`components/ui/Spiderman.tsx`)**:
+    - Created `<HangingSpiderman />` faithfully rendering the complete upside-down Spider-Man suit, inverted mask with white eyes, 8-legged chest spider emblem, utility belt, boots, and hanging web line.
+    - Added top web anchor splatter tack that seamlessly attaches to the navbar's bottom black ledge.
+    - Integrated responsive font sizing (`7.5px` to `9px`) so the character fits cleanly into the yellow retro grid background on both mobile and desktop.
+    - Added interactive comic callout speech bubble (`THWIP! REGISTER! 🕸️`) that animates on hover and click.
+    - Clicking Spider-Man triggers the registration modal (`onOpenRegister`).
+  - **Styles (`app/globals.css`)**:
+    - Added `.spidey-box`, `.spidey-rope`, `.spidey-legs`, `.spidey-boot-l`, `.spidey-boot-r`, `.spidey-costume`, `.spidey-spider`, `.spidey-mask`, and associated keyframes (`@keyframes spidey-swing`).
+    - Web rope includes a high-contrast comic border (`box-shadow: 0 0 2px rgba(255,255,255,0.9), 0 0 1px #000`) for visual pop against the `#fec800` yellow grid.
+  - **Layout Integration (`HeroSection.tsx`)**:
+    - Placed Spider-Man at `absolute top-0 right-4 sm:right-14 md:right-20 lg:right-24 xl:right-28 z-30`, hanging directly beneath the navbar's Register button.
+    - Removed the awkward floating `SoccerFireball` from that area so the composition looks clean, intentional, and attractive.
 
 ### `2026-09-30` — Removed Side-Panel Shooting Planes (ArcadeShooters)
 - **Summary**: Removed the floating stealth fighter aircraft and laser shooting animations from `app/page.tsx`:

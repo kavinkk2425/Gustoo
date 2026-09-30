@@ -24,11 +24,11 @@ import {
   RetroGamepad,
   RetroConsole,
   RetroCartridge,
-  SoccerFireball,
   RotatingBadge,
   ComicStar,
   HandwrittenSticker,
 } from "@/components/ui/RetroStickers";
+import { HangingSpiderman } from "@/components/ui/Spiderman";
 
 interface HeroSectionProps {
   onOpenRegister?: () => void;
@@ -122,10 +122,9 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         <RetroConsole className="w-28 sm:w-36 h-auto drop-shadow-[4px_4px_0px_#000]" />
       </div>
 
-      {/* Top Right Soccer Fireball — faster float for foreground depth */}
-      <div className="absolute top-24 sm:top-28 right-8 sm:right-20 hidden md:block deco-obj animate-float-fast pointer-events-auto select-none z-[1]"
-        style={{ animationDelay: '0.7s' }}>
-        <SoccerFireball className="w-20 sm:w-24 h-auto drop-shadow-[4px_4px_0px_#000]" />
+      {/* Top Right Hanging Spider-Man directly below Register CTA button */}
+      <div className="absolute top-0 right-4 xs:right-8 sm:right-14 md:right-20 lg:right-24 xl:right-28 z-30 pointer-events-auto">
+        <HangingSpiderman onOpenRegister={onOpenRegister} />
       </div>
 
       {/* Floating Game Cartridges on Right Edge — three speeds for parallax depth */}
