@@ -148,74 +148,74 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
       {/* Main Hero Container */}
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 relative z-10">
         <div className="flex flex-col items-center text-center w-full">
-          {/* Top Symposium Institution Banner (Clean & Separated Neo-Brutalist Arcade Capsule) */}
-          <div className="w-full flex justify-center items-center mb-6 sm:mb-9 z-20">
-            <div className="group relative inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white border-[2.5px] sm:border-[3px] border-black shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[96%] select-none">
+          {/* Top Symposium Institution Banner (Clean & Responsive Neo-Brutalist Arcade Capsule) */}
+          <div className="w-full flex justify-center items-center mb-5 sm:mb-8 z-20 px-2 sm:px-4">
+            <div className="group relative inline-flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[98%] sm:max-w-[96%] select-none text-center">
               
-              {/* Pulsing Live Gaming Status Diode */}
-              <span className="relative flex h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-[#84cc16] border-[1.5px] border-black shadow-[0_0_6px_#84cc16]"></span>
-              </span>
+              {/* Status diode + College Title row (never breaks awkwardly on mobile) */}
+              <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2">
+                <span className="relative flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 bg-[#84cc16] border-[1.5px] border-black shadow-[0_0_6px_#84cc16]"></span>
+                </span>
+                <span className="font-['Chakra_Petch',sans-serif] font-black text-[11px] xs:text-xs sm:text-sm md:text-base text-zinc-950 tracking-wider uppercase drop-shadow-[0_1px_0px_rgba(255,255,255,0.8)] leading-tight text-center">
+                  GOVERNMENT COLLEGE OF ENGINEERING, ERODE
+                </span>
+              </div>
 
-              {/* College Full Title */}
-              <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm md:text-base text-zinc-900 tracking-wider uppercase drop-shadow-[0_1px_0px_rgba(255,255,255,0.8)] whitespace-nowrap">
-                GOVERNMENT COLLEGE OF ENGINEERING, ERODE
-              </span>
-
-              {/* Arcade Divider */}
+              {/* Arcade Divider (desktop only) */}
               <span className="hidden sm:inline text-zinc-400 font-black text-sm select-none">
                 •
               </span>
 
               {/* Department Accent Badge */}
-              <span className="inline-flex items-center px-2.5 py-0.5 sm:py-1 rounded-md bg-[#ec4899] text-white text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-wider font-['Chakra_Petch',sans-serif] border-[1.5px] border-black shadow-[1.5px_1.5px_0px_#000] whitespace-nowrap">
-                DEPARTMENT OF INFORMATION TECHNOLOGY
-              </span>
-
-              {/* Autonomous Accreditation Chip */}
-              <span className="hidden lg:inline-flex items-center text-[10px] sm:text-[11px] font-mono text-zinc-900 font-extrabold bg-[#fec800] px-2 py-0.5 rounded border-[1.5px] border-black shadow-[1px_1px_0px_#000] tracking-wider whitespace-nowrap">
-                ESTD 1984 // AUTONOMOUS
-              </span>
+              <div className="inline-flex items-center gap-1.5 sm:gap-2">
+                <span className="inline-flex items-center px-2.5 py-0.5 sm:py-1 rounded-md bg-[#ec4899] text-white text-[9.5px] xs:text-[11px] sm:text-xs md:text-sm font-black uppercase tracking-wider font-['Chakra_Petch',sans-serif] border-[1.5px] border-black shadow-[1.5px_1.5px_0px_#000] whitespace-nowrap">
+                  DEPARTMENT OF INFORMATION TECHNOLOGY
+                </span>
+                <span className="hidden lg:inline-flex items-center text-[10px] sm:text-[11px] font-mono text-zinc-900 font-extrabold bg-[#fec800] px-2 py-0.5 rounded border-[1.5px] border-black shadow-[1px_1px_0px_#000] tracking-wider whitespace-nowrap">
+                  ESTD 1984 // AUTONOMOUS
+                </span>
+              </div>
             </div>
           </div>
 
           {/* EXACT BEHANCE "Let The Game Begin" COMPOSITION */}
           <div className="relative my-2 sm:my-5 select-none w-full max-w-full">
             {/* Top Line: "Let The" with cute Pink Gamepad Character */}
-            <div className="flex items-center justify-center gap-2 xs:gap-3 sm:gap-8 flex-nowrap">
-              <h1 className="text-[2.6rem] xs:text-[3.25rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000]">
+            <div className="flex items-center justify-center gap-2.5 xs:gap-4 sm:gap-8 flex-nowrap">
+              <h1 className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000]">
                 Let
               </h1>
 
               {/* The Cute Gamepad Mascot from Behance — idle wiggle animation */}
               <div className="relative -mt-1 sm:-mt-6 deco-obj animate-idle-wiggle cursor-pointer shrink-0">
-                <RetroGamepad className="w-16 xs:w-20 sm:w-32 md:w-44 lg:w-56 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000]" />
+                <RetroGamepad className="w-18 xs:w-24 sm:w-36 md:w-44 lg:w-56 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000]" />
               </div>
 
-              <h1 className="text-[2.6rem] xs:text-[3.25rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000]">
+              <h1 className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000]">
                 The
               </h1>
             </div>
 
             {/* Middle Line: Chunky Gaming Speech Bubble Banner */}
-            <div className="my-2 sm:my-4 flex justify-center">
+            <div className="my-2 xs:my-3 sm:my-4 flex justify-center">
               <div
                 onClick={handleGustoClick}
-                className="relative inline-block px-6 xs:px-8 sm:px-14 md:px-20 py-2 xs:py-3 sm:py-4 rounded-2xl sm:rounded-3xl border-[3px] sm:border-[5px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[10px_10px_0px_#000] animate-gusto-float animate-gusto-color cursor-pointer select-none group"
+                className="relative inline-block px-7 xs:px-10 sm:px-14 md:px-20 py-2.5 xs:py-3.5 sm:py-4 rounded-2xl sm:rounded-3xl border-[3.5px] sm:border-[5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[10px_10px_0px_#000] animate-gusto-float animate-gusto-color cursor-pointer select-none group"
                 title="Click to see the Gusto letters jump!"
               >
                 {/* Speech bubble tail pointer with synchronized color cycle */}
-                <div className="absolute -bottom-2.5 sm:-bottom-4 right-5 sm:right-10 w-0 h-0 border-l-[10px] sm:border-l-[16px] border-l-transparent border-t-[10px] sm:border-t-[16px] border-r-[10px] sm:border-r-[16px] border-r-transparent filter drop-shadow-[0_2px_0_#000] sm:drop-shadow-[0_4px_0_#000] animate-gusto-tail" />
+                <div className="absolute -bottom-3 sm:-bottom-4 right-6 sm:right-10 w-0 h-0 border-l-[12px] sm:border-l-[16px] border-l-transparent border-t-[12px] sm:border-t-[16px] border-r-[12px] sm:border-r-[16px] border-r-transparent filter drop-shadow-[0_2px_0_#000] sm:drop-shadow-[0_4px_0_#000] animate-gusto-tail" />
 
                 {/* Floating Little Retro Game Pixel Accents */}
-                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 text-yellow-300 animate-spin [animation-duration:6s] text-base sm:text-2xl pointer-events-none drop-shadow-[1.5px_1.5px_0px_#000]">
+                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 text-yellow-300 animate-spin [animation-duration:6s] text-lg sm:text-2xl pointer-events-none drop-shadow-[1.5px_1.5px_0px_#000]">
                   ★
                 </div>
-                <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 text-cyan-300 animate-bounce [animation-duration:2.5s] text-sm sm:text-xl pointer-events-none drop-shadow-[1.5px_1.5px_0px_#000]">
+                <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 text-cyan-300 animate-bounce [animation-duration:2.5s] text-base sm:text-xl pointer-events-none drop-shadow-[1.5px_1.5px_0px_#000]">
                   ✦
                 </div>
-                <div className="absolute -bottom-2 -left-2 text-pink-300 animate-pulse text-xs sm:text-lg pointer-events-none drop-shadow-[1.5px_1.5px_0px_#000]">
+                <div className="absolute -bottom-2 -left-2 text-pink-300 animate-pulse text-sm sm:text-lg pointer-events-none drop-shadow-[1.5px_1.5px_0px_#000]">
                   ◆
                 </div>
 
@@ -227,7 +227,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                       style={{
                         animationDelay: `${idx * 70}ms`,
                       }}
-                      className={`inline-block text-[2.6rem] xs:text-[3.25rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black uppercase drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[7px_7px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:4px_#000] ${letterAnimationKey > 0
+                      className={`inline-block text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black uppercase drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[7px_7px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:4px_#000] ${letterAnimationKey > 0
                           ? "animate-letter-jump"
                           : "animate-gusto-text"
                         } hover:-translate-y-3 hover:scale-110 transition-transform duration-150 cursor-pointer`}
@@ -241,116 +241,118 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
 
             {/* Bottom Line: "Begin" */}
             <div className="flex justify-center">
-              <h1 className="text-[2.6rem] xs:text-[3.25rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000]">
+              <h1 className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000]">
                 Begin
               </h1>
             </div>
           </div>
 
           {/* Subtitle Card (Contained for mobile) */}
-          <div className="mt-2 sm:mt-3 mb-5 sm:mb-6 inline-block max-w-[94%] sm:max-w-full px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border-[2px] sm:border-[3px] border-black shadow-[2.5px_2.5px_0px_#000] sm:shadow-[4px_4px_0px_#000]">
-            <p className="text-[10px] xs:text-xs sm:text-base md:text-lg font-black text-[#3b0764] uppercase tracking-wide leading-snug">
+          <div className="mt-2 sm:mt-3 mb-5 sm:mb-6 inline-block max-w-[96%] sm:max-w-full px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000]">
+            <p className="text-xs xs:text-sm sm:text-base md:text-lg font-['Chakra_Petch',sans-serif] font-black text-[#3b0764] uppercase tracking-wider leading-snug">
               {ABOUT_DATA.tagline} • {ABOUT_DATA.eventDate}
             </p>
           </div>
 
           {/* Quick Stats Grid in Neo-Brutalist Arcade Blocks */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 w-full max-w-3xl mb-6 sm:mb-8">
-            <div className="p-2 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2px] sm:border-[3px] border-black shadow-[2.5px_2.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
-              <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mx-auto text-[#ec4899] mb-1" />
-              <span className="text-[9px] sm:text-[11px] font-bold text-zinc-600 uppercase block truncate">Event Date</span>
-              <span className="text-xs sm:text-base font-black text-black leading-tight">{ABOUT_DATA.eventDate}</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 w-full max-w-3xl mb-6 sm:mb-8">
+            <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
+              <Calendar className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#ec4899] mb-1" />
+              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Event Date</span>
+              <span className="text-sm xs:text-base sm:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">{ABOUT_DATA.eventDate}</span>
             </div>
-            <div className="p-2 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2px] sm:border-[3px] border-black shadow-[2.5px_2.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
-              <Clock className="w-4 h-4 sm:w-5 sm:h-5 mx-auto text-[#8b5cf6] mb-1" />
-              <span className="text-[9px] sm:text-[11px] font-bold text-zinc-600 uppercase block truncate">Reg. Last Date</span>
-              <span className="text-xs sm:text-sm font-black text-black leading-tight truncate">
+            <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
+              <Clock className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#8b5cf6] mb-1" />
+              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Reg. Last Date</span>
+              <span className="text-xs xs:text-sm sm:text-base font-['Chakra_Petch',sans-serif] font-black text-black leading-tight truncate">
                 {ABOUT_DATA.registrationLastDate}
               </span>
             </div>
-            <div className="p-2 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2px] sm:border-[3px] border-black shadow-[2.5px_2.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
-              <Trophy className="w-4 h-4 sm:w-5 sm:h-5 mx-auto text-[#f59e0b] mb-1" />
-              <span className="text-[9px] sm:text-[11px] font-bold text-zinc-600 uppercase block truncate">Competitions</span>
-              <span className="text-xs sm:text-base font-black text-black leading-tight">
+            <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
+              <Trophy className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#f59e0b] mb-1" />
+              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Competitions</span>
+              <span className="text-sm xs:text-base sm:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
                 {GUSTO_EVENTS.length} Total Events
               </span>
             </div>
-            <div className="p-2 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2px] sm:border-[3px] border-black shadow-[2.5px_2.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
-              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mx-auto text-[#10b981] mb-1" />
-              <span className="text-[9px] sm:text-[11px] font-bold text-zinc-600 uppercase block truncate">Campus Venue</span>
-              <span className="text-xs sm:text-sm font-black text-black leading-tight">GCEE, Erode</span>
+            <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
+              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#10b981] mb-1" />
+              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Campus Venue</span>
+              <span className="text-sm xs:text-base sm:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">GCEE, Erode</span>
             </div>
           </div>
 
           {/* Retro Arcade Countdown Timer */}
           <div className="w-full max-w-xl p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-[#3b0764] border-[3px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] mb-8">
             <div className="flex items-center justify-between mb-2.5 px-1 sm:px-2">
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#fde047]">
+              <span className="text-xs sm:text-sm font-['Chakra_Petch',sans-serif] font-black uppercase tracking-widest text-[#fde047]">
                 ★ Level Starts In ★
               </span>
-              <span className="text-[10px] sm:text-xs font-bold text-pink-300">March 06, 2026</span>
+              <span className="text-xs sm:text-sm font-bold text-pink-300 font-mono">March 06, 2026</span>
             </div>
-            <div className="grid grid-cols-4 gap-1.5 sm:gap-3">
+            <div className="grid grid-cols-4 gap-1.5 xs:gap-2 sm:gap-3">
               <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#facc15] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000]">
-                <span className="text-xl sm:text-4xl font-black text-black font-mono">
+                <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-black font-mono">
                   {String(timeLeft.days).padStart(2, "0")}
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-black text-black uppercase mt-0.5">Days</span>
+                <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Days</span>
               </div>
               <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#84cc16] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000]">
-                <span className="text-xl sm:text-4xl font-black text-black font-mono">
+                <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-black font-mono">
                   {String(timeLeft.hours).padStart(2, "0")}
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-black text-black uppercase mt-0.5">Hours</span>
+                <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Hours</span>
               </div>
               <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#06b6d4] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000]">
-                <span className="text-xl sm:text-4xl font-black text-black font-mono">
+                <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-black font-mono">
                   {String(timeLeft.minutes).padStart(2, "0")}
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-black text-black uppercase mt-0.5">Mins</span>
+                <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Mins</span>
               </div>
               <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#ec4899] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000]">
-                <span className="text-xl sm:text-4xl font-black text-white font-mono">
+                <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-white font-mono">
                   {String(timeLeft.seconds).padStart(2, "0")}
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-black text-white uppercase mt-0.5">Secs</span>
+                <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-white uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Secs</span>
               </div>
             </div>
           </div>
 
           {/* Action CTAs in Neo-Brutalist 3D Button Style */}
-          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-2xl">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-2xl px-2">
             <button
               onClick={onOpenRegister}
-              className="neo-btn w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-black text-sm sm:text-lg text-white bg-[#ec4899] hover:bg-[#db2777] shadow-[4px_4px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
+              className="neo-btn w-full sm:w-auto px-6 sm:px-8 py-4 sm:py-4 rounded-full font-['Chakra_Petch',sans-serif] font-black text-base sm:text-lg text-white bg-[#ec4899] hover:bg-[#db2777] shadow-[4px_4px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
             >
               <Sparkles className="w-5 h-5 text-yellow-300" />
               <span>Register Now • ₹{ABOUT_DATA.registrationFee}</span>
               <ArrowRight className="w-5 h-5" />
             </button>
 
-            <a
-              href="#events"
-              className="neo-btn px-5 sm:px-6 py-3 sm:py-4 rounded-full font-black text-xs sm:text-sm text-black bg-[#84cc16] hover:bg-[#65a30d] shadow-[4px_4px_0px_#000] sm:shadow-[5px_5px_0px_#000] text-center uppercase tracking-wide"
-            >
-              Explore 9 Events
-            </a>
+            <div className="grid grid-cols-3 gap-2 sm:flex sm:items-center sm:gap-4 w-full sm:w-auto">
+              <a
+                href="#events"
+                className="neo-btn px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-black bg-[#84cc16] hover:bg-[#65a30d] shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] text-center uppercase tracking-wide flex items-center justify-center"
+              >
+                9 Events
+              </a>
 
-            <a
-              href="#rules"
-              className="neo-btn px-5 sm:px-6 py-3 sm:py-4 rounded-full font-black text-xs sm:text-sm text-black bg-white hover:bg-zinc-100 shadow-[4px_4px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-1.5 uppercase tracking-wide"
-            >
-              <FileText className="w-4 h-4 text-[#3b0764]" />
-              <span>Event Rules</span>
-            </a>
+              <a
+                href="#rules"
+                className="neo-btn px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-black bg-white hover:bg-zinc-100 shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-1 uppercase tracking-wide text-center"
+              >
+                <FileText className="w-3.5 h-3.5 text-[#3b0764] hidden xs:inline" />
+                <span>Rules</span>
+              </a>
 
-            <a
-              href="#youtube"
-              className="neo-btn px-5 sm:px-6 py-3 sm:py-4 rounded-full font-black text-xs sm:text-sm text-white bg-[#ef4444] hover:bg-[#dc2626] shadow-[4px_4px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-1.5 uppercase tracking-wide"
-            >
-              <Play className="w-4 h-4 fill-white" />
-              <span>Watch Teaser</span>
-            </a>
+              <a
+                href="#youtube"
+                className="neo-btn px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-white bg-[#ef4444] hover:bg-[#dc2626] shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-1 uppercase tracking-wide text-center"
+              >
+                <Play className="w-3.5 h-3.5 fill-white hidden xs:inline" />
+                <span>Teaser</span>
+              </a>
+            </div>
           </div>
 
           {/* Ticker Badges */}

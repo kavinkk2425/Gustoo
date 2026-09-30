@@ -48,6 +48,13 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Mobile Responsive Typography Scaling & Arcade UI Polish
+- **Summary**: Comprehensive mobile optimization addressing screenshot feedback, typography hierarchy, and gaming aesthetics:
+  - **Inline College Banner Layout**: Restructured the mobile college capsule to group the live status diode and title (`GOVERNMENT COLLEGE OF ENGINEERING, ERODE`) into a unified inline-flex row, preventing awkward line wrapping with isolated diodes.
+  - **Hero Typography Upscaling**: Increased mobile hero typography ("Let The GUSTO Begin") from `2.6rem` to `3.2rem - 3.8rem` with larger gamepad mascot (`w-24`) and prominent speech bubble padding (`px-7 py-2.5`).
+  - **Enhanced Mobile Stats & Timer**: Scaled stats cards labels (`text-[11px]`) and values (`text-base font-black`) with `Chakra Petch` gaming font, and boosted countdown timer digits (`text-3xl font-mono`).
+  - **Optimized Mobile Action CTAs**: Full-width primary registration button with `py-4` touch padding, followed by a balanced 3-column quick-action grid (`9 Events`, `Rules`, `Teaser`).
+
 ### `2026-09-30` — Clean Separated College Banner & Retro Background Color Harmony
 - **Summary**: Refactored the college name banner for visual separation from the sticky navbar and harmonious aesthetic integration with the `#fec800` retro yellow grid:
   - **Clean Navbar Separation**: Increased hero container top padding (`pt-16 sm:pt-20`) and bottom spacing (`mb-6 sm:mb-9`), detaching the banner completely from the sticky navigation bar border.
