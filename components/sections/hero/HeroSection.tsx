@@ -72,13 +72,13 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
       {/* === ANIMATED BACKGROUND ENVIRONMENT LAYER (pointer-events-none, non-intrusive) === */}
 
       {/* Top Left Console — floats slowly */}
-      <div className="absolute top-10 left-6 sm:left-14 hidden md:block deco-obj animate-float-slow pointer-events-auto select-none z-[1]"
+      <div className="absolute top-24 sm:top-28 left-6 sm:left-14 hidden md:block deco-obj animate-float-slow pointer-events-auto select-none z-[1]"
         style={{ animationDelay: '0s' }}>
         <RetroConsole className="w-28 sm:w-36 h-auto drop-shadow-[4px_4px_0px_#000]" />
       </div>
 
       {/* Top Right Soccer Fireball — faster float for foreground depth */}
-      <div className="absolute top-12 right-8 sm:right-20 hidden md:block deco-obj animate-float-fast pointer-events-auto select-none z-[1]"
+      <div className="absolute top-24 sm:top-28 right-8 sm:right-20 hidden md:block deco-obj animate-float-fast pointer-events-auto select-none z-[1]"
         style={{ animationDelay: '0.7s' }}>
         <SoccerFireball className="w-20 sm:w-24 h-auto drop-shadow-[4px_4px_0px_#000]" />
       </div>
@@ -148,13 +148,36 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
       {/* Main Hero Container */}
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 relative z-10">
         <div className="flex flex-col items-center text-center w-full">
-          {/* Top Symposium Institution Pill (Optimized for Mobile & Desktop) */}
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white border-[2px] sm:border-[2.5px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000] mb-4 sm:mb-6 max-w-[95%]">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#84cc16] border border-black animate-pulse shrink-0" />
-            <span className="text-[10px] sm:text-xs md:text-sm font-black text-black uppercase tracking-wider truncate">
-              <span className="sm:hidden">GCEE ERODE • IT DEPARTMENT</span>
-              <span className="hidden sm:inline">{ABOUT_DATA.institution} • {ABOUT_DATA.department}</span>
-            </span>
+          {/* Top Symposium Institution Gaming Crest Banner */}
+          <div className="w-full flex justify-center items-center mb-5 sm:mb-7 z-20">
+            <div className="group relative inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl bg-[#090d16] border-[2.5px] sm:border-[3px] border-black shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[98%] select-none">
+              
+              {/* Pulsing Live Emerald Diode */}
+              <span className="relative flex h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-[#10b981] border border-black shadow-[0_0_8px_#10b981]"></span>
+              </span>
+
+              {/* College Full Title */}
+              <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm md:text-base lg:text-[15px] text-[#facc15] tracking-wider uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
+                GOVERNMENT COLLEGE OF ENGINEERING, ERODE
+              </span>
+
+              {/* Cyber Divider */}
+              <span className="hidden sm:inline text-zinc-600 font-black text-sm select-none">
+                //
+              </span>
+
+              {/* Department Badge */}
+              <span className="inline-flex items-center px-2.5 py-0.5 sm:py-1 rounded-lg bg-[#ec4899] text-white text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-wider font-['Chakra_Petch',sans-serif] border-[1.5px] border-black shadow-[1.5px_1.5px_0px_#000] whitespace-nowrap">
+                DEPARTMENT OF INFORMATION TECHNOLOGY
+              </span>
+
+              {/* Autonomous Status Chip */}
+              <span className="hidden md:inline-flex items-center text-[10px] sm:text-[11px] font-mono text-cyan-300 font-bold bg-cyan-950/80 px-2 py-0.5 rounded-md border border-cyan-500/40 tracking-widest whitespace-nowrap">
+                ESTD 1984 • AUTONOMOUS
+              </span>
+            </div>
           </div>
 
           {/* EXACT BEHANCE "Let The Game Begin" COMPOSITION */}

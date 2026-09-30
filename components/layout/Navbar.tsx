@@ -137,33 +137,38 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
     <header className="sticky top-[48px] z-50 bg-[#fec800] border-b-[3px] border-black shadow-[0_4px_0_#000] w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-10 py-2.5">
         <div className="flex items-center justify-between w-full">
-          {/* Brand Logo with Bouncy Press Animation */}
+          {/* Brand Logo with Bouncy Press Animation & Glowing Moving Effect */}
           <a
             href="#"
             onClick={handleLogoClick}
-            className="flex items-center gap-2 sm:gap-2.5 group shrink-0 select-none cursor-pointer transition-transform duration-150 active:scale-95"
+            className="flex items-center gap-2.5 sm:gap-3 group shrink-0 select-none cursor-pointer transition-all duration-200 active:scale-95"
             title="Gusto '26 - Return to Top"
           >
-            <div className="relative w-8.5 h-8.5 sm:w-10 sm:h-10 rounded-xl bg-[#ec4899] border-2 border-black shadow-[2px_2px_0px_#000] group-hover:rotate-[-6deg] group-hover:scale-105 group-active:rotate-[12deg] group-active:scale-90 transition-all duration-200 flex items-center justify-center p-1 overflow-hidden shrink-0">
+            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#ec4899] to-[#8b5cf6] border-2 border-black shadow-[2px_2px_0px_#000] group-hover:rotate-[-6deg] group-hover:scale-105 group-active:rotate-[12deg] group-active:scale-90 transition-all duration-200 flex items-center justify-center p-1 overflow-hidden shrink-0 group-hover:shadow-[0_0_15px_rgba(236,72,153,0.7)]">
               <RetroGamepad className="w-6 h-5 sm:w-8 sm:h-6.5" />
             </div>
             <div className="flex flex-col justify-center min-w-0 leading-none">
-              <div className="flex items-center gap-1 sm:gap-1.5">
-                <span className="font-black text-base xs:text-lg sm:text-xl xl:text-2xl tracking-tight text-[#3b0764] whitespace-nowrap drop-shadow-[1px_1px_0px_#fff]">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="gusto-brand-text font-black text-base xs:text-lg sm:text-xl xl:text-2xl tracking-tight whitespace-nowrap">
                   GUSTO &apos;26
                 </span>
-                <span className="hidden xs:inline-flex items-center px-1.5 py-0.5 rounded-md text-[9px] sm:text-[10px] font-black bg-[#84cc16] text-black border-[1.5px] border-black shadow-[1px_1px_0px_#000] leading-none">
+                <span className="hidden xs:inline-flex items-center px-1.5 py-0.5 rounded-md text-[9px] sm:text-[10px] font-black bg-[#84cc16] text-black border-[1.5px] border-black shadow-[1px_1px_0px_#000] leading-none animate-pulse">
                   2K26
                 </span>
               </div>
-              <span className="text-[8px] xs:text-[9px] sm:text-[10px] font-bold text-zinc-900 tracking-wide uppercase whitespace-nowrap truncate mt-0.5">
-                GCEE • IT DEPARTMENT
-              </span>
+              <div className="flex items-center gap-1 mt-1">
+                <span className="text-[9px] xs:text-[10px] font-extrabold text-black font-['Chakra_Petch',sans-serif] tracking-wider uppercase bg-white/70 px-1.5 py-0.5 rounded border border-black/30 shadow-[1px_1px_0px_rgba(0,0,0,0.2)]">
+                  GCEE ERODE
+                </span>
+                <span className="text-[8.5px] xs:text-[9.5px] font-bold text-zinc-900 tracking-wide uppercase">
+                  • IT DEPT
+                </span>
+              </div>
             </div>
           </a>
 
-          {/* Center Navigation Links featuring Cyberpunk Glitch Radio Buttons */}
-          <nav className="hidden lg:flex items-center justify-center gap-3.5 lg:gap-4 xl:gap-5 2xl:gap-6 shrink-0">
+          {/* Center Navigation Links featuring Cyberpunk Glitch Radio Buttons with Enhanced Size and Increased Gaps */}
+          <nav className="hidden lg:flex items-center justify-center gap-5 lg:gap-6 xl:gap-8 2xl:gap-10 shrink-0">
             {navLinks.map((link) => {
               const isActive = activeLink === link.name;
               const isClicked = clickedLink === link.name;

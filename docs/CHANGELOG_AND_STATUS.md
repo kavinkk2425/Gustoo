@@ -48,6 +48,13 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Enhanced Gaming Navbar, Glowing Corner Brand & College Crest Alignment
+- **Summary**: Implemented user feedback addressing college name alignment/visibility, corner brand aesthetics, and navbar option sizing:
+  - **Arcade Institutional Crest Banner**: Replaced the plain white pill in `components/sections/hero/HeroSection.tsx` with a centered dark-chassis arcade crest (`#090d16`), bold gold typography (`GOVERNMENT COLLEGE OF ENGINEERING, ERODE`), pulsing emerald radar diode, electric pink department chip, and `ESTD 1984 • AUTONOMOUS` status badge.
+  - **Adjusted Sticker Spacing**: Shifted background retro console and soccer stickers lower to eliminate visual competition with the institutional crest.
+  - **Corner Brand Glow & Moving Wave**: Upgraded `GUSTO '26` in `components/layout/Navbar.tsx` with a multi-stop animated moving gradient shimmer (`.gusto-brand-text`), neon purple/pink drop-shadow glow, and clear `GCEE ERODE • IT DEPT` badge.
+  - **Enhanced Navbar Sizing & Gaps**: Enlarged `.cyber-btn` height to 42px, font size to 13px, increased spacing between nav links (`gap-5 lg:gap-6 xl:gap-8 2xl:gap-10`), and applied authentic gaming font typography (`Chakra Petch`, `Orbitron`).
+
 ### `2026-09-30` — Clean Minimalist Pac-Man Loading Screen
 - **Summary**: Refactored the initial loading screen (`components/ui/PacmanGhostLoader.tsx`) into a clean animation-only presentation:
   - **Removed Text & Arcade Overlays**: Stripped out `★ INSERT COIN ★`, `PLAYER 1 READY • PUSH START`, `CREDIT 01`, and the top arcade score bar (`1UP`, `HIGH SCORE`, `2UP`).
