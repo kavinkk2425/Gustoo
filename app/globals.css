@@ -68,6 +68,8 @@
    -------------------------------------------------------------------------- */
 html {
   scroll-behavior: smooth;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -75,6 +77,8 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 ::selection {
@@ -85,4 +89,2274 @@ body {
 /* --------------------------------------------------------------------------
    4. SHARED SYMPOSIUM UTILITIES & KEYFRAMES (Additive Only)
    -------------------------------------------------------------------------- */
+.bg-retro-yellow-grid {
+  background-color: #fec800;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.09) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1.5px, transparent 1.5px);
+  background-size: 38px 38px;
+  animation: gridDrift 28s linear infinite;
+}
 
+/* Animated grid drift — very slow pan so it feels alive */
+@keyframes gridDrift {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: 76px 76px;
+  }
+}
+
+.neo-border {
+  border: 3px solid #000000;
+}
+
+.neo-border-4 {
+  border: 4px solid #000000;
+}
+
+.neo-shadow {
+  box-shadow: 5px 5px 0px #000000;
+}
+
+.neo-shadow-lg {
+  box-shadow: 8px 8px 0px #000000;
+}
+
+.neo-shadow-purple {
+  box-shadow: 6px 6px 0px #3b0764;
+}
+
+.neo-btn {
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.neo-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.neo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.retro-title-purple {
+  color: #3b0764;
+  -webkit-text-stroke: 3px #000000;
+  text-shadow: 5px 5px 0px #000000;
+}
+
+.retro-title-yellow {
+  color: #facc15;
+  -webkit-text-stroke: 3px #000000;
+  text-shadow: 5px 5px 0px #000000;
+}
+
+/* ==========================================================================
+   RETRO GAMING ANIMATIONS — GUSTO Banner Float & Dynamic Color Cycling
+   ========================================================================== */
+@keyframes gustoGameFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-1.5deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1.5deg) scale(1.03);
+  }
+}
+
+@keyframes gustoColorCycle {
+
+  0%,
+  100% {
+    background-color: #84cc16;
+    /* Lime */
+    box-shadow: 6px 6px 0px #000, 0 0 25px rgba(132, 204, 22, 0.45);
+  }
+
+  25% {
+    background-color: #06b6d4;
+    /* Cyan */
+    box-shadow: 6px 6px 0px #000, 0 0 25px rgba(6, 182, 212, 0.45);
+  }
+
+  50% {
+    background-color: #ec4899;
+    /* Neon Pink */
+    box-shadow: 6px 6px 0px #000, 0 0 25px rgba(236, 72, 153, 0.45);
+  }
+
+  75% {
+    background-color: #a855f7;
+    /* Arcade Purple */
+    box-shadow: 6px 6px 0px #000, 0 0 25px rgba(168, 85, 247, 0.45);
+  }
+}
+
+@keyframes gustoTailColorCycle {
+
+  0%,
+  100% {
+    border-top-color: #84cc16;
+  }
+
+  25% {
+    border-top-color: #06b6d4;
+  }
+
+  50% {
+    border-top-color: #ec4899;
+  }
+
+  75% {
+    border-top-color: #a855f7;
+  }
+}
+
+@keyframes gustoTextShine {
+
+  0%,
+  100% {
+    color: #facc15;
+    text-shadow: 4px 4px 0px #000, 0 0 12px rgba(250, 204, 21, 0.5);
+  }
+
+  50% {
+    color: #ffffff;
+    text-shadow: 4px 4px 0px #000, 0 0 18px rgba(255, 255, 255, 0.85);
+  }
+}
+
+.animate-gusto-float {
+  animation: gustoGameFloat 3.8s ease-in-out infinite;
+}
+
+.animate-gusto-color {
+  animation: gustoColorCycle 8s ease-in-out infinite;
+}
+
+.animate-gusto-tail {
+  animation: gustoTailColorCycle 8s ease-in-out infinite;
+}
+
+.animate-gusto-text {
+  animation: gustoTextShine 4s ease-in-out infinite;
+}
+
+/* Individual Letter Click Wave Bounce */
+@keyframes gustoLetterJump {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: translateY(-28px) rotate(-10deg) scale(1.22);
+    color: #ffffff;
+    text-shadow: 0 0 16px #facc15, 6px 6px 0px #000;
+  }
+
+  50% {
+    transform: translateY(6px) rotate(6deg) scale(0.92);
+  }
+
+  75% {
+    transform: translateY(-10px) rotate(-4deg) scale(1.08);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+}
+
+.animate-letter-jump {
+  animation: gustoLetterJump 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ==========================================================================
+   BACKGROUND OBJECT ANIMATIONS — GUSTO '26 Animated Environment
+   ========================================================================== */
+
+/* --- Floating (up/down gentle bob) at different speeds for depth --- */
+@keyframes floatSlow {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes floatMed {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(1.5deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(-1.5deg);
+  }
+}
+
+@keyframes floatFast {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(2deg);
+  }
+}
+
+/* --- Gentle rotate oscillation (gear / sun) --- */
+@keyframes gentleSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gearOscillate {
+
+  0%,
+  100% {
+    transform: rotate(-4deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(4deg) scale(1.04);
+  }
+}
+
+/* --- Star / spark twinkle --- */
+@keyframes twinkle {
+
+  0%,
+  90%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  45% {
+    opacity: 0.15;
+    transform: scale(0.5) rotate(30deg);
+  }
+}
+
+@keyframes twinkleSlow {
+
+  0%,
+  80%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  40% {
+    opacity: 0.05;
+    transform: scale(0.4) rotate(-20deg);
+  }
+}
+
+/* --- Idle gamepad wiggle --- */
+@keyframes idleWiggle {
+
+  0%,
+  100% {
+    transform: rotate(-2deg) translateY(0px);
+  }
+
+  25% {
+    transform: rotate(1.5deg) translateY(-4px);
+  }
+
+  50% {
+    transform: rotate(-1deg) translateY(-7px);
+  }
+
+  75% {
+    transform: rotate(2deg) translateY(-3px);
+  }
+}
+
+/* --- Cartridge float variants (staggered depth) --- */
+@keyframes cartridgeFloat1 {
+
+  0%,
+  100% {
+    transform: rotate(12deg) translateY(0px);
+  }
+
+  50% {
+    transform: rotate(10deg) translateY(-12px);
+  }
+}
+
+@keyframes cartridgeFloat2 {
+
+  0%,
+  100% {
+    transform: rotate(-12deg) translateY(0px);
+  }
+
+  50% {
+    transform: rotate(-10deg) translateY(-18px);
+  }
+}
+
+@keyframes cartridgeFloat3 {
+
+  0%,
+  100% {
+    transform: rotate(6deg) translateY(0px);
+  }
+
+  50% {
+    transform: rotate(8deg) translateY(-9px);
+  }
+}
+
+/* --- Arcade flash for navbar click --- */
+@keyframes arcadeFlash {
+
+  0%,
+  100% {
+    opacity: 1;
+    background-color: inherit;
+  }
+
+  20% {
+    opacity: 0.3;
+    background-color: #fde047;
+  }
+
+  40% {
+    opacity: 1;
+    background-color: #ec4899;
+  }
+
+  60% {
+    opacity: 0.5;
+    background-color: #06b6d4;
+  }
+
+  80% {
+    opacity: 1;
+  }
+}
+
+/* --- Pixel spark burst (pseudo-element pattern) --- */
+@keyframes sparkOut {
+  0% {
+    opacity: 1;
+    transform: scale(0) translate(0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1) translate(var(--sx, 8px), var(--sy, -8px));
+  }
+}
+
+/* --- Utility animation classes --- */
+.animate-float-slow {
+  animation: floatSlow 5.5s ease-in-out infinite;
+}
+
+.animate-float-med {
+  animation: floatMed 4s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: floatFast 3s ease-in-out infinite;
+}
+
+.animate-gear {
+  animation: gearOscillate 6s ease-in-out infinite;
+}
+
+.animate-gear-spin {
+  animation: gentleSpin 18s linear infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2.8s ease-in-out infinite;
+}
+
+.animate-twinkle-slow {
+  animation: twinkleSlow 4.5s ease-in-out infinite;
+}
+
+.animate-idle-wiggle {
+  animation: idleWiggle 3.2s ease-in-out infinite;
+}
+
+.animate-cart1 {
+  animation: cartridgeFloat1 5s ease-in-out infinite;
+}
+
+.animate-cart2 {
+  animation: cartridgeFloat2 3.8s ease-in-out infinite;
+}
+
+.animate-cart3 {
+  animation: cartridgeFloat3 6.2s ease-in-out infinite;
+}
+
+.animate-arcade-flash {
+  animation: arcadeFlash 0.35s ease forwards;
+}
+
+/* --- Hover-interactive decorative object wrapper --- */
+.deco-obj {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.25s ease;
+  cursor: default;
+  will-change: transform;
+}
+
+.deco-obj:hover {
+  transform: scale(1.13) translateY(-4px);
+  filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.7)) drop-shadow(0 0 22px rgba(236, 72, 153, 0.4));
+}
+
+/* --- Navbar link arcade flash helper --- */
+.nav-flash {
+  animation: arcadeFlash 0.35s ease forwards;
+}
+
+/* ==========================================================================
+   PREFERS-REDUCED-MOTION — disable all decorative motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-float-slow,
+  .animate-float-med,
+  .animate-float-fast,
+  .animate-gear,
+  .animate-gear-spin,
+  .animate-twinkle,
+  .animate-twinkle-slow,
+  .animate-idle-wiggle,
+  .animate-cart1,
+  .animate-cart2,
+  .animate-cart3,
+  .animate-gusto-float,
+  .animate-gusto-color,
+  .animate-gusto-tail,
+  .animate-gusto-text,
+  .animate-letter-jump,
+  .bg-retro-yellow-grid {
+    animation: none !important;
+  }
+
+  .deco-obj:hover {
+    transform: none;
+    filter: none;
+  }
+}
+
+/* ==========================================================================
+   GAMING SCROLL SYSTEM — 3D Platformer Level Design
+   ========================================================================== */
+
+/* --- Game scroll bar — full mini side-scrolling world (48px tall) ---         */
+/* Sky: GUSTO yellow #fec800 with grid + buildings. Road: dark asphalt.           */
+/* Progress: solid #3b0764 fill + sharp #ec4899 leading-edge glow.               */
+
+/* Cloud drift — pure CSS, zero JS setState → no flicker */
+@keyframes gusto-cloud-drift {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+  /* slides left by half (800px of 1600px) */
+}
+
+/* Exhaust puff — emitted from the rear of the car when scrolling */
+.exhaust-puff {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(200, 200, 200, 0.75);
+  pointer-events: none;
+  animation: exhaustBlow 0.55s ease-out infinite;
+}
+
+@keyframes exhaustBlow {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.5) translateX(0px) translateY(0px);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(1.3) translateX(-9px) translateY(-2px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.0) translateX(-20px) translateY(-4px);
+  }
+}
+
+/* Sticky navbar sits below the 48px game bar */
+header.sticky {
+  top: 48px !important;
+}
+
+/* --- Landing bounce for platform-drop variant --- */
+@keyframes platformLand {
+  0% {
+    transform: scaleX(1) scaleY(1);
+  }
+
+  25% {
+    transform: scaleX(1.06) scaleY(0.88);
+  }
+
+  55% {
+    transform: scaleX(0.96) scaleY(1.05);
+  }
+
+  80% {
+    transform: scaleX(1.02) scaleY(0.98);
+  }
+
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
+
+/* --- Glitch slice animation (for glitch-in variant highlight) --- */
+@keyframes glitchSlice {
+  0% {
+    clip-path: inset(0 0 95% 0);
+    transform: translateX(-6px);
+  }
+
+  10% {
+    clip-path: inset(10% 0 80% 0);
+    transform: translateX(6px);
+  }
+
+  20% {
+    clip-path: inset(40% 0 40% 0);
+    transform: translateX(-4px);
+  }
+
+  35% {
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
+  }
+}
+
+/* --- Section entrance: each section gets a subtle depth border on enter --- */
+.section-reveal-ready {
+  perspective: 1200px;
+}
+
+/* --- Tile ground border at top of sections (animated in) --- */
+.section-ground-top {
+  position: relative;
+}
+
+.section-ground-top::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(90deg,
+      #3b0764 0px,
+      #3b0764 38px,
+      #ec4899 38px,
+      #ec4899 76px,
+      #84cc16 76px,
+      #84cc16 114px,
+      #06b6d4 114px,
+      #06b6d4 152px);
+  transform-origin: left center;
+  animation: groundSlideIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes groundSlideIn {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* --- Parallax depth layers helper --- */
+.parallax-slow {
+  will-change: transform;
+}
+
+.parallax-med {
+  will-change: transform;
+}
+
+.parallax-fast {
+  will-change: transform;
+}
+
+/* --- Reduced motion overrides --- */
+@media (prefers-reduced-motion: reduce) {
+
+  .exhaust-puff,
+  .section-ground-top::before {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Hide arcade shooters entirely */
+  .arcade-shooters-overlay {
+    display: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   REALISTIC STEALTH FIGHTER JETS — Side Patrol & Supersonic Weapons
+   ========================================================================== */
+
+/* Left fighter jet: smooth aerodynamic patrol with realistic banking/roll */
+@keyframes leftShipPatrol {
+  0% {
+    transform: translateY(18vh) rotate(0deg);
+  }
+
+  22% {
+    transform: translateY(42vh) rotate(2.5deg);
+  }
+
+  46% {
+    transform: translateY(67vh) rotate(3.8deg);
+  }
+
+  52% {
+    transform: translateY(68vh) rotate(-2deg);
+  }
+
+  76% {
+    transform: translateY(40vh) rotate(-3deg);
+  }
+
+  96% {
+    transform: translateY(19vh) rotate(1.2deg);
+  }
+
+  100% {
+    transform: translateY(18vh) rotate(0deg);
+  }
+}
+
+/* Right fighter jet: offset patrol timing with counter-banking */
+@keyframes rightShipPatrol {
+  0% {
+    transform: translateY(26vh) rotate(0deg);
+  }
+
+  22% {
+    transform: translateY(50vh) rotate(-2.5deg);
+  }
+
+  46% {
+    transform: translateY(74vh) rotate(-3.8deg);
+  }
+
+  52% {
+    transform: translateY(75vh) rotate(2deg);
+  }
+
+  76% {
+    transform: translateY(48vh) rotate(3deg);
+  }
+
+  96% {
+    transform: translateY(27vh) rotate(-1.2deg);
+  }
+
+  100% {
+    transform: translateY(26vh) rotate(0deg);
+  }
+}
+
+/* Supersonic kinetic tracer / plasma projectile */
+@keyframes jetTracerFire {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scaleY(0.4);
+  }
+
+  8% {
+    opacity: 1;
+    transform: translateY(-20px) scaleY(1.4);
+  }
+
+  65% {
+    opacity: 0.9;
+    transform: translateY(-180px) scaleY(2.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-280px) scaleY(1.5);
+  }
+}
+
+/* Muzzle flash burst at weapon ports */
+@keyframes jetMuzzleFlash {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  10%,
+  25% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+
+  35% {
+    opacity: 0.3;
+    transform: scale(0.6);
+  }
+
+  45% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+/* Supersonic afterburner Mach shock diamonds pulsing */
+@keyframes jetAfterburnerPulse {
+  0% {
+    transform: scaleY(0.92) scaleX(0.96);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+
+  50% {
+    transform: scaleY(1.15) scaleX(1.04);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px currentColor);
+  }
+
+  100% {
+    transform: scaleY(0.92) scaleX(0.96);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+}
+
+/* Anti-collision navigation strobe light flashing */
+@keyframes jetNavStrobe {
+
+  0%,
+  15% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+
+  20%,
+  65% {
+    opacity: 0.15;
+    filter: none;
+  }
+
+  70%,
+  85% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+
+  90%,
+  100% {
+    opacity: 0.15;
+    filter: none;
+  }
+}
+
+/* Wingtip vortex trail shimmer */
+@keyframes jetVortexTrail {
+  0% {
+    opacity: 0.6;
+    height: 35px;
+  }
+
+  50% {
+    opacity: 0.25;
+    height: 48px;
+  }
+
+  100% {
+    opacity: 0.6;
+    height: 35px;
+  }
+}
+
+/* Backwards compatibility aliases */
+@keyframes arcadeLaserFire {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  70% {
+    opacity: 0.65;
+    transform: translateY(-160px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-220px);
+  }
+}
+
+@keyframes arcadeFlameFlicker {
+  from {
+    opacity: 0.7;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   CYBERPUNK GLITCH RADIO NAVBAR BUTTONS
+   ========================================================================== */
+.cyber-nav-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.cyber-nav-wrapper {
+  position: relative;
+  height: 36px;
+  margin: 0;
+}
+
+.cyber-btn {
+  --primary: #ff184c;
+  --shadow-primary: #fded00;
+  --color: white;
+  --font-size: 9.5px;
+  --shadow-primary-hue: 180;
+  --shadow-secondary-hue: 60;
+  --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+  --clip: polygon(11% 0, 95% 0, 100% 25%, 90% 90%, 95% 90%, 85% 90%, 85% 100%, 7% 100%, 0 80%);
+  --border: 3px;
+  --shimmy-distance: 4;
+  --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+  --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+  --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+  --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+  --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+  color: var(--color);
+  text-transform: uppercase;
+  font-size: var(--font-size);
+  letter-spacing: 1px;
+  position: relative;
+  font-weight: 900;
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.cyber-nav-link.active .cyber-btn {
+  --primary: #8B00FF;
+  --shadow-primary: #00e572;
+}
+
+.cyber-nav-link:hover .cyber-btn {
+  --primary: #e11d48;
+}
+
+.cyber-btn:after,
+.cyber-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  clip-path: var(--clip);
+  z-index: -1;
+}
+
+.cyber-btn:before {
+  background: var(--shadow-primary);
+  transform: translate(var(--border), 0);
+}
+
+.cyber-btn:after {
+  background: var(--primary);
+}
+
+.cyber-btn__glitch {
+  position: absolute;
+  top: calc(var(--border) * -1);
+  left: calc(var(--border) * -1);
+  right: calc(var(--border) * -1);
+  bottom: calc(var(--border) * -1);
+  background: var(--shadow-primary);
+  text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
+  clip-path: var(--clip);
+  animation: cyberGlitch 2s infinite;
+  display: none;
+  line-height: 35px;
+  text-align: center;
+  color: white;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: var(--font-size);
+}
+
+.cyber-nav-link:hover .cyber-btn__glitch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cyber-nav-link.active .cyber-btn__glitch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: cyberGlitch 4s infinite;
+}
+
+.cyber-btn__glitch:before {
+  content: '';
+  position: absolute;
+  top: calc(var(--border) * 1);
+  right: calc(var(--border) * 1);
+  bottom: calc(var(--border) * 1);
+  left: calc(var(--border) * 1);
+  clip-path: var(--clip);
+  background: var(--primary);
+  z-index: -1;
+}
+
+@keyframes cyberGlitch {
+  0% {
+    clip-path: var(--clip-one);
+  }
+
+  2%,
+  8% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+
+  6% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+
+  9% {
+    clip-path: var(--clip-two);
+    transform: translate(0, 0);
+  }
+
+  10% {
+    clip-path: var(--clip-three);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+
+  13% {
+    clip-path: var(--clip-three);
+    transform: translate(0, 0);
+  }
+
+  14%,
+  21% {
+    clip-path: var(--clip-four);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+
+  25% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+
+  30% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+
+  35%,
+  45% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * -1%));
+  }
+
+  40% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * 1%));
+  }
+
+  50% {
+    clip-path: var(--clip-six);
+    transform: translate(0, 0);
+  }
+
+  55% {
+    clip-path: var(--clip-seven);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+
+  60% {
+    clip-path: var(--clip-seven);
+    transform: translate(0, 0);
+  }
+
+  31%,
+  61%,
+  100% {
+    clip-path: var(--clip-four);
+  }
+}
+
+.cyber-number {
+  background: var(--shadow-primary);
+  color: #121212;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  position: absolute;
+  width: 17px;
+  height: 9px;
+  top: 1px;
+  right: 6px;
+  line-height: 9.5px;
+  text-align: center;
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   PAC-MAN RED GHOST PROGRESS LOADER
+   ========================================================================== */
+.pacman-ghost-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  transform: scale(0.26);
+  transform-origin: bottom center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pacman-ghost-body {
+  animation: ghostUpNDown infinite 0.5s;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas:
+    "a1  a2  a3  a4  a5  top0  top0  top0  top0  a10 a11 a12 a13 a14"
+    "b1  b2  b3  top1 top1 top1 top1 top1 top1 top1 top1 b12 b13 b14"
+    "c1 c2 top2 top2 top2 top2 top2 top2 top2 top2 top2 top2 c13 c14"
+    "d1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 d14"
+    "e1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 e14"
+    "f1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 f14"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "st0 st0 an4 st1 an7 st2 an10 an10 st3 an13 st4 an16 st5 st5"
+    "an1 an2 an3 an5 an6 an8 an9 an9 an11 an12 an14 an15 an17 an18";
+}
+
+@keyframes ghostUpNDown {
+
+  0%,
+  49% {
+    transform: translateY(0px);
+  }
+
+  50%,
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.pacman-ghost-body .g-top0 {
+  grid-area: top0;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-top1 {
+  grid-area: top1;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-top2 {
+  grid-area: top2;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-top3 {
+  grid-area: top3;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-top4 {
+  grid-area: top4;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-st0 {
+  grid-area: st0;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-st1 {
+  grid-area: st1;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-st2 {
+  grid-area: st2;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-st3 {
+  grid-area: st3;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-st4 {
+  grid-area: st4;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-st5 {
+  grid-area: st5;
+  background-color: #e53935;
+}
+
+.pacman-ghost-body .g-an1 {
+  grid-area: an1;
+  animation: ghostFlicker0 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an2 {
+  grid-area: an2;
+  animation: ghostFlicker1 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an3 {
+  grid-area: an3;
+  animation: ghostFlicker1 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an4 {
+  grid-area: an4;
+  animation: ghostFlicker1 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an5 {
+  grid-area: an5;
+  animation: ghostFlicker0 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an6 {
+  grid-area: an6;
+  animation: ghostFlicker0 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an7 {
+  grid-area: an7;
+  animation: ghostFlicker0 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an8 {
+  grid-area: an8;
+  animation: ghostFlicker0 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an9 {
+  grid-area: an9;
+  animation: ghostFlicker1 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an10 {
+  grid-area: an10;
+  animation: ghostFlicker1 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an11 {
+  grid-area: an11;
+  animation: ghostFlicker0 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an12 {
+  grid-area: an12;
+  animation: ghostFlicker0 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an13 {
+  grid-area: an13;
+  animation: ghostFlicker0 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an14 {
+  grid-area: an14;
+  animation: ghostFlicker1 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an15 {
+  grid-area: an15;
+  animation: ghostFlicker1 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an16 {
+  grid-area: an16;
+  animation: ghostFlicker1 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an17 {
+  grid-area: an17;
+  animation: ghostFlicker1 infinite 0.5s;
+}
+
+.pacman-ghost-body .g-an18 {
+  grid-area: an18;
+  animation: ghostFlicker0 infinite 0.5s;
+}
+
+@keyframes ghostFlicker0 {
+
+  0%,
+  49% {
+    background-color: #e53935;
+  }
+
+  50%,
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes ghostFlicker1 {
+
+  0%,
+  49% {
+    background-color: transparent;
+  }
+
+  50%,
+  100% {
+    background-color: #e53935;
+  }
+}
+
+.pacman-ghost-eye {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  z-index: 2;
+}
+
+.pacman-ghost-eye::before {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+
+.pacman-ghost-eye::after {
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  transform: translateY(10px);
+  display: block;
+  position: absolute;
+}
+
+.pacman-ghost-eye1 {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 2;
+}
+
+.pacman-ghost-eye1::before {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+
+.pacman-ghost-eye1::after {
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  transform: translateY(10px);
+  display: block;
+  position: absolute;
+}
+
+.pacman-ghost-pupil {
+  width: 20px;
+  height: 20px;
+  background-color: #0284c7;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  z-index: 3;
+  animation: ghostEyesMovement infinite 3s;
+}
+
+.pacman-ghost-pupil1 {
+  width: 20px;
+  height: 20px;
+  background-color: #0284c7;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 3;
+  animation: ghostEyesMovement infinite 3s;
+}
+
+@keyframes ghostEyesMovement {
+
+  0%,
+  49% {
+    transform: translateX(0px);
+  }
+
+  50%,
+  99% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.pacman-ghost-shadow {
+  background-color: #000;
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  border-radius: 50%;
+  transform: rotateX(80deg);
+  filter: blur(12px);
+  top: 75%;
+  animation: ghostShadowMovement infinite 0.5s;
+}
+
+@keyframes ghostShadowMovement {
+
+  0%,
+  49% {
+    opacity: 0.5;
+  }
+
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/* ==========================================================================
+   PAC-MAN RED GHOST RUNNER (USER SCOPED CSS)
+   ========================================================================== */
+#ghost {
+  position: relative;
+  transform: scale(0.26);
+  transform-origin: bottom center;
+  pointer-events: none;
+  user-select: none;
+  width: 140px;
+  height: 140px;
+}
+
+#red {
+  animation: upNDown infinite 0.5s;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas:
+    "a1  a2  a3  a4  a5  top0  top0  top0  top0  a10 a11 a12 a13 a14"
+    "b1  b2  b3  top1 top1 top1 top1 top1 top1 top1 top1 b12 b13 b14"
+    "c1 c2 top2 top2 top2 top2 top2 top2 top2 top2 top2 top2 c13 c14"
+    "d1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 d14"
+    "e1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 e14"
+    "f1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 f14"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "st0 st0 an4 st1 an7 st2 an10 an10 st3 an13 st4 an16 st5 st5"
+    "an1 an2 an3 an5 an6 an8 an9 an9 an11 an12 an14 an15 an17 an18";
+}
+
+@keyframes upNDown {
+
+  0%,
+  49% {
+    transform: translateY(0px);
+  }
+
+  50%,
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+#top0,
+#top1,
+#top2,
+#top3,
+#top4,
+#st0,
+#st1,
+#st2,
+#st3,
+#st4,
+#st5 {
+  background-color: #ef4444;
+}
+
+#top0 {
+  grid-area: top0;
+}
+
+#top1 {
+  grid-area: top1;
+}
+
+#top2 {
+  grid-area: top2;
+}
+
+#top3 {
+  grid-area: top3;
+}
+
+#top4 {
+  grid-area: top4;
+}
+
+#st0 {
+  grid-area: st0;
+}
+
+#st1 {
+  grid-area: st1;
+}
+
+#st2 {
+  grid-area: st2;
+}
+
+#st3 {
+  grid-area: st3;
+}
+
+#st4 {
+  grid-area: st4;
+}
+
+#st5 {
+  grid-area: st5;
+}
+
+#an1 {
+  grid-area: an1;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an18 {
+  grid-area: an18;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an2 {
+  grid-area: an2;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an17 {
+  grid-area: an17;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an3 {
+  grid-area: an3;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an16 {
+  grid-area: an16;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an4 {
+  grid-area: an4;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an15 {
+  grid-area: an15;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an6 {
+  grid-area: an6;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an12 {
+  grid-area: an12;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an7 {
+  grid-area: an7;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an13 {
+  grid-area: an13;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an9 {
+  grid-area: an9;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an10 {
+  grid-area: an10;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an8 {
+  grid-area: an8;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an11 {
+  grid-area: an11;
+  animation: flicker0 infinite 0.5s;
+}
+
+@keyframes flicker0 {
+
+  0%,
+  49% {
+    background-color: #ef4444;
+  }
+
+  50%,
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flicker1 {
+
+  0%,
+  49% {
+    background-color: transparent;
+  }
+
+  50%,
+  100% {
+    background-color: #ef4444;
+  }
+}
+
+#eye {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+
+#eye::before {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+
+#eye::after {
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  transform: translateY(10px);
+  display: block;
+  position: absolute;
+}
+
+#eye1 {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+#eye1::before {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+
+#eye1::after {
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  transform: translateY(10px);
+  display: block;
+  position: absolute;
+}
+
+#pupil {
+  width: 20px;
+  height: 20px;
+  background-color: #0284c7;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  z-index: 1;
+  animation: eyesMovement infinite 3s;
+}
+
+#pupil1 {
+  width: 20px;
+  height: 20px;
+  background-color: #0284c7;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+  animation: eyesMovement infinite 3s;
+}
+
+@keyframes eyesMovement {
+
+  0%,
+  49% {
+    transform: translateX(0px);
+  }
+
+  50%,
+  99% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+#shadow {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  border-radius: 50%;
+  transform: rotateX(80deg);
+  filter: blur(12px);
+  top: 75%;
+  animation: shadowMovement infinite 0.5s;
+}
+
+@keyframes shadowMovement {
+
+  0%,
+  49% {
+    opacity: 0.5;
+  }
+
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/* ==========================================================================
+   ROTATING EXPANDING SEARCH BUTTON
+   ========================================================================== */
+.expand-search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.expand-search-input {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  font-size: 13px;
+  font-weight: 700;
+  color: #18181b;
+  position: relative;
+  z-index: 1;
+}
+
+.expand-search-input::placeholder {
+  color: transparent;
+  transition: color 0.3s ease;
+}
+
+.expand-search-input:focus::placeholder {
+  color: rgb(131, 128, 128);
+}
+
+.expand-search-input:focus,
+.expand-search-input:not(:placeholder-shown) {
+  background-color: #fff;
+  border: 1.5px solid rgb(98, 0, 255);
+  box-shadow: 2px 2px 0px #000;
+  width: 230px;
+  cursor: text;
+  padding: 8px 14px 8px 40px;
+}
+
+@media (min-width: 1280px) {
+
+  .expand-search-input:focus,
+  .expand-search-input:not(:placeholder-shown) {
+    width: 270px;
+  }
+}
+
+.expand-search-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 0;
+  fill: rgb(98, 0, 255);
+  border: 1.5px solid rgb(98, 0, 255);
+  box-shadow: 2px 2px 0px #000;
+  pointer-events: none;
+  padding: 9px;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: block;
+}
+
+.expand-search-container:hover .expand-search-icon,
+.expand-search-input:hover+.expand-search-icon {
+  transform: rotate(360deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+.expand-search-input:focus+.expand-search-icon,
+.expand-search-input:not(:placeholder-shown)+.expand-search-icon {
+  z-index: 2;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  transform: rotate(0deg);
+}
+
+/* ==========================================================================
+   AMONG US ARCADE REGISTER BUTTON
+   ========================================================================== */
+.among-reg-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px 0 4px;
+  color: white;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.45);
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid black;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 13px;
+  background-color: hsl(49deg 98% 60%);
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.5s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.among-reg-btn:active {
+  transform: scale(0.92);
+  transition: all 100ms ease;
+}
+
+.among-reg-btn svg {
+  transition: all 0.5s ease;
+  z-index: 2;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.among-reg-btn .play {
+  transition: all 0.5s ease;
+  transition-delay: 200ms;
+  display: inline-block;
+  line-height: 1;
+}
+
+.among-reg-btn:hover svg {
+  transform: scale(2.8) translate(30%);
+}
+
+.among-reg-btn .now {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  z-index: 2;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 2px 0px #000;
+  letter-spacing: 1.5px;
+}
+
+.among-reg-btn:hover .now {
+  transform: translateX(12px);
+  transition-delay: 250ms;
+}
+
+.among-reg-btn:hover .play {
+  transform: translateX(250%);
+  transition-delay: 200ms;
+}
+
+/* ==========================================================================
+   REALISTIC PROGRESS BAR CAR ANIMATIONS
+   ========================================================================== */
+@keyframes carWheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.car-wheel-spinning {
+  animation: carWheelSpin 0.32s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.car-chassis-rumble {
+  animation: carRumble 0.12s ease-in-out infinite alternate;
+}
+
+@keyframes carRumble {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-0.6px);
+  }
+}
+
+/* ==========================================================================
+   PAC-MAN GHOST RETRO LOADER (8-BIT BLINKY)
+   ========================================================================== */
+#ghost {
+  position: relative;
+  scale: 0.85;
+}
+
+#red {
+  animation: upNDown infinite 0.5s;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas:
+    "a1  a2  a3  a4  a5  top0  top0  top0  top0  a10 a11 a12 a13 a14"
+    "b1  b2  b3  top1 top1 top1 top1 top1 top1 top1 top1 b12 b13 b14"
+    "c1 c2 top2 top2 top2 top2 top2 top2 top2 top2 top2 top2 c13 c14"
+    "d1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 d14"
+    "e1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 e14"
+    "f1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 f14"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "st0 st0 an4 st1 an7 st2 an10 an10 st3 an13 st4 an16 st5 st5"
+    "an1 an2 an3 an5 an6 an8 an9 an9 an11 an12 an14 an15 an17 an18";
+}
+
+@keyframes upNDown {
+  0%,
+  49% {
+    transform: translateY(0px);
+  }
+  50%,
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+#top0,
+#top1,
+#top2,
+#top3,
+#top4,
+#st0,
+#st1,
+#st2,
+#st3,
+#st4,
+#st5 {
+  background-color: #ef4444;
+}
+
+#top0 { grid-area: top0; }
+#top1 { grid-area: top1; }
+#top2 { grid-area: top2; }
+#top3 { grid-area: top3; }
+#top4 { grid-area: top4; }
+#st0 { grid-area: st0; }
+#st1 { grid-area: st1; }
+#st2 { grid-area: st2; }
+#st3 { grid-area: st3; }
+#st4 { grid-area: st4; }
+#st5 { grid-area: st5; }
+
+#an1 {
+  grid-area: an1;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an18 {
+  grid-area: an18;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an2 {
+  grid-area: an2;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an17 {
+  grid-area: an17;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an3 {
+  grid-area: an3;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an16 {
+  grid-area: an16;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an4 {
+  grid-area: an4;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an15 {
+  grid-area: an15;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an6 {
+  grid-area: an6;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an12 {
+  grid-area: an12;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an7 {
+  grid-area: an7;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an13 {
+  grid-area: an13;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an9 {
+  grid-area: an9;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an10 {
+  grid-area: an10;
+  animation: flicker1 infinite 0.5s;
+}
+
+#an8 {
+  grid-area: an8;
+  animation: flicker0 infinite 0.5s;
+}
+
+#an11 {
+  grid-area: an11;
+  animation: flicker0 infinite 0.5s;
+}
+
+@keyframes flicker0 {
+  0%,
+  49% {
+    background-color: #ef4444;
+  }
+  50%,
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flicker1 {
+  0%,
+  49% {
+    background-color: transparent;
+  }
+  50%,
+  100% {
+    background-color: #ef4444;
+  }
+}
+
+#eye {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+
+#eye::before {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+
+#eye::after {
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  transform: translateY(10px);
+  display: block;
+  position: absolute;
+}
+
+#eye1 {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+#eye1::before {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+
+#eye1::after {
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  transform: translateY(10px);
+  display: block;
+  position: absolute;
+}
+
+#pupil {
+  width: 20px;
+  height: 20px;
+  background-color: #2563eb;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  z-index: 1;
+  animation: eyesMovement infinite 3s;
+}
+
+#pupil1 {
+  width: 20px;
+  height: 20px;
+  background-color: #2563eb;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+  animation: eyesMovement infinite 3s;
+}
+
+@keyframes eyesMovement {
+  0%,
+  49% {
+    transform: translateX(0px);
+  }
+  50%,
+  99% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+#shadow {
+  background-color: black;
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  border-radius: 50%;
+  transform: rotateX(80deg);
+  filter: blur(20px);
+  top: 80%;
+  animation: shadowMovement infinite 0.5s;
+}
+
+@keyframes shadowMovement {
+  0%,
+  49% {
+    opacity: 0.5;
+  }
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/* Classic retro arcade blinking text */
+@keyframes arcadeBlink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.arcade-blink {
+  animation: arcadeBlink 0.7s steps(1) infinite;
+}

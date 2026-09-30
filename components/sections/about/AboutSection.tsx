@@ -1,0 +1,357 @@
+import Image from "next/image";
+import { ABOUT_DATA } from "@/src/data/about";
+import { CheckCircle2, MapPin, Award, Sparkles, Building2, Flame } from "lucide-react";
+
+export function AboutSection() {
+  return (
+    <section id="about" className="py-14 sm:py-20 bg-[#fffbeb] text-black relative border-b-[4px] border-black">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] text-xs font-black uppercase tracking-wider mb-3">
+            <Sparkles className="w-4 h-4 text-[#ec4899]" />
+            <span>Legacy & Heritage</span>
+          </div>
+          <h2 className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000]">
+            About <span className="text-[#84cc16] [-webkit-text-stroke:2px_#000]">GUSTO &apos;26</span>
+          </h2>
+          <p className="text-xs sm:text-base font-bold text-zinc-800 leading-relaxed">
+            {ABOUT_DATA.institution} • {ABOUT_DATA.department}
+          </p>
+        </div>
+
+        {/* 3 Authentic Retro Gaming Cartridge Boxes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 sm:mb-14 items-stretch">
+          
+          {/* CARTRIDGE 01: GUSTO '26 (Cyber Arcade Cartridge) */}
+          <div className="rounded-3xl bg-[#fff5f9] border-[3.5px] border-black shadow-[6px_6px_0px_#000] flex flex-col justify-between h-full hover:-translate-y-2 hover:shadow-[10px_10px_0px_#000] transition-all duration-200 relative overflow-hidden group">
+            {/* Corner Hardware Screws */}
+            <span className="absolute top-2 left-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
+            <span className="absolute top-2 right-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
+
+            {/* Top Cartridge Grip Ridges */}
+            <div className="flex justify-center gap-1.5 pt-2.5 pb-1 opacity-30 group-hover:opacity-60 transition-opacity">
+              <div className="w-7 h-1 rounded-full bg-black" />
+              <div className="w-7 h-1 rounded-full bg-black" />
+              <div className="w-7 h-1 rounded-full bg-black" />
+            </div>
+
+            {/* Cartridge Header Bar with LED Blinker */}
+            <div className="mx-3.5 mt-1 px-3 py-1.5 rounded-xl bg-[#ec4899] border-2 border-black flex items-center justify-between text-white shadow-[2px_2px_0px_#000]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-lime-400 border border-black animate-pulse" />
+                <span className="text-[10px] font-mono font-black uppercase tracking-wider">
+                  ROM-01 // GUSTO_OS
+                </span>
+              </div>
+              <span className="text-[9px] font-mono font-bold bg-black/40 px-1.5 py-0.5 rounded text-yellow-300">
+                64-BIT
+              </span>
+            </div>
+
+            {/* Main Cartridge Body */}
+            <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  {/* Holographic Logo Chip */}
+                  <div className="relative w-14 h-14 rounded-2xl bg-[#ec4899] border-[2.5px] border-black shadow-[3px_3px_0px_#000] p-1.5 flex items-center justify-center shrink-0">
+                    <Image
+                      src="/logos/GUSTO/gradient.png"
+                      alt="GUSTO 2K26"
+                      fill
+                      sizes="56px"
+                      className="object-contain p-1"
+                    />
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-mono">
+                      {ABOUT_DATA.symposiumName}
+                    </h3>
+                    <p className="text-[10px] sm:text-xs font-black text-[#ec4899] uppercase tracking-wider">
+                      {ABOUT_DATA.tagline}
+                    </p>
+                  </div>
+                </div>
+
+                {/* RPG Attributes Grid */}
+                <div className="grid grid-cols-3 gap-1.5 mb-3 text-center">
+                  <div className="p-1 rounded-lg bg-pink-100 border border-black/30">
+                    <span className="text-[8px] font-mono font-bold text-zinc-500 uppercase block">QUESTS</span>
+                    <span className="text-[10px] font-mono font-black text-[#ec4899]">9 EVENTS</span>
+                  </div>
+                  <div className="p-1 rounded-lg bg-yellow-100 border border-black/30">
+                    <span className="text-[8px] font-mono font-bold text-zinc-500 uppercase block">TIER</span>
+                    <span className="text-[10px] font-mono font-black text-amber-700">NATIONAL</span>
+                  </div>
+                  <div className="p-1 rounded-lg bg-purple-100 border border-black/30">
+                    <span className="text-[8px] font-mono font-bold text-zinc-500 uppercase block">REWARDS</span>
+                    <span className="text-[10px] font-mono font-black text-purple-700">₹ CASH</span>
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm font-bold text-zinc-700 leading-relaxed">
+                  {ABOUT_DATA.description}
+                </p>
+              </div>
+
+              <div className="mt-5 pt-3 border-t-2 border-black flex items-center justify-between text-xs font-black">
+                <span className="font-mono text-zinc-600 text-[11px]">EVENT LAUNCH:</span>
+                <span className="px-2.5 py-1 rounded-lg bg-[#facc15] border-2 border-black shadow-[2px_2px_0px_#000] font-mono font-black text-[11px]">
+                  {ABOUT_DATA.eventDate}
+                </span>
+              </div>
+            </div>
+
+            {/* Cartridge Bottom Gold Circuit Connector Pins */}
+            <div className="bg-zinc-900 border-t-[2.5px] border-black py-1 px-4 flex justify-between items-center overflow-hidden">
+              <span className="text-[8px] font-mono text-zinc-400 font-bold tracking-widest uppercase">
+                GUSTO-PIN-BUS
+              </span>
+              <div className="flex gap-1">
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1.5 h-3 bg-gradient-to-b from-yellow-300 to-amber-500 rounded-b-[1px] border-[0.5px] border-black/60 shadow-[0_1px_1px_rgba(0,0,0,0.4)]"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CARTRIDGE 02: GCEE ERODE (Hardware / Campus Core Unit) */}
+          <div className="rounded-3xl bg-[#f7fee7] border-[3.5px] border-black shadow-[6px_6px_0px_#000] flex flex-col justify-between h-full hover:-translate-y-2 hover:shadow-[10px_10px_0px_#000] transition-all duration-200 relative overflow-hidden group">
+            {/* Corner Hardware Screws */}
+            <span className="absolute top-2 left-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
+            <span className="absolute top-2 right-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
+
+            {/* Top Cartridge Grip Ridges */}
+            <div className="flex justify-center gap-1.5 pt-2.5 pb-1 opacity-30 group-hover:opacity-60 transition-opacity">
+              <div className="w-7 h-1 rounded-full bg-black" />
+              <div className="w-7 h-1 rounded-full bg-black" />
+              <div className="w-7 h-1 rounded-full bg-black" />
+            </div>
+
+            {/* Cartridge Header Bar with LED Blinker */}
+            <div className="mx-3.5 mt-1 px-3 py-1.5 rounded-xl bg-[#84cc16] border-2 border-black flex items-center justify-between text-black shadow-[2px_2px_0px_#000]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 border border-black animate-pulse" />
+                <span className="text-[10px] font-mono font-black uppercase tracking-wider">
+                  SECTOR-02 // GCEE_CORE
+                </span>
+              </div>
+              <span className="text-[9px] font-mono font-bold bg-black text-lime-400 px-1.5 py-0.5 rounded">
+                ESTD 1984
+              </span>
+            </div>
+
+            {/* Main Cartridge Body */}
+            <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  {/* Holographic Logo Chip */}
+                  <div className="relative w-14 h-14 rounded-2xl bg-[#84cc16] border-[2.5px] border-black shadow-[3px_3px_0px_#000] p-1.5 flex items-center justify-center shrink-0">
+                    <Image
+                      src="/logos/GCEE/bronze.png"
+                      alt="GCEE College Logo"
+                      fill
+                      sizes="56px"
+                      className="object-contain p-1"
+                    />
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-mono">
+                      GCEE Erode
+                    </h3>
+                    <p className="text-[10px] sm:text-xs font-black text-[#65a30d] uppercase tracking-wider">
+                      Formerly: {ABOUT_DATA.formerlyKnownAs}
+                    </p>
+                  </div>
+                </div>
+
+                {/* RPG Attributes Grid */}
+                <div className="grid grid-cols-3 gap-1.5 mb-3 text-center">
+                  <div className="p-1 rounded-lg bg-lime-100 border border-black/30">
+                    <span className="text-[8px] font-mono font-bold text-zinc-500 uppercase block">FOUNDED</span>
+                    <span className="text-[10px] font-mono font-black text-[#4d7c0f]">1984 IRTT</span>
+                  </div>
+                  <div className="p-1 rounded-lg bg-emerald-100 border border-black/30">
+                    <span className="text-[8px] font-mono font-bold text-zinc-500 uppercase block">TYPE</span>
+                    <span className="text-[10px] font-mono font-black text-emerald-800">GOVT ENGG</span>
+                  </div>
+                  <div className="p-1 rounded-lg bg-cyan-100 border border-black/30">
+                    <span className="text-[8px] font-mono font-bold text-zinc-500 uppercase block">CAMPUS</span>
+                    <span className="text-[10px] font-mono font-black text-cyan-800">ERODE</span>
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm font-bold text-zinc-700 leading-relaxed">
+                  A premier government institution established in 1984 under the Institute of Road and Transport Technology, situated in Suriyampalayam, Chithode, Erode. Renowned for technical education, innovation, and producing outstanding engineers.
+                </p>
+              </div>
+
+              <div className="mt-5 pt-3 border-t-2 border-black flex items-center justify-between text-xs font-black">
+                <span className="flex items-center gap-1 font-mono text-zinc-700 text-[11px]">
+                  <MapPin className="w-3.5 h-3.5 text-[#ec4899]" />
+                  <span>Chithode, Erode</span>
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-[#84cc16] border-2 border-black shadow-[2px_2px_0px_#000] font-mono font-black text-[11px]">
+                  PIN: 638316
+                </span>
+              </div>
+            </div>
+
+            {/* Cartridge Bottom Gold Circuit Connector Pins */}
+            <div className="bg-zinc-900 border-t-[2.5px] border-black py-1 px-4 flex justify-between items-center overflow-hidden">
+              <span className="text-[8px] font-mono text-zinc-400 font-bold tracking-widest uppercase">
+                GCEE-PIN-BUS
+              </span>
+              <div className="flex gap-1">
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1.5 h-3 bg-gradient-to-b from-yellow-300 to-amber-500 rounded-b-[1px] border-[0.5px] border-black/60 shadow-[0_1px_1px_rgba(0,0,0,0.4)]"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CARTRIDGE 03: IT DEPARTMENT & AIT (Dev Guild Unit) */}
+          <div className="rounded-3xl bg-[#ecfeff] border-[3.5px] border-black shadow-[6px_6px_0px_#000] flex flex-col justify-between h-full hover:-translate-y-2 hover:shadow-[10px_10px_0px_#000] transition-all duration-200 relative overflow-hidden group">
+            {/* Corner Hardware Screws */}
+            <span className="absolute top-2 left-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
+            <span className="absolute top-2 right-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
+
+            {/* Top Cartridge Grip Ridges */}
+            <div className="flex justify-center gap-1.5 pt-2.5 pb-1 opacity-30 group-hover:opacity-60 transition-opacity">
+              <div className="w-7 h-1 rounded-full bg-black" />
+              <div className="w-7 h-1 rounded-full bg-black" />
+              <div className="w-7 h-1 rounded-full bg-black" />
+            </div>
+
+            {/* Cartridge Header Bar with LED Blinker */}
+            <div className="mx-3.5 mt-1 px-3 py-1.5 rounded-xl bg-[#06b6d4] border-2 border-black flex items-center justify-between text-black shadow-[2px_2px_0px_#000]">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-pink-400 border border-black animate-pulse" />
+                <span className="text-[10px] font-mono font-black uppercase tracking-wider">
+                  UNIT-03 // AIT_GUILD
+                </span>
+              </div>
+              <span className="text-[9px] font-mono font-bold bg-black text-cyan-300 px-1.5 py-0.5 rounded">
+                ACTIVE
+              </span>
+            </div>
+
+            {/* Main Cartridge Body */}
+            <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  {/* Holographic Logo Chip */}
+                  <div className="relative w-14 h-14 rounded-2xl bg-[#06b6d4] border-[2.5px] border-black shadow-[3px_3px_0px_#000] p-1.5 flex items-center justify-center shrink-0">
+                    <Image
+                      src="/logos/AIT/gold.png"
+                      alt="AIT Logo"
+                      fill
+                      sizes="56px"
+                      className="object-contain p-1"
+                    />
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-mono">
+                      IT Department
+                    </h3>
+                    <p className="text-[10px] sm:text-xs font-black text-[#0891b2] uppercase tracking-wider">
+                      Association of Info Tech (AIT)
+                    </p>
+                  </div>
+                </div>
+
+                {/* RPG Attributes Grid */}
+                <div className="grid grid-cols-3 gap-1.5 mb-3 text-center">
+                  <div className="p-1 rounded-lg bg-cyan-100 border border-black/30">
+                    <span className="text-[8px] font-mono font-bold text-zinc-500 uppercase block">SKILLS</span>
+                    <span className="text-[10px] font-mono font-black text-cyan-800">CODE / AI</span>
+                  </div>
+                  <div className="p-1 rounded-lg bg-indigo-100 border border-black/30">
+                    <span className="text-[8px] font-mono font-bold text-zinc-500 uppercase block">EVENTS</span>
+                    <span className="text-[10px] font-mono font-black text-indigo-800">HACKATHONS</span>
+                  </div>
+                  <div className="p-1 rounded-lg bg-amber-100 border border-black/30">
+                    <span className="text-[8px] font-mono font-bold text-zinc-500 uppercase block">STATUS</span>
+                    <span className="text-[10px] font-mono font-black text-amber-800">VERIFIED</span>
+                  </div>
+                </div>
+
+                <p className="text-xs sm:text-sm font-bold text-zinc-700 leading-relaxed">
+                  Empowering students through advanced software engineering, algorithmic problem solving, hands-on hackathons, and state-level technical symposiums.
+                </p>
+              </div>
+
+              <div className="mt-5 pt-3 border-t-2 border-black flex items-center justify-between text-xs font-black">
+                <span className="flex items-center gap-1 font-mono text-zinc-700 text-[11px]">
+                  <Award className="w-3.5 h-3.5 text-[#f59e0b]" />
+                  <span>Student Guild</span>
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-[#06b6d4] text-black border-2 border-black shadow-[2px_2px_0px_#000] font-mono font-black text-[11px]">
+                  AIT Active
+                </span>
+              </div>
+            </div>
+
+            {/* Cartridge Bottom Gold Circuit Connector Pins */}
+            <div className="bg-zinc-900 border-t-[2.5px] border-black py-1 px-4 flex justify-between items-center overflow-hidden">
+              <span className="text-[8px] font-mono text-zinc-400 font-bold tracking-widest uppercase">
+                AIT-PIN-BUS
+              </span>
+              <div className="flex gap-1">
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1.5 h-3 bg-gradient-to-b from-yellow-300 to-amber-500 rounded-b-[1px] border-[0.5px] border-black/60 shadow-[0_1px_1px_rgba(0,0,0,0.4)]"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Highlights Board */}
+        <div className="p-5 sm:p-8 md:p-10 rounded-3xl bg-[#3b0764] border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[8px_8px_0px_#000] text-white">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8 pb-5 sm:pb-6 border-b-2 border-white/20">
+            <div>
+              <h3 className="text-xl sm:text-3xl font-black tracking-tight text-[#fde047]">
+                Symposium Key Highlights
+              </h3>
+              <p className="text-xs sm:text-sm font-bold text-pink-200 mt-1">
+                Why thousands of engineering students converge at GUSTO:
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl bg-[#84cc16] border-2 border-black text-black font-black text-xs sm:text-sm shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000]">
+              <span>Registration Fee: ₹{ABOUT_DATA.registrationFee} per head</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            {ABOUT_DATA.highlights.map((highlight, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white text-black border-2 sm:border-[2.5px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000]"
+              >
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#84cc16] border border-black flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black" />
+                </div>
+                <p className="text-xs sm:text-sm font-black leading-snug">
+                  {highlight}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
