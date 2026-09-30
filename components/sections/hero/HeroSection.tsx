@@ -24,11 +24,11 @@ import {
   RetroGamepad,
   RetroConsole,
   RetroCartridge,
-  SoccerFireball,
   RotatingBadge,
   ComicStar,
   HandwrittenSticker,
 } from "@/components/ui/RetroStickers";
+import { HangingSpiderman } from "@/components/ui/Spiderman";
 
 interface HeroSectionProps {
   onOpenRegister?: () => void;
@@ -122,10 +122,9 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         <RetroConsole className="w-28 sm:w-36 h-auto drop-shadow-[4px_4px_0px_#000]" />
       </div>
 
-      {/* Top Right Soccer Fireball — faster float for foreground depth */}
-      <div className="absolute top-24 sm:top-28 right-8 sm:right-20 hidden md:block deco-obj animate-float-fast pointer-events-auto select-none z-[1]"
-        style={{ animationDelay: '0.7s' }}>
-        <SoccerFireball className="w-20 sm:w-24 h-auto drop-shadow-[4px_4px_0px_#000]" />
+      {/* Top Right Hanging Spider-Man directly below Register CTA button */}
+      <div className="absolute top-0 right-1.5 xs:right-3 sm:right-10 md:right-16 lg:right-22 xl:right-28 z-30 pointer-events-auto">
+        <HangingSpiderman onOpenRegister={onOpenRegister} />
       </div>
 
       {/* Floating Game Cartridges on Right Edge — three speeds for parallax depth */}
@@ -195,7 +194,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         <div className="flex flex-col items-center text-center w-full">
           {/* Top Symposium Institution Banner (Clean & Responsive Neo-Brutalist Arcade Capsule) */}
           <div className="w-full flex justify-center items-center mb-5 sm:mb-8 z-20 px-2 sm:px-4">
-            <div className="group relative inline-flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[98%] sm:max-w-[96%] select-none text-center">
+            <div className="group relative inline-flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 px-3 sm:px-6 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[84%] xs:max-w-[88%] sm:max-w-[96%] select-none text-center">
 
               {/* Status diode + College Title row (never breaks awkwardly on mobile) */}
               <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2">

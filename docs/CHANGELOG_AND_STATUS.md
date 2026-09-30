@@ -43,24 +43,24 @@
 | **Gamification: Arcade** | `components/gamification/ArcadeStation.tsx` | 🟢 Active | Retro 8-bit playable arcade canvas minigame (Cyber Dash 2K26) with score tracking. |
 | **Audio Engine** | `src/lib/arcadeAudio.ts` | 🟢 Active | Pure Web Audio API synthesized 8-bit sound effects (coin, jump, powerup, victory). |
 | **Loader Screen** | `components/ui/PacmanGhostLoader.tsx` | 🟢 Active | Minimalist retro loader featuring centered animated 8-bit Pac-Man ghost (Blinky) and energizer dots. |
+| **Mascot: Spiderman** | `components/ui/Spiderman.tsx` | 🟢 Active | Pure CSS animated upside-down hanging Spider-Man swinging on web thread below Register CTA button. |
 
 ---
 
 ## 📝 Prompt & Feature Changelog
 
-### `2026-09-30` — Comic Pop Radio Glider Navbar (Pow! Bam! Zap!) & Touch-Only Blink
-- **Summary**: Transformed the center navigation links into an authentic **Comic Pop Radio Glider** bar with tactile touch-only arcade blinking feedback, and restored all hero/page code to the previous state:
-  - **Comic Radio Glider Navigation (`components/layout/Navbar.tsx`)**:
-    - Embedded the full Comic Pop radio group styling (`.comic-radio-nav`) with 3.5px solid black border, neo-brutalist 4px box shadow, and bright `#ffd700` background.
-    - Added spring-glider (`.comic-nav-glider`) with half-tone dot matrix (`radial-gradient`), deep inset shadow, and bouncy `cubic-bezier(0.37, 1.95, 0.66, 0.56)` transition.
+### `2026-09-30` — Added Spider-Man Feature & Comic Pop Radio Glider Navbar (Pow! Bam! Zap!)
+- **Summary**: Integrated the pure CSS animated upside-down hanging Spider-Man feature below the Register CTA button alongside the new **Comic Pop Radio Glider** navbar:
+  - **Spider-Man Feature (`components/ui/Spiderman.tsx` & `HeroSection.tsx`)**:
+    - Complete pure CSS upside-down Spider-Man: inverted mask with white eyes, 8-legged chest emblem, utility belt, boots, hanging silk web line with anchor node.
+    - Optimized mobile responsiveness: `.spidey-box` width tightened to `8.5em` (eliminating the 100px phantom left margin), 4-tier responsive typography (`4.5px` mobile, `5.8px` xs, `7.5px` sm, `9px` md+), and top-right corner placement (`right-1.5 xs:right-3 sm:right-10 md:right-16 lg:right-22 xl:right-28`).
+    - Banner clearance: mobile college banner adjusted to `max-w-[84%] xs:max-w-[88%]` to guarantee Spider-Man never overlaps the banner or the "The" headline letters.
+    - Interactive registration: clicking Spider-Man pops up the `🕸️ THWIP! REGISTER!` callout and opens the registration modal.
+  - **Comic Radio Glider Navigation (`components/layout/Navbar.tsx` & `app/globals.css`)**:
+    - Comic Pop radio group styling (`.comic-radio-nav`) with 3.5px solid black border, neo-brutalist 4px box shadow, and bright `#ffd700` background.
+    - Sliding spring-glider (`.comic-nav-glider`) with half-tone dot matrix (`radial-gradient`), deep inset shadow, and bouncy `cubic-bezier(0.37, 1.95, 0.66, 0.56)` transition.
     - Dynamic color shift per section: All Events (Red `#e74c3c` • `POW!`), Rules (Blue `#3498db` • `BAM!`), About (Green `#2ecc71` • `ZAP!`), Gallery (Purple `#9b59b6` • `BOOM!`), Teaser (Pink `#ec4899` • `WHAM!`), Transport (Cyan `#06b6d4` • `ZOOM!`), Contacts (Orange `#f97316` • `SMASH!`).
-    - Comic typography with dual-tone text shadows (white outline on inactive, bold black shadow on active).
-  - **Touch-Only Blink Behavior (`in that nav bar once i touch i will blink otherwise no`)**:
-    - Added `@keyframes comic-touch-blink`: When a nav item is touched/clicked, it triggers a 350ms rapid arcade flash (`comic-blink-touch`), providing crisp tactile feedback.
-    - When idle, there is **zero blinking** (all items remain completely solid and calm).
-    - Removed idle `animate-pulse` from the `2K26` badge so the navbar never blinks on its own.
-  - **Restored Previous Codebase**:
-    - Reverted all other code back to the previous stable state (removed Spiderman, kept shooting planes removed per earlier instruction, clean hero section with Nintendo Switch console and full responsive composition).
+    - **Touch-Only Blink Feedback**: Clicking or touching a nav item triggers a rapid 3-frame retro arcade flash (`@keyframes comic-touch-blink` via `comic-blink-touch` for ~350ms); when idle, all items remain completely solid with zero blinking.
 
 ### `2026-09-30` — Authentic Nintendo Switch Handheld Gaming Console Countdown Timer
 - **Summary**: Transformed the countdown timer block in `components/sections/hero/HeroSection.tsx` into an authentic, highly detailed **Nintendo Switch Handheld Gaming Console**:

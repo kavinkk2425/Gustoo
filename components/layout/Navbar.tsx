@@ -20,7 +20,6 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
   const [searchValue, setSearchValue] = useState("");
   const [activeLink, setActiveLink] = useState<string>("All Events");
   const [clickedLink, setClickedLink] = useState<string | null>(null);
-  const [blinkingLink, setBlinkingLink] = useState<string | null>(null);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -28,17 +27,14 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
   };
 
   const navLinks = [
-    { name: "All Events", href: "#events", tag: "POW!", color: "#e74c3c", dot: "#c0392b" },
-    { name: "Rules", href: "#rules", tag: "BAM!", color: "#3498db", dot: "#2980b9" },
-    { name: "About", href: "#about", tag: "ZAP!", color: "#2ecc71", dot: "#27ae60" },
-    { name: "Gallery", href: "#gallery", tag: "BOOM!", color: "#9b59b6", dot: "#8e44ad" },
-    { name: "Teaser", href: "#youtube", tag: "WHAM!", color: "#ec4899", dot: "#be185d" },
-    { name: "Transport", href: "#transport", tag: "ZOOM!", color: "#06b6d4", dot: "#0891b2" },
-    { name: "Contacts", href: "#contact", tag: "SMASH!", color: "#f97316", dot: "#ea580c" },
+    { name: "All Events", href: "#events", tag: "r1" },
+    { name: "Rules", href: "#rules", tag: "r2" },
+    { name: "About", href: "#about", tag: "r3" },
+    { name: "Gallery", href: "#gallery", tag: "r4" },
+    { name: "Teaser", href: "#youtube", tag: "r5" },
+    { name: "Transport", href: "#transport", tag: "r6" },
+    { name: "Contacts", href: "#contact", tag: "r7" },
   ];
-
-  const activeIndex = Math.max(0, navLinks.findIndex((l) => l.name === activeLink));
-  const currentLink = navLinks[activeIndex] || navLinks[0];
 
   // Scroll spy to dynamically track and highlight active section
   useEffect(() => {
@@ -67,7 +63,6 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
     e.preventDefault();
     setActiveLink(name);
     setClickedLink(name);
-    setBlinkingLink(name);
     playRetroClick("nav");
 
     if (isMobile) {
@@ -76,8 +71,7 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
 
     setTimeout(() => {
       setClickedLink(null);
-      setBlinkingLink(null);
-    }, 380);
+    }, 280);
 
     const id = href.replace("#", "");
     const elem = document.getElementById(id);
@@ -118,7 +112,7 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
                 <span className="gusto-brand-text font-black text-base xs:text-lg sm:text-xl xl:text-2xl tracking-tight whitespace-nowrap">
                   GUSTO &apos;26
                 </span>
-                <span className="hidden xs:inline-flex items-center px-1.5 py-0.5 rounded-md text-[9px] sm:text-[10px] font-black bg-[#84cc16] text-black border-[1.5px] border-black shadow-[1px_1px_0px_#000] leading-none">
+                <span className="hidden xs:inline-flex items-center px-1.5 py-0.5 rounded-md text-[9px] sm:text-[10px] font-black bg-[#84cc16] text-black border-[1.5px] border-black shadow-[1px_1px_0px_#000] leading-none animate-pulse">
                   2K26
                 </span>
               </div>
@@ -133,41 +127,30 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
             </div>
           </a>
 
-          {/* Center Navigation: Comic Pop Radio Glider Group (POW! BAM! ZAP!) */}
-          <nav className="hidden lg:flex items-center justify-center min-w-0">
-            <div className="comic-radio-nav border-[3px] xl:border-[3.5px] border-black shadow-[3.5px_3.5px_0px_#000] xl:shadow-[4.5px_4.5px_0px_#000] bg-[#ffd700]">
-              {/* Radio Glider with Half-tone Dot Matrix & Spring Cubic-Bezier */}
-              <div
-                className="comic-nav-glider"
-                style={{
-                  width: `${100 / navLinks.length}%`,
-                  transform: `translateX(${activeIndex * 100}%)`,
-                  backgroundColor: currentLink.color,
-                  backgroundImage: `radial-gradient(circle at 4px 4px, ${currentLink.dot} 2px, transparent 0)`,
-                }}
-              />
+          {/* Center Navigation Links featuring Cyberpunk Glitch Radio Buttons */}
+          <nav className="hidden lg:flex items-center justify-center gap-1.5 xl:gap-2.5 2xl:gap-3.5 min-w-0">
+            {navLinks.map((link) => {
+              const isActive = activeLink === link.name;
+              const isClicked = clickedLink === link.name;
 
-              {/* Radio Group Item Links */}
-              {navLinks.map((link, idx) => {
-                const isActive = activeIndex === idx;
-                const isClicked = clickedLink === link.name;
-                const isBlinking = blinkingLink === link.name;
-
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href, link.name)}
-                    className={`comic-nav-item py-1.5 lg:px-2.5 xl:px-3.5 2xl:px-4 text-[11px] lg:text-[11.5px] xl:text-[12.5px] 2xl:text-[13.5px] uppercase tracking-wider ${
-                      isActive ? "active" : ""
-                    } ${isBlinking ? "comic-blink-touch" : ""} ${isClicked ? "scale-95" : ""}`}
-                    title={`${link.name} • ${link.tag}`}
-                  >
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href, link.name)}
+                  className={`cyber-nav-link !h-9 relative block select-none transition-transform duration-150 ${isActive ? "active" : ""
+                    } ${isClicked ? "scale-90" : "active:scale-95"}`}
+                >
+                  <div className="cyber-btn !h-9 lg:!px-2.5 xl:!px-3.5 lg:!text-[11px] xl:!text-[12px] !tracking-tight">
                     <span>{link.name}</span>
-                  </a>
-                );
-              })}
-            </div>
+                    <span className="cyber-btn__glitch" aria-hidden="true">
+                      {link.name}
+                    </span>
+                    <label className="cyber-number">{link.tag}</label>
+                  </div>
+                </a>
+              );
+            })}
           </nav>
 
           {/* Right Action: Search Bar & Register Button */}
@@ -299,33 +282,18 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
             {navLinks.map((link, index) => {
               const isActive = activeLink === link.name;
               const isLastItem = index === navLinks.length - 1;
-              const isBlinking = blinkingLink === link.name;
               return (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.name, true)}
-                  className={`comic-mobile-item flex items-center justify-between px-3.5 py-2.5 text-xs xs:text-sm uppercase tracking-wider ${
-                    isActive ? "active" : ""
-                  } ${isBlinking ? "comic-blink-touch" : ""} ${isLastItem ? "col-span-2" : ""}`}
-                  style={
-                    isActive
-                      ? {
-                          backgroundColor: link.color,
-                          backgroundImage: `radial-gradient(circle at 4px 4px, ${link.dot} 2px, transparent 0)`,
-                          backgroundSize: "8px 8px",
-                        }
-                      : {}
-                  }
-                >
-                  <span className="truncate">{link.name}</span>
-                  <span
-                    className={`text-[9.5px] font-black px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0px_#000] ml-1.5 ${
-                      isActive ? "bg-white text-black" : "bg-black text-white"
+                  className={`cyber-nav-link !h-11 relative block select-none ${isActive ? "active" : ""} ${isLastItem ? "col-span-2" : ""
                     }`}
-                  >
-                    {link.tag}
-                  </span>
+                >
+                  <div className="cyber-btn !w-full !h-11 !px-3.5 !text-xs xs:!text-sm font-black flex items-center justify-center">
+                    <span className="truncate whitespace-nowrap text-center font-black tracking-wider">{link.name}</span>
+                    <label className="cyber-number">{link.tag}</label>
+                  </div>
                 </a>
               );
             })}
