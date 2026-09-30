@@ -48,6 +48,10 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Removed Side-Panel Shooting Planes (ArcadeShooters)
+- **Summary**: Removed the floating stealth fighter aircraft and laser shooting animations from `app/page.tsx`:
+  - Removed `<ArcadeShooters />` and its import from `app/page.tsx` to ensure a clean, distraction-free viewport without edge aircraft animations.
+
 ### `2026-09-30` — Authentic Nintendo Switch Handheld Gaming Console Countdown Timer
 - **Summary**: Transformed the countdown timer block in `components/sections/hero/HeroSection.tsx` into an authentic, highly detailed **Nintendo Switch Handheld Gaming Console**:
   - **Left Joy-Con (Neon Cyan)**:

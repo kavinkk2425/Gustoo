@@ -14,7 +14,6 @@ import { ContactSection } from "@/components/sections/contact/ContactSection";
 import { RegisterModal } from "@/components/sections/register/RegisterModal";
 import { GameScrollProvider } from "@/components/ui/GameScrollProvider";
 import { ScrollReveal, SectionDivider } from "@/components/ui/ScrollReveal";
-import { ArcadeShooters } from "@/components/ui/ArcadeShooters";
 import { PacmanGhostLoader } from "@/components/ui/PacmanGhostLoader";
 
 export default function Home() {
@@ -47,9 +46,6 @@ export default function Home() {
 
       {/* Global gaming scroll system — progress bar + parallax driver */}
       <GameScrollProvider />
-
-      {/* Side-panel pixel space fighters with laser shooting animations */}
-      <ArcadeShooters />
 
       {/* Sticky Neo-Brutalist Navbar */}
       <Navbar
