@@ -358,6 +358,37 @@ button, a, input, select, textarea {
 }
 
 /* ==========================================================================
+   TICKER / MOVING TEXT MARQUEE ANIMATION — Continuous Arcade Banner Scroll
+   ========================================================================== */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marqueeScroll 25s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-fast {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marqueeScroll 16s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover,
+.animate-marquee-fast:hover {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
    BACKGROUND OBJECT ANIMATIONS — GUSTO '26 Animated Environment
    ========================================================================== */
 

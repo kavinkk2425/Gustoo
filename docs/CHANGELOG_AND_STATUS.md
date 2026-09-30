@@ -48,12 +48,11 @@
 
 ## 📝 Prompt & Feature Changelog
 
-### `2026-09-30` — Animated Mission Briefing Terminal Section with ScrollReveal
-- **Summary**: Replaced raw floating statistics with a dedicated, high-impact gaming chassis called the **Arcade Mission Briefing Terminal** (`components/sections/hero/HeroSection.tsx`):
-  - **Scroll-Driven Entrance Animation (`ScrollReveal`)**: Encapsulated the "National Level Technical Symposium" information in a `ScrollReveal` container (`variant="rise-up"`, duration 700ms) that smoothly rises into place with spring physics as the user scrolls.
-  - **Arcade Terminal Chassis**: Wrapped the content in a deep royal purple gradient console with 4-corner arcade screws (`+`), top telemetry status diode bar (`SYSTEM // ONLINE • GUSTO-PROTOCOL 2K26 • LEVEL 01`), and an ambient circuit grid overlay.
-  - **Holographic Symposium Header**: Re-imagined the header as a pulsing, glowing neon pill with rotating sparkle stars and `Chakra Petch` typography.
-  - **Interactive Micro-Animations**: Added 3D tilt hover to the 4 stat cards, guaranteed non-zero competitions count (`GUSTO_EVENTS?.length || 9`), high-voltage neon timer box, and hover-scaled trust badges.
+### `2026-09-30` — Symposium Unified Command Deck Chassis & Continuous Moving Text Marquees
+- **Summary**: Transformed the lower hero symposium elements (banner, quick stat cards, countdown timer, register CTA, quick links, and trust badges) into a unified arcade command deck chassis with continuous animated marquee text tickers (`components/sections/hero/HeroSection.tsx` & `app/globals.css`):
+  - **Unified Command Chassis (`components/sections/hero/HeroSection.tsx`)**: Enclosed the entire symposium overview within a high-contrast neo-brutalist container (`bg-gradient-to-b from-[#240b45] via-[#1a0633] to-[#110424]`, `border-[3.5px] sm:border-[5px] border-black`, `shadow-[8px_8px_0px_#000] sm:shadow-[14px_14px_0px_#000]`), retro metal corner rivets (`+`), a matrix grid pattern overlay, and an interactive `SYSTEM // ONLINE` terminal telemetry beacon.
+  - **Continuous Moving Text Marquees (`app/globals.css` & `HeroSection.tsx`)**: Added `@keyframes marqueeScroll` with `.animate-marquee` and `.animate-marquee-fast`. Integrated a top running marquee strip featuring the symposium title, date, venue, and 9 competitions, plus a bottom fast ticker strip highlighting cash prizes, free bus transit, and workshop slots.
+  - **Count & Hydration Safeguard (`components/sections/hero/HeroSection.tsx`)**: Guaranteed the event counter displays `{GUSTO_EVENTS?.length || 9} Total Events` to eliminate temporary 0 count flickers.
 
 ### `2026-09-30` — Interactive Wave Jumping Across All Hero Letters ("Let", "The", "Begin") & Color Fix
 - **Summary**: Extended the interactive click-to-jump physics wave across the entire "Let The Gusto Begin" hero typography and resolved the post-click black text coloring bug (`components/sections/hero/HeroSection.tsx` & `app/globals.css`):

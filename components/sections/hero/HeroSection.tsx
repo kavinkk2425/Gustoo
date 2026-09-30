@@ -312,130 +312,237 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Subtitle Card (Contained for mobile) */}
-          <div className="mt-2 sm:mt-3 mb-5 sm:mb-6 inline-block max-w-[96%] sm:max-w-full px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000]">
-            <p className="text-xs xs:text-sm sm:text-base md:text-lg font-['Chakra_Petch',sans-serif] font-black text-[#3b0764] uppercase tracking-wider leading-snug">
-              {ABOUT_DATA.tagline} • {ABOUT_DATA.eventDate}
-            </p>
-          </div>
-
-          {/* Quick Stats Grid in Neo-Brutalist Arcade Blocks */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 w-full max-w-3xl mb-6 sm:mb-8">
-            <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
-              <Calendar className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#ec4899] mb-1" />
-              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Event Date</span>
-              <span className="text-sm xs:text-base sm:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">{ABOUT_DATA.eventDate}</span>
-            </div>
-            <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
-              <Clock className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#8b5cf6] mb-1" />
-              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Reg. Last Date</span>
-              <span className="text-xs xs:text-sm sm:text-base font-['Chakra_Petch',sans-serif] font-black text-black leading-tight truncate">
-                {ABOUT_DATA.registrationLastDate}
-              </span>
-            </div>
-            <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
-              <Trophy className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#f59e0b] mb-1" />
-              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Competitions</span>
-              <span className="text-sm xs:text-base sm:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
-                {GUSTO_EVENTS.length} Total Events
-              </span>
-            </div>
-            <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] text-center flex flex-col justify-between">
-              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#10b981] mb-1" />
-              <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Campus Venue</span>
-              <span className="text-sm xs:text-base sm:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">GCEE, Erode</span>
-            </div>
-          </div>
-
-          {/* Retro Arcade Countdown Timer */}
-          <div className="w-full max-w-xl p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-[#3b0764] border-[3px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] mb-8">
-            <div className="flex items-center justify-between mb-2.5 px-1 sm:px-2">
-              <span className="text-xs sm:text-sm font-['Chakra_Petch',sans-serif] font-black uppercase tracking-widest text-[#fde047]">
-                ★ Level Starts In ★
-              </span>
-              <span className="text-xs sm:text-sm font-bold text-pink-300 font-mono">March 06, 2026</span>
-            </div>
-            <div className="grid grid-cols-4 gap-1.5 xs:gap-2 sm:gap-3">
-              <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#facc15] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000]">
-                <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-black font-mono">
-                  {String(timeLeft.days).padStart(2, "0")}
+          {/* === INTERACTIVE MISSION TERMINAL / NATIONAL LEVEL TECHNICAL SYMPOSIUM BRIEFING DECK === */}
+          <div className="w-full max-w-4xl mx-auto mt-8 sm:mt-12 px-1 sm:px-2 relative z-20">
+            {/* Top Continuous Moving Text Ticker Banner */}
+            <div className="relative mb-3 sm:mb-4 rounded-xl bg-[#facc15] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_#000] overflow-hidden py-1.5 px-2 select-none">
+              <div className="flex w-max animate-marquee">
+                <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-black tracking-widest uppercase flex items-center gap-4 pr-4">
+                  <span>★ NATIONAL LEVEL TECHNICAL SYMPOSIUM 2K26</span>
+                  <span>•</span>
+                  <span>MARCH 06, 2026</span>
+                  <span>•</span>
+                  <span>GCEE ERODE</span>
+                  <span>•</span>
+                  <span>DEPARTMENT OF INFORMATION TECHNOLOGY</span>
+                  <span>•</span>
+                  <span>9 COMPETITIONS</span>
+                  <span>•</span>
+                  <span>CASH PRIZES & CERTIFICATES</span>
+                  <span>•</span>
+                  <span>REGISTER NOW (₹250) ★</span>
                 </span>
-                <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Days</span>
-              </div>
-              <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#84cc16] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000]">
-                <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-black font-mono">
-                  {String(timeLeft.hours).padStart(2, "0")}
+                <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-black tracking-widest uppercase flex items-center gap-4 pr-4" aria-hidden="true">
+                  <span>★ NATIONAL LEVEL TECHNICAL SYMPOSIUM 2K26</span>
+                  <span>•</span>
+                  <span>MARCH 06, 2026</span>
+                  <span>•</span>
+                  <span>GCEE ERODE</span>
+                  <span>•</span>
+                  <span>DEPARTMENT OF INFORMATION TECHNOLOGY</span>
+                  <span>•</span>
+                  <span>9 COMPETITIONS</span>
+                  <span>•</span>
+                  <span>CASH PRIZES & CERTIFICATES</span>
+                  <span>•</span>
+                  <span>REGISTER NOW (₹250) ★</span>
                 </span>
-                <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Hours</span>
-              </div>
-              <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#06b6d4] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000]">
-                <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-black font-mono">
-                  {String(timeLeft.minutes).padStart(2, "0")}
-                </span>
-                <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Mins</span>
-              </div>
-              <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#ec4899] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000]">
-                <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-white font-mono">
-                  {String(timeLeft.seconds).padStart(2, "0")}
-                </span>
-                <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-white uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Secs</span>
               </div>
             </div>
-          </div>
 
-          {/* Action CTAs in Neo-Brutalist 3D Button Style */}
-          <div className="relative flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-2xl px-2">
-            <div className="w-full flex justify-center -mb-1 z-20">
-              <HandwrittenSticker text="⚡ Limited Slots! ₹250 All-Access Pass" color="#ec4899" textColor="#ffffff" rotation="-rotate-2" className="text-sm xs:text-base sm:text-2xl shadow-[2.5px_2.5px_0px_#000]" />
-            </div>
-            <button
-              onClick={onOpenRegister}
-              className="neo-btn w-full sm:w-auto px-6 sm:px-8 py-4 sm:py-4 rounded-full font-['Chakra_Petch',sans-serif] font-black text-base sm:text-lg text-white bg-[#ec4899] hover:bg-[#db2777] shadow-[4px_4px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
-            >
-              <Sparkles className="w-5 h-5 text-yellow-300" />
-              <span>Register Now • ₹{ABOUT_DATA.registrationFee}</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            {/* Big Arcade Command Deck Container that covers ALL of these contents */}
+            <div className="relative rounded-3xl sm:rounded-[36px] bg-gradient-to-b from-[#240b45] via-[#1a0633] to-[#110424] border-[3.5px] sm:border-[5px] border-black shadow-[8px_8px_0px_#000] sm:shadow-[14px_14px_0px_#000] p-4 xs:p-6 sm:p-10 overflow-hidden select-none">
+              
+              {/* Retro Arcade Console Decorative Screws (4 corners) */}
+              <div className="absolute top-3 left-3 w-3 h-3 rounded-full bg-zinc-400 border border-black shadow-inner flex items-center justify-center text-[7px] text-zinc-900 font-mono font-bold">+</div>
+              <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-zinc-400 border border-black shadow-inner flex items-center justify-center text-[7px] text-zinc-900 font-mono font-bold">+</div>
+              <div className="absolute bottom-3 left-3 w-3 h-3 rounded-full bg-zinc-400 border border-black shadow-inner flex items-center justify-center text-[7px] text-zinc-900 font-mono font-bold">+</div>
+              <div className="absolute bottom-3 right-3 w-3 h-3 rounded-full bg-zinc-400 border border-black shadow-inner flex items-center justify-center text-[7px] text-zinc-900 font-mono font-bold">+</div>
 
-            <div className="grid grid-cols-3 gap-2 sm:flex sm:items-center sm:gap-4 w-full sm:w-auto">
-              <a
-                href="#events"
-                className="neo-btn px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-black bg-[#84cc16] hover:bg-[#65a30d] shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] text-center uppercase tracking-wide flex items-center justify-center"
-              >
-                9 Events
-              </a>
+              {/* Ambient Grid Pattern Overlay */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.15)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
-              <a
-                href="#rules"
-                className="neo-btn px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-black bg-white hover:bg-zinc-100 shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-1 uppercase tracking-wide text-center"
-              >
-                <FileText className="w-3.5 h-3.5 text-[#3b0764] hidden xs:inline" />
-                <span>Rules</span>
-              </a>
+              {/* Top Console Status Ribbon */}
+              <div className="flex items-center justify-between border-b-2 border-purple-900/60 pb-3 mb-6 px-1 sm:px-2 relative z-10">
+                <div className="inline-flex items-center gap-2">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border border-black"></span>
+                  </span>
+                  <span className="font-mono text-[9px] xs:text-[10px] sm:text-xs font-black uppercase text-emerald-400 tracking-wider">
+                    SYSTEM // ONLINE
+                  </span>
+                </div>
+                <div className="font-mono text-[9px] xs:text-[10px] sm:text-xs font-bold text-purple-300/80 tracking-widest uppercase">
+                  GUSTO-PROTOCOL • 2K26
+                </div>
+                <div className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-purple-950 border border-purple-800 text-[10px] font-mono text-yellow-300 font-bold">
+                  ★ LEVEL 01
+                </div>
+              </div>
 
-              <a
-                href="#youtube"
-                className="neo-btn px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-white bg-[#ef4444] hover:bg-[#dc2626] shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-1 uppercase tracking-wide text-center"
-              >
-                <Play className="w-3.5 h-3.5 fill-white hidden xs:inline" />
-                <span>Teaser</span>
-              </a>
-            </div>
-          </div>
+              {/* Main Glowing Banner: "NATIONAL LEVEL TECHNICAL SYMPOSIUM • MARCH 06, 2026" */}
+              <div className="flex justify-center mb-6 sm:mb-8 relative z-10">
+                <div className="group relative inline-flex items-center justify-center px-4 sm:px-8 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-[#ec4899] via-[#8b5cf6] to-[#06b6d4] p-[2.5px] border-2 sm:border-[3px] border-black shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] transition-all duration-200">
+                  <div className="px-3 sm:px-6 py-1 rounded-full bg-[#18082e] flex items-center gap-2 sm:gap-3">
+                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 animate-spin [animation-duration:5s]" />
+                    <p className="text-xs xs:text-sm sm:text-base md:text-lg font-['Chakra_Petch',sans-serif] font-black text-white uppercase tracking-wider leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-center">
+                      NATIONAL LEVEL TECHNICAL SYMPOSIUM • MARCH 06, 2026
+                    </p>
+                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 animate-spin [animation-duration:5s]" />
+                  </div>
+                </div>
+              </div>
 
-          {/* Ticker Badges */}
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-4 text-[10px] xs:text-[11px] sm:text-xs font-black text-black w-full max-w-2xl">
-            <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border-2 border-black shadow-[2px_2px_0px_#000] w-full sm:w-auto text-center">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-              <span>Official GUSTO Registration</span>
-            </div>
-            <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border-2 border-black shadow-[2px_2px_0px_#000] w-full sm:w-auto text-center">
-              <Bus className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
-              <span>Buses from Erode, Chithode & Bhavani</span>
-            </div>
-            <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border-2 border-black shadow-[2px_2px_0px_#000] w-full sm:w-auto text-center">
-              <Trophy className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-              <span>Cash Prizes & Certificates</span>
+              {/* 4 Quick Stat Cards with 3D Neo-Brutalist Arcade Pop */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 w-full mb-6 sm:mb-8 relative z-10">
+                <div className="group p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] hover:shadow-[5px_5px_0px_#000] hover:-translate-y-1 transition-all duration-200 text-center flex flex-col justify-between">
+                  <Calendar className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#ec4899] mb-1 group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Event Date</span>
+                  <span className="text-sm xs:text-base sm:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">{ABOUT_DATA.eventDate}</span>
+                </div>
+                <div className="group p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] hover:shadow-[5px_5px_0px_#000] hover:-translate-y-1 transition-all duration-200 text-center flex flex-col justify-between">
+                  <Clock className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#8b5cf6] mb-1 group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Reg. Last Date</span>
+                  <span className="text-xs xs:text-sm sm:text-base font-['Chakra_Petch',sans-serif] font-black text-black leading-tight truncate">
+                    {ABOUT_DATA.registrationLastDate}
+                  </span>
+                </div>
+                <div className="group p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] hover:shadow-[5px_5px_0px_#000] hover:-translate-y-1 transition-all duration-200 text-center flex flex-col justify-between">
+                  <Trophy className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#f59e0b] mb-1 group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Competitions</span>
+                  <span className="text-sm xs:text-base sm:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
+                    {GUSTO_EVENTS?.length || 9} Total Events
+                  </span>
+                </div>
+                <div className="group p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] hover:shadow-[5px_5px_0px_#000] hover:-translate-y-1 transition-all duration-200 text-center flex flex-col justify-between">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 mx-auto text-[#10b981] mb-1 group-hover:scale-110 transition-transform" />
+                  <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold text-zinc-600 uppercase font-mono tracking-wider block truncate">Campus Venue</span>
+                  <span className="text-sm xs:text-base sm:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">GCEE, Erode</span>
+                </div>
+              </div>
+
+              {/* Retro Arcade Countdown Timer */}
+              <div className="w-full max-w-xl mx-auto p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-[#2d0852] border-[3px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] mb-8 relative z-10">
+                <div className="flex items-center justify-between mb-2.5 px-1 sm:px-2">
+                  <span className="text-xs sm:text-sm font-['Chakra_Petch',sans-serif] font-black uppercase tracking-widest text-[#fde047] flex items-center gap-1.5">
+                    <span className="inline-block animate-pulse">★</span>
+                    LEVEL STARTS IN
+                    <span className="inline-block animate-pulse">★</span>
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-pink-300 font-mono">March 06, 2026</span>
+                </div>
+                <div className="grid grid-cols-4 gap-1.5 xs:gap-2 sm:gap-3">
+                  <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#facc15] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000] group hover:-translate-y-0.5 transition-transform">
+                    <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-black font-mono">
+                      {String(timeLeft.days).padStart(2, "0")}
+                    </span>
+                    <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Days</span>
+                  </div>
+                  <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#84cc16] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000] group hover:-translate-y-0.5 transition-transform">
+                    <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-black font-mono">
+                      {String(timeLeft.hours).padStart(2, "0")}
+                    </span>
+                    <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Hours</span>
+                  </div>
+                  <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#06b6d4] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000] group hover:-translate-y-0.5 transition-transform">
+                    <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-black font-mono">
+                      {String(timeLeft.minutes).padStart(2, "0")}
+                    </span>
+                    <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Mins</span>
+                  </div>
+                  <div className="flex flex-col items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-[#ec4899] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000] group hover:-translate-y-0.5 transition-transform">
+                    <span className="text-2xl xs:text-3xl sm:text-4xl font-black text-white font-mono">
+                      {String(timeLeft.seconds).padStart(2, "0")}
+                    </span>
+                    <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-white uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">Secs</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action CTAs in Neo-Brutalist 3D Button Style */}
+              <div className="relative flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-2xl mx-auto px-2 relative z-10">
+                <div className="w-full flex justify-center -mb-1 z-20">
+                  <HandwrittenSticker text="⚡ Limited Slots! ₹250 All-Access Pass" color="#ec4899" textColor="#ffffff" rotation="-rotate-2" className="text-sm xs:text-base sm:text-2xl shadow-[2.5px_2.5px_0px_#000]" />
+                </div>
+                <button
+                  onClick={onOpenRegister}
+                  className="neo-btn w-full sm:w-auto px-6 sm:px-8 py-4 sm:py-4 rounded-full font-['Chakra_Petch',sans-serif] font-black text-base sm:text-lg text-white bg-[#ec4899] hover:bg-[#db2777] shadow-[4px_4px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
+                >
+                  <Sparkles className="w-5 h-5 text-yellow-300" />
+                  <span>Register Now • ₹{ABOUT_DATA.registrationFee}</span>
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+
+                <div className="grid grid-cols-3 gap-2 sm:flex sm:items-center sm:gap-4 w-full sm:w-auto">
+                  <a
+                    href="#events"
+                    className="neo-btn px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-black bg-[#84cc16] hover:bg-[#65a30d] shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] text-center uppercase tracking-wide flex items-center justify-center"
+                  >
+                    9 Events
+                  </a>
+
+                  <a
+                    href="#rules"
+                    className="neo-btn px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-black bg-white hover:bg-zinc-100 shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-1 uppercase tracking-wide text-center"
+                  >
+                    <FileText className="w-3.5 h-3.5 text-[#3b0764] hidden xs:inline" />
+                    <span>Rules</span>
+                  </a>
+
+                  <a
+                    href="#youtube"
+                    className="neo-btn px-3 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-full font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm text-white bg-[#ef4444] hover:bg-[#dc2626] shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-1 uppercase tracking-wide text-center"
+                  >
+                    <Play className="w-3.5 h-3.5 fill-white hidden xs:inline" />
+                    <span>Teaser</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Ticker Badges */}
+              <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-3 text-[10px] xs:text-[11px] sm:text-xs font-black text-black w-full max-w-2xl mx-auto relative z-10">
+                <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border-2 border-black shadow-[2px_2px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-transform">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Official GUSTO Registration</span>
+                </div>
+                <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border-2 border-black shadow-[2px_2px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-transform">
+                  <Bus className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+                  <span>Buses from Erode, Chithode & Bhavani</span>
+                </div>
+                <div className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border-2 border-black shadow-[2px_2px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-transform">
+                  <Trophy className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                  <span>Cash Prizes & Certificates</span>
+                </div>
+              </div>
+
+              {/* Bottom Moving Text Ticker Strip */}
+              <div className="mt-6 pt-4 border-t-2 border-purple-900/60 overflow-hidden relative z-10">
+                <div className="flex w-max animate-marquee-fast">
+                  <span className="font-mono text-[10px] sm:text-xs font-extrabold text-[#facc15] tracking-widest uppercase flex items-center gap-4 pr-4">
+                    <span>⚡ CASH PRIZES & CERTIFICATES FOR ALL WINNERS</span>
+                    <span>•</span>
+                    <span>FREE COLLEGE BUS TRANSIT AVAILABLE</span>
+                    <span>•</span>
+                    <span>TECHNICAL & NON-TECHNICAL EVENTS</span>
+                    <span>•</span>
+                    <span>GCEE AUTONOMOUS CAMPUS</span>
+                    <span>•</span>
+                    <span>LIMITED SLOTS (₹250)</span>
+                  </span>
+                  <span className="font-mono text-[10px] sm:text-xs font-extrabold text-[#facc15] tracking-widest uppercase flex items-center gap-4 pr-4" aria-hidden="true">
+                    <span>⚡ CASH PRIZES & CERTIFICATES FOR ALL WINNERS</span>
+                    <span>•</span>
+                    <span>FREE COLLEGE BUS TRANSIT AVAILABLE</span>
+                    <span>•</span>
+                    <span>TECHNICAL & NON-TECHNICAL EVENTS</span>
+                    <span>•</span>
+                    <span>GCEE AUTONOMOUS CAMPUS</span>
+                    <span>•</span>
+                    <span>LIMITED SLOTS (₹250)</span>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
