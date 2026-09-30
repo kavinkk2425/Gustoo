@@ -48,6 +48,12 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Minimalist Highway Progress Bar (Car Only)
+- **Summary**: Streamlined the top highway scroll progress bar in `components/ui/GameScrollProvider.tsx`:
+  - **Removed Speedometer & Lap HUD**: Stripped out the `SPD: 000 KM/H` digital speedometer, gear indicator, and `GUSTO GP` lap badge overlays.
+  - **Removed Ending Traffic Light & Flag**: Removed the race light pillar and checkered finish flag gantry.
+  - **Pure Animated Car Drive**: Preserved only the realistic GT sports car, driving across the asphalt road with dynamic wheel rotation, exhaust puffs, glowing neon driven trail, and red/white FIA rumble kerbs.
+
 ### `2026-09-30` — Mobile Responsive Typography Scaling & Arcade UI Polish
 - **Summary**: Comprehensive mobile optimization addressing screenshot feedback, typography hierarchy, and gaming aesthetics:
   - **Inline College Banner Layout**: Restructured the mobile college capsule to group the live status diode and title (`GOVERNMENT COLLEGE OF ENGINEERING, ERODE`) into a unified inline-flex row, preventing awkward line wrapping with isolated diodes.

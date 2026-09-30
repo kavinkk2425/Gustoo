@@ -178,41 +178,6 @@ function GustoCar({ moving, speed }: { moving: boolean; speed: number }) {
   );
 }
 
-/* ─────────────────────── Checkered Finish Gantry ─────────────────────────── */
-function FinishGantry({ isComplete }: { isComplete: boolean }) {
-  return (
-    <div className="flex items-end gap-1 select-none pointer-events-none">
-      {/* Race Light Pillar */}
-      <div className="flex flex-col items-center bg-black px-0.5 py-0.5 rounded border border-neutral-700 shadow-[1px_1px_0_#000]">
-        <div className={`w-1.5 h-1.5 rounded-full mb-0.5 transition-colors ${isComplete ? "bg-[#22c55e] shadow-[0_0_6px_#22c55e]" : "bg-neutral-800"}`} />
-        <div className={`w-1.5 h-1.5 rounded-full mb-0.5 transition-colors ${isComplete ? "bg-[#22c55e] shadow-[0_0_6px_#22c55e]" : "bg-neutral-800"}`} />
-        <div className={`w-1.5 h-1.5 rounded-full transition-colors ${isComplete ? "bg-[#eab308] shadow-[0_0_6px_#eab308]" : "bg-neutral-800"}`} />
-      </div>
-
-      {/* Checkered Flag */}
-      <svg viewBox="0 0 18 32" width="16" height="28" fill="none" aria-hidden="true">
-        {/* Pole */}
-        <line x1="2" y1="2" x2="2" y2="31" stroke="#000" strokeWidth="2" strokeLinecap="round" />
-        {/* 3×4 Checkered squares */}
-        {([0, 1, 2, 3] as const).flatMap((row) =>
-          ([0, 1, 2] as const).map((col) => (
-            <rect
-              key={`${row}-${col}`}
-              x={2 + col * 4}
-              y={2 + row * 4}
-              width="4"
-              height="4"
-              fill={(row + col) % 2 === 0 ? "#000" : "#fff"}
-              opacity={isComplete ? 1 : 0.65}
-            />
-          ))
-        )}
-        <rect x="2" y="2" width="12" height="16" fill="none" stroke="#000" strokeWidth="1" />
-      </svg>
-    </div>
-  );
-}
-
 /* ─────────────────────── Main Component ──────────────────────────────────── */
 export function GameScrollProvider() {
   const [pct, setPct] = useState(0);
@@ -284,9 +249,6 @@ export function GameScrollProvider() {
       if (speedDecayRef.current) clearTimeout(speedDecayRef.current);
     };
   }, [handleScroll]);
-
-  const isComplete = pct >= 99;
-  const gear = speed === 0 ? "N" : speed < 40 ? "1" : speed < 80 ? "2" : speed < 130 ? "3" : speed < 180 ? "4" : "5";
 
   return (
     <div
@@ -384,33 +346,6 @@ export function GameScrollProvider() {
               </g>
             ))}
           </svg>
-        </div>
-
-        {/* ── RACING TELEMETRY HUD ── */}
-        <div className="absolute inset-0 px-3 flex items-center justify-between">
-          {/* Left: Speedometer & Gear */}
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1 bg-[#18181b]/90 text-[#fde047] px-2 py-0.5 rounded border border-black shadow-[1px_1px_0_#000]">
-              <span className="text-[7.5px] font-mono font-black text-neutral-400">SPD:</span>
-              <span className={`text-[8.5px] font-mono font-black tabular-nums ${speed > 100 ? "text-[#ef4444]" : "text-[#fde047]"}`}>
-                {String(speed).padStart(3, "0")}
-              </span>
-              <span className="text-[6.5px] font-mono font-bold text-neutral-400">KM/H</span>
-            </div>
-
-            <div className="hidden sm:flex items-center gap-1 bg-[#3b0764] text-white px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0_#000]">
-              <span className="text-[7px] font-mono font-bold opacity-75">GEAR</span>
-              <span className="text-[8px] font-mono font-black text-[#fde047]">{gear}</span>
-            </div>
-          </div>
-
-          {/* Right: Lap / Completion Pill */}
-          <div className="flex items-center gap-1.5 bg-[#3b0764] text-[#fde047] px-2.5 py-0.5 rounded border-1.5 border-black shadow-[1.5px_1.5px_0_#000]">
-            <span className="text-[7px] font-mono font-black text-white/80 tracking-wider">GUSTO GP</span>
-            <span className="text-[7.5px] font-mono font-black text-[#fde047]">
-              {Math.round(pct)}%
-            </span>
-          </div>
         </div>
       </div>
 
@@ -570,7 +505,7 @@ export function GameScrollProvider() {
         style={{
           position: "absolute",
           bottom: `${ROAD_H - 10}px`,
-          left: `calc(4px + (${pct} * 0.01) * (100% - ${CAR_W + 30}px))`,
+          left: `calc(4px + (${pct} * 0.01) * (100% - ${CAR_W + 8}px))`,
           width: `${CAR_W}px`,
           height: `${CAR_H}px`,
           transition: "left 0.1s linear",
@@ -603,22 +538,6 @@ export function GameScrollProvider() {
           </>
         )}
         <GustoCar moving={isMoving} speed={speed} />
-      </div>
-
-      {/* ══════════════════════════════════════════════
-          CHECKERED FINISH LINE & GANTRY
-          ══════════════════════════════════════════════ */}
-      <div
-        style={{
-          position: "absolute",
-          right: "4px",
-          bottom: `${ROAD_H - 6}px`,
-          zIndex: 4,
-          transition: "transform 0.4s cubic-bezier(0.34,1.56,0.64,1)",
-          transform: isComplete ? "scale(1.15) translateY(-2px)" : "scale(1)",
-        }}
-      >
-        <FinishGantry isComplete={isComplete} />
       </div>
     </div>
   );
