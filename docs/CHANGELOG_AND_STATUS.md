@@ -43,31 +43,24 @@
 | **Gamification: Arcade** | `components/gamification/ArcadeStation.tsx` | 🟢 Active | Retro 8-bit playable arcade canvas minigame (Cyber Dash 2K26) with score tracking. |
 | **Audio Engine** | `src/lib/arcadeAudio.ts` | 🟢 Active | Pure Web Audio API synthesized 8-bit sound effects (coin, jump, powerup, victory). |
 | **Loader Screen** | `components/ui/PacmanGhostLoader.tsx` | 🟢 Active | Minimalist retro loader featuring centered animated 8-bit Pac-Man ghost (Blinky) and energizer dots. |
-| **Mascot: Spiderman** | `components/ui/Spiderman.tsx` | 🟢 Active | Pure CSS animated upside-down hanging Spider-Man swinging on web line below Register CTA button. |
 
 ---
 
 ## 📝 Prompt & Feature Changelog
 
-### `2026-09-30` — Added & Mobile-Optimized Upside-Down Hanging Spider-Man Below Register CTA Button
-- **Summary**: Implemented the pure CSS animated upside-down hanging Spider-Man swinging on a web thread right beneath the Navbar's `REGISTER (₹250)` button, with custom mobile responsive tuning:
-  - **Component (`components/ui/Spiderman.tsx`)**:
-    - Created `<HangingSpiderman />` faithfully rendering the complete upside-down Spider-Man suit, inverted mask with white eyes, 8-legged chest spider emblem, utility belt, boots, and hanging web line.
-    - Added top web anchor splatter tack that seamlessly attaches to the navbar's bottom black ledge with a continuous connecting strand.
-    - Added interactive comic callout speech bubble (`THWIP! REGISTER! 🕸️`) that animates on hover and click.
-    - Clicking Spider-Man triggers the registration modal (`onOpenRegister`).
-  - **Styles & Mobile Responsiveness (`app/globals.css`)**:
-    - Fixed `.spidey-box` bounding box width from generic `21.87em` down to `8.5em` (matching Spider-Man's actual 7.5em body width), completely eliminating the ~100px phantom empty margin that pushed into the center of mobile screens.
-    - Added fluid 4-step responsive typography scaling (`4.8px` mobile, `6px` xs, `7.5px` sm, `9px` md+) so Spider-Man renders as a neat 40px mini web-slinger on phones without overflowing.
-    - Added smooth physics swing animation (`@keyframes spidey-swing`) with subtle pendulum rotation and bobbing.
-  - **Layout Integration (`HeroSection.tsx`)**:
-    - Placed Spider-Man at `absolute top-0 right-1.5 xs:right-2.5 sm:right-8 md:right-16 lg:right-24 xl:right-28 z-30`, cleanly tucked into the top-right corner without overlapping the headline letters ("The").
-    - Tuned mobile college banner max-width (`max-w-[84%] xs:max-w-[88%] sm:max-w-[96%]`) so it no longer stretches edge-to-edge on mobile, giving Spider-Man dedicated clearance.
-    - Removed the awkward floating `SoccerFireball` from that area so the composition looks clean, intentional, and attractive.
-
-### `2026-09-30` — Removed Side-Panel Shooting Planes (ArcadeShooters)
-- **Summary**: Removed the floating stealth fighter aircraft and laser shooting animations from `app/page.tsx`:
-  - Removed `<ArcadeShooters />` and its import from `app/page.tsx` to ensure a clean, distraction-free viewport without edge aircraft animations.
+### `2026-09-30` — Comic Pop Radio Glider Navbar (Pow! Bam! Zap!) & Touch-Only Blink
+- **Summary**: Transformed the center navigation links into an authentic **Comic Pop Radio Glider** bar with tactile touch-only arcade blinking feedback, and restored all hero/page code to the previous state:
+  - **Comic Radio Glider Navigation (`components/layout/Navbar.tsx`)**:
+    - Embedded the full Comic Pop radio group styling (`.comic-radio-nav`) with 3.5px solid black border, neo-brutalist 4px box shadow, and bright `#ffd700` background.
+    - Added spring-glider (`.comic-nav-glider`) with half-tone dot matrix (`radial-gradient`), deep inset shadow, and bouncy `cubic-bezier(0.37, 1.95, 0.66, 0.56)` transition.
+    - Dynamic color shift per section: All Events (Red `#e74c3c` • `POW!`), Rules (Blue `#3498db` • `BAM!`), About (Green `#2ecc71` • `ZAP!`), Gallery (Purple `#9b59b6` • `BOOM!`), Teaser (Pink `#ec4899` • `WHAM!`), Transport (Cyan `#06b6d4` • `ZOOM!`), Contacts (Orange `#f97316` • `SMASH!`).
+    - Comic typography with dual-tone text shadows (white outline on inactive, bold black shadow on active).
+  - **Touch-Only Blink Behavior (`in that nav bar once i touch i will blink otherwise no`)**:
+    - Added `@keyframes comic-touch-blink`: When a nav item is touched/clicked, it triggers a 350ms rapid arcade flash (`comic-blink-touch`), providing crisp tactile feedback.
+    - When idle, there is **zero blinking** (all items remain completely solid and calm).
+    - Removed idle `animate-pulse` from the `2K26` badge so the navbar never blinks on its own.
+  - **Restored Previous Codebase**:
+    - Reverted all other code back to the previous stable state (removed Spiderman, kept shooting planes removed per earlier instruction, clean hero section with Nintendo Switch console and full responsive composition).
 
 ### `2026-09-30` — Authentic Nintendo Switch Handheld Gaming Console Countdown Timer
 - **Summary**: Transformed the countdown timer block in `components/sections/hero/HeroSection.tsx` into an authentic, highly detailed **Nintendo Switch Handheld Gaming Console**:
