@@ -49,6 +49,15 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Matched Mobile Register Button to Desktop/Windows Among Us Arcade Button
+- **Summary**: Replaced the mobile pink cyberpunk polygon button with the authentic **Among Us Arcade Register Button** matching the desktop ("Windows") navbar design:
+  - **Component (`components/layout/Navbar.tsx`)**:
+    - Replaced `cyber-btn` with `.among-reg-btn.among-reg-btn-mobile`.
+    - Features the authentic Among Us red crewmate SVG character, yellow arcade capsule pill, and fee label: `REGISTER (₹{ABOUT_DATA.registrationFee})`.
+    - Added the tactile `:hover` / `:active` character scale and sliding `"NOW!"` animation.
+  - **Styles (`app/globals.css`)**:
+    - Added `.among-reg-btn-mobile` with proportional height (35px), compact padding (10px), and scaled SVG character (29px) for seamless mobile alignment alongside the brand logo and hamburger toggle.
+
 ### `2026-09-30` — Added Spider-Man Feature & Comic Pop Radio Glider Navbar (Pow! Bam! Zap!)
 - **Summary**: Integrated the pure CSS animated upside-down hanging Spider-Man feature below the Register CTA button alongside the new **Comic Pop Radio Glider** navbar:
   - **Spider-Man Feature (`components/ui/Spiderman.tsx` & `HeroSection.tsx`)**:

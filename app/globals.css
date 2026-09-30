@@ -2299,6 +2299,18 @@ header.sticky {
   transition: all 100ms ease;
 }
 
+.among-reg-btn-mobile {
+  height: 35px !important;
+  padding: 0 10px 0 2px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.5px !important;
+}
+
+.among-reg-btn-mobile svg {
+  width: 29px !important;
+  height: 29px !important;
+}
+
 .among-reg-btn svg {
   transition: all 0.5s ease;
   z-index: 2;
