@@ -1045,6 +1045,11 @@ header.sticky {
 .cyber-btn span {
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
 .cyber-nav-link.active .cyber-btn {
@@ -1096,6 +1101,9 @@ header.sticky {
   letter-spacing: 1.5px;
   font-size: var(--font-size);
   z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .cyber-nav-link:hover .cyber-btn__glitch {

@@ -318,15 +318,18 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
             <Search className="w-4 h-4 text-black absolute right-3 pointer-events-none" />
           </div>
 
-          <div className="grid grid-cols-2 gap-2.5">
-            {navLinks.map((link) => {
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+            {navLinks.map((link, index) => {
               const isActive = activeLink === link.name;
+              const isLastItem = index === navLinks.length - 1;
               return (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.name, true)}
-                  className={`cyber-nav-link relative block select-none ${isActive ? "active" : ""}`}
+                  className={`cyber-nav-link relative block select-none ${isActive ? "active" : ""} ${
+                    isLastItem ? "col-span-2" : ""
+                  }`}
                 >
                   <div className="cyber-btn !w-full">
                     <span>{link.name}</span>
@@ -338,19 +341,6 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
                 </a>
               );
             })}
-          </div>
-
-          <div className="pt-1.5">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                handleRegisterClick();
-              }}
-              className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#ec4899] via-[#8b5cf6] to-[#06b6d4] text-white border-2 border-black font-['Chakra_Petch',sans-serif] font-black text-xs xs:text-sm uppercase tracking-wider shadow-[4px_4px_0px_#000] flex items-center justify-center gap-2 cursor-pointer active:scale-95 transition-all select-none hover:shadow-[0_0_15px_rgba(236,72,153,0.6)]"
-            >
-              <Sparkles className="w-4 h-4 text-yellow-300" />
-              <span>Register for GUSTO 2K26 (₹{ABOUT_DATA.registrationFee})</span>
-            </button>
           </div>
         </div>
       )}

@@ -48,6 +48,12 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Mobile Menu Options Grid Alignment & Bottom Register Button Removal
+- **Summary**: Cleaned up the mobile navigation menu drawer (`components/layout/Navbar.tsx` & `app/globals.css`):
+  - **Grid Symmetry & Centering (`components/layout/Navbar.tsx`)**: Made the 7th item ("CONTACTS") span both columns (`col-span-2`), completing the 4th row cleanly without leaving an empty column on the right.
+  - **Removed Redundant Bottom Button (`components/layout/Navbar.tsx`)**: Removed the bottom full-width "REGISTER FOR GUSTO 2K26 (₹250)" CTA from the drawer to streamline the menu interface, since the top header REGISTER button is already pinned adjacent to the close button.
+  - **Button Text Centering (`app/globals.css`)**: Updated `.cyber-btn span` and `.cyber-btn__glitch` with flex centering, `width: 100%`, `overflow: hidden`, and `white-space: nowrap` so text is geometrically centered inside every cyberpunk polygon.
+
 ### `2026-09-30` — Google Font "Caveat" Integration & Handwritten Retro Sticker Accents
 - **Summary**: Integrated the Google Font "Caveat" (`font-family: 'Caveat', cursive;`) across the site to add handwritten 90s comic and gaming sticker flair:
   - **Font Integration (`app/layout.tsx` & `app/globals.css`)**: Included `family=Caveat:wght@400..700` in head Google Fonts link. Added `--font-caveat` in `@theme inline` and declared `.font-caveat`, `.caveat-handwritten`, and `.caveat-badge` utility classes.
