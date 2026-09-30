@@ -23,6 +23,7 @@ import {
   SoccerFireball,
   RotatingBadge,
   ComicStar,
+  HandwrittenSticker,
 } from "@/components/ui/RetroStickers";
 
 interface HeroSectionProps {
@@ -199,7 +200,11 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
 
             {/* Middle Line: Chunky Gaming Speech Bubble Banner */}
-            <div className="my-2 xs:my-3 sm:my-4 flex justify-center">
+            <div className="my-2 xs:my-3 sm:my-4 flex justify-center relative">
+              {/* Handwritten sticker badge floating on speech bubble */}
+              <div className="absolute -top-5 sm:-top-7 -right-2 sm:-right-6 z-30 pointer-events-none">
+                <HandwrittenSticker text="Click to Jump! ✨" color="#fde047" rotation="rotate-6" className="shadow-[3px_3px_0px_#000] text-sm xs:text-base sm:text-2xl" />
+              </div>
               <div
                 onClick={handleGustoClick}
                 className="relative inline-block px-7 xs:px-10 sm:px-14 md:px-20 py-2.5 xs:py-3.5 sm:py-4 rounded-2xl sm:rounded-3xl border-[3.5px] sm:border-[5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[10px_10px_0px_#000] animate-gusto-float animate-gusto-color cursor-pointer select-none group"
@@ -319,7 +324,10 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
           </div>
 
           {/* Action CTAs in Neo-Brutalist 3D Button Style */}
-          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-2xl px-2">
+          <div className="relative flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-2xl px-2">
+            <div className="w-full flex justify-center -mb-1 z-20">
+              <HandwrittenSticker text="⚡ Limited Slots! ₹250 All-Access Pass" color="#ec4899" textColor="#ffffff" rotation="-rotate-2" className="text-sm xs:text-base sm:text-2xl shadow-[2.5px_2.5px_0px_#000]" />
+            </div>
             <button
               onClick={onOpenRegister}
               className="neo-btn w-full sm:w-auto px-6 sm:px-8 py-4 sm:py-4 rounded-full font-['Chakra_Petch',sans-serif] font-black text-base sm:text-lg text-white bg-[#ec4899] hover:bg-[#db2777] shadow-[4px_4px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"

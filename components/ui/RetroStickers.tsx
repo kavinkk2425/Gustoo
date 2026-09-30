@@ -227,3 +227,27 @@ export function RotatingBadge({ className = "w-28 h-28" }: { className?: string 
     </div>
   );
 }
+
+export function HandwrittenSticker({
+  text = "PLAY NOW!",
+  color = "#fde047",
+  textColor = "#000000",
+  rotation = "-rotate-6",
+  className = "",
+}: {
+  text?: string;
+  color?: string;
+  textColor?: string;
+  rotation?: string;
+  className?: string;
+}) {
+  return (
+    <div
+      style={{ backgroundColor: color, color: textColor }}
+      className={`inline-flex items-center justify-center px-3 py-1 rounded-lg border-2 border-black shadow-[3px_3px_0px_#000] caveat-handwritten text-lg sm:text-2xl font-bold select-none ${rotation} ${className}`}
+    >
+      {text}
+    </div>
+  );
+}
+

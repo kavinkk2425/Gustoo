@@ -61,6 +61,28 @@
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-caveat: "Caveat", cursive;
+}
+
+/* Caveat Google Font Utilities */
+.font-caveat {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+}
+
+.caveat-handwritten {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.caveat-badge {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.04em;
 }
 
 /* --------------------------------------------------------------------------

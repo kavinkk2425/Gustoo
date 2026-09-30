@@ -48,6 +48,12 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Google Font "Caveat" Integration & Handwritten Retro Sticker Accents
+- **Summary**: Integrated the Google Font "Caveat" (`font-family: 'Caveat', cursive;`) across the site to add handwritten 90s comic and gaming sticker flair:
+  - **Font Integration (`app/layout.tsx` & `app/globals.css`)**: Included `family=Caveat:wght@400..700` in head Google Fonts link. Added `--font-caveat` in `@theme inline` and declared `.font-caveat`, `.caveat-handwritten`, and `.caveat-badge` utility classes.
+  - **Handwritten Sticker Component (`components/ui/RetroStickers.tsx`)**: Created the reusable `<HandwrittenSticker />` component with customizable rotations, colors, and 3D neo-brutalist border styling.
+  - **Hero Section Enhancements (`components/sections/hero/HeroSection.tsx`)**: Added playful floating handwritten sticker badges ("Click to Jump! ✨" and "⚡ Limited Slots! ₹250 All-Access Pass") to elevate visual hierarchy and user engagement.
+
 ### `2026-09-30` — Mobile Navigation Drawer Contrast, Colors & Animation Stacking Fix
 - **Summary**: Resolved mobile drawer rendering bug where Cyberpunk button polygon backgrounds were hidden and text appeared floating without contrast against the background:
   - **Stacking Context Fix (`app/globals.css`)**: Added `isolation: isolate` and `z-index: 1` to `.cyber-btn` so that `:before` and `:after` pseudo-elements (clipped polygon backgrounds) are not pushed behind parent container backgrounds. Placed text content at `z-index: 2`, glitch overlay at `z-index: 3`, and badges at `z-index: 4`.
