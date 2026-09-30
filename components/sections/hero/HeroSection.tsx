@@ -388,61 +388,225 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* 2. 4 Quick Stat Cards - Scroll Reveal with Cascading Staggered Delays */}
+            {/* 2. 4 Quick Stat Cards — Retro Arcade Gaming Cartridge Module Design */}
             <div
               ref={statsRef}
               className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 w-full mb-8 sm:mb-12"
             >
-              {/* Card 1: Event Date */}
+              {/* Cartridge 01: Event Date */}
               <div
                 style={{ transitionDelay: statsInView ? "0ms" : "0ms" }}
-                className={`group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between scroll-reveal ${
+                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#fff1f2] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${
                   statsInView ? "is-visible" : ""
                 }`}
               >
-                <Calendar className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-[#ec4899] mb-2 group-hover:scale-110 transition-transform" />
-                <span className="text-xs sm:text-sm font-bold text-zinc-600 uppercase font-mono tracking-wider block mb-1">Event Date</span>
-                <span className="text-base sm:text-xl lg:text-2xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">{ABOUT_DATA.eventDate}</span>
+                {/* Corner Screws */}
+                <span className="absolute top-2 left-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
+                <span className="absolute top-2 right-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
+
+                {/* Top Cartridge Grip Ridges */}
+                <div className="flex justify-center gap-1 sm:gap-1.5 pt-2 pb-1 opacity-25 group-hover:opacity-60 transition-opacity">
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                </div>
+
+                {/* Cartridge Header Bar */}
+                <div className="mx-2 sm:mx-3 mb-2 px-2 sm:px-3 py-1 rounded-lg sm:rounded-xl bg-white border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#ec4899] border border-black animate-pulse shadow-[0_0_6px_#ec4899]" />
+                    <span className="text-[9px] sm:text-[10px] font-mono font-black uppercase text-zinc-900 tracking-wider">
+                      ROM-01
+                    </span>
+                  </div>
+                  <span className="text-[8.5px] sm:text-[9.5px] font-mono font-black bg-pink-100 text-[#ec4899] px-1.5 py-0.5 rounded border border-black/30 uppercase">
+                    DATE
+                  </span>
+                </div>
+
+                {/* Main Content */}
+                <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
+                  <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#fbcfe8] border-2 border-black shadow-[2.5px_2.5px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <Calendar className="w-6 h-6 sm:w-7 sm:h-7 text-[#db2777]" />
+                  </div>
+                  <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-zinc-600 uppercase font-mono tracking-wider block mb-0.5">
+                    Event Date
+                  </span>
+                  <span className="text-sm xs:text-base sm:text-lg lg:text-xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
+                    {ABOUT_DATA.eventDate}
+                  </span>
+                </div>
+
+                {/* Bottom Gold Cartridge Pins */}
+                <div className="pt-1 pb-1.5 px-3 bg-zinc-900 border-t-2 border-black flex justify-center gap-1 sm:gap-1.5">
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                </div>
               </div>
 
-              {/* Card 2: Reg. Last Date */}
+              {/* Cartridge 02: Reg. Last Date */}
               <div
                 style={{ transitionDelay: statsInView ? "120ms" : "0ms" }}
-                className={`group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between scroll-reveal ${
+                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#f5f3ff] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${
                   statsInView ? "is-visible" : ""
                 }`}
               >
-                <Clock className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-[#8b5cf6] mb-2 group-hover:scale-110 transition-transform" />
-                <span className="text-xs sm:text-sm font-bold text-zinc-600 uppercase font-mono tracking-wider block mb-1">Reg. Last Date</span>
-                <span className="text-sm sm:text-base lg:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
-                  {ABOUT_DATA.registrationLastDate}
-                </span>
+                {/* Corner Screws */}
+                <span className="absolute top-2 left-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
+                <span className="absolute top-2 right-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
+
+                {/* Top Cartridge Grip Ridges */}
+                <div className="flex justify-center gap-1 sm:gap-1.5 pt-2 pb-1 opacity-25 group-hover:opacity-60 transition-opacity">
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                </div>
+
+                {/* Cartridge Header Bar */}
+                <div className="mx-2 sm:mx-3 mb-2 px-2 sm:px-3 py-1 rounded-lg sm:rounded-xl bg-white border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#8b5cf6] border border-black animate-pulse shadow-[0_0_6px_#8b5cf6]" />
+                    <span className="text-[9px] sm:text-[10px] font-mono font-black uppercase text-zinc-900 tracking-wider">
+                      ROM-02
+                    </span>
+                  </div>
+                  <span className="text-[8.5px] sm:text-[9.5px] font-mono font-black bg-purple-100 text-[#8b5cf6] px-1.5 py-0.5 rounded border border-black/30 uppercase">
+                    DEADLINE
+                  </span>
+                </div>
+
+                {/* Main Content */}
+                <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
+                  <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#ddd6fe] border-2 border-black shadow-[2.5px_2.5px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <Clock className="w-6 h-6 sm:w-7 sm:h-7 text-[#7c3aed]" />
+                  </div>
+                  <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-zinc-600 uppercase font-mono tracking-wider block mb-0.5">
+                    Reg. Last Date
+                  </span>
+                  <span className="text-xs sm:text-sm lg:text-base font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
+                    {ABOUT_DATA.registrationLastDate}
+                  </span>
+                </div>
+
+                {/* Bottom Gold Cartridge Pins */}
+                <div className="pt-1 pb-1.5 px-3 bg-zinc-900 border-t-2 border-black flex justify-center gap-1 sm:gap-1.5">
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                </div>
               </div>
 
-              {/* Card 3: Competitions */}
+              {/* Cartridge 03: Competitions */}
               <div
                 style={{ transitionDelay: statsInView ? "240ms" : "0ms" }}
-                className={`group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between scroll-reveal ${
+                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#fffbeb] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${
                   statsInView ? "is-visible" : ""
                 }`}
               >
-                <Trophy className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-[#f59e0b] mb-2 group-hover:scale-110 transition-transform" />
-                <span className="text-xs sm:text-sm font-bold text-zinc-600 uppercase font-mono tracking-wider block mb-1">Competitions</span>
-                <span className="text-base sm:text-xl lg:text-2xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
-                  {GUSTO_EVENTS?.length || 9} Total Events
-                </span>
+                {/* Corner Screws */}
+                <span className="absolute top-2 left-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
+                <span className="absolute top-2 right-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
+
+                {/* Top Cartridge Grip Ridges */}
+                <div className="flex justify-center gap-1 sm:gap-1.5 pt-2 pb-1 opacity-25 group-hover:opacity-60 transition-opacity">
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                </div>
+
+                {/* Cartridge Header Bar */}
+                <div className="mx-2 sm:mx-3 mb-2 px-2 sm:px-3 py-1 rounded-lg sm:rounded-xl bg-white border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#f59e0b] border border-black animate-pulse shadow-[0_0_6px_#f59e0b]" />
+                    <span className="text-[9px] sm:text-[10px] font-mono font-black uppercase text-zinc-900 tracking-wider">
+                      ROM-03
+                    </span>
+                  </div>
+                  <span className="text-[8.5px] sm:text-[9.5px] font-mono font-black bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded border border-black/30 uppercase">
+                    ARENA
+                  </span>
+                </div>
+
+                {/* Main Content */}
+                <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
+                  <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#fef08a] border-2 border-black shadow-[2.5px_2.5px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <Trophy className="w-6 h-6 sm:w-7 sm:h-7 text-[#b45309]" />
+                  </div>
+                  <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-zinc-600 uppercase font-mono tracking-wider block mb-0.5">
+                    Competitions
+                  </span>
+                  <span className="text-sm xs:text-base sm:text-lg lg:text-xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
+                    {GUSTO_EVENTS?.length || 9} Total Events
+                  </span>
+                </div>
+
+                {/* Bottom Gold Cartridge Pins */}
+                <div className="pt-1 pb-1.5 px-3 bg-zinc-900 border-t-2 border-black flex justify-center gap-1 sm:gap-1.5">
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                </div>
               </div>
 
-              {/* Card 4: Campus Venue */}
+              {/* Cartridge 04: Campus Venue */}
               <div
                 style={{ transitionDelay: statsInView ? "360ms" : "0ms" }}
-                className={`group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between scroll-reveal ${
+                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#f0fdf4] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${
                   statsInView ? "is-visible" : ""
                 }`}
               >
-                <MapPin className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-[#10b981] mb-2 group-hover:scale-110 transition-transform" />
-                <span className="text-xs sm:text-sm font-bold text-zinc-600 uppercase font-mono tracking-wider block mb-1">Campus Venue</span>
-                <span className="text-base sm:text-xl lg:text-2xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">GCEE, Erode</span>
+                {/* Corner Screws */}
+                <span className="absolute top-2 left-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
+                <span className="absolute top-2 right-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
+
+                {/* Top Cartridge Grip Ridges */}
+                <div className="flex justify-center gap-1 sm:gap-1.5 pt-2 pb-1 opacity-25 group-hover:opacity-60 transition-opacity">
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                  <div className="w-5 sm:w-6 h-1 rounded-full bg-black" />
+                </div>
+
+                {/* Cartridge Header Bar */}
+                <div className="mx-2 sm:mx-3 mb-2 px-2 sm:px-3 py-1 rounded-lg sm:rounded-xl bg-white border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#10b981] border border-black animate-pulse shadow-[0_0_6px_#10b981]" />
+                    <span className="text-[9px] sm:text-[10px] font-mono font-black uppercase text-zinc-900 tracking-wider">
+                      ROM-04
+                    </span>
+                  </div>
+                  <span className="text-[8.5px] sm:text-[9.5px] font-mono font-black bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded border border-black/30 uppercase">
+                    MAP
+                  </span>
+                </div>
+
+                {/* Main Content */}
+                <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
+                  <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#a7f3d0] border-2 border-black shadow-[2.5px_2.5px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <MapPin className="w-6 h-6 sm:w-7 sm:h-7 text-[#059669]" />
+                  </div>
+                  <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-zinc-600 uppercase font-mono tracking-wider block mb-0.5">
+                    Campus Venue
+                  </span>
+                  <span className="text-sm xs:text-base sm:text-lg lg:text-xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
+                    GCEE, Erode
+                  </span>
+                </div>
+
+                {/* Bottom Gold Cartridge Pins */}
+                <div className="pt-1 pb-1.5 px-3 bg-zinc-900 border-t-2 border-black flex justify-center gap-1 sm:gap-1.5">
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                  <span className="w-2 sm:w-2.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-b-xs border-[0.5px] border-black/40 shadow-inner" />
+                </div>
               </div>
             </div>
 

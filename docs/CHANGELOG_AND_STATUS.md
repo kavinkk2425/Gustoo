@@ -48,6 +48,17 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Retro Arcade Gaming Cartridge Module Design for Quick Stat Boxes
+- **Summary**: Transformed the 4 symposium stat boxes from plain white rectangles into authentic retro arcade gaming cartridge / memory card modules (`components/sections/hero/HeroSection.tsx`):
+  - **Tactile Cartridge Grip Ridges & Corner Screws**: Added 3 top tactile grip slots and hardware rivet screws (`✚`) to every cartridge.
+  - **Arcade Header Bars with Live Status LEDs**: Designed mini ROM header ribbons (`ROM-01 DATE`, `ROM-02 DEADLINE`, `ROM-03 ARENA`, `ROM-04 MAP`) with pulsing colored status LED diodes.
+  - **Thematic Retro Color Shells & Holographic Badges**:
+    - **ROM-01 (Event Date)**: Retro rose chassis (`#fff1f2`) with glowing pink icon badge and calendar icon.
+    - **ROM-02 (Reg. Last Date)**: Cyber lilac chassis (`#f5f3ff`) with purple clock badge.
+    - **ROM-03 (Competitions)**: Retro gold chassis (`#fffbeb`) with amber trophy badge.
+    - **ROM-04 (Campus Venue)**: Matrix emerald chassis (`#f0fdf4`) with green map pin badge.
+  - **Gold PCB Edge-Connector Pins**: Integrated authentic metallic gold cartridge contact pins across the bottom edge of all 4 boxes.
+
 ### `2026-09-30` — Cascading Scroll Reveal View Animations for Symposium Section
 - **Summary**: Implemented smooth, staggered scroll reveal view animations as the user scrolls down, revealing each row and element sequentially with GPU-accelerated spring transitions (`components/sections/hero/HeroSection.tsx` & `app/globals.css`):
   - **Cascading Scroll Reveal Hook (`components/sections/hero/HeroSection.tsx`)**: Created lightweight `useInView` observers bound to individual elements with 0.12 threshold for instant, natural viewport triggering.
