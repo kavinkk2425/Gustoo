@@ -357,6 +357,43 @@ button, a, input, select, textarea {
   animation: purpleLetterJump 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
+/* Individual Letter Click Wave Bounce — Lime Green GUSTO '26 */
+@keyframes limeLetterJump {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    color: #84cc16;
+    text-shadow: 4px 4px 0px #000;
+  }
+
+  25% {
+    transform: translateY(-24px) rotate(-8deg) scale(1.2);
+    color: #bef264;
+    text-shadow: 0 0 18px rgba(190, 242, 100, 0.9), 5px 5px 0px #000;
+  }
+
+  50% {
+    transform: translateY(5px) rotate(5deg) scale(0.93);
+    color: #65a30d;
+    text-shadow: 4px 4px 0px #000;
+  }
+
+  75% {
+    transform: translateY(-8px) rotate(-3deg) scale(1.08);
+    color: #a3e635;
+    text-shadow: 4px 4px 0px #000, 0 0 12px rgba(163, 230, 53, 0.6);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    color: #84cc16;
+    text-shadow: 4px 4px 0px #000;
+  }
+}
+
+.animate-lime-jump {
+  animation: limeLetterJump 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
 /* ==========================================================================
    TICKER / MOVING TEXT MARQUEE ANIMATION — Continuous Arcade Banner Scroll
    ========================================================================== */

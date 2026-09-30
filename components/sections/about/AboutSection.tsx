@@ -1,20 +1,110 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ABOUT_DATA } from "@/src/data/about";
 import { CheckCircle2, MapPin, Award, Sparkles, Building2, Flame } from "lucide-react";
+import { HandwrittenSticker } from "@/components/ui/RetroStickers";
+import { arcadeAudio } from "@/src/lib/arcadeAudio";
 
 export function AboutSection() {
+  const [letterAnimationKey, setLetterAnimationKey] = useState(0);
+  const [isJumping, setIsJumping] = useState(false);
+
+  const triggerJump = () => {
+    setLetterAnimationKey((prev) => prev + 1);
+    setIsJumping(true);
+    arcadeAudio.playJump();
+  };
+
+  useEffect(() => {
+    if (isJumping) {
+      const timer = setTimeout(() => {
+        setIsJumping(false);
+      }, 950);
+      return () => clearTimeout(timer);
+    }
+  }, [isJumping, letterAnimationKey]);
+
   return (
     <section id="about" className="py-14 sm:py-20 bg-[#fffbeb] text-black relative border-b-[4px] border-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 relative select-none">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] text-xs font-black uppercase tracking-wider mb-3">
             <Sparkles className="w-4 h-4 text-[#ec4899]" />
             <span>Legacy & Heritage</span>
           </div>
-          <h2 className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000]">
-            About <span className="text-[#84cc16] [-webkit-text-stroke:2px_#000]">GUSTO &apos;26</span>
-          </h2>
+
+          {/* Interactive Title with Letter-by-Letter Wave Bounce */}
+          <div className="relative inline-block my-1">
+            {/* Click to Jump hint sticker */}
+            <div
+              onClick={triggerJump}
+              className="absolute -top-5 sm:-top-7 -right-3 sm:-right-8 z-20 cursor-pointer hidden xs:block"
+              title="Click to see the letters jump!"
+            >
+              <HandwrittenSticker
+                text="Click to Jump! ✨"
+                color="#facc15"
+                textColor="#000000"
+                rotation="rotate-6"
+                className="text-xs sm:text-sm shadow-[2px_2px_0px_#000]"
+              />
+            </div>
+
+            <h2
+              onClick={triggerJump}
+              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer inline-flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group"
+              title="Click to see the letters jump!"
+            >
+              {/* "About" with interactive letter wave */}
+              <span className="inline-flex">
+                {["A", "b", "o", "u", "t"].map((letter, idx) => (
+                  <span
+                    key={`about-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${idx * 55}ms` }}
+                    className={`inline-block text-[#3b0764] ${
+                      isJumping ? "animate-purple-jump" : ""
+                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </span>
+
+              {/* "GUSTO" with interactive neon lime wave */}
+              <span className="inline-flex">
+                {["G", "U", "S", "T", "O"].map((letter, idx) => (
+                  <span
+                    key={`gusto-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${(idx + 5) * 55}ms` }}
+                    className={`inline-block text-[#84cc16] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:2.5px_#000] drop-shadow-[2px_2px_0px_#000] ${
+                      isJumping ? "animate-lime-jump" : ""
+                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </span>
+
+              {/* "'26" with interactive neon wave */}
+              <span className="inline-flex">
+                {["'", "2", "6"].map((letter, idx) => (
+                  <span
+                    key={`year-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${(idx + 10) * 55}ms` }}
+                    className={`inline-block text-[#84cc16] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:2.5px_#000] drop-shadow-[2px_2px_0px_#000] ${
+                      isJumping ? "animate-lime-jump" : ""
+                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </span>
+            </h2>
+          </div>
+
           <p className="text-xs sm:text-base font-bold text-zinc-800 leading-relaxed">
             {ABOUT_DATA.institution} • {ABOUT_DATA.department}
           </p>
@@ -65,7 +155,11 @@ export function AboutSection() {
                   </div>
 
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-mono">
+                    <h3
+                      onClick={triggerJump}
+                      className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-mono cursor-pointer hover:text-[#84cc16] transition-colors select-none"
+                      title="Click to jump!"
+                    >
                       {ABOUT_DATA.symposiumName}
                     </h3>
                     <p className="text-[10px] sm:text-xs font-black text-[#ec4899] uppercase tracking-wider">

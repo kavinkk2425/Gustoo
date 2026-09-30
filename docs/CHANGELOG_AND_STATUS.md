@@ -48,6 +48,12 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Interactive Letter-by-Letter Wave Jump on "About GUSTO '26" Title
+- **Summary**: Implemented the interactive click-to-jump physics wave across the "About GUSTO '26" section heading and Cartridge 01 (`components/sections/about/AboutSection.tsx` & `app/globals.css`):
+  - **Cascading Letter Spans (`components/sections/about/AboutSection.tsx`)**: Decomposed "About" (`A`, `b`, `o`, `u`, `t`), "GUSTO" (`G`, `U`, `S`, `T`, `O`), and "'26" (`'`, `2`, `6`) into individual animated interactive letter elements with staggered spring animation delays.
+  - **Neon Lime Jump Animation (`app/globals.css`)**: Added `@keyframes limeLetterJump` and `.animate-lime-jump` ensuring the green letters bounce with glowing neon lime sparkle and settle cleanly into `#84cc16` without turning black or losing styling.
+  - **Arcade Audio & Sticker Feedback (`components/sections/about/AboutSection.tsx`)**: Synthesized 8-bit jump sound effect via `arcadeAudio.playJump()` and added an interactive "Click to Jump! ✨" sticker badge.
+
 ### `2026-09-30` — Proportional Page-Fit Expansion & Size Enlargement for Symposium Section
 - **Summary**: Scaled up the dimensions, typography, and layout of the symposium components to fill the page container comfortably and eliminate cramped text/truncation (`components/sections/hero/HeroSection.tsx`):
   - **Expanded Container Width (`components/sections/hero/HeroSection.tsx`)**: Upgraded container from `max-w-4xl` to `max-w-6xl`, matching the scale of the Behance hero title above it.
