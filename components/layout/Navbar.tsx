@@ -327,15 +327,12 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.name, true)}
-                  className={`cyber-nav-link relative block select-none ${isActive ? "active" : ""} ${
+                  className={`cyber-nav-link !h-11 relative block select-none ${isActive ? "active" : ""} ${
                     isLastItem ? "col-span-2" : ""
                   }`}
                 >
-                  <div className="cyber-btn !w-full">
-                    <span>{link.name}</span>
-                    <span className="cyber-btn__glitch" aria-hidden="true">
-                      _{link.name}_
-                    </span>
+                  <div className="cyber-btn !w-full !h-11 !px-3.5 !text-xs xs:!text-sm font-black flex items-center justify-center">
+                    <span className="truncate whitespace-nowrap text-center font-black tracking-wider">{link.name}</span>
                     <label className="cyber-number">{link.tag}</label>
                   </div>
                 </a>

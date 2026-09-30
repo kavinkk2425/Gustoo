@@ -48,6 +48,12 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Mobile Menu Button Size Optimization, No-Wrap Fix & Glitch Clean-Up
+- **Summary**: Addressed button text wrapping (`ALL EVENTS` breaking onto 2 lines) and yellow glitch text overlap (`_RULES_`, `_ABOUT_` obscuring labels):
+  - **Single-Line Text Enforcement (`app/globals.css`)**: Added `white-space: nowrap; word-break: keep-all; overflow: hidden; text-overflow: ellipsis;` on `.cyber-btn` and `.cyber-btn span` to prevent two-line text wrapping inside polygon shapes.
+  - **Glitch Overlay Clean-Up (`app/globals.css` & `Navbar.tsx`)**: Disabled static active glitch overlays on mobile drawer buttons (`cyber-btn__glitch`), leaving crisp, high-contrast, perfectly legible white typography.
+  - **Button Height & Size Calibration (`components/layout/Navbar.tsx`)**: Set mobile drawer buttons to `!h-11 !px-3.5 !text-xs xs:!text-sm font-black` for generous touch targets and crisp layout across all mobile viewports.
+
 ### `2026-09-30` — Mobile Menu Options Grid Alignment & Bottom Register Button Removal
 - **Summary**: Cleaned up the mobile navigation menu drawer (`components/layout/Navbar.tsx` & `app/globals.css`):
   - **Grid Symmetry & Centering (`components/layout/Navbar.tsx`)**: Made the 7th item ("CONTACTS") span both columns (`col-span-2`), completing the 4th row cleanly without leaving an empty column on the right.

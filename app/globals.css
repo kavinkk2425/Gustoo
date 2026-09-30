@@ -1037,6 +1037,8 @@ header.sticky {
   padding: 0 16px;
   user-select: none;
   cursor: pointer;
+  white-space: nowrap;
+  word-break: keep-all;
   box-sizing: border-box;
   isolation: isolate;
   z-index: 1;
@@ -1045,15 +1047,16 @@ header.sticky {
 .cyber-btn span {
   position: relative;
   z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .cyber-nav-link.active .cyber-btn {
-  --primary: #7e22ce;
+  --primary: #9333ea;
   --shadow-primary: #00e572;
 }
 
@@ -1110,13 +1113,6 @@ header.sticky {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.cyber-nav-link.active .cyber-btn__glitch {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: cyberGlitch 4s infinite;
 }
 
 .cyber-btn__glitch:before {
