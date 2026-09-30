@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ABOUT_DATA } from "@/src/data/about";
 import { GUSTO_EVENTS } from "@/src/data/events";
@@ -30,8 +30,37 @@ interface HeroSectionProps {
   onOpenRegister?: () => void;
 }
 
+// Lightweight, performant IntersectionObserver hook for cascading scroll reveals
+function useInView(options = { threshold: 0.12 }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsInView(true);
+        observer.unobserve(el);
+      }
+    }, options);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, isInView] as const;
+}
+
 export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   const targetDate = new Date("2026-03-06T09:00:00+05:30").getTime();
+
+  // Scroll reveal observers for cascading view animation
+  const [marqueeRef, marqueeInView] = useInView({ threshold: 0.1 });
+  const [statsRef, statsInView] = useInView({ threshold: 0.1 });
+  const [timerRef, timerInView] = useInView({ threshold: 0.1 });
+  const [ctaRef, ctaInView] = useInView({ threshold: 0.1 });
+  const [badgesRef, badgesInView] = useInView({ threshold: 0.1 });
+  const [bottomTickerRef, bottomTickerInView] = useInView({ threshold: 0.1 });
 
   const [letterAnimationKey, setLetterAnimationKey] = useState(0);
   const [isJumping, setIsJumping] = useState(false);
@@ -312,10 +341,15 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* === NATIONAL LEVEL TECHNICAL SYMPOSIUM BRIEFING (EXPANDED TO FIT PAGE PROPORTIONATELY) === */}
+          {/* === NATIONAL LEVEL TECHNICAL SYMPOSIUM BRIEFING (EXPANDED TO FIT PAGE PROPORTIONATELY WITH SCROLL REVEAL) === */}
           <div className="w-full max-w-6xl mx-auto mt-6 sm:mt-12 px-2 sm:px-4 relative z-20">
-            {/* Top Continuous Moving Text Marquee Capsule - Enlarged & fits seamlessly with background */}
-            <div className="w-full max-w-5xl mx-auto mb-8 sm:mb-10 rounded-full bg-white border-[3px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] py-3 sm:py-4 px-6 sm:px-8 overflow-hidden select-none hover:shadow-[10px_10px_0px_#000] hover:-translate-y-0.5 transition-all">
+            {/* 1. Top Continuous Moving Text Marquee Capsule - Scroll Reveal */}
+            <div
+              ref={marqueeRef}
+              className={`w-full max-w-5xl mx-auto mb-8 sm:mb-10 rounded-full bg-white border-[3px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] py-3 sm:py-4 px-6 sm:px-8 overflow-hidden select-none hover:shadow-[10px_10px_0px_#000] hover:-translate-y-0.5 transition-all duration-300 scroll-reveal ${
+                marqueeInView ? "is-visible" : ""
+              }`}
+            >
               <div className="flex w-max animate-marquee">
                 <span className="font-['Chakra_Petch',sans-serif] font-black text-sm sm:text-lg md:text-xl text-[#3b0764] tracking-wider uppercase flex items-center gap-5 sm:gap-6 pr-8">
                   <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500 inline shrink-0 animate-spin [animation-duration:4s]" />
@@ -354,36 +388,71 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* 4 Quick Stat Cards with 3D Neo-Brutalist Arcade Pop directly on yellow background (Expanded) */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 w-full mb-8 sm:mb-12">
-              <div className="group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between">
+            {/* 2. 4 Quick Stat Cards - Scroll Reveal with Cascading Staggered Delays */}
+            <div
+              ref={statsRef}
+              className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 w-full mb-8 sm:mb-12"
+            >
+              {/* Card 1: Event Date */}
+              <div
+                style={{ transitionDelay: statsInView ? "0ms" : "0ms" }}
+                className={`group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between scroll-reveal ${
+                  statsInView ? "is-visible" : ""
+                }`}
+              >
                 <Calendar className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-[#ec4899] mb-2 group-hover:scale-110 transition-transform" />
                 <span className="text-xs sm:text-sm font-bold text-zinc-600 uppercase font-mono tracking-wider block mb-1">Event Date</span>
                 <span className="text-base sm:text-xl lg:text-2xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">{ABOUT_DATA.eventDate}</span>
               </div>
-              <div className="group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between">
+
+              {/* Card 2: Reg. Last Date */}
+              <div
+                style={{ transitionDelay: statsInView ? "120ms" : "0ms" }}
+                className={`group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between scroll-reveal ${
+                  statsInView ? "is-visible" : ""
+                }`}
+              >
                 <Clock className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-[#8b5cf6] mb-2 group-hover:scale-110 transition-transform" />
                 <span className="text-xs sm:text-sm font-bold text-zinc-600 uppercase font-mono tracking-wider block mb-1">Reg. Last Date</span>
                 <span className="text-sm sm:text-base lg:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
                   {ABOUT_DATA.registrationLastDate}
                 </span>
               </div>
-              <div className="group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between">
+
+              {/* Card 3: Competitions */}
+              <div
+                style={{ transitionDelay: statsInView ? "240ms" : "0ms" }}
+                className={`group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between scroll-reveal ${
+                  statsInView ? "is-visible" : ""
+                }`}
+              >
                 <Trophy className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-[#f59e0b] mb-2 group-hover:scale-110 transition-transform" />
                 <span className="text-xs sm:text-sm font-bold text-zinc-600 uppercase font-mono tracking-wider block mb-1">Competitions</span>
                 <span className="text-base sm:text-xl lg:text-2xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
                   {GUSTO_EVENTS?.length || 9} Total Events
                 </span>
               </div>
-              <div className="group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between">
+
+              {/* Card 4: Campus Venue */}
+              <div
+                style={{ transitionDelay: statsInView ? "360ms" : "0ms" }}
+                className={`group p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] hover:shadow-[9px_9px_0px_#000] hover:-translate-y-1.5 transition-all duration-200 text-center flex flex-col justify-between scroll-reveal ${
+                  statsInView ? "is-visible" : ""
+                }`}
+              >
                 <MapPin className="w-6 h-6 sm:w-8 sm:h-8 mx-auto text-[#10b981] mb-2 group-hover:scale-110 transition-transform" />
                 <span className="text-xs sm:text-sm font-bold text-zinc-600 uppercase font-mono tracking-wider block mb-1">Campus Venue</span>
                 <span className="text-base sm:text-xl lg:text-2xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">GCEE, Erode</span>
               </div>
             </div>
 
-            {/* Retro Arcade Countdown Timer directly on yellow background (Expanded) */}
-            <div className="w-full max-w-3xl mx-auto p-5 sm:p-8 rounded-3xl sm:rounded-[36px] bg-[#2d0852] border-[3.5px] sm:border-[5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[10px_10px_0px_#000] mb-8 sm:mb-12 select-none">
+            {/* 3. Retro Arcade Countdown Timer - Scroll Reveal */}
+            <div
+              ref={timerRef}
+              className={`w-full max-w-3xl mx-auto p-5 sm:p-8 rounded-3xl sm:rounded-[36px] bg-[#2d0852] border-[3.5px] sm:border-[5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[10px_10px_0px_#000] mb-8 sm:mb-12 select-none scroll-reveal ${
+                timerInView ? "is-visible" : ""
+              }`}
+            >
               <div className="flex items-center justify-between mb-3 sm:mb-4 px-1 sm:px-2">
                 <span className="text-sm sm:text-base font-['Chakra_Petch',sans-serif] font-black uppercase tracking-widest text-[#fde047] flex items-center gap-2">
                   <span className="inline-block animate-pulse">★</span>
@@ -420,8 +489,13 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Action CTAs in Neo-Brutalist 3D Button Style (Expanded) */}
-            <div className="relative flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3.5 sm:gap-5 w-full max-w-3xl mx-auto px-2">
+            {/* 4. Action CTAs - Scroll Reveal */}
+            <div
+              ref={ctaRef}
+              className={`relative flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3.5 sm:gap-5 w-full max-w-3xl mx-auto px-2 scroll-reveal ${
+                ctaInView ? "is-visible" : ""
+              }`}
+            >
               <div className="w-full flex justify-center -mb-1 z-20">
                 <HandwrittenSticker text="⚡ Limited Slots! ₹250 All-Access Pass" color="#ec4899" textColor="#ffffff" rotation="-rotate-2" className="text-base sm:text-2xl lg:text-3xl shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] py-1.5 px-4 sm:px-6" />
               </div>
@@ -460,24 +534,47 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Trust Badges (Expanded) */}
-            <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs sm:text-sm font-black text-black w-full max-w-4xl mx-auto">
-              <div className="flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-transform">
+            {/* 5. Trust Badges - Scroll Reveal with Staggered Delays */}
+            <div
+              ref={badgesRef}
+              className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs sm:text-sm font-black text-black w-full max-w-4xl mx-auto"
+            >
+              <div
+                style={{ transitionDelay: badgesInView ? "0ms" : "0ms" }}
+                className={`flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-all scroll-reveal ${
+                  badgesInView ? "is-visible" : ""
+                }`}
+              >
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0" />
                 <span>Official GUSTO Registration</span>
               </div>
-              <div className="flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-transform">
+              <div
+                style={{ transitionDelay: badgesInView ? "120ms" : "0ms" }}
+                className={`flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-all scroll-reveal ${
+                  badgesInView ? "is-visible" : ""
+                }`}
+              >
                 <Bus className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-600 shrink-0" />
                 <span>Buses from Erode, Chithode &amp; Bhavani</span>
               </div>
-              <div className="flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-transform">
+              <div
+                style={{ transitionDelay: badgesInView ? "240ms" : "0ms" }}
+                className={`flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] w-full sm:w-auto text-center hover:scale-105 transition-all scroll-reveal ${
+                  badgesInView ? "is-visible" : ""
+                }`}
+              >
                 <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 shrink-0" />
                 <span>Cash Prizes &amp; Certificates</span>
               </div>
             </div>
 
-            {/* Bottom Moving Text Ticker Strip - Fits seamlessly on yellow background (Expanded) */}
-            <div className="mt-8 sm:mt-10 w-full max-w-4xl mx-auto rounded-full bg-white/95 border-[2.5px] sm:border-[3.5px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] py-2 sm:py-3 px-6 overflow-hidden select-none hover:shadow-[8px_8px_0px_#000] transition-all">
+            {/* 6. Bottom Moving Text Ticker Strip - Scroll Reveal */}
+            <div
+              ref={bottomTickerRef}
+              className={`mt-8 sm:mt-10 w-full max-w-4xl mx-auto rounded-full bg-white/95 border-[2.5px] sm:border-[3.5px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] py-2 sm:py-3 px-6 overflow-hidden select-none hover:shadow-[8px_8px_0px_#000] transition-all scroll-reveal ${
+                bottomTickerInView ? "is-visible" : ""
+              }`}
+            >
               <div className="flex w-max animate-marquee-fast">
                 <span className="font-mono text-xs sm:text-sm md:text-base font-extrabold text-[#3b0764] tracking-widest uppercase flex items-center gap-5 sm:gap-6 pr-6">
                   <span>⚡ CASH PRIZES &amp; CERTIFICATES FOR ALL WINNERS</span>

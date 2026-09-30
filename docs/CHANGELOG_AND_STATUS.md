@@ -48,6 +48,23 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Cascading Scroll Reveal View Animations for Symposium Section
+- **Summary**: Implemented smooth, staggered scroll reveal view animations as the user scrolls down, revealing each row and element sequentially with GPU-accelerated spring transitions (`components/sections/hero/HeroSection.tsx` & `app/globals.css`):
+  - **Cascading Scroll Reveal Hook (`components/sections/hero/HeroSection.tsx`)**: Created lightweight `useInView` observers bound to individual elements with 0.12 threshold for instant, natural viewport triggering.
+  - **Staggered One-by-One Reveals (`components/sections/hero/HeroSection.tsx`)**:
+    - Top moving text marquee capsule smoothly glides up into place.
+    - 4 stat cards reveal one by one in sequence (Card 1 at 0ms, Card 2 at 120ms, Card 3 at 240ms, Card 4 at 360ms).
+    - Retro arcade countdown timer slides into place with high-impact neo-brutalist pop.
+    - Action CTAs, registration buttons, and badges reveal smoothly with staggered delays.
+    - Bottom marquee ticker glides in at the base.
+  - **GPU-Accelerated Scroll Physics (`app/globals.css`)**: Built `.scroll-reveal` with `cubic-bezier(0.16, 1, 0.3, 1)` and `translate3d` hardware acceleration for buttery smooth 60fps scrolling.
+
+### `2026-09-30` — Complete Disabling of Click Sound Audio Across Entire Site
+- **Summary**: Removed synthesized click audio feedback site-wide per user preference for silent interactions (`components/layout/Navbar.tsx`, `components/sections/about/AboutSection.tsx`, & `src/lib/arcadeAudio.ts`):
+  - **Navbar Click Sound Silenced (`components/layout/Navbar.tsx`)**: Replaced `playRetroClick()` with a silent no-op, disabling audio clicks across navigation links, logo buttons, and action triggers.
+  - **AboutSection Click Audio Removed (`components/sections/about/AboutSection.tsx`)**: Removed `arcadeAudio.playJump()` call from the title letter jump handler.
+  - **Audio Engine Default Muted (`src/lib/arcadeAudio.ts`)**: Initialized `isMuted` to `true` by default, ensuring all click interactions remain 100% silent.
+
 ### `2026-09-30` — Interactive Letter-by-Letter Wave Jump on "About GUSTO '26" Title
 - **Summary**: Implemented the interactive click-to-jump physics wave across the "About GUSTO '26" section heading and Cartridge 01 (`components/sections/about/AboutSection.tsx` & `app/globals.css`):
   - **Cascading Letter Spans (`components/sections/about/AboutSection.tsx`)**: Decomposed "About" (`A`, `b`, `o`, `u`, `t`), "GUSTO" (`G`, `U`, `S`, `T`, `O`), and "'26" (`'`, `2`, `6`) into individual animated interactive letter elements with staggered spring animation delays.

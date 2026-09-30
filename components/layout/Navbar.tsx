@@ -10,49 +10,9 @@ interface NavbarProps {
   onSearchChange?: (query: string) => void;
 }
 
-// Gentle 8-bit web audio synth feedback for authentic retro arcade tactile feel
-function playRetroClick(type: "nav" | "action" | "logo" = "nav") {
-  if (typeof window === "undefined") return;
-  try {
-    const AudioContextClass =
-      window.AudioContext ||
-      (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-    if (!AudioContextClass) return;
-    const ctx = new AudioContextClass();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    const now = ctx.currentTime;
-    if (type === "logo") {
-      osc.type = "triangle";
-      osc.frequency.setValueAtTime(340, now);
-      osc.frequency.exponentialRampToValueAtTime(680, now + 0.08);
-      gain.gain.setValueAtTime(0.05, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
-      osc.start(now);
-      osc.stop(now + 0.08);
-    } else if (type === "action") {
-      osc.type = "square";
-      osc.frequency.setValueAtTime(587.33, now); // D5
-      osc.frequency.setValueAtTime(880, now + 0.04); // A5
-      gain.gain.setValueAtTime(0.05, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
-      osc.start(now);
-      osc.stop(now + 0.1);
-    } else {
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(540, now);
-      osc.frequency.exponentialRampToValueAtTime(820, now + 0.05);
-      gain.gain.setValueAtTime(0.04, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
-      osc.start(now);
-      osc.stop(now + 0.05);
-    }
-  } catch {
-    // Audio silently disabled if browser restricts AudioContext
-  }
+// Click sound feedback disabled per user preference (silent interactions)
+function playRetroClick(_type: "nav" | "action" | "logo" = "nav") {
+  // Silent - sound disabled
 }
 
 export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {

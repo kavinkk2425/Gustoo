@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ABOUT_DATA } from "@/src/data/about";
 import { CheckCircle2, MapPin, Award, Sparkles, Building2, Flame } from "lucide-react";
 import { HandwrittenSticker } from "@/components/ui/RetroStickers";
-import { arcadeAudio } from "@/src/lib/arcadeAudio";
 
 export function AboutSection() {
   const [letterAnimationKey, setLetterAnimationKey] = useState(0);
@@ -14,7 +13,6 @@ export function AboutSection() {
   const triggerJump = () => {
     setLetterAnimationKey((prev) => prev + 1);
     setIsJumping(true);
-    arcadeAudio.playJump();
   };
 
   useEffect(() => {

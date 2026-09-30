@@ -5,12 +5,12 @@
 
 class ArcadeAudioEngine {
   private ctx: AudioContext | null = null;
-  private isMuted: boolean = false;
+  private isMuted: boolean = true;
 
   constructor() {
     if (typeof window !== "undefined") {
       const storedMute = localStorage.getItem("gusto_arcade_muted");
-      this.isMuted = storedMute === "true";
+      this.isMuted = storedMute !== "false"; // Default to silent
     }
   }
 

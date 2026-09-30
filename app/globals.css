@@ -426,6 +426,33 @@ button, a, input, select, textarea {
 }
 
 /* ==========================================================================
+   SCROLL REVEAL ANIMATIONS — Smooth View Cascading Entrance
+   ========================================================================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0) scale(0.96);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0) scale(0.92);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-scale.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ==========================================================================
    BACKGROUND OBJECT ANIMATIONS — GUSTO '26 Animated Environment
    ========================================================================== */
 
