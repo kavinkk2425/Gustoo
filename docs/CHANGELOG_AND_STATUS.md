@@ -48,6 +48,13 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Animated Mission Briefing Terminal Section with ScrollReveal
+- **Summary**: Replaced raw floating statistics with a dedicated, high-impact gaming chassis called the **Arcade Mission Briefing Terminal** (`components/sections/hero/HeroSection.tsx`):
+  - **Scroll-Driven Entrance Animation (`ScrollReveal`)**: Encapsulated the "National Level Technical Symposium" information in a `ScrollReveal` container (`variant="rise-up"`, duration 700ms) that smoothly rises into place with spring physics as the user scrolls.
+  - **Arcade Terminal Chassis**: Wrapped the content in a deep royal purple gradient console with 4-corner arcade screws (`+`), top telemetry status diode bar (`SYSTEM // ONLINE • GUSTO-PROTOCOL 2K26 • LEVEL 01`), and an ambient circuit grid overlay.
+  - **Holographic Symposium Header**: Re-imagined the header as a pulsing, glowing neon pill with rotating sparkle stars and `Chakra Petch` typography.
+  - **Interactive Micro-Animations**: Added 3D tilt hover to the 4 stat cards, guaranteed non-zero competitions count (`GUSTO_EVENTS?.length || 9`), high-voltage neon timer box, and hover-scaled trust badges.
+
 ### `2026-09-30` — Interactive Wave Jumping Across All Hero Letters ("Let", "The", "Begin") & Color Fix
 - **Summary**: Extended the interactive click-to-jump physics wave across the entire "Let The Gusto Begin" hero typography and resolved the post-click black text coloring bug (`components/sections/hero/HeroSection.tsx` & `app/globals.css`):
   - **Full-Title Interactive Letter Spans (`components/sections/hero/HeroSection.tsx`)**: Decomposed "Let" (`L`, `e`, `t`), "The" (`T`, `h`, `e`), and "Begin" (`B`, `e`, `g`, `i`, `n`) into animated letter spans with `cursor-pointer` and staggered spring physics (`purpleLetterJump`). Clicking any word, the mascot, or speech bubble launches a cartoon cascade bounce across the title.

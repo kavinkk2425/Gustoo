@@ -163,7 +163,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
           {/* Top Symposium Institution Banner (Clean & Responsive Neo-Brutalist Arcade Capsule) */}
           <div className="w-full flex justify-center items-center mb-5 sm:mb-8 z-20 px-2 sm:px-4">
             <div className="group relative inline-flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[98%] sm:max-w-[96%] select-none text-center">
-              
+
               {/* Status diode + College Title row (never breaks awkwardly on mobile) */}
               <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2">
                 <span className="relative flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 shrink-0">
@@ -206,9 +206,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`let-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`inline-block text-[#581c87] ${
-                      isJumping ? "animate-purple-jump" : ""
-                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`inline-block text-[#581c87] ${isJumping ? "animate-purple-jump" : ""
+                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
                   >
                     {letter}
                   </span>
@@ -234,9 +233,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`the-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 3) * 60}ms` }}
-                    className={`inline-block text-[#581c87] ${
-                      isJumping ? "animate-purple-jump" : ""
-                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`inline-block text-[#581c87] ${isJumping ? "animate-purple-jump" : ""
+                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
                   >
                     {letter}
                   </span>
@@ -281,11 +279,10 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                       style={{
                         animationDelay: `${idx * 70}ms`,
                       }}
-                      className={`inline-block text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black uppercase text-[#facc15] drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[7px_7px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:4px_#000] ${
-                        isJumping
+                      className={`inline-block text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black uppercase text-[#facc15] drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[7px_7px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:4px_#000] ${isJumping
                           ? "animate-letter-jump"
                           : "animate-gusto-text"
-                      } hover:-translate-y-3 hover:scale-110 transition-transform duration-150 cursor-pointer`}
+                        } hover:-translate-y-3 hover:scale-110 transition-transform duration-150 cursor-pointer`}
                     >
                       {letter}
                     </span>
@@ -305,9 +302,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`begin-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`inline-block text-[#581c87] ${
-                      isJumping ? "animate-purple-jump" : ""
-                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`inline-block text-[#581c87] ${isJumping ? "animate-purple-jump" : ""
+                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
                   >
                     {letter}
                   </span>
