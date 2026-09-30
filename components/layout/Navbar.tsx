@@ -167,8 +167,8 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
             </div>
           </a>
 
-          {/* Center Navigation Links featuring Cyberpunk Glitch Radio Buttons with Enhanced Size and Increased Gaps */}
-          <nav className="hidden lg:flex items-center justify-center gap-5 lg:gap-6 xl:gap-8 2xl:gap-10 shrink-0">
+          {/* Center Navigation Links featuring Cyberpunk Glitch Radio Buttons */}
+          <nav className="hidden lg:flex items-center justify-center gap-1.5 xl:gap-2.5 2xl:gap-3.5 min-w-0">
             {navLinks.map((link) => {
               const isActive = activeLink === link.name;
               const isClicked = clickedLink === link.name;
@@ -178,13 +178,13 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.name)}
-                  className={`cyber-nav-link relative block select-none transition-transform duration-150 ${isActive ? "active" : ""
+                  className={`cyber-nav-link !h-9 relative block select-none transition-transform duration-150 ${isActive ? "active" : ""
                     } ${isClicked ? "scale-90" : "active:scale-95"}`}
                 >
-                  <div className="cyber-btn">
+                  <div className="cyber-btn !h-9 lg:!px-2.5 xl:!px-3.5 lg:!text-[11px] xl:!text-[12px] !tracking-tight">
                     <span>{link.name}</span>
                     <span className="cyber-btn__glitch" aria-hidden="true">
-                      _{link.name}_
+                      {link.name}
                     </span>
                     <label className="cyber-number">{link.tag}</label>
                   </div>

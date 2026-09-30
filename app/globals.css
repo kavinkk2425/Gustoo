@@ -92,6 +92,9 @@ html {
   scroll-behavior: smooth;
   max-width: 100vw;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -101,6 +104,14 @@ body {
   overflow-x: hidden;
   max-width: 100vw;
   width: 100%;
+}
+
+/* Hardware accelerated transition defaults */
+button, a, input, select, textarea {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 ::selection {
@@ -1087,22 +1098,23 @@ header.sticky {
 
 .cyber-btn__glitch {
   position: absolute;
-  top: calc(var(--border) * -1);
-  left: calc(var(--border) * -1);
-  right: calc(var(--border) * -1);
-  bottom: calc(var(--border) * -1);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--shadow-primary);
   text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
   clip-path: var(--clip);
   animation: cyberGlitch 2s infinite;
   display: none;
-  line-height: 42px;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   color: white;
-  font-family: 'Chakra Petch', 'Orbitron', monospace, sans-serif;
+  font-family: inherit;
   font-weight: 900;
-  letter-spacing: 1.5px;
-  font-size: var(--font-size);
+  letter-spacing: inherit;
+  font-size: inherit;
   z-index: 3;
   pointer-events: none;
   overflow: hidden;

@@ -48,6 +48,12 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Desktop Navbar Options Fitting, Glitch Text Alignment & Smooth Scrolling Optimization
+- **Summary**: Resolved desktop top navigation bar horizontal overflow and double text glitch alignment issue (`components/layout/Navbar.tsx` & `app/globals.css`):
+  - **Desktop Nav Spacing & Responsive Fitting (`components/layout/Navbar.tsx`)**: Re-calibrated nav container gap to `gap-1.5 xl:gap-2.5 2xl:gap-3.5` with `!h-9 lg:!px-2.5 xl:!px-3.5 lg:!text-[11px] xl:!text-[12px] !tracking-tight`. All 7 options now fit cleanly inside the desktop header without overflowing off the right edge.
+  - **Glitch Text Pixel Alignment (`app/globals.css` & `Navbar.tsx`)**: Removed offset underscores `_` from glitch overlay text and bound `.cyber-btn__glitch` to `top: 0; left: 0; right: 0; bottom: 0; font-family: inherit; font-size: inherit; letter-spacing: inherit`, eliminating shifted green/yellow double text.
+  - **Smooth Scrolling & GPU Acceleration (`app/globals.css`)**: Enabled touch Momentum scrolling (`-webkit-overflow-scrolling: touch`), cubic-bezier transition defaults for interactive elements, and anti-aliased font rendering.
+
 ### `2026-09-30` — Mobile Menu Button Size Optimization, No-Wrap Fix & Glitch Clean-Up
 - **Summary**: Addressed button text wrapping (`ALL EVENTS` breaking onto 2 lines) and yellow glitch text overlap (`_RULES_`, `_ABOUT_` obscuring labels):
   - **Single-Line Text Enforcement (`app/globals.css`)**: Added `white-space: nowrap; word-break: keep-all; overflow: hidden; text-overflow: ellipsis;` on `.cyber-btn` and `.cyber-btn span` to prevent two-line text wrapping inside polygon shapes.
