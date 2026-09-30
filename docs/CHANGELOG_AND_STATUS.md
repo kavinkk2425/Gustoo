@@ -48,6 +48,14 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Proportional Page-Fit Expansion & Size Enlargement for Symposium Section
+- **Summary**: Scaled up the dimensions, typography, and layout of the symposium components to fill the page container comfortably and eliminate cramped text/truncation (`components/sections/hero/HeroSection.tsx`):
+  - **Expanded Container Width (`components/sections/hero/HeroSection.tsx`)**: Upgraded container from `max-w-4xl` to `max-w-6xl`, matching the scale of the Behance hero title above it.
+  - **Enlarged Moving Text Marquee Capsules (`components/sections/hero/HeroSection.tsx`)**: Expanded top capsule to `max-w-5xl py-3 sm:py-4 px-6 sm:px-8` with `text-sm sm:text-lg md:text-xl font-black`. Expanded bottom ticker to `max-w-4xl py-2 sm:py-3 px-6`.
+  - **Larger 3D Stat Cards (`components/sections/hero/HeroSection.tsx`)**: Increased cards to `p-4 sm:p-6 rounded-2xl sm:rounded-3xl` with `w-8 h-8` icons and `text-xl lg:text-2xl` values. Resolved truncation on the registration deadline.
+  - **Enlarged Arcade Countdown Timer (`components/sections/hero/HeroSection.tsx`)**: Expanded timer chassis to `max-w-3xl p-5 sm:p-8 rounded-3xl sm:rounded-[36px]` with `text-3xl sm:text-5xl lg:text-6xl` numbers.
+  - **Prominent CTAs & Badges (`components/sections/hero/HeroSection.tsx`)**: Sized up the "Register Now" button (`px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl`), action links, and trust badges for strong visual hierarchy.
+
 ### `2026-09-30` — Background-Fit Symposium Layout with Seamless Moving Text Marquee Capsule
 - **Summary**: Removed the enclosing dark box container so all symposium components fit seamlessly and directly onto the signature yellow retro grid background, retaining the dynamic continuous moving text effect (`components/sections/hero/HeroSection.tsx`):
   - **Background-Fit Layout (`components/sections/hero/HeroSection.tsx`)**: Removed the heavy outer box wrapper. The 4 stat cards (Event Date, Reg. Last Date, Competitions, Venue), countdown timer, action buttons, and trust badges now sit cleanly directly on the yellow grid background.
