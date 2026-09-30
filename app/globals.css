@@ -2994,11 +2994,24 @@ header.sticky {
 .spidey-box {
   position: relative;
   height: 31.25em;
-  width: 21.87em;
-  font-size: 7.5px;
+  width: 8.5em;
+  font-size: 4.8px;
+  transform-origin: top center;
+}
+
+@media screen and (min-width: 480px) {
+  .spidey-box {
+    font-size: 6px;
+  }
 }
 
 @media screen and (min-width: 640px) {
+  .spidey-box {
+    font-size: 7.5px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .spidey-box {
     font-size: 9px;
   }
@@ -3021,10 +3034,10 @@ header.sticky {
 
 @keyframes spidey-swing {
   0%, 100% {
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0) rotate(-3deg);
   }
   50% {
-    transform: translateX(-50%) translateY(-4em);
+    transform: translateX(-50%) translateY(-2.2em) rotate(3deg);
   }
 }
 

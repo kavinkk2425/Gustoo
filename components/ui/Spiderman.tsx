@@ -34,7 +34,8 @@ export function HangingSpiderman({ className = "", onClick, onOpenRegister }: Ha
     >
       {/* Top Web Anchor Splatter Node attached to the navbar ledge */}
       <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-30 pointer-events-none flex flex-col items-center">
-        <div className="w-3.5 sm:w-4 h-1.5 sm:h-2 bg-white border-[1.5px] border-black rounded-full shadow-[1px_1px_0px_#000]" />
+        <div className="w-3 sm:w-4 h-1.5 sm:h-2 bg-white border-[1.5px] border-black rounded-full shadow-[1px_1px_0px_#000]" />
+        <div className="w-[1.5px] h-3 bg-white border-x border-black/40" />
       </div>
 
       {/* Comic Callout Speech Bubble on Hover / Click */}

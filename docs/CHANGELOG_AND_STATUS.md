@@ -49,19 +49,20 @@
 
 ## 📝 Prompt & Feature Changelog
 
-### `2026-09-30` — Added Upside-Down Hanging Spider-Man Below Register CTA Button
-- **Summary**: Implemented the pure CSS animated upside-down hanging Spider-Man swinging on a web thread right beneath the Navbar's `REGISTER (₹250)` button:
+### `2026-09-30` — Added & Mobile-Optimized Upside-Down Hanging Spider-Man Below Register CTA Button
+- **Summary**: Implemented the pure CSS animated upside-down hanging Spider-Man swinging on a web thread right beneath the Navbar's `REGISTER (₹250)` button, with custom mobile responsive tuning:
   - **Component (`components/ui/Spiderman.tsx`)**:
     - Created `<HangingSpiderman />` faithfully rendering the complete upside-down Spider-Man suit, inverted mask with white eyes, 8-legged chest spider emblem, utility belt, boots, and hanging web line.
-    - Added top web anchor splatter tack that seamlessly attaches to the navbar's bottom black ledge.
-    - Integrated responsive font sizing (`7.5px` to `9px`) so the character fits cleanly into the yellow retro grid background on both mobile and desktop.
+    - Added top web anchor splatter tack that seamlessly attaches to the navbar's bottom black ledge with a continuous connecting strand.
     - Added interactive comic callout speech bubble (`THWIP! REGISTER! 🕸️`) that animates on hover and click.
     - Clicking Spider-Man triggers the registration modal (`onOpenRegister`).
-  - **Styles (`app/globals.css`)**:
-    - Added `.spidey-box`, `.spidey-rope`, `.spidey-legs`, `.spidey-boot-l`, `.spidey-boot-r`, `.spidey-costume`, `.spidey-spider`, `.spidey-mask`, and associated keyframes (`@keyframes spidey-swing`).
-    - Web rope includes a high-contrast comic border (`box-shadow: 0 0 2px rgba(255,255,255,0.9), 0 0 1px #000`) for visual pop against the `#fec800` yellow grid.
+  - **Styles & Mobile Responsiveness (`app/globals.css`)**:
+    - Fixed `.spidey-box` bounding box width from generic `21.87em` down to `8.5em` (matching Spider-Man's actual 7.5em body width), completely eliminating the ~100px phantom empty margin that pushed into the center of mobile screens.
+    - Added fluid 4-step responsive typography scaling (`4.8px` mobile, `6px` xs, `7.5px` sm, `9px` md+) so Spider-Man renders as a neat 40px mini web-slinger on phones without overflowing.
+    - Added smooth physics swing animation (`@keyframes spidey-swing`) with subtle pendulum rotation and bobbing.
   - **Layout Integration (`HeroSection.tsx`)**:
-    - Placed Spider-Man at `absolute top-0 right-4 sm:right-14 md:right-20 lg:right-24 xl:right-28 z-30`, hanging directly beneath the navbar's Register button.
+    - Placed Spider-Man at `absolute top-0 right-1.5 xs:right-2.5 sm:right-8 md:right-16 lg:right-24 xl:right-28 z-30`, cleanly tucked into the top-right corner without overlapping the headline letters ("The").
+    - Tuned mobile college banner max-width (`max-w-[84%] xs:max-w-[88%] sm:max-w-[96%]`) so it no longer stretches edge-to-edge on mobile, giving Spider-Man dedicated clearance.
     - Removed the awkward floating `SoccerFireball` from that area so the composition looks clean, intentional, and attractive.
 
 ### `2026-09-30` — Removed Side-Panel Shooting Planes (ArcadeShooters)
