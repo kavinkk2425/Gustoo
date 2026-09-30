@@ -10,9 +10,25 @@ export function AboutSection() {
   const [letterAnimationKey, setLetterAnimationKey] = useState(0);
   const [isJumping, setIsJumping] = useState(false);
 
+  const [highlightsKey, setHighlightsKey] = useState(0);
+  const [isHighlightsJumping, setIsHighlightsJumping] = useState(false);
+  const [activeHighlightIndex, setActiveHighlightIndex] = useState<number | null>(null);
+
   const triggerJump = () => {
     setLetterAnimationKey((prev) => prev + 1);
     setIsJumping(true);
+  };
+
+  const triggerHighlightsJump = () => {
+    setHighlightsKey((prev) => prev + 1);
+    setIsHighlightsJumping(true);
+  };
+
+  const handleHighlightClick = (index: number) => {
+    setActiveHighlightIndex(index);
+    setTimeout(() => {
+      setActiveHighlightIndex(null);
+    }, 750);
   };
 
   useEffect(() => {
@@ -23,6 +39,15 @@ export function AboutSection() {
       return () => clearTimeout(timer);
     }
   }, [isJumping, letterAnimationKey]);
+
+  useEffect(() => {
+    if (isHighlightsJumping) {
+      const timer = setTimeout(() => {
+        setIsHighlightsJumping(false);
+      }, 950);
+      return () => clearTimeout(timer);
+    }
+  }, [isHighlightsJumping, highlightsKey]);
 
   return (
     <section id="about" className="py-14 sm:py-20 bg-[#fffbeb] text-black relative border-b-[4px] border-black">
@@ -416,34 +441,120 @@ export function AboutSection() {
 
         {/* Highlights Board */}
         <div className="p-5 sm:p-8 md:p-10 rounded-3xl bg-[#3b0764] border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[8px_8px_0px_#000] text-white">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8 pb-5 sm:pb-6 border-b-2 border-white/20">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8 pb-5 sm:pb-6 border-b-2 border-white/20 select-none">
             <div>
-              <h3 className="text-xl sm:text-3xl font-black tracking-tight text-[#fde047]">
-                Symposium Key Highlights
-              </h3>
+              <div
+                onClick={triggerHighlightsJump}
+                className="cursor-pointer inline-flex flex-wrap items-center gap-x-2 sm:gap-x-3 group"
+                title="Click to see text jump! ✨"
+              >
+                {/* "Symposium" */}
+                <span className="inline-flex">
+                  {["S", "y", "m", "p", "o", "s", "i", "u", "m"].map((letter, idx) => (
+                    <span
+                      key={`hl-symp-${idx}-${highlightsKey}`}
+                      style={{ animationDelay: `${idx * 45}ms` }}
+                      className={`inline-block font-black text-xl sm:text-3xl text-[#fde047] drop-shadow-[2px_2px_0px_#000] ${
+                        isHighlightsJumping ? "animate-letter-jump" : ""
+                      } hover:-translate-y-1.5 hover:scale-110 transition-transform duration-150`}
+                    >
+                      {letter}
+                    </span>
+                  ))}
+                </span>
+
+                {/* "Key" */}
+                <span className="inline-flex">
+                  {["K", "e", "y"].map((letter, idx) => (
+                    <span
+                      key={`hl-key-${idx}-${highlightsKey}`}
+                      style={{ animationDelay: `${(idx + 9) * 45}ms` }}
+                      className={`inline-block font-black text-xl sm:text-3xl text-[#bef264] drop-shadow-[2px_2px_0px_#000] ${
+                        isHighlightsJumping ? "animate-lime-jump" : ""
+                      } hover:-translate-y-1.5 hover:scale-110 transition-transform duration-150`}
+                    >
+                      {letter}
+                    </span>
+                  ))}
+                </span>
+
+                {/* "Highlights" */}
+                <span className="inline-flex">
+                  {["H", "i", "g", "h", "l", "i", "g", "h", "t", "s"].map((letter, idx) => (
+                    <span
+                      key={`hl-high-${idx}-${highlightsKey}`}
+                      style={{ animationDelay: `${(idx + 12) * 45}ms` }}
+                      className={`inline-block font-black text-xl sm:text-3xl text-[#fde047] drop-shadow-[2px_2px_0px_#000] ${
+                        isHighlightsJumping ? "animate-letter-jump" : ""
+                      } hover:-translate-y-1.5 hover:scale-110 transition-transform duration-150`}
+                    >
+                      {letter}
+                    </span>
+                  ))}
+                </span>
+              </div>
               <p className="text-xs sm:text-sm font-bold text-pink-200 mt-1">
                 Why thousands of engineering students converge at GUSTO:
               </p>
             </div>
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl bg-[#84cc16] border-2 border-black text-black font-black text-xs sm:text-sm shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000]">
+
+            {/* Registration Fee Pill with Tactile Click */}
+            <div
+              onClick={triggerHighlightsJump}
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl bg-[#84cc16] hover:bg-[#a3e635] active:translate-y-1 active:shadow-[1px_1px_0px_#000] border-2 border-black text-black font-black text-xs sm:text-sm shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000] cursor-pointer transition-all duration-150"
+              title="Click to trigger jump!"
+            >
+              <Sparkles className="w-4 h-4 text-black animate-pulse" />
               <span>Registration Fee: ₹{ABOUT_DATA.registrationFee} per head</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            {ABOUT_DATA.highlights.map((highlight, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white text-black border-2 sm:border-[2.5px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000]"
-              >
-                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-[#84cc16] border border-black flex items-center justify-center shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black" />
+          {/* 6 Interactive Clickable Highlight Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 select-none">
+            {ABOUT_DATA.highlights.map((highlight, index) => {
+              const isCardActive = activeHighlightIndex === index;
+              return (
+                <div
+                  key={index}
+                  onClick={() => handleHighlightClick(index)}
+                  className={`group relative flex items-start gap-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border-2 sm:border-[2.5px] border-black cursor-pointer transition-all duration-150 active:translate-y-1.5 active:shadow-[1px_1px_0px_#000] ${
+                    isCardActive
+                      ? "bg-[#fef08a] text-black shadow-[6px_6px_0px_#000] scale-[1.03] border-amber-400"
+                      : "bg-white text-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] hover:-translate-y-1.5 hover:shadow-[6px_6px_0px_#000] hover:border-[#84cc16]"
+                  }`}
+                  title="Click to interact!"
+                >
+                  {/* Active Sparkle Tag */}
+                  {isCardActive && (
+                    <span className="absolute -top-2.5 -right-2 px-2 py-0.5 rounded-full bg-black text-[#facc15] font-mono font-black text-[9px] border border-yellow-400 shadow-sm animate-bounce">
+                      ★ ACTIVE
+                    </span>
+                  )}
+
+                  <div
+                    className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg border border-black flex items-center justify-center shrink-0 mt-0.5 transition-all duration-200 ${
+                      isCardActive
+                        ? "bg-black text-[#84cc16] scale-125 rotate-12"
+                        : "bg-[#84cc16] text-black group-hover:scale-110 group-hover:rotate-6"
+                    }`}
+                  >
+                    <CheckCircle2 className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+                  </div>
+                  <div className="flex-1">
+                    <p
+                      className={`text-xs sm:text-sm font-black leading-snug transition-colors ${
+                        isCardActive ? "text-purple-950 font-black" : "text-black"
+                      }`}
+                    >
+                      {highlight}
+                    </p>
+                    <span className="text-[9px] font-mono font-bold text-zinc-500 uppercase tracking-wider block mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      {isCardActive ? "⚡ VERIFIED HIGHLIGHT" : "CLICK TO FOCUS"}
+                    </span>
+                  </div>
                 </div>
-                <p className="text-xs sm:text-sm font-black leading-snug">
-                  {highlight}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

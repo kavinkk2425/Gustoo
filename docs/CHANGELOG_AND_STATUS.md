@@ -48,6 +48,15 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Interactive Clicking Effects & Wave Jump for Symposium Key Highlights
+- **Summary**: Upgraded the dark purple **Symposium Key Highlights** block in `components/sections/about/AboutSection.tsx` with rich interactive clicking effects:
+  - **Animated Title Wave Jump**: Clicking "Symposium Key Highlights" launches a staggered golden letter wave jump across "Symposium", "Key", and "Highlights" with `animate-letter-jump` and `animate-lime-jump`.
+  - **Tactile Clickable Highlight Cards**:
+    - Clicking any of the 6 feature cards triggers an active celebration pop (`activeHighlightIndex`) with gold card highlighting (`bg-[#fef08a]`), bouncy `★ ACTIVE` badge, and icon rotation/scale pop (`rotate-12 scale-125`).
+    - Added tactile press physics (`active:translate-y-1.5 active:shadow-[1px_1px_0px_#000]`) and hover lift with emerald border accent.
+  - **Interactive Registration Fee Pill**: Added tactile click down with sparkler pulse.
+  - **Sound Invariant Preserved**: All interactions strictly remain silent with zero sound effects.
+
 ### `2026-09-30` — Interactive Letter-by-Letter Jumping Wave Animation Across All Section Headings
 - **Summary**: Rolled out the interactive letter wave jump animation to `Symposium Events` and all major symposium section headings:
   - **`components/sections/events/EventsSection.tsx`**: Decomposed "Symposium Events" into individual interactive letter spans. "Symposium" bounces in royal purple (`animate-purple-jump`) and "Events" bounces in neon pink (`animate-pink-jump`).
