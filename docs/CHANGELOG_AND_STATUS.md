@@ -48,12 +48,12 @@
 
 ## 📝 Prompt & Feature Changelog
 
-### `2026-09-30` — Enhanced Gaming Navbar, Glowing Corner Brand & College Crest Alignment
-- **Summary**: Implemented user feedback addressing college name alignment/visibility, corner brand aesthetics, and navbar option sizing:
-  - **Arcade Institutional Crest Banner**: Replaced the plain white pill in `components/sections/hero/HeroSection.tsx` with a centered dark-chassis arcade crest (`#090d16`), bold gold typography (`GOVERNMENT COLLEGE OF ENGINEERING, ERODE`), pulsing emerald radar diode, electric pink department chip, and `ESTD 1984 • AUTONOMOUS` status badge.
-  - **Adjusted Sticker Spacing**: Shifted background retro console and soccer stickers lower to eliminate visual competition with the institutional crest.
-  - **Corner Brand Glow & Moving Wave**: Upgraded `GUSTO '26` in `components/layout/Navbar.tsx` with a multi-stop animated moving gradient shimmer (`.gusto-brand-text`), neon purple/pink drop-shadow glow, and clear `GCEE ERODE • IT DEPT` badge.
-  - **Enhanced Navbar Sizing & Gaps**: Enlarged `.cyber-btn` height to 42px, font size to 13px, increased spacing between nav links (`gap-5 lg:gap-6 xl:gap-8 2xl:gap-10`), and applied authentic gaming font typography (`Chakra Petch`, `Orbitron`).
+### `2026-09-30` — Clean Separated College Banner & Retro Background Color Harmony
+- **Summary**: Refactored the college name banner for visual separation from the sticky navbar and harmonious aesthetic integration with the `#fec800` retro yellow grid:
+  - **Clean Navbar Separation**: Increased hero container top padding (`pt-16 sm:pt-20`) and bottom spacing (`mb-6 sm:mb-9`), detaching the banner completely from the sticky navigation bar border.
+  - **Background-Harmonized Styling**: Built a crisp white retro gaming capsule with neo-brutalist solid black borders (`border-[3px] border-black shadow-[4px_4px_0px_#000]`), high-contrast dark typography (`GOVERNMENT COLLEGE OF ENGINEERING, ERODE`), vibrant `#ec4899` department badge, matching `#fec800` autonomous chip, and pulsing live status diode.
+  - **Glow & Shimmer Corner Brand**: Kept `GUSTO '26` moving gradient shimmer wave and luminous glow.
+  - **Expanded Navbar Navigation**: Maintained enlarged 42px gaming font buttons with wide spacing (`gap-5 lg:gap-6 xl:gap-8 2xl:gap-10`).
 
 ### `2026-09-30` — Clean Minimalist Pac-Man Loading Screen
 - **Summary**: Refactored the initial loading screen (`components/ui/PacmanGhostLoader.tsx`) into a clean animation-only presentation:

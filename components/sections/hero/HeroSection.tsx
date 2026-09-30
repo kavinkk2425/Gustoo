@@ -68,7 +68,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   }, [targetDate]);
 
   return (
-    <section className="relative min-h-[92vh] bg-retro-yellow-grid overflow-hidden pt-12 pb-20 border-b-[4px] border-black">
+    <section className="relative min-h-[92vh] bg-retro-yellow-grid overflow-hidden pt-16 sm:pt-20 pb-20 border-b-[4px] border-black">
       {/* === ANIMATED BACKGROUND ENVIRONMENT LAYER (pointer-events-none, non-intrusive) === */}
 
       {/* Top Left Console — floats slowly */}
@@ -148,34 +148,34 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
       {/* Main Hero Container */}
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 relative z-10">
         <div className="flex flex-col items-center text-center w-full">
-          {/* Top Symposium Institution Gaming Crest Banner */}
-          <div className="w-full flex justify-center items-center mb-5 sm:mb-7 z-20">
-            <div className="group relative inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl bg-[#090d16] border-[2.5px] sm:border-[3px] border-black shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[98%] select-none">
+          {/* Top Symposium Institution Banner (Clean & Separated Neo-Brutalist Arcade Capsule) */}
+          <div className="w-full flex justify-center items-center mb-6 sm:mb-9 z-20">
+            <div className="group relative inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white border-[2.5px] sm:border-[3px] border-black shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[96%] select-none">
               
-              {/* Pulsing Live Emerald Diode */}
+              {/* Pulsing Live Gaming Status Diode */}
               <span className="relative flex h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-[#10b981] border border-black shadow-[0_0_8px_#10b981]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-[#84cc16] border-[1.5px] border-black shadow-[0_0_6px_#84cc16]"></span>
               </span>
 
               {/* College Full Title */}
-              <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm md:text-base lg:text-[15px] text-[#facc15] tracking-wider uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
+              <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-sm md:text-base text-zinc-900 tracking-wider uppercase drop-shadow-[0_1px_0px_rgba(255,255,255,0.8)] whitespace-nowrap">
                 GOVERNMENT COLLEGE OF ENGINEERING, ERODE
               </span>
 
-              {/* Cyber Divider */}
-              <span className="hidden sm:inline text-zinc-600 font-black text-sm select-none">
-                //
+              {/* Arcade Divider */}
+              <span className="hidden sm:inline text-zinc-400 font-black text-sm select-none">
+                •
               </span>
 
-              {/* Department Badge */}
-              <span className="inline-flex items-center px-2.5 py-0.5 sm:py-1 rounded-lg bg-[#ec4899] text-white text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-wider font-['Chakra_Petch',sans-serif] border-[1.5px] border-black shadow-[1.5px_1.5px_0px_#000] whitespace-nowrap">
+              {/* Department Accent Badge */}
+              <span className="inline-flex items-center px-2.5 py-0.5 sm:py-1 rounded-md bg-[#ec4899] text-white text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-wider font-['Chakra_Petch',sans-serif] border-[1.5px] border-black shadow-[1.5px_1.5px_0px_#000] whitespace-nowrap">
                 DEPARTMENT OF INFORMATION TECHNOLOGY
               </span>
 
-              {/* Autonomous Status Chip */}
-              <span className="hidden md:inline-flex items-center text-[10px] sm:text-[11px] font-mono text-cyan-300 font-bold bg-cyan-950/80 px-2 py-0.5 rounded-md border border-cyan-500/40 tracking-widest whitespace-nowrap">
-                ESTD 1984 • AUTONOMOUS
+              {/* Autonomous Accreditation Chip */}
+              <span className="hidden lg:inline-flex items-center text-[10px] sm:text-[11px] font-mono text-zinc-900 font-extrabold bg-[#fec800] px-2 py-0.5 rounded border-[1.5px] border-black shadow-[1px_1px_0px_#000] tracking-wider whitespace-nowrap">
+                ESTD 1984 // AUTONOMOUS
               </span>
             </div>
           </div>
