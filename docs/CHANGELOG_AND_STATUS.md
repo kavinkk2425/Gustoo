@@ -48,6 +48,18 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Interactive Letter-by-Letter Jumping Wave Animation Across All Section Headings
+- **Summary**: Rolled out the interactive letter wave jump animation to `Symposium Events` and all major symposium section headings:
+  - **`components/sections/events/EventsSection.tsx`**: Decomposed "Symposium Events" into individual interactive letter spans. "Symposium" bounces in royal purple (`animate-purple-jump`) and "Events" bounces in neon pink (`animate-pink-jump`).
+  - **`components/sections/rules/RulesSection.tsx`**: Decomposed "Event Rules" with interactive wave bounce ("Event" in purple, "Rules" in neon lime).
+  - **`components/sections/gallery/GallerySection.tsx`**: Decomposed "Symposium Gallery" with interactive wave bounce ("Symposium" in purple, "Gallery" in neon pink).
+  - **`components/sections/youtube/YouTubeSection.tsx`**: Decomposed "Watch Teaser" with interactive wave bounce ("Watch" in purple, "Teaser" in turbo red `animate-red-jump`).
+  - **`components/sections/transport/TransportSection.tsx`**: Decomposed "Venue & Transport" with interactive wave bounce ("Venue &" in purple, "Transport" in neon lime).
+  - **`components/sections/contact/ContactSection.tsx`**: Decomposed "Get In Touch" with interactive wave bounce ("Get In" in purple, "Touch" in neon pink).
+  - **CSS Jump Animations (`app/globals.css`)**: Added `@keyframes pinkLetterJump` and `@keyframes redLetterJump` with glowing drop-shadows and ensured colors cleanly settle without turning black.
+  - **Fixed Import Error**: Resolved `ReferenceError: useEffect is not defined` in `EventsSection.tsx`.
+  - **Sound Invariant Preserved**: All interactions remain completely silent per user preference.
+
 ### `2026-09-30` — Perfected About Section Header & Badge Stack Alignment
 - **Summary**: Resolved the visual overlap between the `LEGACY & HERITAGE` pill badge and the interactive `About GUSTO '26` heading (`components/sections/about/AboutSection.tsx`):
   - **Flex Column Architecture**: Replaced the `text-center` inline flow with a structured `flex flex-col items-center` container.

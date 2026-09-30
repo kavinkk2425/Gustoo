@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { YOUTUBE_DATA } from "@/src/data/youtube";
 import { Play, ExternalLink, Sparkles, Tv } from "lucide-react";
@@ -8,20 +8,74 @@ import { YouTubeIcon } from "@/components/ui/Icons";
 
 export function YouTubeSection() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [letterAnimationKey, setLetterAnimationKey] = useState(0);
+  const [isJumping, setIsJumping] = useState(false);
+
+  const triggerJump = () => {
+    setLetterAnimationKey((prev) => prev + 1);
+    setIsJumping(true);
+  };
+
+  useEffect(() => {
+    if (isJumping) {
+      const timer = setTimeout(() => {
+        setIsJumping(false);
+      }, 950);
+      return () => clearTimeout(timer);
+    }
+  }, [isJumping, letterAnimationKey]);
 
   return (
     <section id="youtube" className="py-14 sm:py-20 bg-retro-yellow-grid text-black relative border-b-[4px] border-black">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] text-xs font-black uppercase tracking-wider mb-3">
-            <Tv className="w-4 h-4 text-red-600" />
-            <span>Official Video Channel</span>
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-10 sm:mb-12 select-none">
+          <div className="mb-2.5 sm:mb-3.5">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] text-xs font-black uppercase tracking-wider">
+              <Tv className="w-4 h-4 text-red-600" />
+              <span>Official Video Channel</span>
+            </div>
           </div>
-          <h2 className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000]">
-            Watch <span className="text-[#ef4444] [-webkit-text-stroke:2px_#000]">Teaser</span>
-          </h2>
-          <p className="text-xs sm:text-base font-bold text-zinc-800 leading-relaxed">
+
+          <div className="relative w-full flex justify-center items-center my-1">
+            <h2
+              onClick={triggerJump}
+              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group"
+              title="Click to see the letters jump!"
+            >
+              {/* "Watch" with interactive letter wave */}
+              <span className="inline-flex">
+                {["W", "a", "t", "c", "h"].map((letter, idx) => (
+                  <span
+                    key={`yt-watch-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${idx * 55}ms` }}
+                    className={`inline-block text-[#3b0764] ${
+                      isJumping ? "animate-purple-jump" : ""
+                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </span>
+
+              {/* "Teaser" with interactive red wave */}
+              <span className="inline-flex">
+                {["T", "e", "a", "s", "e", "r"].map((letter, idx) => (
+                  <span
+                    key={`yt-teaser-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${(idx + 5) * 55}ms` }}
+                    className={`inline-block text-[#ef4444] [-webkit-text-stroke:2px_#000] drop-shadow-[2px_2px_0px_#000] ${
+                      isJumping ? "animate-red-jump" : ""
+                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </span>
+            </h2>
+          </div>
+
+          <p className="text-xs sm:text-base font-bold text-zinc-800 leading-relaxed max-w-2xl mx-auto">
             {YOUTUBE_DATA.description}
           </p>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { GUSTO_EVENTS } from "@/src/data/events";
 import {
@@ -32,6 +32,22 @@ export function EventsSection({
   const [selectedCategory, setSelectedCategory] = useState<"All" | "Technical" | "Non-Technical">("All");
   const [localSearch, setLocalSearch] = useState("");
   const [selectedType, setSelectedType] = useState<string>("All");
+  const [letterAnimationKey, setLetterAnimationKey] = useState(0);
+  const [isJumping, setIsJumping] = useState(false);
+
+  const triggerJump = () => {
+    setLetterAnimationKey((prev) => prev + 1);
+    setIsJumping(true);
+  };
+
+  useEffect(() => {
+    if (isJumping) {
+      const timer = setTimeout(() => {
+        setIsJumping(false);
+      }, 950);
+      return () => clearTimeout(timer);
+    }
+  }, [isJumping, letterAnimationKey]);
 
   const effectiveSearch = searchFilter || localSearch;
 
@@ -57,15 +73,53 @@ export function EventsSection({
     <section id="events" className="py-20 bg-[#fffbeb] text-black relative border-b-[4px] border-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#fde047] border-[2.5px] border-black shadow-[3px_3px_0px_#000] text-xs font-black uppercase tracking-wider mb-3">
-            <Flame className="w-4 h-4 text-red-500" />
-            <span>Choose Your Challenge</span>
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-12 select-none">
+          <div className="mb-2.5 sm:mb-3.5">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#fde047] border-[2.5px] border-black shadow-[3px_3px_0px_#000] text-xs font-black uppercase tracking-wider">
+              <Flame className="w-4 h-4 text-red-500" />
+              <span>Choose Your Challenge</span>
+            </div>
           </div>
-          <h2 className="text-4xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000]">
-            Symposium <span className="text-[#ec4899]">Events</span>
-          </h2>
-          <p className="text-sm sm:text-base font-bold text-zinc-700 leading-relaxed">
+
+          <div className="relative w-full flex justify-center items-center my-1">
+            <h2
+              onClick={triggerJump}
+              className="text-4xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group"
+              title="Click to see the letters jump!"
+            >
+              {/* "Symposium" with interactive letter wave */}
+              <span className="inline-flex">
+                {["S", "y", "m", "p", "o", "s", "i", "u", "m"].map((letter, idx) => (
+                  <span
+                    key={`symp-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${idx * 55}ms` }}
+                    className={`inline-block text-[#3b0764] ${
+                      isJumping ? "animate-purple-jump" : ""
+                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </span>
+
+              {/* "Events" with interactive neon pink wave */}
+              <span className="inline-flex">
+                {["E", "v", "e", "n", "t", "s"].map((letter, idx) => (
+                  <span
+                    key={`events-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${(idx + 9) * 55}ms` }}
+                    className={`inline-block text-[#ec4899] drop-shadow-[2px_2px_0px_#000] ${
+                      isJumping ? "animate-pink-jump" : ""
+                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </span>
+            </h2>
+          </div>
+
+          <p className="text-sm sm:text-base font-bold text-zinc-700 leading-relaxed max-w-2xl mx-auto">
             All 9 Technical and Non-Technical events with official venue, timings, rules, team guidelines, and coordinator hotlines.
           </p>
         </div>
