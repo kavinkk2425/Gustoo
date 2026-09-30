@@ -48,6 +48,24 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Stefan Devai Inspired Retro Vintage CRT TV Cabinet Video Player
+- **Summary**: Replaced the standard modern video player box in `components/sections/youtube/YouTubeSection.tsx` with an authentic, highly detailed **Retro Vintage CRT Television Cabinet** inspired by Stefan Devai's Dribbble design:
+  - **Top Dual Rabbit-Ear Antennas**: Added the rounded orange antenna dome with inset bevels and two angled metallic antenna rods (`retro-tv-rod-left`, `retro-tv-rod-right`) with chrome spherical tip beads (`retro-tv-rod-tip`).
+  - **Vintage Amber-Orange TV Chassis (`.retro-tv-chassis`)**:
+    - Authentic retro amber chassis (`#d36604`) with bevel inner shadow highlights (`#e69635` / `#a85103`), 4px bold black border, and 8px neo-brutalist drop shadow (`shadow-[8px_8px_0px_#000]`).
+    - Subtle woodgrain / CRT cathode ray texture overlay with difference blend mode.
+  - **CRT Glass Video Screen**:
+    - Curved screen frame with CRT scanline reflection lines and dark vignette.
+    - Plays the official GUSTO YouTube video iframe directly inside the vintage screen when triggered.
+    - Features comic red play button with hover/active physics when paused.
+  - **Side Control Console (`.retro-tv-controls`)**:
+    - Integrated 3 ventilation air slats at top.
+    - Added dual rotary dial knobs (`CH / TUNE` and `VOL / PWR`) with pointer indicator lines that rotate dynamically on hover/active and toggle video playback on click.
+    - Built the speaker grille featuring a 3-dot acoustic matrix and horizontal sound vent slots.
+    - Attached vintage metal brand badge (`GUSTO-TRON`).
+  - **Angled Base Feet & Shadow Stand**: Added angled TV stand feet (`.retro-tv-foot`) and central ground shadow rail.
+  - **Yellow Grid Integration**: Harmoniously integrated with the background and paired with an under-cabinet channel subscription bar.
+
 ### `2026-09-30` — Interactive Clicking Effects & Wave Jump for Symposium Key Highlights
 - **Summary**: Upgraded the dark purple **Symposium Key Highlights** block in `components/sections/about/AboutSection.tsx` with rich interactive clicking effects:
   - **Animated Title Wave Jump**: Clicking "Symposium Key Highlights" launches a staggered golden letter wave jump across "Symposium", "Key", and "Highlights" with `animate-letter-jump` and `animate-lime-jump`.

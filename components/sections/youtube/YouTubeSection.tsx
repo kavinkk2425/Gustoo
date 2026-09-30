@@ -80,73 +80,174 @@ export function YouTubeSection() {
           </p>
         </div>
 
-        {/* Retro Arcade Television Cabinet */}
-        <div className="rounded-2xl sm:rounded-3xl p-3 sm:p-6 bg-white border-[3px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000]">
-          {/* Top Arcade Screen Status bar */}
-          <div className="flex items-center justify-between pb-3 mb-3 border-b-2 border-black text-xs font-black">
-            <div className="flex items-center gap-2">
-              <span className="w-3.5 h-3.5 rounded-full bg-red-500 border border-black animate-pulse" />
-              <span className="uppercase text-[#3b0764] tracking-wider">LIVE STREAM FEED • GUSTO GCEE</span>
+        {/* Retro Vintage CRT Television Cabinet — Inspired by Stefan Devai */}
+        <div className="relative w-full max-w-4xl mx-auto flex flex-col items-center">
+          {/* Top Antenna Dual Rods & Dome Base */}
+          <div className="relative flex justify-center -mb-2 z-10 select-none">
+            <div className="retro-tv-antenna-dome flex items-center justify-center">
+              {/* Left Angled Antenna Rod */}
+              <div className="retro-tv-rod-left">
+                <div className="retro-tv-rod-tip" />
+              </div>
+              {/* Right Angled Antenna Rod */}
+              <div className="retro-tv-rod-right">
+                <div className="retro-tv-rod-tip" />
+              </div>
             </div>
-            <span className="px-2 py-0.5 rounded-md bg-[#84cc16] border border-black text-black text-[10px]">
-              HD 1080P
-            </span>
           </div>
 
-          {/* Screen Frame */}
-          <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black border-[3px] border-black shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]">
-            {isPlaying ? (
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_DATA.featuredVideoId}?autoplay=1&rel=0`}
-                title={YOUTUBE_DATA.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full border-0"
-              />
-            ) : (
-              <div
-                onClick={() => setIsPlaying(true)}
-                className="relative w-full h-full cursor-pointer group"
-              >
-                <Image
-                  src="/placeholder/video-thumbnail.png"
-                  alt={YOUTUBE_DATA.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 1024px"
-                  className="object-cover group-hover:scale-102 transition-transform duration-300"
-                  priority
-                />
-                <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors" />
+          {/* Main Television Chassis Body */}
+          <div className="retro-tv-chassis w-full rounded-[28px] sm:rounded-[36px] p-3.5 sm:p-5 md:p-6 text-white z-20">
+            {/* Top Cabinet Header */}
+            <div className="flex items-center justify-between pb-3 mb-3 border-b-2 border-black/50 text-xs font-black select-none">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-red-500 border border-black animate-pulse shadow-[0_0_8px_#ef4444]" />
+                <span className="font-mono text-xs sm:text-sm font-extrabold uppercase tracking-wider text-amber-200">
+                  VHF CH-06 • GUSTO BROADCAST FEED
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 font-mono text-[10px] sm:text-xs">
+                <span className="px-2 py-0.5 rounded bg-black text-[#84cc16] border border-black/40 font-bold">
+                  STEREO HI-FI
+                </span>
+                <span className="px-2 py-0.5 rounded bg-black text-yellow-300 border border-black/40 font-bold">
+                  CRT 1080P
+                </span>
+              </div>
+            </div>
 
-                {/* Big Comic Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#ef4444] text-white border-[3.5px] border-black shadow-[5px_5px_0px_#000] group-hover:scale-110 active:scale-95 transition-all">
-                    <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white ml-1.5" />
+            {/* Split TV Layout: CRT Screen (Left) + Control Panel (Right) */}
+            <div className="flex flex-col md:flex-row items-stretch gap-4 md:gap-5">
+              {/* CRT Video Screen Container */}
+              <div className="flex-1 relative aspect-video w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-black border-[3.5px] border-[#1d0e01] shadow-[inset_0_0_25px_rgba(0,0,0,0.85)]">
+                {isPlaying ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_DATA.featuredVideoId}?autoplay=1&rel=0`}
+                    title={YOUTUBE_DATA.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full border-0"
+                  />
+                ) : (
+                  <div
+                    onClick={() => setIsPlaying(true)}
+                    className="relative w-full h-full cursor-pointer group select-none"
+                  >
+                    <Image
+                      src="/placeholder/video-thumbnail.png"
+                      alt={YOUTUBE_DATA.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 1024px"
+                      className="object-cover group-hover:scale-102 transition-transform duration-300"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors" />
+
+                    {/* CRT Scanline Beam Reflection */}
+                    <div className="absolute inset-0 pointer-events-none opacity-25 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.4)_2px,rgba(0,0,0,0.4)_4px)]" />
+
+                    {/* Big Comic Play Button */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative flex items-center justify-center w-16 h-16 sm:w-22 sm:h-22 rounded-full bg-[#ef4444] text-white border-[3.5px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] group-hover:scale-110 active:scale-95 transition-all">
+                        <Play className="w-7 h-7 sm:w-9 sm:h-9 fill-white ml-1.5" />
+                      </div>
+                    </div>
+
+                    {/* Video Title Overlay */}
+                    <div className="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 flex flex-col sm:flex-row sm:items-end justify-between gap-2 text-white">
+                      <div>
+                        <span className="inline-block px-2.5 py-1 rounded-md text-[9px] sm:text-xs font-black uppercase tracking-wider bg-[#facc15] text-black border border-black mb-1">
+                          GUSTO Official Promo
+                        </span>
+                        <h3 className="text-sm sm:text-xl font-black drop-shadow-[2px_2px_0px_#000]">
+                          {YOUTUBE_DATA.title}
+                        </h3>
+                      </div>
+                      <span className="text-[11px] sm:text-xs font-bold text-yellow-300 drop-shadow flex items-center gap-1">
+                        <span>▶ Click to Play</span>
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Side Vintage TV Control Console (Dials & Speakers) */}
+              <div className="retro-tv-controls rounded-2xl p-3 sm:p-4 flex flex-row md:flex-col items-center justify-between gap-3 text-black w-full md:w-36 lg:w-40 shrink-0 select-none">
+                {/* Top Air Slats */}
+                <div className="flex gap-1.5 py-1">
+                  <div className="w-1.5 h-4 sm:h-5 bg-[#1d0e01] rounded-full" />
+                  <div className="w-1.5 h-6 sm:h-8 bg-[#1d0e01] rounded-full" />
+                  <div className="w-1.5 h-4 sm:h-5 bg-[#1d0e01] rounded-full" />
+                </div>
+
+                {/* Rotary Dials Container */}
+                <div className="flex md:flex-col items-center gap-3 sm:gap-4">
+                  {/* Channel Tuning Knob */}
+                  <div className="flex flex-col items-center">
+                    <button
+                      type="button"
+                      onClick={() => setIsPlaying((p) => !p)}
+                      title="Turn Knob to Toggle Video"
+                      className="retro-tv-knob"
+                    >
+                      <div className="retro-tv-knob-indicator" />
+                    </button>
+                    <span className="text-[9px] font-mono font-black uppercase text-[#1d0e01] mt-1 tracking-wider">
+                      CH / TUNE
+                    </span>
+                  </div>
+
+                  {/* Volume / Power Knob */}
+                  <div className="flex flex-col items-center">
+                    <button
+                      type="button"
+                      onClick={() => setIsPlaying((p) => !p)}
+                      title="Turn Knob to Toggle Video"
+                      className="retro-tv-knob"
+                    >
+                      <div className="retro-tv-knob-indicator rotate-90" />
+                    </button>
+                    <span className="text-[9px] font-mono font-black uppercase text-[#1d0e01] mt-1 tracking-wider">
+                      VOL / PWR
+                    </span>
                   </div>
                 </div>
 
-                {/* Video Title Overlay */}
-                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-2 text-white">
-                  <div>
-                    <span className="inline-block px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-black uppercase tracking-wider bg-[#facc15] text-black border border-black mb-1.5">
-                      GUSTO Official Promo
-                    </span>
-                    <h3 className="text-base sm:text-2xl font-black drop-shadow-[2px_2px_0px_#000]">
-                      {YOUTUBE_DATA.title}
-                    </h3>
+                {/* Speaker Grille Section */}
+                <div className="flex flex-col gap-1.5 w-full max-w-[80px] md:max-w-none">
+                  {/* Acoustic Dots */}
+                  <div className="flex justify-center gap-1.5">
+                    <div className="retro-tv-speaker-dot" />
+                    <div className="retro-tv-speaker-dot" />
+                    <div className="retro-tv-speaker-dot" />
                   </div>
-                  <span className="text-xs font-bold text-yellow-300 drop-shadow">
-                    ▶ Click to Play
-                  </span>
+                  {/* Horizontal Sound Slots */}
+                  <div className="flex flex-col gap-1 mt-1">
+                    <div className="retro-tv-speaker-slot" />
+                    <div className="retro-tv-speaker-slot" />
+                    <div className="retro-tv-speaker-slot" />
+                  </div>
+                </div>
+
+                {/* Vintage Brand Plate */}
+                <div className="px-2 py-0.5 rounded bg-[#7f5934] text-white border border-black text-[8px] font-mono font-black uppercase tracking-widest text-center shadow-xs">
+                  GUSTO-TRON
                 </div>
               </div>
-            )}
+            </div>
           </div>
 
-          {/* Under-video Banner */}
-          <div className="mt-4 pt-4 border-t-2 border-black flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          {/* Bottom Angled TV Base Stand Legs & Shadow Rail */}
+          <div className="w-full flex items-center justify-between px-10 sm:px-16 -mt-1 select-none">
+            <div className="retro-tv-foot -rotate-12 rounded-b-md" />
+            <div className="h-1.5 flex-1 bg-black/60 rounded-full mx-2 shadow-sm" />
+            <div className="retro-tv-foot rotate-12 rounded-b-md" />
+          </div>
+
+          {/* Channel Subscribe Action Bar - Seamlessly fit to yellow grid */}
+          <div className="mt-6 w-full p-4 sm:p-5 rounded-2xl bg-white border-[3px] border-black shadow-[4px_4px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h4 className="text-base font-black text-[#3b0764]">
+              <h4 className="text-sm sm:text-base font-black text-[#3b0764]">
                 Official YouTube: {YOUTUBE_DATA.channelName}
               </h4>
               <p className="text-xs font-bold text-zinc-600 mt-0.5">
@@ -158,7 +259,7 @@ export function YouTubeSection() {
               href={YOUTUBE_DATA.channelUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="neo-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-black text-xs sm:text-sm bg-[#ef4444] text-white shadow-[3px_3px_0px_#000] uppercase tracking-wider"
+              className="neo-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-black text-xs sm:text-sm bg-[#ef4444] text-white shadow-[3px_3px_0px_#000] uppercase tracking-wider cursor-pointer"
             >
               <YouTubeIcon className="w-4 h-4" />
               <span>Visit Channel</span>
