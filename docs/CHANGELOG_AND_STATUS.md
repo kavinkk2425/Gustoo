@@ -48,6 +48,12 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Mobile Navigation Drawer Contrast, Colors & Animation Stacking Fix
+- **Summary**: Resolved mobile drawer rendering bug where Cyberpunk button polygon backgrounds were hidden and text appeared floating without contrast against the background:
+  - **Stacking Context Fix (`app/globals.css`)**: Added `isolation: isolate` and `z-index: 1` to `.cyber-btn` so that `:before` and `:after` pseudo-elements (clipped polygon backgrounds) are not pushed behind parent container backgrounds. Placed text content at `z-index: 2`, glitch overlay at `z-index: 3`, and badges at `z-index: 4`.
+  - **Chassis Contrast & Premium Palette (`components/layout/Navbar.tsx`)**: Replaced the washed-out yellow drawer background with a sleek dark arcade chassis (`bg-[#090d16] border-t-[3px] border-b-[4px] border-black shadow-[0_14px_28px_rgba(0,0,0,0.85)]`) and subtle dot matrix grid.
+  - **Register CTA Upgrade**: Enhanced the full-width mobile register CTA with vibrant magenta-to-pink gradient, `Sparkles` icon, high-voltage glow, and prominent `Chakra Petch` typography.
+
 ### `2026-09-30` — Minimalist Highway Progress Bar (Car Only)
 - **Summary**: Streamlined the top highway scroll progress bar in `components/ui/GameScrollProvider.tsx`:
   - **Removed Speedometer & Lap HUD**: Stripped out the `SPD: 000 KM/H` digital speedometer, gear indicator, and `GUSTO GP` lap badge overlays.

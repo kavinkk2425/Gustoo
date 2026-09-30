@@ -305,7 +305,7 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
 
       {/* Mobile Menu Drawer with Cyberpunk Cards */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#fde047] border-t-[3px] border-black p-4 space-y-2.5 animate-in slide-in-from-top-2 duration-200">
+        <div className="lg:hidden bg-[#090d16] border-t-[3px] border-b-[4px] border-black p-4 space-y-3 shadow-[0_14px_28px_rgba(0,0,0,0.85)] animate-in slide-in-from-top-2 duration-200">
           {/* Mobile Search Bar */}
           <div className="relative flex items-center">
             <input
@@ -313,12 +313,12 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
               placeholder="Search 9 events, rules, venues..."
               value={searchValue}
               onChange={handleSearch}
-              className="w-full pl-4 pr-10 py-2 rounded-2xl bg-white border-2 border-black text-xs font-bold text-black placeholder:text-zinc-600 shadow-[2.5px_2.5px_0px_#000] focus:outline-none"
+              className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-white border-2 border-black text-xs font-bold text-black placeholder:text-zinc-500 shadow-[2.5px_2.5px_0px_#000] focus:outline-none"
             />
             <Search className="w-4 h-4 text-black absolute right-3 pointer-events-none" />
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2.5">
             {navLinks.map((link) => {
               const isActive = activeLink === link.name;
               return (
@@ -340,21 +340,16 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
             })}
           </div>
 
-          <div className="pt-1">
+          <div className="pt-1.5">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 handleRegisterClick();
               }}
-              className="w-full cyber-nav-link relative block select-none cursor-pointer"
+              className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#ec4899] via-[#8b5cf6] to-[#06b6d4] text-white border-2 border-black font-['Chakra_Petch',sans-serif] font-black text-xs xs:text-sm uppercase tracking-wider shadow-[4px_4px_0px_#000] flex items-center justify-center gap-2 cursor-pointer active:scale-95 transition-all select-none hover:shadow-[0_0_15px_rgba(236,72,153,0.6)]"
             >
-              <div className="cyber-btn !w-full !h-11 !text-sm">
-                <span>Register for GUSTO 2K26 (₹{ABOUT_DATA.registrationFee})</span>
-                <span className="cyber-btn__glitch" aria-hidden="true">
-                  _JOIN_GUSTO_2K26_
-                </span>
-                <label className="cyber-number">NOW</label>
-              </div>
+              <Sparkles className="w-4 h-4 text-yellow-300" />
+              <span>Register for GUSTO 2K26 (₹{ABOUT_DATA.registrationFee})</span>
             </button>
           </div>
         </div>
