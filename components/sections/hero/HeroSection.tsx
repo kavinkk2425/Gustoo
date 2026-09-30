@@ -614,45 +614,144 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* 3. Retro Arcade Countdown Timer - Scroll Reveal */}
+            {/* 3. Retro Nintendo Switch Handheld Gaming Console Countdown Timer - Scroll Reveal */}
             <div
               ref={timerRef}
-              className={`w-full max-w-3xl mx-auto p-5 sm:p-8 rounded-3xl sm:rounded-[36px] bg-[#2d0852] border-[3.5px] sm:border-[5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[10px_10px_0px_#000] mb-8 sm:mb-12 select-none scroll-reveal ${
+              className={`w-full max-w-4xl mx-auto mb-8 sm:mb-12 select-none scroll-reveal ${
                 timerInView ? "is-visible" : ""
               }`}
             >
-              <div className="flex items-center justify-between mb-3 sm:mb-4 px-1 sm:px-2">
-                <span className="text-sm sm:text-base font-['Chakra_Petch',sans-serif] font-black uppercase tracking-widest text-[#fde047] flex items-center gap-2">
-                  <span className="inline-block animate-pulse">★</span>
-                  LEVEL STARTS IN
-                  <span className="inline-block animate-pulse">★</span>
-                </span>
-                <span className="text-sm sm:text-base font-bold text-pink-300 font-mono">March 06, 2026</span>
-              </div>
-              <div className="grid grid-cols-4 gap-2 sm:gap-4">
-                <div className="flex flex-col items-center p-3 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-[#facc15] border-2 sm:border-[3.5px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] group hover:-translate-y-1 transition-transform">
-                  <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-black font-mono">
-                    {String(timeLeft.days).padStart(2, "0")}
-                  </span>
-                  <span className="text-xs sm:text-sm lg:text-base font-black text-black uppercase mt-1 tracking-wider font-['Chakra_Petch',sans-serif]">Days</span>
+              {/* Nintendo Switch Outer Shell */}
+              <div className="flex items-stretch w-full rounded-[24px] sm:rounded-[36px] overflow-hidden border-[3.5px] sm:border-[4.5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[9px_9px_0px_#000]">
+                
+                {/* LEFT JOY-CON (Neon Cyan) */}
+                <div className="switch-joycon-left w-14 xs:w-16 sm:w-20 md:w-24 p-2 sm:p-3 flex flex-col justify-between items-center relative border-r-2 border-black/40 shrink-0">
+                  {/* Minus Button (-) */}
+                  <div className="w-full flex justify-end pr-1 sm:pr-2 pt-1">
+                    <div className="w-2.5 sm:w-3.5 h-1 sm:h-1.5 bg-[#222] rounded-[1px] border border-black/60 shadow-xs" />
+                  </div>
+
+                  {/* Top Analog Joystick */}
+                  <div className="switch-thumbstick w-7 h-7 sm:w-10 sm:h-10 my-1">
+                    <div className="switch-thumbstick-inner" />
+                  </div>
+
+                  {/* D-Pad Buttons (▲, ◀, ▶, ▼) */}
+                  <div className="flex flex-col items-center gap-0.5 sm:gap-1 my-1">
+                    <div className="switch-btn w-3.5 h-3.5 sm:w-5 sm:h-5 text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">▲</div>
+                    <div className="flex items-center gap-1 sm:gap-1.5">
+                      <div className="switch-btn w-3.5 h-3.5 sm:w-5 sm:h-5 text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">◀</div>
+                      <div className="switch-btn w-3.5 h-3.5 sm:w-5 sm:h-5 text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">▶</div>
+                    </div>
+                    <div className="switch-btn w-3.5 h-3.5 sm:w-5 sm:h-5 text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">▼</div>
+                  </div>
+
+                  {/* Square Capture/Record Button */}
+                  <div className="w-3.5 h-3.5 sm:w-5 sm:h-5 rounded-[2px] bg-[#383a40] border border-black/60 flex items-center justify-center shadow-inner cursor-pointer active:scale-95">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#202226]" />
+                  </div>
                 </div>
-                <div className="flex flex-col items-center p-3 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-[#84cc16] border-2 sm:border-[3.5px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] group hover:-translate-y-1 transition-transform">
-                  <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-black font-mono">
-                    {String(timeLeft.hours).padStart(2, "0")}
-                  </span>
-                  <span className="text-xs sm:text-sm lg:text-base font-black text-black uppercase mt-1 tracking-wider font-['Chakra_Petch',sans-serif]">Hours</span>
+
+                {/* CENTER OLED DISPLAY SCREEN */}
+                <div className="switch-screen-outline flex-1 p-2 sm:p-4 md:p-5 flex flex-col justify-between">
+                  {/* Top Game Console Status Bar */}
+                  <div className="flex items-center justify-between mb-2 sm:mb-3 px-1 sm:px-2">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 border border-black animate-pulse" />
+                      <span className="text-[10px] sm:text-xs font-['Chakra_Petch',sans-serif] font-black uppercase tracking-widest text-[#fde047] flex items-center gap-1.5">
+                        <span>★</span>
+                        <span>LEVEL STARTS IN</span>
+                        <span>★</span>
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 font-mono text-[9px] sm:text-xs font-bold text-pink-300">
+                      <span>March 06, 2026</span>
+                      <span className="hidden xs:inline px-1.5 py-0.5 rounded bg-black/60 text-[#84cc16] border border-white/20 text-[9px]">100% 🔋</span>
+                    </div>
+                  </div>
+
+                  {/* Inner Dark Screen Glass with Countdown Blocks */}
+                  <div className="relative rounded-xl sm:rounded-2xl p-2 sm:p-4 bg-black/85 border-2 border-black/60 shadow-[inset_0_0_15px_rgba(0,0,0,0.9)]">
+                    <div className="grid grid-cols-4 gap-1.5 sm:gap-3 lg:gap-4">
+                      {/* Days */}
+                      <div className="flex flex-col items-center p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-[#facc15] border-2 sm:border-[3px] border-black shadow-[2.5px_2.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
+                        <span className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-black text-black font-mono leading-none">
+                          {String(timeLeft.days).padStart(2, "0")}
+                        </span>
+                        <span className="text-[9px] xs:text-[10px] sm:text-xs lg:text-sm font-black text-black uppercase mt-1 tracking-wider font-['Chakra_Petch',sans-serif]">
+                          Days
+                        </span>
+                      </div>
+
+                      {/* Hours */}
+                      <div className="flex flex-col items-center p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-[#84cc16] border-2 sm:border-[3px] border-black shadow-[2.5px_2.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
+                        <span className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-black text-black font-mono leading-none">
+                          {String(timeLeft.hours).padStart(2, "0")}
+                        </span>
+                        <span className="text-[9px] xs:text-[10px] sm:text-xs lg:text-sm font-black text-black uppercase mt-1 tracking-wider font-['Chakra_Petch',sans-serif]">
+                          Hours
+                        </span>
+                      </div>
+
+                      {/* Mins */}
+                      <div className="flex flex-col items-center p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-[#06b6d4] border-2 sm:border-[3px] border-black shadow-[2.5px_2.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
+                        <span className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-black text-black font-mono leading-none">
+                          {String(timeLeft.minutes).padStart(2, "0")}
+                        </span>
+                        <span className="text-[9px] xs:text-[10px] sm:text-xs lg:text-sm font-black text-black uppercase mt-1 tracking-wider font-['Chakra_Petch',sans-serif]">
+                          Mins
+                        </span>
+                      </div>
+
+                      {/* Secs */}
+                      <div className="flex flex-col items-center p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-[#ec4899] border-2 sm:border-[3px] border-black shadow-[2.5px_2.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
+                        <span className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-black text-white font-mono leading-none">
+                          {String(timeLeft.seconds).padStart(2, "0")}
+                        </span>
+                        <span className="text-[9px] xs:text-[10px] sm:text-xs lg:text-sm font-black text-white uppercase mt-1 tracking-wider font-['Chakra_Petch',sans-serif]">
+                          Secs
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Dual Stereo Speaker Slits on screen bottom */}
+                  <div className="flex justify-between items-center px-4 pt-1.5 opacity-40">
+                    <div className="w-5 sm:w-8 h-1 bg-black rounded-full" />
+                    <div className="text-[8px] font-mono text-zinc-400 uppercase tracking-widest">NINTENDO GUSTO OLED</div>
+                    <div className="w-5 sm:w-8 h-1 bg-black rounded-full" />
+                  </div>
                 </div>
-                <div className="flex flex-col items-center p-3 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-[#06b6d4] border-2 sm:border-[3.5px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] group hover:-translate-y-1 transition-transform">
-                  <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-black font-mono">
-                    {String(timeLeft.minutes).padStart(2, "0")}
-                  </span>
-                  <span className="text-xs sm:text-sm lg:text-base font-black text-black uppercase mt-1 tracking-wider font-['Chakra_Petch',sans-serif]">Mins</span>
-                </div>
-                <div className="flex flex-col items-center p-3 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-[#ec4899] border-2 sm:border-[3.5px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[5px_5px_0px_#000] group hover:-translate-y-1 transition-transform">
-                  <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-mono">
-                    {String(timeLeft.seconds).padStart(2, "0")}
-                  </span>
-                  <span className="text-xs sm:text-sm lg:text-base font-black text-white uppercase mt-1 tracking-wider font-['Chakra_Petch',sans-serif]">Secs</span>
+
+                {/* RIGHT JOY-CON (Neon Red/Coral) */}
+                <div className="switch-joycon-right w-14 xs:w-16 sm:w-20 md:w-24 p-2 sm:p-3 flex flex-col justify-between items-center relative border-l-2 border-black/40 shrink-0">
+                  {/* Plus Button (+) */}
+                  <div className="w-full flex justify-start pl-1 sm:pr-2 pt-1">
+                    <div className="relative w-3 sm:w-4 h-3 sm:h-4 flex items-center justify-center">
+                      <div className="absolute w-2.5 sm:w-3.5 h-1 sm:h-1.5 bg-[#222] rounded-[1px] border border-black/60" />
+                      <div className="absolute w-1 sm:w-1.5 h-2.5 sm:h-3.5 bg-[#222] rounded-[1px] border border-black/60" />
+                    </div>
+                  </div>
+
+                  {/* Diamond Action Buttons (X, Y, A, B) */}
+                  <div className="flex flex-col items-center gap-0.5 sm:gap-1 my-1">
+                    <div className="switch-btn w-3.5 h-3.5 sm:w-5 sm:h-5 text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">X</div>
+                    <div className="flex items-center gap-1 sm:gap-1.5">
+                      <div className="switch-btn w-3.5 h-3.5 sm:w-5 sm:h-5 text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">Y</div>
+                      <div className="switch-btn w-3.5 h-3.5 sm:w-5 sm:h-5 text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">A</div>
+                    </div>
+                    <div className="switch-btn w-3.5 h-3.5 sm:w-5 sm:h-5 text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">B</div>
+                  </div>
+
+                  {/* Bottom Analog Joystick */}
+                  <div className="switch-thumbstick w-7 h-7 sm:w-10 sm:h-10 my-1">
+                    <div className="switch-thumbstick-inner" />
+                  </div>
+
+                  {/* Circular Home Button (⌂) */}
+                  <div className="w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-[#383a40] border border-black/60 flex items-center justify-center shadow-inner cursor-pointer active:scale-95 text-white/80 text-[8px] sm:text-[10px]">
+                    ⌂
+                  </div>
                 </div>
               </div>
             </div>

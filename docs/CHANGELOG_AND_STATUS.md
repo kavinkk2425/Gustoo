@@ -48,6 +48,21 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Authentic Nintendo Switch Handheld Gaming Console Countdown Timer
+- **Summary**: Transformed the countdown timer block in `components/sections/hero/HeroSection.tsx` into an authentic, highly detailed **Nintendo Switch Handheld Gaming Console**:
+  - **Left Joy-Con (Neon Cyan)**:
+    - Features curved left chassis (`.switch-joycon-left`) with bevel inner shadow lighting.
+    - Integrated Minus button (`-`), concave 3D analog joystick (`.switch-thumbstick`), circular D-Pad buttons (▲, ◀, ▶, ▼), and square capture/record button.
+  - **Center OLED Gaming Display**:
+    - Dark graphite console bezel housing (`.switch-screen-outline`) with 3.5px bold black border.
+    - Console OS status bar with `★ LEVEL STARTS IN ★`, pulsing LED indicator, target date (`March 06, 2026`), and battery status (`100% 🔋`).
+    - Holds the 4 bold countdown timer blocks (`DAYS`, `HOURS`, `MINS`, `SECS`) with vibrant retro pop color cards and hover physics.
+    - Dual bottom stereo speaker slits and "NINTENDO GUSTO OLED" branding.
+  - **Right Joy-Con (Neon Coral/Red)**:
+    - Features curved right chassis (`.switch-joycon-right`) with bevel inner shadow lighting.
+    - Integrated Plus button (`+`), diamond action buttons (`X`, `Y`, `A`, `B`), lower concave 3D analog joystick, and circular illuminated Home button (`⌂`).
+  - **Responsive & Seamless Fitting**: Joy-Cons flank the display with flexible dimensions and scale gracefully on mobile/tablet without overflowing the yellow grid background.
+
 ### `2026-09-30` — Stefan Devai Inspired Retro Vintage CRT TV Cabinet Video Player
 - **Summary**: Replaced the standard modern video player box in `components/sections/youtube/YouTubeSection.tsx` with an authentic, highly detailed **Retro Vintage CRT Television Cabinet** inspired by Stefan Devai's Dribbble design:
   - **Top Dual Rabbit-Ear Antennas**: Added the rounded orange antenna dome with inset bevels and two angled metallic antenna rods (`retro-tv-rod-left`, `retro-tv-rod-right`) with chrome spherical tip beads (`retro-tv-rod-tip`).
