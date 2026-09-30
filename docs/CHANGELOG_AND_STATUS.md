@@ -48,6 +48,11 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Interactive Wave Jumping Across All Hero Letters ("Let", "The", "Begin") & Color Fix
+- **Summary**: Extended the interactive click-to-jump physics wave across the entire "Let The Gusto Begin" hero typography and resolved the post-click black text coloring bug (`components/sections/hero/HeroSection.tsx` & `app/globals.css`):
+  - **Full-Title Interactive Letter Spans (`components/sections/hero/HeroSection.tsx`)**: Decomposed "Let" (`L`, `e`, `t`), "The" (`T`, `h`, `e`), and "Begin" (`B`, `e`, `g`, `i`, `n`) into animated letter spans with `cursor-pointer` and staggered spring physics (`purpleLetterJump`). Clicking any word, the mascot, or speech bubble launches a cartoon cascade bounce across the title.
+  - **Permanent Color Fix (`app/globals.css` & `HeroSection.tsx`)**: Replaced missing fallback color styling with explicit `text-[#facc15]` and `text-[#581c87]`. Updated `@keyframes gustoLetterJump` so that at 0%, 50%, 75%, and 100% the text retains bright arcade yellow (`#facc15` / `#fde047`) and returns smoothly to `animate-gusto-text` without ever turning black.
+
 ### `2026-09-30` — Desktop Navbar Options Fitting, Glitch Text Alignment & Smooth Scrolling Optimization
 - **Summary**: Resolved desktop top navigation bar horizontal overflow and double text glitch alignment issue (`components/layout/Navbar.tsx` & `app/globals.css`):
   - **Desktop Nav Spacing & Responsive Fitting (`components/layout/Navbar.tsx`)**: Re-calibrated nav container gap to `gap-1.5 xl:gap-2.5 2xl:gap-3.5` with `!h-9 lg:!px-2.5 xl:!px-3.5 lg:!text-[11px] xl:!text-[12px] !tracking-tight`. All 7 options now fit cleanly inside the desktop header without overflowing off the right edge.

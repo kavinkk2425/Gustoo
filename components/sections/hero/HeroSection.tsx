@@ -34,10 +34,21 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   const targetDate = new Date("2026-03-06T09:00:00+05:30").getTime();
 
   const [letterAnimationKey, setLetterAnimationKey] = useState(0);
+  const [isJumping, setIsJumping] = useState(false);
 
-  const handleGustoClick = () => {
+  const triggerJump = () => {
     setLetterAnimationKey((prev) => prev + 1);
+    setIsJumping(true);
   };
+
+  useEffect(() => {
+    if (isJumping) {
+      const timer = setTimeout(() => {
+        setIsJumping(false);
+      }, 950);
+      return () => clearTimeout(timer);
+    }
+  }, [isJumping, letterAnimationKey]);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -185,28 +196,66 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
           <div className="relative my-2 sm:my-5 select-none w-full max-w-full">
             {/* Top Line: "Let The" with cute Pink Gamepad Character */}
             <div className="flex items-center justify-center gap-2.5 xs:gap-4 sm:gap-8 flex-nowrap">
-              <h1 className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000]">
-                Let
+              {/* "Let" with interactive letter bouncing */}
+              <h1
+                onClick={triggerJump}
+                className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000] cursor-pointer inline-flex"
+                title="Click to see the letters jump!"
+              >
+                {["L", "e", "t"].map((letter, idx) => (
+                  <span
+                    key={`let-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${idx * 60}ms` }}
+                    className={`inline-block text-[#581c87] ${
+                      isJumping ? "animate-purple-jump" : ""
+                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                  >
+                    {letter}
+                  </span>
+                ))}
               </h1>
 
-              {/* The Cute Gamepad Mascot from Behance — idle wiggle animation */}
-              <div className="relative -mt-1 sm:-mt-6 deco-obj animate-idle-wiggle cursor-pointer shrink-0">
+              {/* The Cute Gamepad Mascot from Behance — idle wiggle animation & clickable jump trigger */}
+              <div
+                onClick={triggerJump}
+                className="relative -mt-1 sm:-mt-6 deco-obj animate-idle-wiggle cursor-pointer shrink-0 active:scale-95 transition-transform duration-150"
+                title="Click to see the letters jump!"
+              >
                 <RetroGamepad className="w-18 xs:w-24 sm:w-36 md:w-44 lg:w-56 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000]" />
               </div>
 
-              <h1 className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000]">
-                The
+              {/* "The" with interactive letter bouncing */}
+              <h1
+                onClick={triggerJump}
+                className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000] cursor-pointer inline-flex"
+                title="Click to see the letters jump!"
+              >
+                {["T", "h", "e"].map((letter, idx) => (
+                  <span
+                    key={`the-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${(idx + 3) * 60}ms` }}
+                    className={`inline-block text-[#581c87] ${
+                      isJumping ? "animate-purple-jump" : ""
+                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                  >
+                    {letter}
+                  </span>
+                ))}
               </h1>
             </div>
 
             {/* Middle Line: Chunky Gaming Speech Bubble Banner */}
             <div className="my-2 xs:my-3 sm:my-4 flex justify-center relative">
               {/* Handwritten sticker badge floating on speech bubble */}
-              <div className="absolute -top-5 sm:-top-7 -right-2 sm:-right-6 z-30 pointer-events-none">
+              <div
+                onClick={triggerJump}
+                className="absolute -top-5 sm:-top-7 -right-2 sm:-right-6 z-30 cursor-pointer"
+                title="Click to see the letters jump!"
+              >
                 <HandwrittenSticker text="Click to Jump! ✨" color="#fde047" rotation="rotate-6" className="shadow-[3px_3px_0px_#000] text-sm xs:text-base sm:text-2xl" />
               </div>
               <div
-                onClick={handleGustoClick}
+                onClick={triggerJump}
                 className="relative inline-block px-7 xs:px-10 sm:px-14 md:px-20 py-2.5 xs:py-3.5 sm:py-4 rounded-2xl sm:rounded-3xl border-[3.5px] sm:border-[5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[10px_10px_0px_#000] animate-gusto-float animate-gusto-color cursor-pointer select-none group"
                 title="Click to see the Gusto letters jump!"
               >
@@ -228,14 +277,15 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 <div className="flex items-center justify-center">
                   {["G", "u", "s", "t", "o"].map((letter, idx) => (
                     <span
-                      key={`${idx}-${letterAnimationKey}`}
+                      key={`gusto-${idx}-${letterAnimationKey}`}
                       style={{
                         animationDelay: `${idx * 70}ms`,
                       }}
-                      className={`inline-block text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black uppercase drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[7px_7px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:4px_#000] ${letterAnimationKey > 0
+                      className={`inline-block text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black uppercase text-[#facc15] drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[7px_7px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:4px_#000] ${
+                        isJumping
                           ? "animate-letter-jump"
                           : "animate-gusto-text"
-                        } hover:-translate-y-3 hover:scale-110 transition-transform duration-150 cursor-pointer`}
+                      } hover:-translate-y-3 hover:scale-110 transition-transform duration-150 cursor-pointer`}
                     >
                       {letter}
                     </span>
@@ -244,10 +294,24 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Bottom Line: "Begin" */}
+            {/* Bottom Line: "Begin" with interactive letter bouncing */}
             <div className="flex justify-center">
-              <h1 className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000]">
-                Begin
+              <h1
+                onClick={triggerJump}
+                className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000] cursor-pointer inline-flex"
+                title="Click to see the letters jump!"
+              >
+                {["B", "e", "g", "i", "n"].map((letter, idx) => (
+                  <span
+                    key={`begin-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${idx * 60}ms` }}
+                    className={`inline-block text-[#581c87] ${
+                      isJumping ? "animate-purple-jump" : ""
+                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                  >
+                    {letter}
+                  </span>
+                ))}
               </h1>
             </div>
           </div>
