@@ -48,6 +48,12 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-09-30` — Background-Fit Symposium Layout with Seamless Moving Text Marquee Capsule
+- **Summary**: Removed the enclosing dark box container so all symposium components fit seamlessly and directly onto the signature yellow retro grid background, retaining the dynamic continuous moving text effect (`components/sections/hero/HeroSection.tsx`):
+  - **Background-Fit Layout (`components/sections/hero/HeroSection.tsx`)**: Removed the heavy outer box wrapper. The 4 stat cards (Event Date, Reg. Last Date, Competitions, Venue), countdown timer, action buttons, and trust badges now sit cleanly directly on the yellow grid background.
+  - **Seamless Moving Text Marquee Capsule (`components/sections/hero/HeroSection.tsx`)**: The top "National Level Technical Symposium" element is now a sleek white neo-brutalist capsule with a continuous animated marquee ticker (`NATIONAL LEVEL TECHNICAL SYMPOSIUM • MARCH 06, 2026 • GCEE ERODE • DEPARTMENT OF IT • 9 COMPETITIONS • CASH PRIZES & CERTIFICATES • REGISTER NOW (₹250)`).
+  - **Bottom Marquee Strip (`components/sections/hero/HeroSection.tsx`)**: Added a matching rounded-full white/neo-brutalist ticker pill with fast scrolling text highlighting prizes, bus routes, and registration details.
+
 ### `2026-09-30` — Symposium Unified Command Deck Chassis & Continuous Moving Text Marquees
 - **Summary**: Transformed the lower hero symposium elements (banner, quick stat cards, countdown timer, register CTA, quick links, and trust badges) into a unified arcade command deck chassis with continuous animated marquee text tickers (`components/sections/hero/HeroSection.tsx` & `app/globals.css`):
   - **Unified Command Chassis (`components/sections/hero/HeroSection.tsx`)**: Enclosed the entire symposium overview within a high-contrast neo-brutalist container (`bg-gradient-to-b from-[#240b45] via-[#1a0633] to-[#110424]`, `border-[3.5px] sm:border-[5px] border-black`, `shadow-[8px_8px_0px_#000] sm:shadow-[14px_14px_0px_#000]`), retro metal corner rivets (`+`), a matrix grid pattern overlay, and an interactive `SYSTEM // ONLINE` terminal telemetry beacon.
