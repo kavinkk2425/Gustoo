@@ -296,8 +296,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         <MarioCloudMedium className="w-24 xs:w-32 sm:w-44 md:w-56 h-auto drop-shadow-[4px_4px_0px_#000]" />
       </div>
 
-      {/* Top-Center: Small 1-Puff Mario Cloud */}
-      <div className="absolute top-3 sm:top-5 left-[54%] -translate-x-1/2 select-none pointer-events-none z-[1] animate-float-med">
+      {/* Top-Center-Left: Small 1-Puff Mario Cloud (Placed clear of center HUD) */}
+      <div className="absolute top-2 sm:top-3 left-[28%] -translate-x-1/2 select-none pointer-events-none z-[1] animate-float-med">
         <MarioCloudSmall className="w-14 xs:w-18 sm:w-24 md:w-30 h-auto drop-shadow-[3px_3px_0px_#000]" />
       </div>
 
@@ -347,35 +347,25 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Top Symposium Institution Banner (Clean & Responsive Neo-Brutalist Arcade Capsule) */}
-          <div className="w-full flex justify-center items-center mb-6 sm:mb-8 md:mb-10 z-20 px-2 sm:px-4">
-            <div className="group relative inline-flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 px-3 sm:px-6 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[84%] xs:max-w-[88%] sm:max-w-[96%] select-none text-center">
+          {/* Top Symposium Institution Banner (Authentic Mario Platformer Signboard: Government College of Engineering, Erode) */}
+          <div className="w-full flex justify-center items-center mb-6 sm:mb-8 md:mb-10 z-20 px-2 sm:px-4 select-none">
+            <div className="relative inline-flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-8 py-2.5 sm:py-3.5 bg-[#ffd000] border-[3.5px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rounded-xs hover:-translate-y-0.5 transition-all duration-150 max-w-full">
+              {/* 4 Corner Mario Rivet Screws */}
+              <div className="absolute top-1 left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs" />
+              <div className="absolute top-1 right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs" />
+              <div className="absolute bottom-1 left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs" />
+              <div className="absolute bottom-1 right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs" />
 
-              {/* Status diode + College Title row */}
-              <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2">
-                <span className="relative flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 bg-[#84cc16] border-[1.5px] border-black shadow-[0_0_6px_#84cc16]"></span>
-                </span>
-                <span className="font-['Chakra_Petch',sans-serif] font-black text-[11px] xs:text-xs sm:text-sm md:text-base text-zinc-950 tracking-wider uppercase drop-shadow-[0_1px_0px_rgba(255,255,255,0.8)] leading-tight text-center">
-                  GOVERNMENT COLLEGE OF ENGINEERING, ERODE
-                </span>
-              </div>
+              {/* Left Spinning Coin */}
+              <span className="text-xs sm:text-base animate-coin-spin shrink-0">🪙</span>
 
-              {/* Arcade Divider (desktop only) */}
-              <span className="hidden sm:inline text-zinc-400 font-black text-sm select-none">
-                •
+              {/* College Title in Authentic Mario 8-Bit Font */}
+              <span className="font-['Press_Start_2P',monospace] font-black text-[9.5px] xs:text-[11px] sm:text-sm md:text-base lg:text-lg text-black tracking-wider uppercase text-center leading-snug drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] px-1 sm:px-2">
+                GOVERNMENT COLLEGE OF ENGINEERING, ERODE
               </span>
 
-              {/* Department Accent Badge */}
-              <div className="inline-flex items-center gap-1.5 sm:gap-2">
-                <span className="inline-flex items-center px-2.5 py-0.5 sm:py-1 rounded-md bg-[#ec4899] text-white text-[9.5px] xs:text-[11px] sm:text-xs md:text-sm font-black uppercase tracking-wider font-['Chakra_Petch',sans-serif] border-[1.5px] border-black shadow-[1.5px_1.5px_0px_#000] whitespace-nowrap">
-                  DEPARTMENT OF INFORMATION TECHNOLOGY
-                </span>
-                <span className="hidden lg:inline-flex items-center text-[10px] sm:text-[11px] font-mono text-zinc-900 font-extrabold bg-[#fec800] px-2 py-0.5 rounded border-[1.5px] border-black shadow-[1px_1px_0px_#000] tracking-wider whitespace-nowrap">
-                  ESTD 1984 // AUTONOMOUS
-                </span>
-              </div>
+              {/* Right Spinning Coin */}
+              <span className="text-xs sm:text-base animate-coin-spin shrink-0">🪙</span>
             </div>
           </div>
 
