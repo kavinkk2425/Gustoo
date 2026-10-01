@@ -464,76 +464,76 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Retro Pixel Tagline Subtitle */}
-          <div className="mt-5 sm:mt-8 md:mt-10 mb-4 select-none px-4 max-w-4xl">
-            <p className="font-['Press_Start_2P',monospace] text-white text-[10px] xs:text-xs sm:text-sm md:text-base drop-shadow-[2.5px_2.5px_0px_#000] tracking-widest uppercase text-center leading-relaxed">
+          {/* Retro Pixel Tagline Subtitle - Increased Scale */}
+          <div className="mt-6 sm:mt-10 md:mt-12 mb-5 sm:mb-6 select-none px-4 max-w-5xl">
+            <p className="font-['Press_Start_2P',monospace] text-white text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl drop-shadow-[3px_3px_0px_#000] tracking-widest uppercase text-center leading-relaxed font-bold">
               A NATIONAL LEVEL TECHNICAL SYMPOSIUM • MARCH 06, 2026 • GCE ERODE
             </p>
           </div>
 
-          {/* Retro Arcade Presentation Card */}
-          <div className="w-full max-w-3xl mx-auto px-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-white/10 backdrop-blur-xs border-[2.5px] sm:border-[3px] border-black shadow-[4px_4px_0px_#000] text-center my-4 sm:my-6 select-none">
-            <div className="font-['Press_Start_2P',monospace] text-[#ffd000] text-[10.5px] xs:text-xs sm:text-sm mb-2 text-center drop-shadow-[1.5px_1.5px_0px_#000] tracking-wider uppercase">
+          {/* Retro Arcade Presentation Card - Significantly Increased Content Size */}
+          <div className="w-full max-w-4xl lg:max-w-5xl mx-auto px-6 sm:px-10 py-6 sm:py-8 rounded-2xl bg-white/15 backdrop-blur-xs border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[8px_8px_0px_#000] text-center my-5 sm:my-8 select-none">
+            <div className="font-['Press_Start_2P',monospace] text-[#ffd000] text-sm xs:text-base sm:text-lg md:text-2xl mb-3 sm:mb-4 text-center drop-shadow-[2px_2px_0px_#000] tracking-wider uppercase font-black">
               BEGINNING OUR PRESENTATION // GUSTO 2K26
             </div>
-            <p className="font-['Press_Start_2P',monospace] text-white text-[8.5px] xs:text-[9.5px] sm:text-[10.5px] leading-relaxed max-w-2xl mx-auto drop-shadow-[1px_1px_0px_#000]">
+            <p className="font-['Press_Start_2P',monospace] text-white text-xs xs:text-sm sm:text-base md:text-lg lg:text-[19px] leading-relaxed md:leading-loose max-w-3xl mx-auto drop-shadow-[1.5px_1.5px_0px_#000]">
               Welcome to Gusto 2.0 at Government College of Engineering, Erode. Step into World 1-1 featuring 9 technical &amp; non-technical arenas, cash prize bounty pools, certificates, and free bus transit!
             </p>
           </div>
 
-          {/* Floating Super Mario Blocks: Single [?] on Left, and [#][?][#][?][#] Platform in Center */}
-          <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-10 my-3 sm:my-5 select-none z-20">
+          {/* Floating Super Mario Blocks: Single [?] on Left, and [#][?][#][?][#] Platform in Center - Scaled Up */}
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 my-5 sm:my-8 select-none z-20">
             {/* Left Single ? Block */}
             <div
               onClick={triggerJump}
-              className="w-10 h-10 sm:w-11 sm:h-11 bg-[#fc9838] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] flex items-center justify-center font-['Press_Start_2P',monospace] text-black font-black text-xs sm:text-sm relative cursor-pointer hover:-translate-y-1.5 transition-transform active:scale-95 group"
+              className="w-14 h-14 sm:w-16 sm:h-16 bg-[#fc9838] border-[3.5px] sm:border-[4px] border-black rounded-xs shadow-[4px_4px_0px_#000] flex items-center justify-center font-['Press_Start_2P',monospace] text-black font-black text-base sm:text-xl relative cursor-pointer hover:-translate-y-2 transition-transform active:scale-95 group"
               title="Hit the ? block!"
             >
-              <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
-              <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
-              <div className="absolute bottom-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
-              <div className="absolute bottom-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
+              <div className="absolute top-1 left-1 w-1.5 h-1.5 bg-[#804000]" />
+              <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-[#804000]" />
+              <div className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-[#804000]" />
+              <div className="absolute bottom-1 right-1 w-1.5 h-1.5 bg-[#804000]" />
               <span className="group-hover:scale-125 transition-transform">?</span>
             </div>
 
             {/* Center 5-Block Platform: [#][?][#][?][#] */}
-            <div className="flex items-center gap-1">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#c84c0c] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] relative">
-                <div className="absolute inset-0.5 border border-black/40" />
-                <div className="absolute top-2.5 left-0 right-0 h-[2px] bg-black" />
-                <div className="absolute top-6 left-0 right-0 h-[2px] bg-black" />
+            <div className="flex items-center gap-1.5">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#c84c0c] border-[3.5px] sm:border-[4px] border-black rounded-xs shadow-[4px_4px_0px_#000] relative">
+                <div className="absolute inset-1 border border-black/40" />
+                <div className="absolute top-3.5 left-0 right-0 h-[2.5px] bg-black" />
+                <div className="absolute top-8 left-0 right-0 h-[2.5px] bg-black" />
               </div>
               <div
                 onClick={triggerJump}
-                className="w-10 h-10 sm:w-11 sm:h-11 bg-[#fc9838] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] flex items-center justify-center font-['Press_Start_2P',monospace] text-black font-black text-xs sm:text-sm relative cursor-pointer hover:-translate-y-1.5 transition-transform active:scale-95 group"
+                className="w-14 h-14 sm:w-16 sm:h-16 bg-[#fc9838] border-[3.5px] sm:border-[4px] border-black rounded-xs shadow-[4px_4px_0px_#000] flex items-center justify-center font-['Press_Start_2P',monospace] text-black font-black text-base sm:text-xl relative cursor-pointer hover:-translate-y-2 transition-transform active:scale-95 group"
                 title="Hit the ? block!"
               >
-                <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
-                <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
-                <div className="absolute bottom-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
-                <div className="absolute bottom-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
+                <div className="absolute top-1 left-1 w-1.5 h-1.5 bg-[#804000]" />
+                <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-[#804000]" />
+                <div className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-[#804000]" />
+                <div className="absolute bottom-1 right-1 w-1.5 h-1.5 bg-[#804000]" />
                 <span className="group-hover:scale-125 transition-transform">?</span>
               </div>
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#c84c0c] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] relative">
-                <div className="absolute inset-0.5 border border-black/40" />
-                <div className="absolute top-2.5 left-0 right-0 h-[2px] bg-black" />
-                <div className="absolute top-6 left-0 right-0 h-[2px] bg-black" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#c84c0c] border-[3.5px] sm:border-[4px] border-black rounded-xs shadow-[4px_4px_0px_#000] relative">
+                <div className="absolute inset-1 border border-black/40" />
+                <div className="absolute top-3.5 left-0 right-0 h-[2.5px] bg-black" />
+                <div className="absolute top-8 left-0 right-0 h-[2.5px] bg-black" />
               </div>
               <div
                 onClick={triggerJump}
-                className="w-10 h-10 sm:w-11 sm:h-11 bg-[#fc9838] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] flex items-center justify-center font-['Press_Start_2P',monospace] text-black font-black text-xs sm:text-sm relative cursor-pointer hover:-translate-y-1.5 transition-transform active:scale-95 group"
+                className="w-14 h-14 sm:w-16 sm:h-16 bg-[#fc9838] border-[3.5px] sm:border-[4px] border-black rounded-xs shadow-[4px_4px_0px_#000] flex items-center justify-center font-['Press_Start_2P',monospace] text-black font-black text-base sm:text-xl relative cursor-pointer hover:-translate-y-2 transition-transform active:scale-95 group"
                 title="Hit the ? block!"
               >
-                <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
-                <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
-                <div className="absolute bottom-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
-                <div className="absolute bottom-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
+                <div className="absolute top-1 left-1 w-1.5 h-1.5 bg-[#804000]" />
+                <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-[#804000]" />
+                <div className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-[#804000]" />
+                <div className="absolute bottom-1 right-1 w-1.5 h-1.5 bg-[#804000]" />
                 <span className="group-hover:scale-125 transition-transform">?</span>
               </div>
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#c84c0c] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] relative">
-                <div className="absolute inset-0.5 border border-black/40" />
-                <div className="absolute top-2.5 left-0 right-0 h-[2px] bg-black" />
-                <div className="absolute top-6 left-0 right-0 h-[2px] bg-black" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#c84c0c] border-[3.5px] sm:border-[4px] border-black rounded-xs shadow-[4px_4px_0px_#000] relative">
+                <div className="absolute inset-1 border border-black/40" />
+                <div className="absolute top-3.5 left-0 right-0 h-[2.5px] bg-black" />
+                <div className="absolute top-8 left-0 right-0 h-[2.5px] bg-black" />
               </div>
             </div>
           </div>
