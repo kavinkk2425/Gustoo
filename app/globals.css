@@ -126,24 +126,178 @@ textarea {
 /* --------------------------------------------------------------------------
    4. SHARED SYMPOSIUM UTILITIES & KEYFRAMES (Additive Only)
    -------------------------------------------------------------------------- */
-.bg-retro-yellow-grid {
-  background-color: #fec800;
-  background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.09) 1.5px, transparent 1.5px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1.5px, transparent 1.5px);
-  background-size: 38px 38px;
-  animation: gridDrift 28s linear infinite;
+.bg-retro-yellow-grid,
+.bg-mario-sky {
+  background-color: #5c94fc;
 }
 
-/* Animated grid drift — very slow pan so it feels alive */
-@keyframes gridDrift {
-  0% {
-    background-position: 0px 0px;
-  }
+/* Super Mario World 1-1 Iconic Brick Ground Platform */
+.mario-brick-ground {
+  height: 56px;
+  background-color: #c84c0c;
+  background-image:
+    linear-gradient(180deg, #f89848 0px, #f89848 4px, transparent 4px),
+    linear-gradient(180deg, transparent 25px, #000 25px, #000 28px, #f89848 28px, #f89848 31px, transparent 31px),
+    repeating-linear-gradient(90deg, #000 0px, #000 3px, transparent 3px, transparent 32px);
+  border-top: 4px solid #000;
+  box-shadow: inset 0 3px 0 #f89848;
+}
 
-  100% {
-    background-position: 76px 76px;
-  }
+/* Super Mario 3D Title Letter Styling - Solid Dense 3D Block Extrusion */
+.mario-letter-span {
+  font-family: 'Titan One', 'Luckiest Guy', cursive, sans-serif;
+  display: inline-block;
+  -webkit-text-stroke: 4.5px #000000;
+  paint-order: stroke fill;
+  text-shadow:
+    0 1px 0 #000,
+    0 2px 0 #000,
+    0 3px 0 #000,
+    0 4px 0 #000,
+    0 5px 0 #000,
+    0 6px 0 #000,
+    0 7px 0 #000,
+    0 8px 0 #000,
+    0 9px 0 #000,
+    0 10px 0 #000,
+    0 11px 0 #000,
+    0 12px 0 #000,
+    1px 1px 0 #000,
+    2px 2px 0 #000,
+    3px 3px 0 #000,
+    4px 4px 0 #000,
+    5px 5px 0 #000,
+    6px 6px 0 #000,
+    7px 7px 0 #000,
+    8px 8px 0 #000,
+    9px 9px 0 #000,
+    10px 10px 0 #000,
+    11px 11px 0 #000,
+    12px 12px 0 #000;
+  line-height: 0.92;
+  user-select: none;
+}
+
+.mario-c-blue {
+  color: #00b0f0;
+}
+
+.mario-c-yellow {
+  color: #ffd000;
+}
+
+.mario-c-red {
+  color: #e52521;
+}
+
+.mario-c-green {
+  color: #43b047;
+}
+
+/* ==========================================================================
+   CLASSIC 2D PLATFORM GAME KEYFRAMES & UTILITIES
+   ========================================================================== */
+
+/* Seamless 60fps Horizontal Parallax Cloud Drift Tracks */
+@keyframes cloudTrackSlow {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes cloudTrackMed {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes cloudTrackFast {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* 2D Retro Coin Flip / Spin */
+@keyframes coinSpin {
+  0% { transform: scaleX(1); }
+  25% { transform: scaleX(0.18); filter: brightness(1.2); }
+  50% { transform: scaleX(1); }
+  75% { transform: scaleX(0.18); filter: brightness(0.8); }
+  100% { transform: scaleX(1); }
+}
+
+.animate-coin-spin {
+  animation: coinSpin 1.4s steps(12) infinite;
+}
+
+/* Interactive ? Block Bump */
+@keyframes blockBump {
+  0% { transform: translateY(0); }
+  35% { transform: translateY(-12px); }
+  70% { transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-block-bump {
+  animation: blockBump 0.35s ease-out forwards;
+}
+
+/* Coin Pop-Up Effect from bumped ? block */
+@keyframes coinPopOut {
+  0% { transform: translateY(0) scale(0.6); opacity: 0; }
+  30% { transform: translateY(-36px) scale(1.15); opacity: 1; }
+  70% { transform: translateY(-48px) scale(1); opacity: 1; }
+  100% { transform: translateY(-56px) scale(0.7); opacity: 0; }
+}
+
+.animate-coin-pop {
+  animation: coinPopOut 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Original GUSTO Mascot Patrol & Walk Cycle */
+@keyframes mascotPatrol {
+  0% { transform: translateX(0px) scaleX(1); }
+  47% { transform: translateX(calc(100vw - 140px)) scaleX(1); }
+  49% { transform: translateX(calc(100vw - 140px)) scaleX(1); }
+  51% { transform: translateX(calc(100vw - 140px)) scaleX(-1); }
+  97% { transform: translateX(0px) scaleX(-1); }
+  99% { transform: translateX(0px) scaleX(-1); }
+  100% { transform: translateX(0px) scaleX(1); }
+}
+
+@keyframes mascotWalkLegs {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3.5px); }
+}
+
+.animate-mascot-walk {
+  animation: mascotPatrol 24s linear infinite, mascotWalkLegs 0.28s steps(4) infinite;
+}
+
+/* Pixel-Game UI Buttons */
+.pixel-btn {
+  font-family: 'Press Start 2P', monospace;
+  border: 2.5px solid #000;
+  box-shadow: 2.5px 2.5px 0 #000;
+  transition: transform 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.12s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.12s ease;
+  user-select: none;
+}
+
+.pixel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 3.5px 3.5px 0 #000;
+  filter: brightness(1.12);
+}
+
+.pixel-btn:active {
+  transform: translateY(2px);
+  box-shadow: 1px 1px 0 #000;
+}
+
+/* Pixel Card / Panel */
+.pixel-panel {
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  border-radius: 4px;
 }
 
 .neo-border {
@@ -3430,4 +3584,76 @@ header.sticky {
   width: 0.15em;
   background-color: #ffffff;
   bottom: 8.12em;
-}
+}
+
+/* ==========================================================================
+   SUPER MARIO 3D CARTOON TYPOGRAPHY (Let The Gusto Begin)
+   Exact match to chunky block cartoon lettering with 3D black extrusion shadow
+   ========================================================================== */
+.mario-letter-span {
+  font-family: 'Titan One', 'Luckiest Guy', cursive, sans-serif !important;
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  -webkit-text-stroke: 3px #000;
+  paint-order: stroke fill;
+  /* Chunky 3D black block extrusion drop shadow */
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0 2.5px 0 #000,
+     0 5px 0 #000,
+     0 7.5px 0 #000,
+     0 10px 0 #000,
+     2px 12px 0 #000,
+    -2px 12px 0 #000,
+     0 16px 8px rgba(0, 0, 0, 0.45);
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.18s ease;
+  user-select: none;
+}
+
+@media (min-width: 640px) {
+  .mario-letter-span {
+    -webkit-text-stroke: 4.5px #000;
+    text-shadow:
+      -3px -3px 0 #000,
+       3px -3px 0 #000,
+      -3px  3px 0 #000,
+       3px  3px 0 #000,
+       0 3.5px 0 #000,
+       0 7px 0 #000,
+       0 10.5px 0 #000,
+       0 14px 0 #000,
+       0 17.5px 0 #000,
+       3px 20px 0 #000,
+      -3px 20px 0 #000,
+       0 24px 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.mario-letter-span:hover {
+  transform: translateY(-10px) scale(1.15) !important;
+  z-index: 20;
+}
+
+/* Super Mario Authentic 4-Color Palette */
+.mario-c-blue {
+  color: #00b0f0 !important;
+}
+
+.mario-c-yellow {
+  color: #ffd000 !important;
+}
+
+.mario-c-red {
+  color: #e52521 !important;
+}
+
+.mario-c-green {
+  color: #43b047 !important;
+}
+

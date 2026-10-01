@@ -55,6 +55,149 @@ function useInView(options = { threshold: 0.12 }) {
   return [ref, isInView] as const;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// AUTHENTIC SUPER MARIO WORLD 1-1 PIXEL CLOUDS (Exact 8-Bit NES Sprite Geometry)
+// ─────────────────────────────────────────────────────────────────────────────
+function MarioCloudSmall({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 32" className={className} shapeRendering="crispEdges">
+      {/* Black Pixel Outline */}
+      <path d="M16 4h16v4h6v4h6v16H4V12h6V8h6V4z" fill="#000" />
+      {/* White Body */}
+      <path d="M18 6h12v4h6v4h6v12H6V14h6v-4h6V6z" fill="#fff" />
+      {/* NES Cyan / Light Blue Shading Accents */}
+      <rect x="6" y="20" width="36" height="4" fill="#a4e4fc" />
+      <rect x="10" y="24" width="28" height="2" fill="#000" />
+      <rect x="8" y="22" width="6" height="2" fill="#000" />
+      <rect x="34" y="22" width="6" height="2" fill="#000" />
+    </svg>
+  );
+}
+
+function MarioCloudMedium({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 76 36" className={className} shapeRendering="crispEdges">
+      {/* Black Pixel Outline */}
+      <path d="M16 8h16v-4h20v4h12v4h8v20H4V16h6v-4h6V8z" fill="#000" />
+      {/* White Body */}
+      <path d="M18 10h14v-4h18v4h12v4h8v16H6V18h8v-4h4v-4z" fill="#fff" />
+      {/* NES Light-Blue Details */}
+      <rect x="6" y="24" width="64" height="4" fill="#a4e4fc" />
+      <rect x="14" y="28" width="16" height="2" fill="#000" />
+      <rect x="46" y="28" width="18" height="2" fill="#000" />
+      <rect x="22" y="20" width="14" height="2" fill="#a4e4fc" />
+      <rect x="52" y="20" width="14" height="2" fill="#a4e4fc" />
+    </svg>
+  );
+}
+
+function MarioCloudLarge({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 108 36" className={className} shapeRendering="crispEdges">
+      {/* Black Pixel Outline */}
+      <path d="M14 12h14v-4h14v-4h28v4h14v4h14v4h8v16H2V18h6v-3h6v-3z" fill="#000" />
+      {/* White Body */}
+      <path d="M16 14h12v-4h14v-4h26v4h14v4h14v4h8v12H4V20h8v-3h4v-3z" fill="#fff" />
+      {/* NES Light-Blue Shadow Lines & Pixel Details */}
+      <rect x="4" y="24" width="98" height="4" fill="#a4e4fc" />
+      <rect x="12" y="28" width="18" height="2" fill="#000" />
+      <rect x="44" y="28" width="22" height="2" fill="#000" />
+      <rect x="78" y="28" width="18" height="2" fill="#000" />
+      <rect x="20" y="20" width="10" height="2" fill="#a4e4fc" />
+      <rect x="52" y="16" width="16" height="2" fill="#a4e4fc" />
+      <rect x="84" y="20" width="10" height="2" fill="#a4e4fc" />
+    </svg>
+  );
+}
+
+function PixelCloudSmall() {
+  return (
+    <svg viewBox="0 0 56 26" width="62" height="28" fill="none" className="drop-shadow-[2.5px_2.5px_0px_#000]">
+      <path d="M16 0h24v6h8v6h8v14H0V12h8V6h8V0z" fill="#000" />
+      <path d="M18 2h20v6h8v6h8v10H2V14h8v-6h8V2z" fill="#fff" />
+      <rect x="4" y="18" width="48" height="4" fill="#bce4fc" opacity="0.65" />
+    </svg>
+  );
+}
+
+function PixelCloudMedium() {
+  return (
+    <svg viewBox="0 0 72 32" width="90" height="38" fill="none" className="drop-shadow-[3px_3px_0px_#000]">
+      <path d="M20 0h32v8h12v8h8v16H0V16h8V8h12V0z" fill="#000" />
+      <path d="M22 2h28v8h12v8h8v12H2V18h8v-8h12V2z" fill="#fff" />
+      <rect x="4" y="22" width="64" height="6" fill="#bce4fc" opacity="0.65" />
+    </svg>
+  );
+}
+
+function PixelCloudLarge() {
+  return (
+    <svg viewBox="0 0 96 36" width="120" height="45" fill="none" className="drop-shadow-[3.5px_3.5px_0px_#000]">
+      <path d="M24 0h48v8h16v8h8v20H0V16h8V8h16V0z" fill="#000" />
+      <path d="M26 2h44v8h16v8h8v16H2V18h8v-8h16V2z" fill="#fff" />
+      <rect x="4" y="24" width="88" height="6" fill="#bce4fc" opacity="0.65" />
+    </svg>
+  );
+}
+
+// Original GUSTO '26 Cyber Runner Mascot
+function GustoPixelMascot() {
+  return (
+    <div
+      className="absolute bottom-[56px] left-4 z-30 pointer-events-auto cursor-pointer animate-mascot-walk group select-none"
+      title="GUSTO '26 Player Mascot - Let's Go!"
+    >
+      {/* Speech bubble on hover */}
+      <div className="absolute -top-7 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white border-2 border-black rounded px-1.5 py-0.5 whitespace-nowrap shadow-[2px_2px_0px_#000] pointer-events-none">
+        <span className="font-['Press_Start_2P',monospace] text-[7.5px] text-black font-black">
+          GUSTO 2.0!
+        </span>
+      </div>
+
+      {/* 16-Bit Style Original Retro Runner */}
+      <svg
+        viewBox="0 0 32 36"
+        width="42"
+        height="48"
+        className="drop-shadow-[3px_3px_0px_rgba(0,0,0,0.9)]"
+      >
+        {/* Antenna */}
+        <rect x="15" y="0" width="2" height="4" fill="#000" />
+        <rect x="14" y="0" width="4" height="2" fill="#ffd000" />
+        {/* Helmet / Head */}
+        <rect x="8" y="4" width="16" height="12" fill="#0284c7" stroke="#000" strokeWidth="1.5" />
+        {/* Glowing Visor */}
+        <rect x="11" y="7" width="10" height="4" fill="#00f0ff" stroke="#000" strokeWidth="1" />
+        <rect x="12" y="8" width="3" height="2" fill="#ffffff" />
+        {/* Neck */}
+        <rect x="13" y="16" width="6" height="2" fill="#000" />
+        {/* Torso / Armor Body */}
+        <rect x="7" y="18" width="18" height="9" fill="#1e3a8a" stroke="#000" strokeWidth="1.5" />
+        {/* GUSTO 'G' Chest Emblem */}
+        <rect x="13" y="20" width="6" height="5" fill="#facc15" stroke="#000" strokeWidth="0.8" />
+        <rect x="14" y="21" width="3" height="1.5" fill="#000" />
+        <rect x="14" y="23" width="4" height="1" fill="#000" />
+        <rect x="16" y="22" width="2" height="1.5" fill="#000" />
+        {/* Left Arm / Shoulder */}
+        <rect x="4" y="19" width="3" height="7" fill="#0284c7" stroke="#000" strokeWidth="1" />
+        <rect x="4" y="26" width="3" height="3" fill="#ffd000" stroke="#000" strokeWidth="1" />
+        {/* Right Arm / Shoulder */}
+        <rect x="25" y="19" width="3" height="7" fill="#0284c7" stroke="#000" strokeWidth="1" />
+        <rect x="25" y="26" width="3" height="3" fill="#ffd000" stroke="#000" strokeWidth="1" />
+        {/* Belt */}
+        <rect x="9" y="27" width="14" height="2" fill="#000" />
+        <rect x="14" y="27" width="4" height="2" fill="#ef4444" />
+        {/* Left Leg & Red Boot */}
+        <rect x="9" y="29" width="5" height="4" fill="#1e3a8a" stroke="#000" strokeWidth="1" />
+        <rect x="8" y="32" width="6" height="4" fill="#dc2626" stroke="#000" strokeWidth="1.2" />
+        {/* Right Leg & Red Boot */}
+        <rect x="18" y="29" width="5" height="4" fill="#1e3a8a" stroke="#000" strokeWidth="1" />
+        <rect x="18" y="32" width="6" height="4" fill="#dc2626" stroke="#000" strokeWidth="1.2" />
+      </svg>
+    </div>
+  );
+}
+
 export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   const targetDate = new Date("2026-03-06T09:00:00+05:30").getTime();
 
@@ -69,9 +212,40 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   const [letterAnimationKey, setLetterAnimationKey] = useState(0);
   const [isJumping, setIsJumping] = useState(false);
 
+  // Retro Arcade Live Game State
+  const [score, setScore] = useState(200);
+  const [coins, setCoins] = useState(1);
+  const [gameTimer, setGameTimer] = useState(245);
+  const [bumpedBlock, setBumpedBlock] = useState<string | null>(null);
+  const [poppedBlock, setPoppedBlock] = useState<string | null>(null);
+
+  // Decrement game timer like an authentic arcade clock
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setGameTimer((prev) => (prev > 10 ? prev - 1 : 245));
+    }, 1200);
+    return () => clearInterval(timer);
+  }, []);
+
   const triggerJump = () => {
     setLetterAnimationKey((prev) => prev + 1);
     setIsJumping(true);
+  };
+
+  const handleHitBlock = (blockId: string) => {
+    triggerJump();
+    setBumpedBlock(blockId);
+    setPoppedBlock(blockId);
+    setScore((s) => s + 100);
+    setCoins((c) => c + 1);
+
+    setTimeout(() => {
+      setBumpedBlock((curr) => (curr === blockId ? null : curr));
+    }, 380);
+
+    setTimeout(() => {
+      setPoppedBlock((curr) => (curr === blockId ? null : curr));
+    }, 700);
   };
 
   useEffect(() => {
@@ -114,84 +288,64 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
 
   return (
     <section className="relative min-h-[92vh] bg-retro-yellow-grid overflow-hidden pt-16 sm:pt-20 pb-20 border-b-[4px] border-black">
-      {/* === ANIMATED BACKGROUND ENVIRONMENT LAYER (pointer-events-none, non-intrusive) === */}
+      {/* === SUPER MARIO WORLD 1-1 ARCADE ENVIRONMENT LAYER === */}
 
-      {/* Top Left Console — floats slowly */}
-      <div className="absolute top-24 sm:top-28 left-6 sm:left-14 hidden md:block deco-obj animate-float-slow pointer-events-auto select-none z-[1]"
-        style={{ animationDelay: '0s' }}>
-        <RetroConsole className="w-28 sm:w-36 h-auto drop-shadow-[4px_4px_0px_#000]" />
+      {/* Retro Pixel Super Mario Clouds (Matching NES Reference Screenshot) */}
+      {/* Top-Left: Medium 2-Puff Mario Cloud */}
+      <div className="absolute top-6 sm:top-8 left-3 sm:left-6 md:left-10 select-none pointer-events-none z-[1] animate-float-slow">
+        <MarioCloudMedium className="w-24 xs:w-32 sm:w-44 md:w-56 h-auto drop-shadow-[4px_4px_0px_#000]" />
       </div>
 
-      {/* Top Right Hanging Spider-Man directly below Register CTA button */}
-      <div className="absolute top-0 right-1.5 xs:right-3 sm:right-10 md:right-16 lg:right-22 xl:right-28 z-30 pointer-events-auto">
-        <HangingSpiderman onOpenRegister={onOpenRegister} />
+      {/* Top-Center: Small 1-Puff Mario Cloud */}
+      <div className="absolute top-3 sm:top-5 left-[54%] -translate-x-1/2 select-none pointer-events-none z-[1] animate-float-med">
+        <MarioCloudSmall className="w-14 xs:w-18 sm:w-24 md:w-30 h-auto drop-shadow-[3px_3px_0px_#000]" />
       </div>
 
-      {/* Floating Game Cartridges on Right Edge — three speeds for parallax depth */}
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 pointer-events-auto select-none z-[1]">
-        <div className="deco-obj animate-cart1">
-          <RetroCartridge color="#06b6d4" label="CODE" className="w-16 h-20" />
+      {/* Top-Right: Large 3-Puff Mario Cloud */}
+      <div className="absolute top-7 sm:top-9 right-3 sm:right-6 md:right-10 select-none pointer-events-none z-[1] animate-float-slow">
+        <MarioCloudLarge className="w-32 xs:w-44 sm:w-56 md:w-72 h-auto drop-shadow-[5px_5px_0px_#000]" />
+      </div>
+
+      {/* Floating Super Mario Lucky ? Block on Mid Right (Exact Screenshot Location) */}
+      <div className="absolute top-52 sm:top-56 right-4 sm:right-10 z-20 select-none">
+        <div
+          onClick={triggerJump}
+          className="w-10 h-10 sm:w-12 sm:h-12 bg-[#fc9838] border-[3px] border-black rounded-xs shadow-[4px_4px_0px_#000] flex items-center justify-center font-['Press_Start_2P',monospace] text-black font-black text-sm sm:text-base relative hover:-translate-y-1.5 transition-transform cursor-pointer group active:scale-95"
+          title="Hit the ? block!"
+        >
+          <div className="absolute top-0.5 left-0.5 w-1.5 h-1.5 bg-[#804000]" />
+          <div className="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-[#804000]" />
+          <div className="absolute bottom-0.5 left-0.5 w-1.5 h-1.5 bg-[#804000]" />
+          <div className="absolute bottom-0.5 right-0.5 w-1.5 h-1.5 bg-[#804000]" />
+          <span className="group-hover:scale-125 transition-transform">?</span>
         </div>
-        <div className="deco-obj animate-cart2" style={{ animationDelay: '0.5s' }}>
-          <RetroCartridge color="#ec4899" label="AI" className="w-16 h-20" />
-        </div>
-        <div className="deco-obj animate-cart3" style={{ animationDelay: '1.1s' }}>
-          <RetroCartridge color="#8b5cf6" label="GUSTO" className="w-16 h-20" />
-        </div>
       </div>
 
-      {/* Floating Sparkle Stars — twinkle independently */}
-      <div className="absolute top-24 left-1/4 hidden sm:block pointer-events-none z-[1] animate-twinkle"
-        style={{ animationDelay: '0.3s' }}>
-        <ComicStar className="w-6 h-6 text-cyan-400" />
-      </div>
-      <div className="absolute bottom-28 right-1/4 hidden sm:block pointer-events-none z-[1] animate-twinkle-slow"
-        style={{ animationDelay: '1.8s' }}>
-        <ComicStar className="w-7 h-7 text-pink-500" />
-      </div>
-      {/* Extra subtle star — top-right quadrant */}
-      <div className="absolute top-[35%] left-[15%] hidden lg:block pointer-events-none z-[1] animate-twinkle"
-        style={{ animationDelay: '2.4s' }}>
-        <ComicStar className="w-4 h-4 text-yellow-300" />
-      </div>
-
-      {/* Sun / gear-like background element — top-right, very slow oscillate */}
-      <div className="absolute -top-8 right-[20%] hidden xl:block pointer-events-none select-none z-[0] opacity-30 deco-obj animate-gear"
-        style={{ animationDelay: '0s' }}>
-        <svg viewBox="0 0 120 120" className="w-28 h-28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Gear/sun rays */}
-          {Array.from({ length: 12 }).map((_, i) => (
-            <rect
-              key={i}
-              x="56" y="4" width="8" height="20" rx="4"
-              fill="#3b0764"
-              transform={`rotate(${i * 30} 60 60)`}
-            />
-          ))}
-          <circle cx="60" cy="60" r="28" fill="#3b0764" />
-          <circle cx="60" cy="60" r="18" fill="#fec800" />
-          <circle cx="60" cy="60" r="8" fill="#3b0764" />
-        </svg>
-      </div>
-
-      {/* Small code/tech pixel decoration — mid left */}
-      <div className="absolute left-[5%] top-[55%] hidden xl:block pointer-events-none select-none z-[0] opacity-40 animate-float-med"
-        style={{ animationDelay: '1.3s' }}>
-        <svg viewBox="0 0 64 40" className="w-16 h-10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="64" height="40" rx="6" fill="#3b0764" stroke="#000" strokeWidth="3" />
-          <text x="8" y="16" fontSize="9" fontFamily="monospace" fill="#84cc16" fontWeight="bold">&lt;IT/&gt;</text>
-          <text x="8" y="30" fontSize="8" fontFamily="monospace" fill="#fde047">printf(42)</text>
-        </svg>
-      </div>
-
-      {/* Rotating Circular Stamp Badge on Bottom-Left */}
-      <div className="absolute bottom-6 left-6 hidden md:block z-20">
-        <RotatingBadge className="w-28 h-28" />
-      </div>
+      {/* Environment background is pure Super Mario World 1-1 sky with pixel clouds */}
 
       {/* Main Hero Container */}
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 relative z-10">
         <div className="flex flex-col items-center text-center w-full">
+          {/* === SUPER MARIO WORLD 1-1 TOP ARCADE HUD (EXACT SCREENSHOT LAYOUT) === */}
+          <div className="w-full max-w-4xl mx-auto px-4 mb-4 sm:mb-6 flex items-center justify-between font-['Press_Start_2P',monospace] text-white text-[10px] xs:text-xs sm:text-sm tracking-wider select-none z-30 drop-shadow-[2px_2px_0px_#000]">
+            <div className="flex flex-col items-start leading-snug">
+              <span className="font-black tracking-widest text-white">MARIO</span>
+              <span className="font-extrabold tracking-widest text-[#f8f8f8]">000200</span>
+            </div>
+            <div className="flex items-center gap-1.5 leading-snug">
+              <span className="inline-block w-2.5 h-3.5 sm:w-3 sm:h-4 bg-[#ffd000] border-[1.5px] border-black rounded-xs shadow-[1px_1px_0px_#000] animate-pulse" />
+              <span className="font-extrabold tracking-wider">x01</span>
+            </div>
+            <div className="flex flex-col items-center leading-snug">
+              <span className="font-black tracking-widest text-white">WORLD</span>
+              <span className="font-extrabold tracking-widest text-[#f8f8f8]">1-1</span>
+            </div>
+            <div className="flex flex-col items-end leading-snug">
+              <span className="font-black tracking-widest text-white">TIME</span>
+              <span className="font-extrabold tracking-widest text-white">245</span>
+            </div>
+          </div>
+
           {/* Top Symposium Institution Banner (Clean & Responsive Neo-Brutalist Arcade Capsule) */}
           <div className="w-full flex justify-center items-center mb-5 sm:mb-8 z-20 px-2 sm:px-4">
             <div className="group relative inline-flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 px-3 sm:px-6 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[84%] xs:max-w-[88%] sm:max-w-[96%] select-none text-center">
@@ -224,123 +378,166 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* EXACT BEHANCE "Let The Game Begin" COMPOSITION */}
-          <div className="relative my-2 sm:my-5 select-none w-full max-w-full">
-            {/* Top Line: "Let The" with cute Pink Gamepad Character */}
-            <div className="flex items-center justify-center gap-2.5 xs:gap-4 sm:gap-8 flex-nowrap">
-              {/* "Let" with interactive letter bouncing */}
-              <h1
-                onClick={triggerJump}
-                className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000] cursor-pointer inline-flex"
-                title="Click to see the letters jump!"
-              >
-                {["L", "e", "t"].map((letter, idx) => (
+          {/* === SUPER MARIO WORLD 1-1 ICONIC 2-ROW TITLE LOGO (EXACT REFERENCE SCREENSHOT) === */}
+          <div
+            onClick={triggerJump}
+            className="flex flex-col items-center justify-center my-3 sm:my-6 cursor-pointer select-none group w-full"
+            title="Click to see the letters jump!"
+          >
+            {/* Row 1: "LET THE" */}
+            <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap">
+              <div className="inline-flex items-center gap-0.5 sm:gap-1.5">
+                {[
+                  { char: "L", color: "mario-c-blue", rotate: "-rotate-3" },
+                  { char: "E", color: "mario-c-yellow", rotate: "rotate-2" },
+                  { char: "T", color: "mario-c-red", rotate: "-rotate-2" },
+                ].map((item, idx) => (
                   <span
                     key={`let-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`inline-block text-[#581c87] ${isJumping ? "animate-purple-jump" : ""
-                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7.2rem] xl:text-[8.2rem] ${
+                      isJumping ? "animate-letter-jump" : ""
+                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
-                    {letter}
+                    {item.char}
                   </span>
                 ))}
-              </h1>
-
-              {/* The Cute Gamepad Mascot from Behance — idle wiggle animation & clickable jump trigger */}
-              <div
-                onClick={triggerJump}
-                className="relative -mt-1 sm:-mt-6 deco-obj animate-idle-wiggle cursor-pointer shrink-0 active:scale-95 transition-transform duration-150"
-                title="Click to see the letters jump!"
-              >
-                <RetroGamepad className="w-18 xs:w-24 sm:w-36 md:w-44 lg:w-56 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000]" />
               </div>
-
-              {/* "The" with interactive letter bouncing */}
-              <h1
-                onClick={triggerJump}
-                className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000] cursor-pointer inline-flex"
-                title="Click to see the letters jump!"
-              >
-                {["T", "h", "e"].map((letter, idx) => (
+              <span className="w-3 sm:w-6" />
+              <div className="inline-flex items-center gap-0.5 sm:gap-1.5">
+                {[
+                  { char: "T", color: "mario-c-green", rotate: "rotate-3" },
+                  { char: "H", color: "mario-c-blue", rotate: "-rotate-2" },
+                  { char: "E", color: "mario-c-yellow", rotate: "rotate-2" },
+                ].map((item, idx) => (
                   <span
                     key={`the-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 3) * 60}ms` }}
-                    className={`inline-block text-[#581c87] ${isJumping ? "animate-purple-jump" : ""
-                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7.2rem] xl:text-[8.2rem] ${
+                      isJumping ? "animate-letter-jump" : ""
+                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
-                    {letter}
+                    {item.char}
                   </span>
                 ))}
-              </h1>
-            </div>
-
-            {/* Middle Line: Chunky Gaming Speech Bubble Banner */}
-            <div className="my-2 xs:my-3 sm:my-4 flex justify-center relative">
-              {/* Handwritten sticker badge floating on speech bubble */}
-              <div
-                onClick={triggerJump}
-                className="absolute -top-5 sm:-top-7 -right-2 sm:-right-6 z-30 cursor-pointer"
-                title="Click to see the letters jump!"
-              >
-                <HandwrittenSticker text="Click to Jump! ✨" color="#fde047" rotation="rotate-6" className="shadow-[3px_3px_0px_#000] text-sm xs:text-base sm:text-2xl" />
-              </div>
-              <div
-                onClick={triggerJump}
-                className="relative inline-block px-7 xs:px-10 sm:px-14 md:px-20 py-2.5 xs:py-3.5 sm:py-4 rounded-2xl sm:rounded-3xl border-[3.5px] sm:border-[5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[10px_10px_0px_#000] animate-gusto-float animate-gusto-color cursor-pointer select-none group"
-                title="Click to see the Gusto letters jump!"
-              >
-                {/* Speech bubble tail pointer with synchronized color cycle */}
-                <div className="absolute -bottom-3 sm:-bottom-4 right-6 sm:right-10 w-0 h-0 border-l-[12px] sm:border-l-[16px] border-l-transparent border-t-[12px] sm:border-t-[16px] border-r-[12px] sm:border-r-[16px] border-r-transparent filter drop-shadow-[0_2px_0_#000] sm:drop-shadow-[0_4px_0_#000] animate-gusto-tail" />
-
-                {/* Floating Little Retro Game Pixel Accents */}
-                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 text-yellow-300 animate-spin [animation-duration:6s] text-lg sm:text-2xl pointer-events-none drop-shadow-[1.5px_1.5px_0px_#000]">
-                  ★
-                </div>
-                <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 text-cyan-300 animate-bounce [animation-duration:2.5s] text-base sm:text-xl pointer-events-none drop-shadow-[1.5px_1.5px_0px_#000]">
-                  ✦
-                </div>
-                <div className="absolute -bottom-2 -left-2 text-pink-300 animate-pulse text-sm sm:text-lg pointer-events-none drop-shadow-[1.5px_1.5px_0px_#000]">
-                  ◆
-                </div>
-
-                {/* Individual Animated Jumping Letters for GUSTO */}
-                <div className="flex items-center justify-center">
-                  {["G", "u", "s", "t", "o"].map((letter, idx) => (
-                    <span
-                      key={`gusto-${idx}-${letterAnimationKey}`}
-                      style={{
-                        animationDelay: `${idx * 70}ms`,
-                      }}
-                      className={`inline-block text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black uppercase text-[#facc15] drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[7px_7px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:4px_#000] ${isJumping
-                          ? "animate-letter-jump"
-                          : "animate-gusto-text"
-                        } hover:-translate-y-3 hover:scale-110 transition-transform duration-150 cursor-pointer`}
-                    >
-                      {letter}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
 
-            {/* Bottom Line: "Begin" with interactive letter bouncing */}
-            <div className="flex justify-center">
-              <h1
-                onClick={triggerJump}
-                className="text-[3.2rem] xs:text-[3.8rem] sm:text-8xl md:text-9xl lg:text-[10rem] font-black text-[#581c87] tracking-tight drop-shadow-[4px_4px_0px_#000] sm:drop-shadow-[6px_6px_0px_#000] [-webkit-text-stroke:2px_#000] sm:[-webkit-text-stroke:3.5px_#000] cursor-pointer inline-flex"
-                title="Click to see the letters jump!"
-              >
-                {["B", "e", "g", "i", "n"].map((letter, idx) => (
+            {/* Row 2: "GUSTO BEGIN" */}
+            <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap -mt-2 sm:-mt-3 md:-mt-5">
+              <div className="inline-flex items-center gap-0.5 sm:gap-1.5">
+                {[
+                  { char: "G", color: "mario-c-red", rotate: "-rotate-3" },
+                  { char: "U", color: "mario-c-blue", rotate: "rotate-2" },
+                  { char: "S", color: "mario-c-green", rotate: "-rotate-2" },
+                  { char: "T", color: "mario-c-yellow", rotate: "rotate-2" },
+                  { char: "O", color: "mario-c-red", rotate: "-rotate-2" },
+                ].map((item, idx) => (
+                  <span
+                    key={`gusto-${idx}-${letterAnimationKey}`}
+                    style={{ animationDelay: `${(idx + 6) * 60}ms` }}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7.2rem] xl:text-[8.2rem] ${
+                      isJumping ? "animate-letter-jump" : ""
+                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                  >
+                    {item.char}
+                  </span>
+                ))}
+              </div>
+              <span className="w-3 sm:w-6" />
+              <div className="inline-flex items-center gap-0.5 sm:gap-1.5">
+                {[
+                  { char: "B", color: "mario-c-green", rotate: "rotate-2" },
+                  { char: "E", color: "mario-c-yellow", rotate: "-rotate-2" },
+                  { char: "G", color: "mario-c-blue", rotate: "rotate-3" },
+                  { char: "I", color: "mario-c-red", rotate: "-rotate-2" },
+                  { char: "N", color: "mario-c-green", rotate: "rotate-2" },
+                ].map((item, idx) => (
                   <span
                     key={`begin-${idx}-${letterAnimationKey}`}
-                    style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`inline-block text-[#581c87] ${isJumping ? "animate-purple-jump" : ""
-                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    style={{ animationDelay: `${(idx + 11) * 60}ms` }}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7.2rem] xl:text-[8.2rem] ${
+                      isJumping ? "animate-letter-jump" : ""
+                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
-                    {letter}
+                    {item.char}
                   </span>
                 ))}
-              </h1>
+              </div>
+            </div>
+          </div>
+
+          {/* Retro Pixel Tagline Subtitle (Exact Reference Image Style) */}
+          <div className="mt-3 sm:mt-5 mb-3 select-none px-4 max-w-4xl">
+            <p className="font-['Press_Start_2P',monospace] text-white text-[10px] xs:text-xs sm:text-sm md:text-base drop-shadow-[2.5px_2.5px_0px_#000] tracking-widest uppercase text-center leading-relaxed">
+              A NATIONAL LEVEL TECHNICAL SYMPOSIUM • MARCH 06, 2026 • GCE ERODE
+            </p>
+          </div>
+
+          {/* Retro Arcade Presentation Card (Exact Reference Image Style: "BEGINNING OUR PRESENTATION") */}
+          <div className="w-full max-w-3xl mx-auto px-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-white/10 backdrop-blur-xs border-[2.5px] sm:border-[3px] border-black shadow-[4px_4px_0px_#000] text-center my-3 sm:my-4 select-none">
+            <div className="font-['Press_Start_2P',monospace] text-[#ffd000] text-[10.5px] xs:text-xs sm:text-sm mb-2 text-center drop-shadow-[1.5px_1.5px_0px_#000] tracking-wider uppercase">
+              BEGINNING OUR PRESENTATION // GUSTO 2K26
+            </div>
+            <p className="font-['Press_Start_2P',monospace] text-white text-[8.5px] xs:text-[9.5px] sm:text-[10.5px] leading-relaxed max-w-2xl mx-auto drop-shadow-[1px_1px_0px_#000]">
+              Welcome to Gusto 2.0 at Government College of Engineering, Erode. Step into World 1-1 featuring 9 technical &amp; non-technical arenas, cash prize bounty pools, certificates, and free bus transit!
+            </p>
+          </div>
+
+          {/* Floating Super Mario Blocks: Single [?] on Left, and [#][?][#][?][#] Platform in Center */}
+          <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-10 my-3 sm:my-5 select-none z-20">
+            {/* Left Single ? Block */}
+            <div
+              onClick={triggerJump}
+              className="w-10 h-10 sm:w-11 sm:h-11 bg-[#fc9838] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] flex items-center justify-center font-['Press_Start_2P',monospace] text-black font-black text-xs sm:text-sm relative cursor-pointer hover:-translate-y-1.5 transition-transform active:scale-95 group"
+              title="Hit the ? block!"
+            >
+              <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
+              <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
+              <div className="absolute bottom-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
+              <div className="absolute bottom-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
+              <span className="group-hover:scale-125 transition-transform">?</span>
+            </div>
+
+            {/* Center 5-Block Platform: [#][?][#][?][#] */}
+            <div className="flex items-center gap-1">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#c84c0c] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] relative">
+                <div className="absolute inset-0.5 border border-black/40" />
+                <div className="absolute top-2.5 left-0 right-0 h-[2px] bg-black" />
+                <div className="absolute top-6 left-0 right-0 h-[2px] bg-black" />
+              </div>
+              <div
+                onClick={triggerJump}
+                className="w-10 h-10 sm:w-11 sm:h-11 bg-[#fc9838] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] flex items-center justify-center font-['Press_Start_2P',monospace] text-black font-black text-xs sm:text-sm relative cursor-pointer hover:-translate-y-1.5 transition-transform active:scale-95 group"
+                title="Hit the ? block!"
+              >
+                <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
+                <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
+                <div className="absolute bottom-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
+                <div className="absolute bottom-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
+                <span className="group-hover:scale-125 transition-transform">?</span>
+              </div>
+              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#c84c0c] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] relative">
+                <div className="absolute inset-0.5 border border-black/40" />
+                <div className="absolute top-2.5 left-0 right-0 h-[2px] bg-black" />
+                <div className="absolute top-6 left-0 right-0 h-[2px] bg-black" />
+              </div>
+              <div
+                onClick={triggerJump}
+                className="w-10 h-10 sm:w-11 sm:h-11 bg-[#fc9838] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] flex items-center justify-center font-['Press_Start_2P',monospace] text-black font-black text-xs sm:text-sm relative cursor-pointer hover:-translate-y-1.5 transition-transform active:scale-95 group"
+                title="Hit the ? block!"
+              >
+                <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
+                <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
+                <div className="absolute bottom-0.5 left-0.5 w-1 h-1 bg-[#804000]" />
+                <div className="absolute bottom-0.5 right-0.5 w-1 h-1 bg-[#804000]" />
+                <span className="group-hover:scale-125 transition-transform">?</span>
+              </div>
+              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#c84c0c] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] relative">
+                <div className="absolute inset-0.5 border border-black/40" />
+                <div className="absolute top-2.5 left-0 right-0 h-[2px] bg-black" />
+                <div className="absolute top-6 left-0 right-0 h-[2px] bg-black" />
+              </div>
             </div>
           </div>
 
@@ -1022,6 +1219,78 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* ── SUPER MARIO WORLD 1-1 GROUND PLATFORM WITH WARP PIPE & BRICK TILES ── */}
+      <div className="w-full relative mt-10 z-20 pointer-events-none select-none">
+        {/* Green Hill, Bush, Warp Pipe & Goomba positioned on top of the brick ground (Exact Reference Image) */}
+        <div className="w-full max-w-6xl mx-auto px-4 flex items-end justify-between relative -mb-[2px] z-10">
+          {/* Left: Green Bush with eyes */}
+          <div className="relative flex items-end">
+            <div className="w-16 sm:w-22 h-8 sm:h-11 bg-[#00a800] border-[2.5px] sm:border-[3px] border-black rounded-t-full relative">
+              <div className="absolute top-2 left-3 sm:left-4 w-1.5 h-3 bg-black rounded-full" />
+              <div className="absolute top-2 right-3 sm:right-4 w-1.5 h-3 bg-black rounded-full" />
+            </div>
+            <div className="w-12 sm:w-16 h-6 sm:h-8 bg-[#00d800] border-[2px] sm:border-[2.5px] border-black rounded-t-full -ml-3 relative">
+              <div className="absolute top-1.5 left-2.5 w-1 h-2 bg-black rounded-full" />
+              <div className="absolute top-1.5 right-2.5 w-1 h-2 bg-black rounded-full" />
+            </div>
+          </div>
+
+          {/* Center-Left: Big Iconic Mario Hill with eyes */}
+          <div className="hidden md:flex flex-col items-center relative -mb-[1px]">
+            <div className="w-28 sm:w-36 h-14 sm:h-18 bg-[#00a800] border-[3px] border-black rounded-t-full relative">
+              <div className="absolute top-3 left-8 sm:left-10 w-2 h-4 bg-black rounded-full" />
+              <div className="absolute top-3 right-8 sm:right-10 w-2 h-4 bg-black rounded-full" />
+            </div>
+          </div>
+
+          {/* Center: Walking Goomba */}
+          <div className="hidden sm:flex flex-col items-center animate-bounce [animation-duration:1.6s]">
+            <div className="w-9 h-7 bg-[#a84400] border-[2.5px] border-black rounded-t-xl rounded-b-md relative shadow-[1px_1px_0px_#000]">
+              {/* Eyebrows */}
+              <div className="absolute top-1 left-1.5 w-2 h-0.5 bg-black rotate-12" />
+              <div className="absolute top-1 right-1.5 w-2 h-0.5 bg-black -rotate-12" />
+              {/* Eyes */}
+              <div className="absolute top-1.5 left-2 w-1.5 h-2.5 bg-white border border-black rounded-xs">
+                <div className="w-0.5 h-1.5 bg-black ml-auto" />
+              </div>
+              <div className="absolute top-1.5 right-2 w-1.5 h-2.5 bg-white border border-black rounded-xs">
+                <div className="w-0.5 h-1.5 bg-black" />
+              </div>
+            </div>
+            {/* Feet */}
+            <div className="flex gap-1 -mt-0.5">
+              <div className="w-3.5 h-2 bg-black rounded-b-md" />
+              <div className="w-3.5 h-2 bg-black rounded-b-md" />
+            </div>
+          </div>
+
+          {/* Center-Right: Another Bush with eyes */}
+          <div className="hidden lg:flex items-end relative -mb-[1px]">
+            <div className="w-16 sm:w-20 h-8 sm:h-10 bg-[#00d800] border-[2.5px] border-black rounded-t-full relative">
+              <div className="absolute top-2 left-3 w-1 h-2.5 bg-black rounded-full" />
+              <div className="absolute top-2 right-3 w-1 h-2.5 bg-black rounded-full" />
+            </div>
+          </div>
+
+          {/* Right: Iconic Green Warp Pipe */}
+          <div className="flex flex-col items-center">
+            {/* Pipe Top Rim */}
+            <div className="w-16 sm:w-20 h-6 sm:h-7 bg-[#00a800] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] relative overflow-hidden">
+              <div className="absolute left-2 top-0 bottom-0 w-2.5 bg-[#80f840] opacity-80" />
+              <div className="absolute right-2 top-0 bottom-0 w-2 bg-[#006000] opacity-80" />
+            </div>
+            {/* Pipe Shaft Body */}
+            <div className="w-14 sm:w-16 h-10 sm:h-14 bg-[#00a800] border-x-[3px] border-black shadow-[3px_3px_0px_#000] relative overflow-hidden">
+              <div className="absolute left-1.5 top-0 bottom-0 w-2 bg-[#80f840] opacity-80" />
+              <div className="absolute right-1.5 top-0 bottom-0 w-2 bg-[#006000] opacity-80" />
+            </div>
+          </div>
+        </div>
+
+        {/* Iconic 2-Tier Mario Brick Ground Platform */}
+        <div className="w-full mario-brick-ground shadow-[0_4px_0_#000]" />
       </div>
     </section>
   );

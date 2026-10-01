@@ -40,12 +40,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fec800] text-black selection:bg-[#ec4899] selection:text-white">
+    <div className="min-h-screen bg-[#5c94fc] text-black selection:bg-[#ec4899] selection:text-white">
       {/* 5-second retro Pac-Man Ghost loader before entering page */}
       <PacmanGhostLoader />
-
-      {/* Global gaming scroll system — progress bar + parallax driver */}
-      <GameScrollProvider />
 
       {/* Sticky Neo-Brutalist Navbar */}
       <Navbar
