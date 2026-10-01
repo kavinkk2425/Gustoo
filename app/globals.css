@@ -254,8 +254,47 @@ textarea {
   }
 }
 
-.animate-coin-spin {
-  animation: coinSpin 1.4s steps(12) infinite;
+/* Authentic Super Mario Horizontal Cloud Drifting (Parallax Sky) */
+@keyframes marioCloudDriftSlow {
+  0% {
+    transform: translate3d(-380px, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(100vw + 380px), 0, 0);
+  }
+}
+
+@keyframes marioCloudDriftMed {
+  0% {
+    transform: translate3d(-320px, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(100vw + 320px), 0, 0);
+  }
+}
+
+@keyframes marioCloudDriftFast {
+  0% {
+    transform: translate3d(-260px, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(100vw + 260px), 0, 0);
+  }
+}
+
+.animate-cloud-drift-slow {
+  animation: marioCloudDriftSlow 72s linear infinite;
+  will-change: transform;
+}
+
+.animate-cloud-drift-med {
+  animation: marioCloudDriftMed 48s linear infinite;
+  will-change: transform;
+}
+
+.animate-cloud-drift-fast {
+  animation: marioCloudDriftFast 32s linear infinite;
+  will-change: transform;
 }
 
 /* Interactive ? Block Bump */

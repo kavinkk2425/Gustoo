@@ -290,20 +290,55 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
     <section className="relative min-h-[92vh] bg-retro-yellow-grid overflow-hidden pt-16 sm:pt-20 pb-20 border-b-[4px] border-black">
       {/* === SUPER MARIO WORLD 1-1 ARCADE ENVIRONMENT LAYER === */}
 
-      {/* Retro Pixel Super Mario Clouds (Matching NES Reference Screenshot) */}
-      {/* Top-Left: Medium 2-Puff Mario Cloud */}
-      <div className="absolute top-6 sm:top-8 left-3 sm:left-6 md:left-10 select-none pointer-events-none z-[1] animate-float-slow">
-        <MarioCloudMedium className="w-24 xs:w-32 sm:w-44 md:w-56 h-auto drop-shadow-[4px_4px_0px_#000]" />
-      </div>
+      {/* Retro Pixel Super Mario Horizon Cloud Drift System (Authentic Parallax Movement) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1] select-none">
+        {/* Cloud 1: High Sky Large Mario Cloud (Slow Parallax Drift) */}
+        <div
+          className="absolute top-4 sm:top-6 left-0 animate-cloud-drift-slow"
+          style={{ animationDelay: "-18s" }}
+        >
+          <MarioCloudLarge className="w-32 xs:w-44 sm:w-56 md:w-68 h-auto drop-shadow-[4px_4px_0px_#000]" />
+        </div>
 
-      {/* Top-Center-Left: Small 1-Puff Mario Cloud (Placed clear of center HUD) */}
-      <div className="absolute top-2 sm:top-3 left-[28%] -translate-x-1/2 select-none pointer-events-none z-[1] animate-float-med">
-        <MarioCloudSmall className="w-14 xs:w-18 sm:w-24 md:w-30 h-auto drop-shadow-[3px_3px_0px_#000]" />
-      </div>
+        {/* Cloud 2: Mid-High Sky Medium Mario Cloud (Medium Drift) */}
+        <div
+          className="absolute top-16 sm:top-24 left-0 animate-cloud-drift-med"
+          style={{ animationDelay: "-38s" }}
+        >
+          <MarioCloudMedium className="w-24 xs:w-32 sm:w-40 md:w-52 h-auto drop-shadow-[3.5px_3.5px_0px_#000]" />
+        </div>
 
-      {/* Top-Right: Large 3-Puff Mario Cloud */}
-      <div className="absolute top-7 sm:top-9 right-3 sm:right-6 md:right-10 select-none pointer-events-none z-[1] animate-float-slow">
-        <MarioCloudLarge className="w-32 xs:w-44 sm:w-56 md:w-72 h-auto drop-shadow-[5px_5px_0px_#000]" />
+        {/* Cloud 3: Mid Sky Small Mario Cloud (Breezy Fast Drift) */}
+        <div
+          className="absolute top-28 sm:top-36 left-0 animate-cloud-drift-fast"
+          style={{ animationDelay: "-10s" }}
+        >
+          <MarioCloudSmall className="w-16 xs:w-20 sm:w-26 md:w-32 h-auto drop-shadow-[3px_3px_0px_#000]" />
+        </div>
+
+        {/* Cloud 4: Lower Sky Large Mario Cloud (Majestic Deep Drift) */}
+        <div
+          className="absolute top-44 sm:top-60 left-0 animate-cloud-drift-slow"
+          style={{ animationDelay: "-52s" }}
+        >
+          <MarioCloudLarge className="w-28 xs:w-38 sm:w-48 md:w-60 h-auto drop-shadow-[4px_4px_0px_#000] opacity-85" />
+        </div>
+
+        {/* Cloud 5: High Far-Right Small Mario Cloud (Fast Drift) */}
+        <div
+          className="absolute top-8 sm:top-12 left-0 animate-cloud-drift-fast"
+          style={{ animationDelay: "-24s" }}
+        >
+          <MarioCloudSmall className="w-14 xs:w-18 sm:w-22 md:w-28 h-auto drop-shadow-[2.5px_2.5px_0px_#000]" />
+        </div>
+
+        {/* Cloud 6: Mid Horizon Medium Mario Cloud (Steady Medium Drift) */}
+        <div
+          className="absolute top-36 sm:top-48 left-0 animate-cloud-drift-med"
+          style={{ animationDelay: "-6s" }}
+        >
+          <MarioCloudMedium className="w-20 xs:w-28 sm:w-36 md:w-44 h-auto drop-shadow-[3px_3px_0px_#000] opacity-90" />
+        </div>
       </div>
 
       {/* Floating Super Mario Lucky ? Block on Mid Right (Exact Screenshot Location) */}
