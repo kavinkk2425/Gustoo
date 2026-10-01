@@ -327,30 +327,31 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 relative z-10">
         <div className="flex flex-col items-center text-center w-full">
           {/* === SUPER MARIO WORLD 1-1 TOP ARCADE HUD (EXACT SCREENSHOT LAYOUT) === */}
+          {/* Top Retro Game HUD Bar (Clean Classic: PLAYER 000200, COINS ×01, WORLD 1-1, TIME 245) */}
           <div className="w-full max-w-4xl mx-auto px-4 mb-4 sm:mb-6 flex items-center justify-between font-['Press_Start_2P',monospace] text-white text-[10px] xs:text-xs sm:text-sm tracking-wider select-none z-30 drop-shadow-[2px_2px_0px_#000]">
             <div className="flex flex-col items-start leading-snug">
-              <span className="font-black tracking-widest text-white">MARIO</span>
-              <span className="font-extrabold tracking-widest text-[#f8f8f8]">000200</span>
+              <span className="font-black tracking-widest text-[#ffd000]">PLAYER</span>
+              <span className="font-extrabold tracking-widest text-white">000200</span>
             </div>
-            <div className="flex items-center gap-1.5 leading-snug">
-              <span className="inline-block w-2.5 h-3.5 sm:w-3 sm:h-4 bg-[#ffd000] border-[1.5px] border-black rounded-xs shadow-[1px_1px_0px_#000] animate-pulse" />
-              <span className="font-extrabold tracking-wider">x01</span>
+            <div className="flex items-center gap-1.5 sm:gap-2 leading-snug">
+              <span className="inline-block animate-coin-spin text-sm sm:text-base">🪙</span>
+              <span className="font-extrabold tracking-wider text-white">×01</span>
             </div>
             <div className="flex flex-col items-center leading-snug">
-              <span className="font-black tracking-widest text-white">WORLD</span>
-              <span className="font-extrabold tracking-widest text-[#f8f8f8]">1-1</span>
+              <span className="font-black tracking-widest text-[#ffd000]">WORLD</span>
+              <span className="font-extrabold tracking-widest text-white">1-1</span>
             </div>
             <div className="flex flex-col items-end leading-snug">
-              <span className="font-black tracking-widest text-white">TIME</span>
+              <span className="font-black tracking-widest text-[#ffd000]">TIME</span>
               <span className="font-extrabold tracking-widest text-white">245</span>
             </div>
           </div>
 
           {/* Top Symposium Institution Banner (Clean & Responsive Neo-Brutalist Arcade Capsule) */}
-          <div className="w-full flex justify-center items-center mb-5 sm:mb-8 z-20 px-2 sm:px-4">
+          <div className="w-full flex justify-center items-center mb-6 sm:mb-8 md:mb-10 z-20 px-2 sm:px-4">
             <div className="group relative inline-flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 px-3 sm:px-6 py-2 sm:py-2.5 rounded-2xl sm:rounded-full bg-white border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-y-0.5 transition-all duration-200 max-w-[84%] xs:max-w-[88%] sm:max-w-[96%] select-none text-center">
 
-              {/* Status diode + College Title row (never breaks awkwardly on mobile) */}
+              {/* Status diode + College Title row */}
               <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2">
                 <span className="relative flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
@@ -378,15 +379,15 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* === SUPER MARIO WORLD 1-1 ICONIC 2-ROW TITLE LOGO (EXACT REFERENCE SCREENSHOT) === */}
+          {/* === RETRO 2D PLATFORM TITLE LOGO: "LET THE" & "GUSTO BEGIN" === */}
           <div
             onClick={triggerJump}
-            className="flex flex-col items-center justify-center my-3 sm:my-6 cursor-pointer select-none group w-full"
+            className="flex flex-col items-center justify-center my-4 sm:my-8 md:my-10 cursor-pointer select-none group w-full"
             title="Click to see the letters jump!"
           >
             {/* Row 1: "LET THE" */}
-            <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap">
-              <div className="inline-flex items-center gap-0.5 sm:gap-1.5">
+            <div className="flex items-center justify-center gap-1.5 sm:gap-3 flex-wrap">
+              <div className="inline-flex items-center gap-1 sm:gap-2">
                 {[
                   { char: "L", color: "mario-c-blue", rotate: "-rotate-3" },
                   { char: "E", color: "mario-c-yellow", rotate: "rotate-2" },
@@ -395,16 +396,15 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`let-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7.2rem] xl:text-[8.2rem] ${
-                      isJumping ? "animate-letter-jump" : ""
-                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[3.4rem] xs:text-[4.4rem] sm:text-7xl md:text-8xl lg:text-[8.8rem] xl:text-[10.5rem] ${isJumping ? "animate-letter-jump" : ""
+                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
                 ))}
               </div>
-              <span className="w-3 sm:w-6" />
-              <div className="inline-flex items-center gap-0.5 sm:gap-1.5">
+              <span className="w-3 xs:w-5 sm:w-8 md:w-12" />
+              <div className="inline-flex items-center gap-1 sm:gap-2">
                 {[
                   { char: "T", color: "mario-c-green", rotate: "rotate-3" },
                   { char: "H", color: "mario-c-blue", rotate: "-rotate-2" },
@@ -413,9 +413,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`the-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 3) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7.2rem] xl:text-[8.2rem] ${
-                      isJumping ? "animate-letter-jump" : ""
-                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[3.4rem] xs:text-[4.4rem] sm:text-7xl md:text-8xl lg:text-[8.8rem] xl:text-[10.5rem] ${isJumping ? "animate-letter-jump" : ""
+                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
@@ -423,9 +422,9 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* Row 2: "GUSTO BEGIN" */}
-            <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap -mt-2 sm:-mt-3 md:-mt-5">
-              <div className="inline-flex items-center gap-0.5 sm:gap-1.5">
+            {/* Row 2: "GUSTO BEGIN" - Well-spaced gap so title lines breathe with arcade punch */}
+            <div className="flex items-center justify-center gap-1.5 sm:gap-3 flex-wrap mt-4 sm:mt-6 md:mt-8">
+              <div className="inline-flex items-center gap-1 sm:gap-2">
                 {[
                   { char: "G", color: "mario-c-red", rotate: "-rotate-3" },
                   { char: "U", color: "mario-c-blue", rotate: "rotate-2" },
@@ -436,16 +435,15 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`gusto-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 6) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7.2rem] xl:text-[8.2rem] ${
-                      isJumping ? "animate-letter-jump" : ""
-                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[3.4rem] xs:text-[4.4rem] sm:text-7xl md:text-8xl lg:text-[8.8rem] xl:text-[10.5rem] ${isJumping ? "animate-letter-jump" : ""
+                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
                 ))}
               </div>
-              <span className="w-3 sm:w-6" />
-              <div className="inline-flex items-center gap-0.5 sm:gap-1.5">
+              <span className="w-3 xs:w-5 sm:w-8 md:w-12" />
+              <div className="inline-flex items-center gap-1 sm:gap-2">
                 {[
                   { char: "B", color: "mario-c-green", rotate: "rotate-2" },
                   { char: "E", color: "mario-c-yellow", rotate: "-rotate-2" },
@@ -456,9 +454,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`begin-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 11) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[7.2rem] xl:text-[8.2rem] ${
-                      isJumping ? "animate-letter-jump" : ""
-                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[3.4rem] xs:text-[4.4rem] sm:text-7xl md:text-8xl lg:text-[8.8rem] xl:text-[10.5rem] ${isJumping ? "animate-letter-jump" : ""
+                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
@@ -467,15 +464,15 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Retro Pixel Tagline Subtitle (Exact Reference Image Style) */}
-          <div className="mt-3 sm:mt-5 mb-3 select-none px-4 max-w-4xl">
+          {/* Retro Pixel Tagline Subtitle */}
+          <div className="mt-5 sm:mt-8 md:mt-10 mb-4 select-none px-4 max-w-4xl">
             <p className="font-['Press_Start_2P',monospace] text-white text-[10px] xs:text-xs sm:text-sm md:text-base drop-shadow-[2.5px_2.5px_0px_#000] tracking-widest uppercase text-center leading-relaxed">
               A NATIONAL LEVEL TECHNICAL SYMPOSIUM • MARCH 06, 2026 • GCE ERODE
             </p>
           </div>
 
-          {/* Retro Arcade Presentation Card (Exact Reference Image Style: "BEGINNING OUR PRESENTATION") */}
-          <div className="w-full max-w-3xl mx-auto px-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-white/10 backdrop-blur-xs border-[2.5px] sm:border-[3px] border-black shadow-[4px_4px_0px_#000] text-center my-3 sm:my-4 select-none">
+          {/* Retro Arcade Presentation Card */}
+          <div className="w-full max-w-3xl mx-auto px-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-white/10 backdrop-blur-xs border-[2.5px] sm:border-[3px] border-black shadow-[4px_4px_0px_#000] text-center my-4 sm:my-6 select-none">
             <div className="font-['Press_Start_2P',monospace] text-[#ffd000] text-[10.5px] xs:text-xs sm:text-sm mb-2 text-center drop-shadow-[1.5px_1.5px_0px_#000] tracking-wider uppercase">
               BEGINNING OUR PRESENTATION // GUSTO 2K26
             </div>
@@ -546,9 +543,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* 1. Top Continuous Moving Text Marquee Capsule - Scroll Reveal */}
             <div
               ref={marqueeRef}
-              className={`w-full max-w-5xl mx-auto mb-8 sm:mb-10 rounded-full bg-white border-[3px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] py-3 sm:py-4 px-6 sm:px-8 overflow-hidden select-none hover:shadow-[10px_10px_0px_#000] hover:-translate-y-0.5 transition-all duration-300 scroll-reveal ${
-                marqueeInView ? "is-visible" : ""
-              }`}
+              className={`w-full max-w-5xl mx-auto mb-8 sm:mb-10 rounded-full bg-white border-[3px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] py-3 sm:py-4 px-6 sm:px-8 overflow-hidden select-none hover:shadow-[10px_10px_0px_#000] hover:-translate-y-0.5 transition-all duration-300 scroll-reveal ${marqueeInView ? "is-visible" : ""
+                }`}
             >
               <div className="flex w-max animate-marquee">
                 <span className="font-['Chakra_Petch',sans-serif] font-black text-sm sm:text-lg md:text-xl text-[#3b0764] tracking-wider uppercase flex items-center gap-5 sm:gap-6 pr-8">
@@ -596,9 +592,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               {/* Cartridge 01: Event Date */}
               <div
                 style={{ transitionDelay: statsInView ? "0ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#fff1f2] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${
-                  statsInView ? "is-visible" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#fff1f2] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${statsInView ? "is-visible" : ""
+                  }`}
               >
                 {/* Corner Screws */}
                 <span className="absolute top-2 left-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
@@ -650,9 +645,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               {/* Cartridge 02: Reg. Last Date */}
               <div
                 style={{ transitionDelay: statsInView ? "120ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#f5f3ff] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${
-                  statsInView ? "is-visible" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#f5f3ff] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${statsInView ? "is-visible" : ""
+                  }`}
               >
                 {/* Corner Screws */}
                 <span className="absolute top-2 left-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
@@ -704,9 +698,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               {/* Cartridge 03: Competitions */}
               <div
                 style={{ transitionDelay: statsInView ? "240ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#fffbeb] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${
-                  statsInView ? "is-visible" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#fffbeb] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${statsInView ? "is-visible" : ""
+                  }`}
               >
                 {/* Corner Screws */}
                 <span className="absolute top-2 left-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
@@ -758,9 +751,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               {/* Cartridge 04: Campus Venue */}
               <div
                 style={{ transitionDelay: statsInView ? "360ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#f0fdf4] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${
-                  statsInView ? "is-visible" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#f0fdf4] border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 transition-all duration-200 flex flex-col justify-between text-center select-none scroll-reveal ${statsInView ? "is-visible" : ""
+                  }`}
               >
                 {/* Corner Screws */}
                 <span className="absolute top-2 left-2.5 text-[9px] font-mono text-zinc-400 select-none pointer-events-none">✚</span>
@@ -813,13 +805,12 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* 3. Retro Nintendo Switch Handheld Gaming Console Countdown Timer - Scroll Reveal */}
             <div
               ref={timerRef}
-              className={`w-full max-w-4xl mx-auto mb-8 sm:mb-12 select-none scroll-reveal ${
-                timerInView ? "is-visible" : ""
-              }`}
+              className={`w-full max-w-4xl mx-auto mb-8 sm:mb-12 select-none scroll-reveal ${timerInView ? "is-visible" : ""
+                }`}
             >
               {/* Nintendo Switch Outer Shell */}
               <div className="flex items-stretch w-full rounded-[24px] sm:rounded-[36px] overflow-hidden border-[3.5px] sm:border-[4.5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[9px_9px_0px_#000]">
-                
+
                 {/* LEFT JOY-CON (Neon Cyan) */}
                 <div className="switch-joycon-left w-14 xs:w-16 sm:w-20 md:w-24 p-2 sm:p-3 flex flex-col justify-between items-center relative border-r-2 border-black/40 shrink-0">
                   {/* Minus Button (-) */}
@@ -955,9 +946,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* 4. Action Arcade HUD & Controller Action Deck - Scroll Reveal */}
             <div
               ref={ctaRef}
-              className={`relative flex flex-col items-center justify-center gap-3.5 sm:gap-5 w-full max-w-4xl mx-auto px-2 select-none scroll-reveal ${
-                ctaInView ? "is-visible" : ""
-              }`}
+              className={`relative flex flex-col items-center justify-center gap-3.5 sm:gap-5 w-full max-w-4xl mx-auto px-2 select-none scroll-reveal ${ctaInView ? "is-visible" : ""
+                }`}
             >
               {/* Mission Objective / Critical Drop Top Strip */}
               <div className="w-full max-w-2xl flex flex-wrap items-center justify-between gap-2 px-3 py-1.5 rounded-xl bg-black text-white border-2 border-black shadow-[3px_3px_0px_#000]">
@@ -1082,9 +1072,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* 5. RPG Quest Inventory & Perks Dock - Scroll Reveal */}
             <div
               ref={badgesRef}
-              className={`mt-8 sm:mt-12 w-full max-w-4xl mx-auto px-2 select-none scroll-reveal ${
-                badgesInView ? "is-visible" : ""
-              }`}
+              className={`mt-8 sm:mt-12 w-full max-w-4xl mx-auto px-2 select-none scroll-reveal ${badgesInView ? "is-visible" : ""
+                }`}
             >
               {/* Inventory Header HUD Tag */}
               <div className="flex items-center justify-center gap-2 mb-3">
@@ -1184,9 +1173,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* 6. Cyber Ground Data Streamer Strip - Scroll Reveal */}
             <div
               ref={bottomTickerRef}
-              className={`mt-8 sm:mt-10 w-full max-w-4xl mx-auto rounded-2xl bg-black border-[3px] sm:border-[3.5px] border-black shadow-[5px_5px_0px_#000] py-2 sm:py-2.5 px-4 overflow-hidden select-none scroll-reveal ${
-                bottomTickerInView ? "is-visible" : ""
-              }`}
+              className={`mt-8 sm:mt-10 w-full max-w-4xl mx-auto rounded-2xl bg-black border-[3px] sm:border-[3.5px] border-black shadow-[5px_5px_0px_#000] py-2 sm:py-2.5 px-4 overflow-hidden select-none scroll-reveal ${bottomTickerInView ? "is-visible" : ""
+                }`}
             >
               <div className="flex w-max animate-marquee-fast">
                 <span className="font-mono text-xs sm:text-sm font-extrabold text-[#fde047] tracking-widest uppercase flex items-center gap-5 sm:gap-6 pr-6">
@@ -1245,24 +1233,32 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Center: Walking Goomba */}
-          <div className="hidden sm:flex flex-col items-center animate-bounce [animation-duration:1.6s]">
-            <div className="w-9 h-7 bg-[#a84400] border-[2.5px] border-black rounded-t-xl rounded-b-md relative shadow-[1px_1px_0px_#000]">
-              {/* Eyebrows */}
-              <div className="absolute top-1 left-1.5 w-2 h-0.5 bg-black rotate-12" />
-              <div className="absolute top-1 right-1.5 w-2 h-0.5 bg-black -rotate-12" />
-              {/* Eyes */}
-              <div className="absolute top-1.5 left-2 w-1.5 h-2.5 bg-white border border-black rounded-xs">
-                <div className="w-0.5 h-1.5 bg-black ml-auto" />
-              </div>
-              <div className="absolute top-1.5 right-2 w-1.5 h-2.5 bg-white border border-black rounded-xs">
-                <div className="w-0.5 h-1.5 bg-black" />
+          {/* Center: ORIGINAL GUSTO-Themed Pixel Mascot (No copyrighted characters) */}
+          <div className="hidden sm:flex flex-col items-center animate-mascot-walk relative z-20" title="GUSTO '26 Cyber Mascot">
+            {/* Robot Antenna with Blinking Beacon */}
+            <div className="w-1.5 h-2.5 bg-black -mb-0.5 relative">
+              <span className="absolute -top-1.5 -left-1 w-3 h-3 bg-[#e52521] border border-black rounded-full animate-ping opacity-75" />
+              <span className="absolute -top-1.5 -left-1 w-3 h-3 bg-[#ffd000] border-[1.5px] border-black rounded-full" />
+            </div>
+
+            {/* Mascot Head / Visor */}
+            <div className="w-10 h-7 bg-[#00d8f8] border-[2.5px] border-black rounded-t-lg rounded-b-xs relative shadow-[2px_2px_0px_#000]">
+              {/* Visor Screen with Glowing Cyan Pixel Eyes */}
+              <div className="absolute inset-1 bg-black rounded-xs flex items-center justify-around px-1">
+                <span className="w-1.5 h-2.5 bg-[#43b047] rounded-xs animate-pulse shadow-[0_0_4px_#43b047]" />
+                <span className="w-1.5 h-2.5 bg-[#43b047] rounded-xs animate-pulse shadow-[0_0_4px_#43b047]" />
               </div>
             </div>
-            {/* Feet */}
-            <div className="flex gap-1 -mt-0.5">
-              <div className="w-3.5 h-2 bg-black rounded-b-md" />
-              <div className="w-3.5 h-2 bg-black rounded-b-md" />
+
+            {/* Mascot Chest / Armor Body */}
+            <div className="w-8 h-4 bg-[#ffd000] border-x-[2.5px] border-b-[2.5px] border-black relative flex items-center justify-center">
+              <span className="text-[6px] font-['Press_Start_2P',monospace] font-black text-black">G26</span>
+            </div>
+
+            {/* Mascot Walking Pixel Boots */}
+            <div className="flex gap-1.5 -mt-0.5">
+              <div className="w-3.5 h-2 bg-[#e52521] border border-black rounded-b-xs shadow-[1px_1px_0_#000]" />
+              <div className="w-3.5 h-2 bg-[#e52521] border border-black rounded-b-xs shadow-[1px_1px_0_#000]" />
             </div>
           </div>
 
@@ -1274,8 +1270,13 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Right: Iconic Green Warp Pipe */}
-          <div className="flex flex-col items-center">
+          {/* Right: Iconic Green Warp Pipe with GUSTO 2K26 Plaque */}
+          <div className="flex flex-col items-center relative">
+            {/* Level Plaque */}
+            <div className="font-['Press_Start_2P',monospace] text-[7px] font-black bg-[#ffd000] text-black px-1.5 py-0.5 border border-black shadow-[1.5px_1.5px_0_#000] mb-0.5 z-10 select-none">
+              WORLD 1-1
+            </div>
+
             {/* Pipe Top Rim */}
             <div className="w-16 sm:w-20 h-6 sm:h-7 bg-[#00a800] border-[3px] border-black rounded-xs shadow-[3px_3px_0px_#000] relative overflow-hidden">
               <div className="absolute left-2 top-0 bottom-0 w-2.5 bg-[#80f840] opacity-80" />
@@ -1289,8 +1290,13 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Iconic 2-Tier Mario Brick Ground Platform */}
-        <div className="w-full mario-brick-ground shadow-[0_4px_0_#000]" />
+        {/* 2-Tier Retro Platform Ground: Vibrant Pixel Grass Top + Earthy Brick Body */}
+        <div className="w-full">
+          {/* Pixel Grass Blades Layer */}
+          <div className="w-full h-2.5 bg-[#00d800] border-t-[3.5px] border-black border-b-[2px] border-black flex" />
+          {/* Dirt Brick Body */}
+          <div className="w-full mario-brick-ground shadow-[0_4px_0_#000] !border-t-0" />
+        </div>
       </div>
     </section>
   );
