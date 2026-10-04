@@ -10,7 +10,7 @@ export function Footer() {
   const regCoordinators = CORE_CONTACTS.filter((c) => c.category === "Registration Coordinator");
 
   return (
-    <footer className="relative bg-[#3b0764] text-white border-t-[4px] border-black pt-16 pb-12 overflow-hidden">
+    <footer className="relative bg-[#3b0764] text-white border-t-[4px] border-black pt-16 pb-12 overflow-hidden font-unbounded">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b-2 border-white/20">
           {/* Column 1: Brand & Institution */}

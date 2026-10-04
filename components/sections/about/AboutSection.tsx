@@ -50,7 +50,7 @@ export function AboutSection() {
   }, [isHighlightsJumping, highlightsKey]);
 
   return (
-    <section id="about" className="py-14 sm:py-20 bg-[#fffbeb] text-black relative border-b-[4px] border-black">
+    <section id="about" className="py-14 sm:py-20 bg-[#fffbeb] text-black relative border-b-[4px] border-black font-unbounded">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-10 sm:mb-14 relative select-none">
@@ -81,7 +81,7 @@ export function AboutSection() {
 
             <h2
               onClick={triggerJump}
-              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group"
+              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group font-unbounded"
               title="Click to see the letters jump!"
             >
               {/* "About" with interactive letter wave */}
@@ -183,7 +183,7 @@ export function AboutSection() {
                   <div>
                     <h3
                       onClick={triggerJump}
-                      className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-mono cursor-pointer hover:text-[#84cc16] transition-colors select-none"
+                      className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-unbounded cursor-pointer hover:text-[#84cc16] transition-colors select-none"
                       title="Click to jump!"
                     >
                       {ABOUT_DATA.symposiumName}
@@ -281,7 +281,7 @@ export function AboutSection() {
                   </div>
 
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-mono">
+                    <h3 className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-unbounded">
                       GCEE Erode
                     </h3>
                     <p className="text-[10px] sm:text-xs font-black text-[#65a30d] uppercase tracking-wider">
@@ -380,7 +380,7 @@ export function AboutSection() {
                   </div>
 
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-mono">
+                    <h3 className="text-xl sm:text-2xl font-black text-[#3b0764] leading-tight font-unbounded">
                       IT Department
                     </h3>
                     <p className="text-[10px] sm:text-xs font-black text-[#0891b2] uppercase tracking-wider">
@@ -445,7 +445,7 @@ export function AboutSection() {
             <div>
               <div
                 onClick={triggerHighlightsJump}
-                className="cursor-pointer inline-flex flex-wrap items-center gap-x-2 sm:gap-x-3 group"
+                className="cursor-pointer inline-flex flex-wrap items-center gap-x-2 sm:gap-x-3 group font-unbounded"
                 title="Click to see text jump! ✨"
               >
                 {/* "Symposium" */}

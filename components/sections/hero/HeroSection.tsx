@@ -141,6 +141,189 @@ function PixelCloudLarge() {
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// SUPER MARIO WORLD SKY BLINKING STARS & SPARKLE SPRITES
+// ─────────────────────────────────────────────────────────────────────────────
+function MarioSuperStar({ className = "", size = 28 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      className={`drop-shadow-[2.5px_2.5px_0px_#000] select-none ${className}`}
+    >
+      {/* Black 5-Point Star Outline */}
+      <polygon
+        points="12,1.5 15.3,8.2 22.7,9.3 17.3,14.6 18.6,22 12,18.5 5.4,22 6.7,14.6 1.3,9.3 8.7,8.2"
+        fill="#ffd000"
+        stroke="#000000"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
+      />
+      {/* Inner Golden Highlight Gradient Layer */}
+      <polygon
+        points="12,3.8 14.5,9.2 20.3,10.1 16.1,14.2 17.1,20 12,17.2 6.9,20 7.9,14.2 3.7,10.1 9.5,9.2"
+        fill="#ffe566"
+      />
+      {/* Top Specular Shine */}
+      <polygon
+        points="12,4.5 13.8,8.8 12,9.8 10.2,8.8"
+        fill="#ffffff"
+        opacity="0.9"
+      />
+      {/* Iconic Mario Power Star Vertical Eyes (Left & Right) */}
+      <ellipse cx="9.6" cy="13.2" rx="1.1" ry="2.7" fill="#000000" />
+      <ellipse cx="14.4" cy="13.2" rx="1.1" ry="2.7" fill="#000000" />
+      {/* White Eye Reflection Dots */}
+      <ellipse cx="9.4" cy="12.2" rx="0.5" ry="1.1" fill="#ffffff" />
+      <ellipse cx="14.2" cy="12.2" rx="0.5" ry="1.1" fill="#ffffff" />
+    </svg>
+  );
+}
+
+function PixelStarCross({ className = "", size = 16 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      width={size}
+      height={size}
+      shapeRendering="crispEdges"
+      className={`drop-shadow-[1.5px_1.5px_0px_#000] select-none ${className}`}
+    >
+      {/* Black Outline */}
+      <rect x="7" y="1" width="2" height="14" fill="#000" />
+      <rect x="1" y="7" width="14" height="2" fill="#000" />
+      <rect x="5" y="3" width="6" height="10" fill="#000" />
+      <rect x="3" y="5" width="10" height="6" fill="#000" />
+      {/* Yellow Body */}
+      <rect x="7" y="2" width="2" height="12" fill="#ffd000" />
+      <rect x="2" y="7" width="12" height="2" fill="#ffd000" />
+      <rect x="5" y="4" width="6" height="8" fill="#ffd000" />
+      <rect x="4" y="5" width="8" height="6" fill="#ffd000" />
+      {/* White Glowing Center */}
+      <rect x="6" y="6" width="4" height="4" fill="#ffffff" />
+    </svg>
+  );
+}
+
+function PixelSparkleDiamond({ className = "", size = 14 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      width={size}
+      height={size}
+      className={`drop-shadow-[1.5px_1.5px_0px_#000] select-none ${className}`}
+    >
+      <polygon
+        points="8,1 10.5,6.5 15,8 10.5,9.5 8,15 5.5,9.5 1,8 5.5,6.5"
+        fill="#fef08a"
+        stroke="#000"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      <circle cx="8" cy="8" r="1.6" fill="#ffffff" />
+    </svg>
+  );
+}
+
+function MarioSkyStarsLayer() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[2] select-none">
+      {/* === TOP SKY REGION (Around Arcade HUD & Signboard) === */}
+      {/* Top Left: above and left of PLAYER score */}
+      <div className="absolute top-2 left-[3%] animate-star-blink-1" style={{ animationDelay: "-0.2s" }}>
+        <MarioSuperStar size={24} />
+      </div>
+      <div className="absolute top-9 left-[10%] animate-star-blink-2" style={{ animationDelay: "-1.1s" }}>
+        <PixelStarCross size={16} />
+      </div>
+      <div className="absolute top-16 left-[4%] animate-star-blink-3" style={{ animationDelay: "-0.5s" }}>
+        <PixelSparkleDiamond size={13} />
+      </div>
+      <div className="absolute top-6 left-[18%] animate-star-float-blink" style={{ animationDelay: "-1.7s" }}>
+        <PixelStarCross size={14} />
+      </div>
+
+      {/* Top Center-Left & Center-Right: flanking college signboard */}
+      <div className="absolute top-4 left-[30%] animate-star-blink-2" style={{ animationDelay: "-0.8s" }}>
+        <PixelSparkleDiamond size={15} />
+      </div>
+      <div className="absolute top-12 left-[26%] animate-star-float-blink" style={{ animationDelay: "-2.3s" }}>
+        <MarioSuperStar size={20} />
+      </div>
+      <div className="absolute top-4 right-[30%] animate-star-blink-3" style={{ animationDelay: "-1.4s" }}>
+        <PixelSparkleDiamond size={15} />
+      </div>
+      <div className="absolute top-12 right-[26%] animate-star-blink-1" style={{ animationDelay: "-0.6s" }}>
+        <MarioSuperStar size={20} />
+      </div>
+
+      {/* Top Right: around TIME HUD and below Spider-Man */}
+      <div className="absolute top-3 right-[4%] animate-star-blink-1" style={{ animationDelay: "-1.5s" }}>
+        <MarioSuperStar size={24} />
+      </div>
+      <div className="absolute top-10 right-[12%] animate-star-blink-2" style={{ animationDelay: "-0.4s" }}>
+        <PixelStarCross size={16} />
+      </div>
+      <div className="absolute top-18 right-[5%] animate-star-blink-3" style={{ animationDelay: "-1.9s" }}>
+        <PixelSparkleDiamond size={14} />
+      </div>
+      <div className="absolute top-8 right-[19%] animate-star-float-blink" style={{ animationDelay: "-0.9s" }}>
+        <PixelStarCross size={14} />
+      </div>
+
+      {/* === MID SKY REGION (Flanking "LET THE" and "GUSTO BEGIN") === */}
+      {/* Left side flanking hero title */}
+      <div className="absolute top-32 left-[6%] animate-star-blink-1" style={{ animationDelay: "-1.3s" }}>
+        <MarioSuperStar size={26} />
+      </div>
+      <div className="absolute top-40 left-[14%] animate-star-blink-3" style={{ animationDelay: "-0.7s" }}>
+        <PixelStarCross size={18} />
+      </div>
+      <div className="absolute top-52 left-[3%] animate-star-float-blink" style={{ animationDelay: "-2.1s" }}>
+        <PixelSparkleDiamond size={16} />
+      </div>
+      <div className="absolute top-64 left-[10%] animate-star-blink-2" style={{ animationDelay: "-1.6s" }}>
+        <MarioSuperStar size={22} />
+      </div>
+      <div className="absolute top-76 left-[5%] animate-star-blink-1" style={{ animationDelay: "-0.3s" }}>
+        <PixelStarCross size={15} />
+      </div>
+
+      {/* Right side flanking hero title */}
+      <div className="absolute top-32 right-[7%] animate-star-blink-2" style={{ animationDelay: "-0.5s" }}>
+        <MarioSuperStar size={26} />
+      </div>
+      <div className="absolute top-42 right-[15%] animate-star-blink-1" style={{ animationDelay: "-1.8s" }}>
+        <PixelStarCross size={18} />
+      </div>
+      <div className="absolute top-54 right-[4%] animate-star-blink-3" style={{ animationDelay: "-1.1s" }}>
+        <PixelSparkleDiamond size={16} />
+      </div>
+      <div className="absolute top-66 right-[11%] animate-star-float-blink" style={{ animationDelay: "-0.8s" }}>
+        <MarioSuperStar size={22} />
+      </div>
+      <div className="absolute top-78 right-[6%] animate-star-blink-2" style={{ animationDelay: "-2.4s" }}>
+        <PixelStarCross size={15} />
+      </div>
+
+      {/* === LOWER SKY REGION (Above Ground & Mario World Landscape) === */}
+      <div className="absolute top-[86%] left-[16%] animate-star-blink-3" style={{ animationDelay: "-1.2s" }}>
+        <PixelSparkleDiamond size={14} />
+      </div>
+      <div className="absolute top-[90%] left-[8%] animate-star-float-blink" style={{ animationDelay: "-0.6s" }}>
+        <PixelStarCross size={15} />
+      </div>
+      <div className="absolute top-[86%] right-[17%] animate-star-blink-1" style={{ animationDelay: "-1.7s" }}>
+        <PixelSparkleDiamond size={14} />
+      </div>
+      <div className="absolute top-[90%] right-[9%] animate-star-blink-2" style={{ animationDelay: "-0.9s" }}>
+        <PixelStarCross size={15} />
+      </div>
+    </div>
+  );
+}
+
 // Original GUSTO '26 Cyber Runner Mascot
 function GustoPixelMascot() {
   return (
@@ -217,6 +400,50 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   const [gameTimer, setGameTimer] = useState(245);
   const [bumpedBlock, setBumpedBlock] = useState<string | null>(null);
   const [poppedBlock, setPoppedBlock] = useState<string | null>(null);
+
+  // Retro Mario Platform Signboard: Auto-switching between College and Department with 3D flip effect
+  const INSTITUTION_BANNER_ITEMS = [
+    {
+      line1: "GOVERNMENT COLLEGE OF",
+      line2: "ENGINEERING, ERODE",
+      label: "CAMPUS HOST",
+    },
+    {
+      line1: "DEPARTMENT OF",
+      line2: "INFORMATION TECHNOLOGY",
+      label: "ORGANIZING DEPARTMENT",
+    },
+  ];
+
+  const [bannerIndex, setBannerIndex] = useState(0);
+  const [bannerAnimState, setBannerAnimState] = useState<"in" | "out">("in");
+  const [sheenKey, setSheenKey] = useState(0);
+
+  // Cycle the institution signboard every 4 seconds with cool arcade reel roll & light sweep
+  useEffect(() => {
+    const bannerTimer = setInterval(() => {
+      setBannerAnimState("out");
+      setSheenKey((k) => k + 1);
+      setTimeout(() => {
+        setBannerIndex((prev) => (prev + 1) % INSTITUTION_BANNER_ITEMS.length);
+        setBannerAnimState("in");
+      }, 280);
+    }, 4000);
+
+    return () => clearInterval(bannerTimer);
+  }, [INSTITUTION_BANNER_ITEMS.length]);
+
+  const handleBannerFlipToggle = () => {
+    try {
+      arcadeAudio.playCoin();
+    } catch { }
+    setBannerAnimState("out");
+    setSheenKey((k) => k + 1);
+    setTimeout(() => {
+      setBannerIndex((prev) => (prev + 1) % INSTITUTION_BANNER_ITEMS.length);
+      setBannerAnimState("in");
+    }, 240);
+  };
 
   // Decrement game timer like an authentic arcade clock
   useEffect(() => {
@@ -340,8 +567,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         </div>
       </div>
 
-
-      {/* Environment background is pure Super Mario World 1-1 sky with pixel clouds */}
+      {/* Retro Mario Sky Twinkling/Blinking Stars Layer */}
+      <MarioSkyStarsLayer />
 
       {/* Main Hero Container */}
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 relative z-10">
@@ -367,26 +594,43 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Top Symposium Institution Banner (Authentic Mario Platformer Signboard: Government College of Engineering, Erode) */}
+          {/* Top Symposium Institution Banner (Strict Fixed-Size Mario Signboard: Alternates between College & Department) */}
           <div className="w-full flex justify-center items-center mb-5 sm:mb-8 md:mb-10 z-20 px-2 sm:px-4 select-none">
-            <div className="relative inline-flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3 px-3.5 xs:px-5 sm:px-8 py-2 xs:py-2.5 sm:py-3.5 bg-[#ffd000] border-[3.5px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rounded-xs hover:-translate-y-0.5 transition-all duration-150 max-w-full">
+            {/* STRICT FIXED BOX SIZE: Dimensions never change or resize during transitions */}
+            <div
+              onClick={handleBannerFlipToggle}
+              className="relative flex items-center justify-between px-3 xs:px-4 sm:px-6 w-[94%] max-w-[560px] xs:max-w-[600px] sm:max-w-[690px] md:max-w-[760px] h-[52px] xs:h-[58px] sm:h-[50px] md:h-[54px] bg-[#ffd000] border-[3.5px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rounded-xs hover:-translate-y-0.5 active:scale-[0.99] transition-transform duration-150 cursor-pointer overflow-hidden group/sign"
+              title="Click to switch: College & Department!"
+            >
+              {/* Cool Light Sheen Sweep Bar across the fixed box */}
+              <div
+                key={`sheen-${sheenKey}`}
+                className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none animate-sign-sheen z-20"
+              />
+
               {/* 4 Corner Mario Rivet Screws */}
-              <div className="absolute top-1 left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs" />
-              <div className="absolute top-1 right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs" />
-              <div className="absolute bottom-1 left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs" />
-              <div className="absolute bottom-1 right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs" />
+              <div className="absolute top-1 left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs z-10" />
+              <div className="absolute top-1 right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs z-10" />
+              <div className="absolute bottom-1 left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs z-10" />
+              <div className="absolute bottom-1 right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs z-10" />
 
               {/* Left Spinning Coin */}
-              <span className="text-[11px] xs:text-xs sm:text-base animate-coin-spin shrink-0">🪙</span>
+              <span className="text-[12px] xs:text-sm sm:text-base animate-coin-spin shrink-0 z-10 select-none">🪙</span>
 
-              {/* College Title in Authentic Mario 8-Bit Font - Clean Two-Line Stack on Mobile, Single Line on Desktop */}
-              <div className="font-['Press_Start_2P',monospace] font-black text-[8px] xs:text-[9.5px] sm:text-xs md:text-sm lg:text-base text-black tracking-wider uppercase text-center leading-relaxed sm:leading-snug drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] px-1 sm:px-2 flex flex-col sm:flex-row items-center justify-center">
-                <span className="whitespace-nowrap">GOVERNMENT COLLEGE OF</span>
-                <span className="sm:ml-1.5 whitespace-nowrap">ENGINEERING, ERODE</span>
+              {/* Center Slot-Reel Scrolling Container (Fixed Height & Center-Aligned) */}
+              <div className="flex-1 overflow-hidden h-full flex items-center justify-center px-0.5 xs:px-1 sm:px-2 z-10">
+                <div
+                  key={`sign-${bannerIndex}`}
+                  className={`font-['Press_Start_2P',monospace] font-black text-[6.5px] xs:text-[8px] sm:text-xs md:text-sm lg:text-[14.5px] text-black tracking-wider uppercase text-center leading-relaxed sm:leading-snug drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] flex flex-col sm:flex-row items-center justify-center ${bannerAnimState === "out" ? "animate-sign-reel-out" : "animate-sign-reel-in"
+                    }`}
+                >
+                  <span className="whitespace-nowrap">{INSTITUTION_BANNER_ITEMS[bannerIndex].line1}</span>
+                  <span className="sm:ml-1.5 whitespace-nowrap">{INSTITUTION_BANNER_ITEMS[bannerIndex].line2}</span>
+                </div>
               </div>
 
               {/* Right Spinning Coin */}
-              <span className="text-[11px] xs:text-xs sm:text-base animate-coin-spin shrink-0">🪙</span>
+              <span className="text-[12px] xs:text-sm sm:text-base animate-coin-spin shrink-0 z-10 select-none">🪙</span>
             </div>
           </div>
 
@@ -397,9 +641,9 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             title="Click to see the letters jump!"
           >
             {/* Row 1: "LET" + [GAMING CONSOLE] + "THE" */}
-            <div className="flex items-center justify-center gap-2 xs:gap-3 sm:gap-6 md:gap-8 flex-nowrap animate-gusto-row1-wave">
+            <div className="flex items-center justify-center gap-1.5 xs:gap-2.5 sm:gap-6 md:gap-8 flex-nowrap animate-gusto-row1-wave w-full max-w-full px-1">
               {/* "LET" */}
-              <div className="inline-flex items-center gap-1 xs:gap-1.5 sm:gap-2.5 md:gap-3">
+              <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3 shrink-0">
                 {[
                   { char: "L", color: "mario-c-blue", rotate: "-rotate-3" },
                   { char: "E", color: "mario-c-yellow", rotate: "rotate-2" },
@@ -408,7 +652,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`let-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.8rem] xs:text-[3.8rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.65rem] xs:text-[2.25rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -425,7 +669,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                     arcadeAudio.playJump();
                   } catch { }
                 }}
-                className="relative -mt-2 sm:-mt-5 md:-mt-7 mx-1 xs:mx-2 sm:mx-4 animate-idle-wiggle cursor-pointer shrink-0 hover:scale-110 active:scale-95 transition-transform duration-200 select-none group/console z-10"
+                className="relative -mt-1 sm:-mt-5 md:-mt-7 mx-0.5 xs:mx-1.5 sm:mx-4 animate-idle-wiggle cursor-pointer shrink-0 hover:scale-110 active:scale-95 transition-transform duration-200 select-none group/console z-10"
                 title="Click Console to Jump &amp; Sound!"
               >
                 {/* Cute speech bubble on hover */}
@@ -438,12 +682,12 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 <RetroGamepad
                   color="#e52521"
                   dpadColor="#ffd000"
-                  className="w-16 xs:w-20 sm:w-28 md:w-36 lg:w-44 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[5px_5px_0px_#000]"
+                  className="w-11 xs:w-16 sm:w-28 md:w-36 lg:w-44 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[5px_5px_0px_#000]"
                 />
               </div>
 
               {/* "THE" */}
-              <div className="inline-flex items-center gap-1 xs:gap-1.5 sm:gap-2.5 md:gap-3">
+              <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3 shrink-0">
                 {[
                   { char: "T", color: "mario-c-green", rotate: "rotate-3" },
                   { char: "H", color: "mario-c-blue", rotate: "-rotate-2" },
@@ -452,7 +696,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`the-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 3) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.2rem] xs:text-[3rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.65rem] xs:text-[2.25rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -462,8 +706,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
 
             {/* Row 2: "GUSTO BEGIN" - Well-spaced gap so title lines breathe with arcade punch */}
-            <div className="flex items-center justify-center gap-2 xs:gap-3 sm:gap-6 md:gap-10 flex-wrap mt-4 sm:mt-10 md:mt-14 animate-gusto-row2-wave">
-              <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3">
+            <div className="flex items-center justify-center gap-1.5 xs:gap-3 sm:gap-6 md:gap-10 flex-nowrap mt-3 sm:mt-10 md:mt-14 animate-gusto-row2-wave w-full max-w-full px-1">
+              <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3 shrink-0">
                 {[
                   { char: "G", color: "mario-c-red", rotate: "-rotate-3" },
                   { char: "U", color: "mario-c-blue", rotate: "rotate-2" },
@@ -474,7 +718,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`gusto-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 6) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.2rem] xs:text-[3rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.45rem] xs:text-[2.05rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -482,7 +726,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 ))}
               </div>
 
-              <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3">
+              <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3 shrink-0">
                 {[
                   { char: "B", color: "mario-c-green", rotate: "rotate-2" },
                   { char: "E", color: "mario-c-yellow", rotate: "-rotate-2" },
@@ -493,7 +737,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`begin-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 11) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.2rem] xs:text-[3rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.45rem] xs:text-[2.05rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -795,7 +1039,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               <div className="flex items-stretch w-full rounded-[24px] sm:rounded-[36px] overflow-hidden border-[3.5px] sm:border-[4.5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[9px_9px_0px_#000]">
 
                 {/* LEFT JOY-CON (Neon Cyan) */}
-                <div className="switch-joycon-left w-9 xs:w-11 sm:w-20 md:w-24 p-1 xs:p-2 sm:p-3 flex flex-col justify-between items-center relative border-r-2 border-black/40 shrink-0">
+                <div className="switch-joycon-left w-7 xs:w-10 sm:w-20 md:w-24 p-1 xs:p-2 sm:p-3 flex flex-col justify-between items-center relative border-r-2 border-black/40 shrink-0">
                   {/* Minus Button (-) */}
                   <div className="w-full flex justify-end pr-0.5 sm:pr-2 pt-1">
                     <div className="w-2 sm:w-3.5 h-0.5 sm:h-1.5 bg-[#222] rounded-[1px] border border-black/60 shadow-xs" />
@@ -895,7 +1139,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 </div>
 
                 {/* RIGHT JOY-CON (Neon Red/Coral) */}
-                <div className="switch-joycon-right w-9 xs:w-11 sm:w-20 md:w-24 p-1 xs:p-2 sm:p-3 flex flex-col justify-between items-center relative border-l-2 border-black/40 shrink-0">
+                <div className="switch-joycon-right w-7 xs:w-10 sm:w-20 md:w-24 p-1 xs:p-2 sm:p-3 flex flex-col justify-between items-center relative border-l-2 border-black/40 shrink-0">
                   {/* Plus Button (+) */}
                   <div className="w-full flex justify-start pl-0.5 sm:pr-2 pt-1">
                     <div className="relative w-2.5 sm:w-4 h-2.5 sm:h-4 flex items-center justify-center">
@@ -964,8 +1208,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
 
                     {/* Center: Bold Arcade Text */}
                     <div className="flex items-center gap-2 sm:gap-3 text-center">
-                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300 animate-pulse hidden xs:inline" />
-                      <span className="font-['Chakra_Petch',sans-serif] font-black text-lg sm:text-2xl md:text-3xl text-white tracking-wider uppercase drop-shadow-[2px_2px_0px_#000]">
+                      <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-yellow-300 animate-pulse hidden xs:inline" />
+                      <span className="font-['Chakra_Petch',sans-serif] font-black text-base xs:text-lg sm:text-2xl md:text-3xl text-white tracking-wider uppercase drop-shadow-[2px_2px_0px_#000]">
                         PRESS START • REGISTER NOW
                       </span>
                     </div>

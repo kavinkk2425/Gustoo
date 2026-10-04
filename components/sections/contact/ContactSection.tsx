@@ -52,7 +52,7 @@ export function ContactSection() {
   });
 
   return (
-    <section id="contact" className="py-14 sm:py-20 bg-retro-yellow-grid text-black relative border-b-[4px] border-black">
+    <section id="contact" className="py-14 sm:py-20 bg-retro-yellow-grid text-black relative border-b-[4px] border-black font-unbounded">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-10 sm:mb-12 select-none">
@@ -66,7 +66,7 @@ export function ContactSection() {
           <div className="relative w-full flex justify-center items-center my-1">
             <h2
               onClick={triggerJump}
-              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group"
+              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group font-unbounded"
               title="Click to see the letters jump!"
             >
               {/* "Get In" with interactive letter wave */}

@@ -54,7 +54,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Chakra+Petch:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Orbitron:wght@700;800;900&family=Press+Start+2P&family=Titan+One&family=Luckiest+Guy&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Chakra+Petch:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Orbitron:wght@700;800;900&family=Press+Start+2P&family=Titan+One&family=Luckiest+Guy&family=Unbounded:wght@200..900&display=swap"
           rel="stylesheet"
         />
       </head>

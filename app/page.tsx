@@ -14,6 +14,7 @@ import { RegisterModal } from "@/components/sections/register/RegisterModal";
 import { GameScrollProvider } from "@/components/ui/GameScrollProvider";
 import { ScrollReveal, SectionDivider } from "@/components/ui/ScrollReveal";
 import { PacmanGhostLoader } from "@/components/ui/PacmanGhostLoader";
+import { MobileTouchFX } from "@/components/ui/MobileTouchFX";
 
 export default function Home() {
   const [registerOpen, setRegisterOpen] = useState(false);
@@ -42,6 +43,9 @@ export default function Home() {
     <div className="min-h-screen bg-[#5c94fc] text-black selection:bg-[#ec4899] selection:text-white overflow-x-hidden w-full max-w-[100vw]">
       {/* 5-second retro Pac-Man Ghost loader before entering page */}
       <PacmanGhostLoader />
+
+      {/* Retro Arcade Mobile Touch & Tap Interaction FX */}
+      <MobileTouchFX />
 
       {/* Sticky Neo-Brutalist Navbar */}
       <Navbar

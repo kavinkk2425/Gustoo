@@ -8,9 +8,13 @@ import { useEffect, useState, useCallback } from "react";
  * Bobbing body, moving pupils, flickering skirt tentacles, and dynamic floor shadow.
  * Authentic 80s arcade layout with scores, blinking INSERT COIN, and PUSH START.
  */
+const FULL_LOADER_TEXT = "Entering into Gusto 2.0";
+
 export function PacmanGhostLoader() {
   const [visible, setVisible] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
+  const [typedLength, setTypedLength] = useState(0);
+  const [dotCount, setDotCount] = useState(0);
   const DURATION_MS = 5000;
 
   const triggerExit = useCallback(() => {
@@ -20,6 +24,29 @@ export function PacmanGhostLoader() {
       document.body.style.overflow = "";
     }, 600);
   }, []);
+
+  // Retro typewriter effect: Type out character-by-character (~65ms cadence)
+  useEffect(() => {
+    let charIdx = 0;
+    const typingTimer = setInterval(() => {
+      charIdx++;
+      setTypedLength(charIdx);
+      if (charIdx >= FULL_LOADER_TEXT.length) {
+        clearInterval(typingTimer);
+      }
+    }, 65);
+
+    return () => clearInterval(typingTimer);
+  }, []);
+
+  // Once typing completes, animate the loading dots (1 -> 2 -> 3 -> 1...)
+  useEffect(() => {
+    if (typedLength < FULL_LOADER_TEXT.length) return;
+    const dotTimer = setInterval(() => {
+      setDotCount((prev) => (prev % 3) + 1);
+    }, 360);
+    return () => clearInterval(dotTimer);
+  }, [typedLength]);
 
   useEffect(() => {
     // Lock body scroll while loader is active
@@ -112,14 +139,30 @@ export function PacmanGhostLoader() {
         </div>
 
         {/* Trail of arcade energizer dots */}
-        <div className="flex items-center justify-center gap-4 mt-10">
+        <div className="flex items-center justify-center gap-3.5 xs:gap-4 mt-8">
           {[0, 1, 2, 3, 4, 5].map((i) => (
             <div
               key={i}
-              className="w-2.5 h-2.5 rounded-sm bg-[#fde047] shadow-[0_0_8px_#fde047] animate-pulse"
+              className="w-2.5 h-2.5 rounded-xs bg-[#fde047] shadow-[0_0_8px_#fde047] animate-pulse"
               style={{ animationDelay: `${i * 150}ms` }}
             />
           ))}
+        </div>
+
+        {/* ── ENTERING INTO GUSTO 2.0 (RETRO TYPEWRITER EFFECT WITH LOADING DOTS) ── */}
+        <div className="mt-8 flex items-center justify-center text-center">
+          <p className="font-['Press_Start_2P',monospace] text-[9px] xs:text-[10.5px] sm:text-xs font-black tracking-wider text-[#ffd000] drop-shadow-[2px_2px_0px_#000] uppercase flex items-center select-none min-h-[20px]">
+            <span>{FULL_LOADER_TEXT.slice(0, typedLength)}</span>
+            {/* Blinking retro terminal block cursor while typing */}
+            {typedLength < FULL_LOADER_TEXT.length ? (
+              <span className="inline-block w-1.5 xs:w-2 h-2.5 xs:h-3 bg-[#ffd000] ml-1 animate-pulse" />
+            ) : (
+              /* Sequential animated dots once typing finishes */
+              <span className="inline-flex w-6 xs:w-7 text-left pl-1 text-white tracking-widest font-black">
+                {".".repeat(dotCount)}
+              </span>
+            )}
+          </p>
         </div>
       </div>
     </div>
