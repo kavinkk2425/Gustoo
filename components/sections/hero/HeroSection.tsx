@@ -575,13 +575,13 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         <div className="flex flex-col items-center text-center w-full">
           {/* === SUPER MARIO WORLD 1-1 TOP ARCADE HUD (EXACT SCREENSHOT LAYOUT) === */}
           {/* Top Retro Game HUD Bar (Clean Classic: PLAYER 000200, COINS ×01, WORLD 1-1, TIME 245) */}
-          <div className="w-full max-w-4xl mx-auto px-2 xs:px-4 mb-3 sm:mb-6 flex items-center justify-between font-['Press_Start_2P',monospace] text-white text-[8.5px] xs:text-[10px] sm:text-xs md:text-sm tracking-wider select-none z-30 drop-shadow-[2px_2px_0px_#000]">
+          <div className="w-full max-w-4xl mx-auto px-2 xs:px-4 mb-3 sm:mb-6 flex items-center justify-between font-['Press_Start_2P',monospace] text-white text-[10px] xs:text-[11.5px] sm:text-xs md:text-sm tracking-wider select-none z-30 drop-shadow-[2px_2px_0px_#000]">
             <div className="flex flex-col items-start leading-snug">
               <span className="font-black tracking-widest text-[#ffd000]">PLAYER</span>
               <span className="font-extrabold tracking-widest text-white">000200</span>
             </div>
             <div className="flex items-center gap-1 sm:gap-2 leading-snug">
-              <span className="inline-block animate-coin-spin text-xs sm:text-base">🪙</span>
+              <span className="inline-block animate-coin-spin text-sm sm:text-base">🪙</span>
               <span className="font-extrabold tracking-wider text-white">×01</span>
             </div>
             <div className="flex flex-col items-center leading-snug">
@@ -599,7 +599,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* STRICT FIXED BOX SIZE: Dimensions never change or resize during transitions */}
             <div
               onClick={handleBannerFlipToggle}
-              className="relative flex items-center justify-between px-3 xs:px-4 sm:px-6 w-[94%] max-w-[560px] xs:max-w-[600px] sm:max-w-[690px] md:max-w-[760px] h-[52px] xs:h-[58px] sm:h-[50px] md:h-[54px] bg-[#ffd000] border-[3.5px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rounded-xs hover:-translate-y-0.5 active:scale-[0.99] transition-transform duration-150 cursor-pointer overflow-hidden group/sign"
+              className="relative flex items-center justify-between px-3 xs:px-4 sm:px-6 w-[96%] max-w-[560px] xs:max-w-[600px] sm:max-w-[690px] md:max-w-[760px] h-[58px] xs:h-[64px] sm:h-[50px] md:h-[54px] bg-[#ffd000] border-[3.5px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rounded-xs hover:-translate-y-0.5 active:scale-[0.99] transition-transform duration-150 cursor-pointer overflow-hidden group/sign"
               title="Click to switch: College & Department!"
             >
               {/* Cool Light Sheen Sweep Bar across the fixed box */}
@@ -615,13 +615,13 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               <div className="absolute bottom-1 right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs z-10" />
 
               {/* Left Spinning Coin */}
-              <span className="text-[12px] xs:text-sm sm:text-base animate-coin-spin shrink-0 z-10 select-none">🪙</span>
+              <span className="text-[14px] xs:text-base sm:text-base animate-coin-spin shrink-0 z-10 select-none">🪙</span>
 
               {/* Center Slot-Reel Scrolling Container (Fixed Height & Center-Aligned) */}
               <div className="flex-1 overflow-hidden h-full flex items-center justify-center px-0.5 xs:px-1 sm:px-2 z-10">
                 <div
                   key={`sign-${bannerIndex}`}
-                  className={`font-['Press_Start_2P',monospace] font-black text-[6.5px] xs:text-[8px] sm:text-xs md:text-sm lg:text-[14.5px] text-black tracking-wider uppercase text-center leading-relaxed sm:leading-snug drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] flex flex-col sm:flex-row items-center justify-center ${bannerAnimState === "out" ? "animate-sign-reel-out" : "animate-sign-reel-in"
+                  className={`font-['Press_Start_2P',monospace] font-black text-[8px] xs:text-[9.5px] sm:text-xs md:text-sm lg:text-[14.5px] text-black tracking-wider uppercase text-center leading-relaxed sm:leading-snug drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] flex flex-col sm:flex-row items-center justify-center ${bannerAnimState === "out" ? "animate-sign-reel-out" : "animate-sign-reel-in"
                     }`}
                 >
                   <span className="whitespace-nowrap">{INSTITUTION_BANNER_ITEMS[bannerIndex].line1}</span>
@@ -630,7 +630,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
 
               {/* Right Spinning Coin */}
-              <span className="text-[12px] xs:text-sm sm:text-base animate-coin-spin shrink-0 z-10 select-none">🪙</span>
+              <span className="text-[14px] xs:text-base sm:text-base animate-coin-spin shrink-0 z-10 select-none">🪙</span>
             </div>
           </div>
 
@@ -652,7 +652,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`let-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.35rem] xs:text-[2.85rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.85rem] xs:text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -682,7 +682,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 <RetroGamepad
                   color="#e52521"
                   dpadColor="#ffd000"
-                  className="w-14 xs:w-18 sm:w-28 md:w-36 lg:w-44 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[5px_5px_0px_#000]"
+                  className="w-16 xs:w-22 sm:w-28 md:w-36 lg:w-44 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[5px_5px_0px_#000]"
                 />
               </div>
 
@@ -696,7 +696,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`the-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 3) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.35rem] xs:text-[2.85rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.85rem] xs:text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -706,7 +706,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
 
             {/* Row 2: "GUSTO BEGIN" - Well-spaced gap so title lines breathe with arcade punch */}
-            <div className="flex items-center justify-center gap-1.5 xs:gap-3 sm:gap-6 md:gap-10 flex-nowrap mt-3 sm:mt-10 md:mt-14 animate-gusto-row2-wave w-full max-w-full px-1">
+            <div className="flex items-center justify-center gap-1.5 xs:gap-3 sm:gap-6 md:gap-10 flex-nowrap mt-3.5 sm:mt-10 md:mt-14 animate-gusto-row2-wave w-full max-w-full px-1">
               <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3 shrink-0">
                 {[
                   { char: "G", color: "mario-c-red", rotate: "-rotate-3" },
@@ -718,7 +718,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`gusto-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 6) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.15rem] xs:text-[2.65rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.55rem] xs:text-[3.15rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -737,7 +737,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`begin-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 11) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.15rem] xs:text-[2.65rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.55rem] xs:text-[3.15rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -749,17 +749,17 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
 
           {/* Retro Pixel Tagline Subtitle - Increased Scale */}
           <div className="mt-5 sm:mt-10 md:mt-12 mb-4 sm:mb-6 select-none px-3 xs:px-4 max-w-5xl">
-            <p className="font-['Press_Start_2P',monospace] text-white text-[9.5px] xs:text-[11px] sm:text-sm md:text-base lg:text-lg drop-shadow-[3px_3px_0px_#000] tracking-wider uppercase text-center leading-relaxed font-bold">
+            <p className="font-['Press_Start_2P',monospace] text-white text-[11px] xs:text-[13px] sm:text-sm md:text-base lg:text-lg drop-shadow-[3px_3px_0px_#000] tracking-wider uppercase text-center leading-relaxed font-bold">
               A NATIONAL LEVEL TECHNICAL SYMPOSIUM • MARCH 06, 2026 • GCE ERODE
             </p>
           </div>
 
           {/* Retro Arcade Presentation Card - Balanced mobile & desktop */}
           <div className="w-full max-w-4xl lg:max-w-5xl mx-auto px-4 xs:px-6 sm:px-10 py-5 sm:py-8 rounded-2xl bg-white/15 backdrop-blur-xs border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] text-center my-4 sm:my-8 select-none">
-            <div className="font-['Press_Start_2P',monospace] text-[#ffd000] text-[10.5px] xs:text-xs sm:text-base md:text-xl lg:text-2xl mb-2.5 sm:mb-4 text-center drop-shadow-[2px_2px_0px_#000] tracking-wider uppercase font-black leading-snug">
+            <div className="font-['Press_Start_2P',monospace] text-[#ffd000] text-[12.5px] xs:text-[14.5px] sm:text-base md:text-xl lg:text-2xl mb-2.5 sm:mb-4 text-center drop-shadow-[2px_2px_0px_#000] tracking-wider uppercase font-black leading-snug">
               BEGINNING OUR PRESENTATION // GUSTO 2K26
             </div>
-            <p className="font-['Press_Start_2P',monospace] text-white text-[9px] xs:text-[10.5px] sm:text-sm md:text-base lg:text-[17px] leading-relaxed md:leading-loose max-w-3xl mx-auto drop-shadow-[1.5px_1.5px_0px_#000]">
+            <p className="font-['Press_Start_2P',monospace] text-white text-[10.5px] xs:text-[12px] sm:text-sm md:text-base lg:text-[17px] leading-relaxed md:leading-loose max-w-3xl mx-auto drop-shadow-[1.5px_1.5px_0px_#000]">
               Welcome to Gusto 2.0 at Government College of Engineering, Erode. Step into World 1-1 featuring 9 technical &amp; non-technical arenas, cash prize bounty pools, certificates, and free bus transit!
             </p>
           </div>
@@ -837,24 +837,24 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 <div className="mx-2 sm:mx-3 mb-2 px-2 sm:px-3 py-1 rounded-lg sm:rounded-xl bg-white border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#ec4899] border border-black animate-pulse shadow-[0_0_6px_#ec4899]" />
-                    <span className="text-[9px] sm:text-[10px] font-mono font-black uppercase text-zinc-900 tracking-wider">
+                    <span className="text-[10px] sm:text-[10px] font-mono font-black uppercase text-zinc-900 tracking-wider">
                       ROM-01
                     </span>
                   </div>
-                  <span className="text-[8.5px] sm:text-[9.5px] font-mono font-black bg-pink-100 text-[#ec4899] px-1.5 py-0.5 rounded border border-black/30 uppercase">
+                  <span className="text-[9.5px] sm:text-[9.5px] font-mono font-black bg-pink-100 text-[#ec4899] px-1.5 py-0.5 rounded border border-black/30 uppercase">
                     DATE
                   </span>
                 </div>
 
                 {/* Main Content */}
                 <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
-                  <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#fbcfe8] border-2 border-black shadow-[2.5px_2.5px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#fbcfe8] border-2 border-black shadow-[2.5px_2.5px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                     <Calendar className="w-6 h-6 sm:w-7 sm:h-7 text-[#db2777]" />
                   </div>
-                  <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-zinc-600 uppercase font-mono tracking-wider block mb-0.5">
+                  <span className="text-[11px] xs:text-[12px] sm:text-xs font-black text-zinc-600 uppercase font-mono tracking-wider block mb-0.5">
                     Event Date
                   </span>
-                  <span className="text-sm xs:text-base sm:text-lg lg:text-xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
+                  <span className="text-base xs:text-lg sm:text-lg lg:text-xl font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
                     {ABOUT_DATA.eventDate}
                   </span>
                 </div>
@@ -890,24 +890,24 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 <div className="mx-2 sm:mx-3 mb-2 px-2 sm:px-3 py-1 rounded-lg sm:rounded-xl bg-white border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#8b5cf6] border border-black animate-pulse shadow-[0_0_6px_#8b5cf6]" />
-                    <span className="text-[9px] sm:text-[10px] font-mono font-black uppercase text-zinc-900 tracking-wider">
+                    <span className="text-[10px] sm:text-[10px] font-mono font-black uppercase text-zinc-900 tracking-wider">
                       ROM-02
                     </span>
                   </div>
-                  <span className="text-[8.5px] sm:text-[9.5px] font-mono font-black bg-purple-100 text-[#8b5cf6] px-1.5 py-0.5 rounded border border-black/30 uppercase">
+                  <span className="text-[9.5px] sm:text-[9.5px] font-mono font-black bg-purple-100 text-[#8b5cf6] px-1.5 py-0.5 rounded border border-black/30 uppercase">
                     DEADLINE
                   </span>
                 </div>
 
                 {/* Main Content */}
                 <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
-                  <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#ddd6fe] border-2 border-black shadow-[2.5px_2.5px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-[#ddd6fe] border-2 border-black shadow-[2.5px_2.5px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                     <Clock className="w-6 h-6 sm:w-7 sm:h-7 text-[#7c3aed]" />
                   </div>
-                  <span className="text-[10px] xs:text-[11px] sm:text-xs font-black text-zinc-600 uppercase font-mono tracking-wider block mb-0.5">
+                  <span className="text-[11px] xs:text-[12px] sm:text-xs font-black text-zinc-600 uppercase font-mono tracking-wider block mb-0.5">
                     Reg. Last Date
                   </span>
-                  <span className="text-xs sm:text-sm lg:text-base font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
+                  <span className="text-sm xs:text-base sm:text-sm lg:text-base font-['Chakra_Petch',sans-serif] font-black text-black leading-tight">
                     {ABOUT_DATA.registrationLastDate}
                   </span>
                 </div>
@@ -1233,10 +1233,10 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                     A
                   </span>
                   <div className="flex flex-col text-center sm:text-left">
-                    <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-base leading-tight uppercase">
+                    <span className="font-['Chakra_Petch',sans-serif] font-black text-[13px] sm:text-base leading-tight uppercase">
                       9 Events
                     </span>
-                    <span className="text-[8px] sm:text-[9.5px] font-mono font-extrabold text-zinc-900 uppercase opacity-75">
+                    <span className="text-[9px] sm:text-[9.5px] font-mono font-extrabold text-zinc-900 uppercase opacity-75">
                       ⚔️ ARENA
                     </span>
                   </div>
@@ -1251,10 +1251,10 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                     B
                   </span>
                   <div className="flex flex-col text-center sm:text-left">
-                    <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-base leading-tight uppercase">
+                    <span className="font-['Chakra_Petch',sans-serif] font-black text-[13px] sm:text-base leading-tight uppercase">
                       Rules
                     </span>
-                    <span className="text-[8px] sm:text-[9.5px] font-mono font-extrabold text-zinc-700 uppercase opacity-75">
+                    <span className="text-[9px] sm:text-[9.5px] font-mono font-extrabold text-zinc-700 uppercase opacity-75">
                       📜 CODEX
                     </span>
                   </div>
@@ -1269,10 +1269,10 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                     X
                   </span>
                   <div className="flex flex-col text-center sm:text-left">
-                    <span className="font-['Chakra_Petch',sans-serif] font-black text-xs sm:text-base leading-tight uppercase">
+                    <span className="font-['Chakra_Petch',sans-serif] font-black text-[13px] sm:text-base leading-tight uppercase">
                       Teaser
                     </span>
-                    <span className="text-[8px] sm:text-[9.5px] font-mono font-extrabold text-white uppercase opacity-75">
+                    <span className="text-[9px] sm:text-[9.5px] font-mono font-extrabold text-white uppercase opacity-75">
                       🎬 TRAILER
                     </span>
                   </div>
