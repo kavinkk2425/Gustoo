@@ -15,17 +15,22 @@ export function PacmanGhostLoader() {
   const [isExiting, setIsExiting] = useState(false);
   const [typedLength, setTypedLength] = useState(0);
   const [dotCount, setDotCount] = useState(0);
-  const DURATION_MS = 5000;
+  const DURATION_MS = 2200;
 
   const triggerExit = useCallback(() => {
     setIsExiting(true);
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "";
+    }
     setTimeout(() => {
       setVisible(false);
-      document.body.style.overflow = "";
-    }, 600);
+      if (typeof document !== "undefined") {
+        document.body.style.overflow = "";
+      }
+    }, 450);
   }, []);
 
-  // Retro typewriter effect: Type out character-by-character (~65ms cadence)
+  // Retro typewriter effect: Type out character-by-character (~50ms cadence)
   useEffect(() => {
     let charIdx = 0;
     const typingTimer = setInterval(() => {
@@ -34,7 +39,7 @@ export function PacmanGhostLoader() {
       if (charIdx >= FULL_LOADER_TEXT.length) {
         clearInterval(typingTimer);
       }
-    }, 65);
+    }, 50);
 
     return () => clearInterval(typingTimer);
   }, []);
@@ -44,16 +49,17 @@ export function PacmanGhostLoader() {
     if (typedLength < FULL_LOADER_TEXT.length) return;
     const dotTimer = setInterval(() => {
       setDotCount((prev) => (prev % 3) + 1);
-    }, 360);
+    }, 280);
     return () => clearInterval(dotTimer);
   }, [typedLength]);
 
   useEffect(() => {
     // Lock body scroll while loader is active
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "hidden";
+    }
 
-    // Auto-enter page after 5 seconds
+    // Auto-enter page smoothly after 2.2 seconds
     const timer = setTimeout(() => {
       triggerExit();
     }, DURATION_MS);
@@ -67,9 +73,12 @@ export function PacmanGhostLoader() {
     return () => {
       clearTimeout(timer);
       window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = originalOverflow;
+      if (typeof document !== "undefined") {
+        document.body.style.overflow = "";
+      }
     };
   }, [triggerExit]);
+
 
   if (!visible) return null;
 

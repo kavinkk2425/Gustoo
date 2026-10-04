@@ -19,6 +19,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://gusto26.vercel.app"
+  ),
   title: "GUSTO '26 | National Level Technical Symposium | GCEE",
   description:
     "Official website for GUSTO 2K26 - National Level Technical Symposium organized by the Department of Information Technology & AIT, Government College of Engineering, Erode (Formerly IRTT).",
