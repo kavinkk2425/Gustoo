@@ -228,7 +228,7 @@ function PixelSparkleDiamond({ className = "", size = 14 }: { className?: string
 
 function MarioSkyStarsLayer() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[2] select-none">
+    <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none z-[2] select-none">
       {/* === TOP SKY REGION (Around Arcade HUD & Signboard) === */}
       {/* Top Left: above and left of PLAYER score */}
       <div className="absolute top-2 left-[3%] animate-star-blink-1" style={{ animationDelay: "-0.2s" }}>
@@ -520,7 +520,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1] select-none">
         {/* Cloud 1: High Sky Large Mario Cloud (Slow Parallax Drift) */}
         <div
-          className="absolute top-4 sm:top-6 left-0 animate-cloud-drift-slow"
+          className="hidden sm:block absolute top-4 sm:top-6 left-0 animate-cloud-drift-slow"
           style={{ animationDelay: "-18s" }}
         >
           <MarioCloudLarge className="w-32 xs:w-44 sm:w-56 md:w-68 h-auto drop-shadow-[4px_4px_0px_#000]" />
@@ -552,7 +552,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
 
         {/* Cloud 5: High Far-Right Small Mario Cloud (Fast Drift) */}
         <div
-          className="absolute top-8 sm:top-12 left-0 animate-cloud-drift-fast"
+          className="hidden sm:block absolute top-8 sm:top-12 left-0 animate-cloud-drift-fast"
           style={{ animationDelay: "-24s" }}
         >
           <MarioCloudSmall className="w-14 xs:w-18 sm:w-22 md:w-28 h-auto drop-shadow-[2.5px_2.5px_0px_#000]" />
@@ -652,7 +652,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`let-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.65rem] xs:text-[2.25rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.35rem] xs:text-[2.85rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -682,7 +682,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 <RetroGamepad
                   color="#e52521"
                   dpadColor="#ffd000"
-                  className="w-11 xs:w-16 sm:w-28 md:w-36 lg:w-44 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[5px_5px_0px_#000]"
+                  className="w-14 xs:w-18 sm:w-28 md:w-36 lg:w-44 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[5px_5px_0px_#000]"
                 />
               </div>
 
@@ -696,7 +696,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`the-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 3) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.65rem] xs:text-[2.25rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.35rem] xs:text-[2.85rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -718,7 +718,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`gusto-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 6) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.45rem] xs:text-[2.05rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.15rem] xs:text-[2.65rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -737,7 +737,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`begin-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 11) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.45rem] xs:text-[2.05rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.15rem] xs:text-[2.65rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
                       } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
@@ -1283,8 +1283,13 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* ── SUPER MARIO WORLD LIVE ANIMATED LANDSCAPE & COIN ENGINE ── */}
-      <MarioWorldLandscape onOpenRegister={onOpenRegister} />
+      {/* ── SUPER MARIO WORLD LIVE ANIMATED LANDSCAPE & COIN ENGINE (Desktop Only) ── */}
+      <div className="hidden sm:block">
+        <MarioWorldLandscape onOpenRegister={onOpenRegister} />
+      </div>
+
+      {/* Clean Retro Turf Ground Baseline for Mobile View */}
+      <div className="sm:hidden w-full h-8 bg-[#22c55e] border-t-[3.5px] border-black shadow-[inset_0_3px_0_#4ade80]" />
     </section>
   );
 }

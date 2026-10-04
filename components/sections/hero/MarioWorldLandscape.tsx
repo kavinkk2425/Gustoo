@@ -317,6 +317,7 @@ export function MarioWorldLandscape({ onOpenRegister }: MarioWorldLandscapeProps
     let ticking = false;
 
     const onScroll = () => {
+      if (typeof window !== "undefined" && window.innerWidth < 640) return;
       if (!ticking) {
         window.requestAnimationFrame(() => {
           if (!containerRef.current) {
