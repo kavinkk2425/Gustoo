@@ -51,6 +51,18 @@
 
 ## 📝 Prompt & Feature Changelog
 
+### `2026-10-04` — Netlify & Vercel Deployment Configurations & Fast Loader Optimization
+- **Netlify & Vercel Build Compatibility**:
+  - Added [`netlify.toml`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/netlify.toml) configured with `@netlify/plugin-nextjs` and Node 20 runtime.
+  - Added [`vercel.json`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/vercel.json) to enforce the Next.js framework build preset.
+  - Configured `images: { unoptimized: true }` in [`next.config.ts`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/next.config.ts) to eliminate image CDN 500 errors on serverless hosts.
+  - Added `metadataBase` in [`app/layout.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/app/layout.tsx) to resolve social card generation warnings.
+- **Fast Retro Loader Transition (`PacmanGhostLoader.tsx`)**:
+  - Reduced loader duration from 5000ms to 2200ms so visitors aren't stuck on a 5-second black screen on production deployments.
+  - Added foolproof body `overflow: ""` restoration so the page scroll never gets locked on mobile or desktop.
+- **Pushed to Remote**:
+  - Successfully committed and pushed all changes to `personal` (`https://github.com/kavinkk2425/Gustoo.git`) on both `main` and `mario` branches.
+
 ### `2026-10-04` — Removed "Scroll to Play / Tap to Jump" Prompt per User Request
 - Removed the floating `MobileScrollGuide` prompt ("SCROLL TO PLAY" / "OR TAP TO JUMP") from [`HeroSection.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/hero/HeroSection.tsx) as requested.
 - Kept the sleek real-time level progress scroller (`MobileScrollHUD.tsx`) under the navbar and the rich multi-particle mobile tap/click FX engine (`MobileTouchFX.tsx`).
