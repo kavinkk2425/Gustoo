@@ -7,7 +7,6 @@ import { HeroSection } from "@/components/sections/hero/HeroSection";
 import { AboutSection } from "@/components/sections/about/AboutSection";
 import { EventsSection } from "@/components/sections/events/EventsSection";
 import { RulesSection } from "@/components/sections/rules/RulesSection";
-import { GallerySection } from "@/components/sections/gallery/GallerySection";
 import { YouTubeSection } from "@/components/sections/youtube/YouTubeSection";
 import { TransportSection } from "@/components/sections/transport/TransportSection";
 import { ContactSection } from "@/components/sections/contact/ContactSection";
@@ -40,7 +39,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#5c94fc] text-black selection:bg-[#ec4899] selection:text-white">
+    <div className="min-h-screen bg-[#5c94fc] text-black selection:bg-[#ec4899] selection:text-white overflow-x-hidden w-full max-w-[100vw]">
       {/* 5-second retro Pac-Man Ghost loader before entering page */}
       <PacmanGhostLoader />
 
@@ -51,12 +50,9 @@ export default function Home() {
       />
 
       {/* Main Content Sections */}
-      <main className="relative">
+      <main className="relative overflow-x-hidden w-full">
         {/* ── HERO — no reveal (always visible on load) ── */}
         <HeroSection onOpenRegister={() => setRegisterOpen(true)} />
-
-        {/* Ground tile divider: Hero → About */}
-        <SectionDivider variant="ground" />
 
         {/* ── ABOUT — platform drops in from above ── */}
         <ScrollReveal variant="platform-drop" threshold={0.08}>
@@ -88,14 +84,6 @@ export default function Home() {
 
         {/* Warp divider */}
         <SectionDivider variant="warp" />
-
-        {/* ── GALLERY — flip in (card reveal) ── */}
-        <ScrollReveal variant="flip-in" threshold={0.05}>
-          <GallerySection />
-        </ScrollReveal>
-
-        {/* Level-up divider */}
-        <SectionDivider variant="level-up" />
 
         {/* ── YOUTUBE — pixel-pop (power-up style) ── */}
         <ScrollReveal variant="pixel-pop" threshold={0.08}>

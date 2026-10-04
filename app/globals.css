@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Super Mario 256';
+  src: url('/fonts/SuperMario256.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mario Solid';
+  src: url('/fonts/MarioFontSolid.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ==========================================================================
    GUSTO '26 (2.0) — GLOBAL STYLESHEET (Tailwind CSS v4)
    --------------------------------------------------------------------------
@@ -259,6 +275,7 @@ textarea {
   0% {
     transform: translate3d(-380px, 0, 0);
   }
+
   100% {
     transform: translate3d(calc(100vw + 380px), 0, 0);
   }
@@ -268,6 +285,7 @@ textarea {
   0% {
     transform: translate3d(-320px, 0, 0);
   }
+
   100% {
     transform: translate3d(calc(100vw + 320px), 0, 0);
   }
@@ -277,6 +295,7 @@ textarea {
   0% {
     transform: translate3d(-260px, 0, 0);
   }
+
   100% {
     transform: translate3d(calc(100vw + 260px), 0, 0);
   }
@@ -599,6 +618,82 @@ textarea {
 
 .animate-letter-jump {
   animation: gustoLetterJump 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Authentic Mario 3D Letter Click Wave Jump — Color-Neutral & Shadow-Preserving (NO GOLDEN EFFECT) */
+@keyframes marioLetterJump {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: translateY(-28px) rotate(-8deg) scale(1.18);
+  }
+
+  50% {
+    transform: translateY(5px) rotate(4deg) scale(0.94);
+  }
+
+  75% {
+    transform: translateY(-8px) rotate(-2deg) scale(1.04);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+}
+
+.animate-mario-letter-jump {
+  animation: marioLetterJump 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Super Mario Hero Title Gentle Lightly Moving & Wave Float */
+@keyframes gustoTitleLightFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3.5px) rotate(-0.35deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-3.5px) rotate(0.35deg);
+  }
+}
+
+@keyframes gustoRow1Wave {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes gustoRow2Wave {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-gusto-light-float {
+  animation: gustoTitleLightFloat 4.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-gusto-row1-wave {
+  animation: gustoRow1Wave 3.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-gusto-row2-wave {
+  animation: gustoRow2Wave 4.2s ease-in-out infinite 0.5s;
+  will-change: transform;
 }
 
 /* Individual Letter Click Wave Bounce — Purple "Let", "The", "Begin" */
@@ -1091,6 +1186,10 @@ textarea {
   .animate-gusto-tail,
   .animate-gusto-text,
   .animate-letter-jump,
+  .animate-mario-letter-jump,
+  .animate-gusto-light-float,
+  .animate-gusto-row1-wave,
+  .animate-gusto-row2-wave,
   .bg-retro-yellow-grid {
     animation: none !important;
   }
@@ -1148,9 +1247,9 @@ textarea {
   }
 }
 
-/* Sticky navbar sits below the 48px game bar */
+/* Sticky navbar sits at top under the 5px scroll progress bar */
 header.sticky {
-  top: 48px !important;
+  top: 0 !important;
 }
 
 /* --- Landing bounce for platform-drop variant --- */
@@ -2544,51 +2643,39 @@ header.sticky {
 }
 
 /* ==========================================================================
-   AMONG US ARCADE REGISTER BUTTON
+   AMONG US ARCADE REGISTER BUTTON (User Design)
    ========================================================================== */
-.among-reg-btn {
+.arcade-reg-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 16px 0 4px;
+  gap: 10px;
+  padding: 0 14px 0 6px;
   color: white;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.45);
+  text-shadow: 2px 2px rgb(116, 116, 116);
   text-transform: uppercase;
   cursor: pointer;
-  border: 2px solid black;
+  border: solid 2.5px black;
   letter-spacing: 1px;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 15px;
   background-color: hsl(49deg 98% 60%);
   border-radius: 50px;
   position: relative;
   overflow: hidden;
-  box-shadow: 2px 2px 0px #000;
+  height: 44px;
+  box-shadow: 2.5px 2.5px 0px #000;
   transition: all 0.5s ease;
   user-select: none;
   white-space: nowrap;
 }
 
-.among-reg-btn:active {
-  transform: scale(0.92);
+.arcade-reg-btn:active {
+  transform: scale(0.9);
   transition: all 100ms ease;
 }
 
-.among-reg-btn-mobile {
-  height: 35px !important;
-  padding: 0 10px 0 2px !important;
-  font-size: 11px !important;
-  letter-spacing: 0.5px !important;
-}
-
-.among-reg-btn-mobile svg {
-  width: 29px !important;
-  height: 29px !important;
-}
-
-.among-reg-btn svg {
+.arcade-reg-btn svg {
   transition: all 0.5s ease;
   z-index: 2;
   flex-shrink: 0;
@@ -2598,37 +2685,60 @@ header.sticky {
   overflow: hidden;
 }
 
-.among-reg-btn .play {
+.arcade-reg-btn .play {
   transition: all 0.5s ease;
-  transition-delay: 200ms;
+  transition-delay: 300ms;
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 1.5px 1.5px 0px #000;
   display: inline-block;
   line-height: 1;
 }
 
-.among-reg-btn:hover svg {
-  transform: scale(2.8) translate(30%);
+.arcade-reg-btn:hover svg {
+  transform: scale(3) translate(50%);
 }
 
-.among-reg-btn .now {
+.arcade-reg-btn .now {
   position: absolute;
   left: 0;
   transform: translateX(-100%);
   transition: all 0.5s ease;
   z-index: 2;
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 10px;
   font-weight: 900;
-  color: #fff;
-  text-shadow: 2px 2px 0px #000;
-  letter-spacing: 1.5px;
+  color: white;
+  text-shadow: 1.5px 1.5px 0px #000;
+  white-space: nowrap;
 }
 
-.among-reg-btn:hover .now {
+.arcade-reg-btn:hover .now {
   transform: translateX(12px);
-  transition-delay: 250ms;
+  transition-delay: 300ms;
 }
 
-.among-reg-btn:hover .play {
-  transform: translateX(250%);
-  transition-delay: 200ms;
+.arcade-reg-btn:hover .play {
+  transform: translateX(200%);
+  transition-delay: 300ms;
+}
+
+.arcade-reg-btn-mobile {
+  height: 38px !important;
+  padding: 0 10px 0 4px !important;
+  gap: 6px !important;
+}
+
+.arcade-reg-btn-mobile svg {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+.arcade-reg-btn-mobile .play,
+.arcade-reg-btn-mobile .now {
+  font-size: 8.5px !important;
 }
 
 /* ==========================================================================
@@ -3718,13 +3828,14 @@ header.sticky {
    Exact match to chunky block cartoon lettering with 3D black extrusion shadow
    ========================================================================== */
 .mario-letter-span {
-  font-family: 'Titan One', 'Luckiest Guy', cursive, sans-serif !important;
+  font-family: 'Super Mario 256', 'Mario Solid', 'Titan One', sans-serif !important;
   display: inline-block;
   position: relative;
   text-transform: uppercase;
-  line-height: 0.88;
-  letter-spacing: -0.01em;
-  -webkit-text-stroke: 3px #000;
+  line-height: 0.95;
+  letter-spacing: 0.06em;
+  margin: 0 0.06em;
+  -webkit-text-stroke: 3.5px #000;
   paint-order: stroke fill;
   /* Chunky 3D black block extrusion drop shadow */
   text-shadow:
@@ -3732,33 +3843,47 @@ header.sticky {
     2px -2px 0 #000,
     -2px 2px 0 #000,
     2px 2px 0 #000,
-    0 2.5px 0 #000,
+    -3px 0 0 #000,
+    3px 0 0 #000,
+    0 -3px 0 #000,
+    0 3px 0 #000,
     0 5px 0 #000,
-    0 7.5px 0 #000,
-    0 10px 0 #000,
-    2px 12px 0 #000,
-    -2px 12px 0 #000,
-    0 16px 8px rgba(0, 0, 0, 0.45);
+    0 7px 0 #000,
+    0 9px 0 #000,
+    0 11px 0 #000,
+    0 13px 0 #000,
+    0 15px 0 #000,
+    1px 17px 0 #000,
+    -1px 17px 0 #000,
+    0 20px 8px rgba(0, 0, 0, 0.55);
   transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.18s ease;
   user-select: none;
 }
 
 @media (min-width: 640px) {
   .mario-letter-span {
-    -webkit-text-stroke: 4.5px #000;
+    -webkit-text-stroke: 5.5px #000;
     text-shadow:
-      -3px -3px 0 #000,
-      3px -3px 0 #000,
-      -3px 3px 0 #000,
-      3px 3px 0 #000,
-      0 3.5px 0 #000,
-      0 7px 0 #000,
-      0 10.5px 0 #000,
+      -3.5px -3.5px 0 #000,
+      3.5px -3.5px 0 #000,
+      -3.5px 3.5px 0 #000,
+      3.5px 3.5px 0 #000,
+      -4.5px 0 0 #000,
+      4.5px 0 0 #000,
+      0 -4.5px 0 #000,
+      0 4.5px 0 #000,
+      0 6px 0 #000,
+      0 8px 0 #000,
+      0 10px 0 #000,
+      0 12px 0 #000,
       0 14px 0 #000,
-      0 17.5px 0 #000,
-      3px 20px 0 #000,
-      -3px 20px 0 #000,
-      0 24px 10px rgba(0, 0, 0, 0.5);
+      0 16px 0 #000,
+      0 18px 0 #000,
+      0 20px 0 #000,
+      0 22px 0 #000,
+      2px 24px 0 #000,
+      -2px 24px 0 #000,
+      0 28px 10px rgba(0, 0, 0, 0.65);
   }
 }
 
@@ -3769,11 +3894,11 @@ header.sticky {
 
 /* Super Mario Authentic 4-Color Palette */
 .mario-c-blue {
-  color: #00b0f0 !important;
+  color: #009ceb !important;
 }
 
 .mario-c-yellow {
-  color: #ffd000 !important;
+  color: #fbd100 !important;
 }
 
 .mario-c-red {
@@ -3783,3 +3908,871 @@ header.sticky {
 .mario-c-green {
   color: #43b047 !important;
 }
+
+/* ==========================================================================
+   MULTI-LAYER EXPANDING BUBBLE BUTTON (Navbar Navigation)
+   Exact match to user's button template with rolling text and triple-layer scaling
+   ========================================================================== */
+.button.button-item,
+.nav-bubble-btn {
+  position: relative;
+  display: inline-flex;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding-left: 1.15rem;
+  padding-right: 1.15rem;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 640;
+  color: #1d1d1f;
+  letter-spacing: -0.04em;
+  background-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0px #000000;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+@media (min-width: 1280px) {
+
+  .button.button-item,
+  .nav-bubble-btn {
+    height: 3rem;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+    font-size: 1.05rem;
+    border: 2.5px solid #000000;
+    box-shadow: 2.5px 2.5px 0px #000000;
+  }
+}
+
+.button-item .button-bg,
+.nav-bubble-btn .button-bg {
+  border-color: rgba(255, 208, 116);
+  background-color: rgba(255, 208, 116);
+  overflow: hidden;
+  border-radius: 9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+  display: block;
+}
+
+.button-bg-layers,
+.nav-bubble-btn .button-bg-layers {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: -60%;
+  aspect-ratio: 1 / 1;
+  width: max(200%, 10rem);
+}
+
+.button-bg-layer,
+.nav-bubble-btn .button-bg-layer {
+  display: block;
+  border-radius: 9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+}
+
+.button-bg-layer.-purple,
+.nav-bubble-btn .button-bg-layer.-purple {
+  background-color: rgb(163, 116, 255);
+}
+
+.button-bg-layer.-turquoise,
+.nav-bubble-btn .button-bg-layer.-turquoise {
+  background-color: rgb(23, 241, 209);
+}
+
+.button-bg-layer.-yellow,
+.nav-bubble-btn .button-bg-layer.-yellow {
+  background-color: rgb(255, 208, 116);
+}
+
+.button-inner,
+.button-inner-hover,
+.button-inner-static {
+  pointer-events: none;
+  display: block;
+}
+
+.button-inner {
+  position: relative;
+  z-index: 10;
+}
+
+.button-inner-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(70%);
+}
+
+.button:hover .button-inner-static,
+.nav-bubble-btn:hover .button-inner-static {
+  opacity: 0;
+  transform: translateY(-70%);
+  transition:
+    transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 0.3s linear;
+}
+
+.button:hover .button-inner-hover,
+.nav-bubble-btn:hover .button-inner-hover {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button:hover .button-bg-layer,
+.nav-bubble-btn:hover .button-bg-layer {
+  transition:
+    transform 1.3s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 0.3s linear;
+}
+
+.button:hover .button-bg-layer-1,
+.nav-bubble-btn:hover .button-bg-layer-1 {
+  transform: scale(1);
+}
+
+.button:hover .button-bg-layer-2,
+.nav-bubble-btn:hover .button-bg-layer-2 {
+  transition-delay: 0.1s;
+  transform: scale(1);
+}
+
+.button:hover .button-bg-layer-3,
+.nav-bubble-btn:hover .button-bg-layer-3 {
+  transition-delay: 0.2s;
+  transform: scale(1);
+}
+
+.button:active,
+.nav-bubble-btn:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.nav-bubble-btn.is-active {
+  transform: translateY(-2px);
+  box-shadow: 3.5px 3.5px 0px #000000;
+}
+
+.nav-bubble-btn.is-active .button-bg {
+  background-color: #ffd074;
+}
+
+.nav-bubble-btn.is-active .button-bg-layer-1,
+.nav-bubble-btn.is-active .button-bg-layer-2,
+.nav-bubble-btn.is-active .button-bg-layer-3 {
+  transform: scale(1);
+}
+
+.nav-bubble-btn-mobile {
+  height: 2.6rem !important;
+  width: 100% !important;
+  font-size: 0.85rem !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
+
+/* ==========================================================================
+   BRUTALIST EXPANDING STAT CARDS (SYS//MODULES)
+   ========================================================================== */
+.brutalist-container {
+  position: relative;
+  width: 100%;
+  height: 125px; /* Compact height */
+  cursor: pointer;
+  transition: height 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 10;
+}
+
+.brutalist-container:hover,
+.brutalist-container.is-expanded {
+  height: 290px; /* Expanded height */
+  z-index: 30;
+}
+
+.concrete-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  border: 5px solid #000000;
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.brutalist-container:hover .concrete-block,
+.brutalist-container.is-expanded .concrete-block {
+  transform: translate(0px, 0px) rotate(0deg);
+  box-shadow:
+    10px 10px 0 #333333,
+    20px 20px 0 #666666,
+    30px 30px 0 #999999;
+}
+
+.concrete-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+      45deg,
+      #000 0px,
+      #000 2px,
+      #111 2px,
+      #111 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0px,
+      transparent 8px,
+      rgba(255, 255, 255, 0.05) 8px,
+      rgba(255, 255, 255, 0.05) 10px
+    );
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.paper-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 50%,
+      transparent 20%,
+      rgba(255, 255, 255, 0.25) 21%,
+      rgba(255, 255, 255, 0.25) 34%,
+      transparent 35%,
+      transparent
+    ),
+    linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(255, 255, 255, 0.04) 25%,
+      rgba(255, 255, 255, 0.04) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(255, 255, 255, 0.04) 75%,
+      rgba(255, 255, 255, 0.04) 76%,
+      transparent 77%,
+      transparent
+    );
+  pointer-events: none;
+}
+
+.main-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.title-text {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.brutalist-container:hover .title-text,
+.brutalist-container.is-expanded .title-text {
+  opacity: 0;
+  transform: translateY(-40px) rotateX(90deg) scale(0.3);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.todo-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
+  padding: 10px 12px;
+  padding-top: 14px;
+  opacity: 0;
+  transform: translateY(-1px) rotateX(-100deg) scale(1.3);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+}
+
+.brutalist-container:hover .todo-grid,
+.brutalist-container.is-expanded .todo-grid {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg) scale(1);
+  pointer-events: auto;
+}
+
+.todo-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 2px;
+}
+
+.todo-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.todo-label {
+  position: relative;
+  color: #fbf9f9;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  cursor: crosshair;
+  padding-left: 24px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  line-height: 1.25;
+  user-select: none;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.todo-label:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 3px solid #d0cbcb;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.todo-checkbox:checked + .todo-label:before {
+  background: #be0202;
+  border-color: #f9f4f4;
+}
+
+.todo-checkbox:checked + .todo-label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  width: 5px;
+  height: 10px;
+  border: solid #faf7f7;
+  border-width: 0 2.5px 2.5px 0;
+  transform: translateY(-65%) rotate(45deg);
+}
+
+.todo-checkbox:checked + .todo-label {
+  text-decoration: line-through;
+  color: #f87171;
+  transform: translateX(2px);
+}
+
+/* Concrete slab backgrounds */
+.slab-bg {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.45);
+  border: 3.5px solid #ffffff;
+  z-index: -1;
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  border-radius: 4px;
+}
+
+.slab-1 {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  height: 65px;
+}
+
+.slab-2 {
+  top: 22px;
+  left: 20px;
+  right: 20px;
+  height: 40px;
+}
+
+.brutalist-container:hover .slab-1,
+.brutalist-container.is-expanded .slab-1 {
+  height: 160px;
+  transform: translate(14px, 14px) rotate(1deg);
+}
+
+.brutalist-container:hover .slab-2,
+.brutalist-container.is-expanded .slab-2 {
+  height: 120px;
+  transform: translate(-8px, 22px) rotate(-1deg);
+}
+
+/* Industrial corner brackets */
+.corner-bracket {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #000;
+  background: #fff;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 15;
+}
+
+.bracket-tl {
+  top: -6px;
+  left: -6px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.bracket-tr {
+  top: -6px;
+  right: -6px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.bracket-bl {
+  bottom: -6px;
+  left: -6px;
+  border-right: none;
+  border-top: none;
+}
+
+.bracket-br {
+  bottom: -6px;
+  right: -6px;
+  border-left: none;
+  border-top: none;
+}
+
+.brutalist-container:hover .corner-bracket,
+.brutalist-container.is-expanded .corner-bracket {
+  transform: scale(1.35);
+  background: #000;
+  border-color: #fff;
+}
+
+/* Typography accent */
+.type-accent {
+  position: absolute;
+  top: -24px;
+  left: 2px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #000;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1px 6px;
+  border-radius: 2px;
+  border: 1.5px solid #000;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.4s ease;
+  opacity: 0;
+  z-index: 25;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.brutalist-container:hover .type-accent,
+.brutalist-container.is-expanded .type-accent {
+  opacity: 1;
+  transform: translateY(3px);
+}
+
+/* Industrial rivets */
+.rivet {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #222;
+  border-radius: 50%;
+  border: 1.5px solid #555;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.rivet:nth-child(1) {
+  top: 8px;
+  left: 8px;
+}
+.rivet:nth-child(2) {
+  top: 8px;
+  right: 8px;
+}
+.rivet:nth-child(3) {
+  bottom: 8px;
+  left: 8px;
+}
+.rivet:nth-child(4) {
+  bottom: 8px;
+  right: 8px;
+}
+
+.brutalist-container:hover .rivet,
+.brutalist-container.is-expanded .rivet {
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 6px #fff;
+  transform: scale(1.35);
+}
+
+/* Scan line effect */
+.scan-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #fff, transparent);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.brutalist-container:hover .scan-effect,
+.brutalist-container.is-expanded .scan-effect {
+  left: 100%;
+}
+
+/* ==========================================================================
+   SUPER MARIO WORLD LIVE ANIMATED LANDSCAPE & COIN ENGINE
+   ========================================================================== */
+
+/* 3D Continuous Coin Spin */
+@keyframes marioCoinSpin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg) scale(0.9);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.animate-mario-coin-spin {
+  animation: marioCoinSpin 1.6s linear infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Piranha Plant Emerge & Snap Routine */
+@keyframes piranhaEmerge {
+  0%, 100% {
+    transform: translateY(35px);
+  }
+  25%, 75% {
+    transform: translateY(-8px);
+  }
+  45%, 55% {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes piranhaEmergeDelayed {
+  0%, 100% {
+    transform: scaleX(-1) translateY(35px);
+  }
+  30%, 80% {
+    transform: scaleX(-1) translateY(-10px);
+  }
+  50%, 60% {
+    transform: scaleX(-1) translateY(-18px);
+  }
+}
+
+.animate-piranha-emerge {
+  animation: piranhaEmerge 3.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-piranha-emerge-delayed {
+  animation: piranhaEmergeDelayed 4s ease-in-out infinite 0.8s;
+  will-change: transform;
+}
+
+/* Jaws Snapping / Biting */
+@keyframes jawUpperSnap {
+  0%, 100%, 30%, 70% {
+    transform: rotate(0deg);
+  }
+  40%, 60% {
+    transform: rotate(-24deg);
+  }
+  50% {
+    transform: rotate(-32deg);
+  }
+}
+
+@keyframes jawLowerSnap {
+  0%, 100%, 30%, 70% {
+    transform: rotate(0deg);
+  }
+  40%, 60% {
+    transform: rotate(24deg);
+  }
+  50% {
+    transform: rotate(32deg);
+  }
+}
+
+.animate-jaw-upper {
+  animation: jawUpperSnap 1.8s ease-in-out infinite;
+  transform-origin: 50px 45px;
+}
+
+.animate-jaw-lower {
+  animation: jawLowerSnap 1.8s ease-in-out infinite;
+  transform-origin: 50px 45px;
+}
+
+/* Authentic Mario Brick Block */
+.mario-brick-block {
+  background: linear-gradient(135deg, #d97706, #b45309 60%, #78350f);
+  border: 3.5px solid #000000;
+  border-radius: 4px;
+  box-shadow: 2.5px 2.5px 0px #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.mario-brick-block::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.mario-brick-block::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #000;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Authentic Mario Question Mark [ ? ] Block */
+.mario-question-block {
+  background: linear-gradient(180deg, #fde047 0%, #eab308 50%, #ca8a04 100%);
+  border: 3.5px solid #000000;
+  border-radius: 6px;
+  box-shadow: 3px 3px 0px #000000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.mario-question-block:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.mario-question-block:active {
+  transform: translateY(2px);
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.mario-question-mark {
+  font-family: 'Super Mario 256', 'Press Start 2P', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 
+    2px 2px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000;
+  animation: questionPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes questionPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+.mario-block-rivet {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #000000;
+  border-radius: 50%;
+}
+
+@keyframes marioBlockHit {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-mario-block-hit {
+  animation: marioBlockHit 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes coinFloatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(0.8) rotateY(0deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-60px) scale(1.2) rotateY(720deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80px) scale(1) rotateY(1080deg);
+  }
+}
+
+.animate-coin-float-up {
+  animation: coinFloatUp 0.85s ease-out forwards;
+}
+
+@keyframes cloudDrift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(18px); }
+}
+
+.animate-cloud-drift {
+  animation: cloudDrift 8s ease-in-out infinite;
+}
+
+@keyframes marioRunBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-mario-run-bob {
+  animation: marioRunBob 0.18s ease-in-out infinite;
+}
+
+/* Flag Flutter for Gusto 2.0 Castle */
+@keyframes flagFlutter {
+  0% {
+    transform: perspective(350px) rotateY(0deg) skewY(0deg) scaleX(1);
+  }
+  20% {
+    transform: perspective(350px) rotateY(-10deg) skewY(3deg) scaleX(0.96);
+  }
+  40% {
+    transform: perspective(350px) rotateY(7deg) skewY(-2.5deg) scaleX(0.98);
+  }
+  65% {
+    transform: perspective(350px) rotateY(-8deg) skewY(3.5deg) scaleX(0.95);
+  }
+  85% {
+    transform: perspective(350px) rotateY(5deg) skewY(-1.5deg) scaleX(0.99);
+  }
+  100% {
+    transform: perspective(350px) rotateY(0deg) skewY(0deg) scaleX(1);
+  }
+}
+
+@keyframes flagClothRipple {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes castleFlagSparkle {
+  0%, 100% {
+    transform: scale(0.6) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.25) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+.animate-flag-flutter {
+  animation: flagFlutter 2.2s ease-in-out infinite;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+}
+
+.animate-flag-cloth-ripple {
+  background-size: 200% 200%;
+  animation: flagClothRipple 2.2s ease-in-out infinite;
+}
+
+.animate-castle-flag-sparkle {
+  animation: castleFlagSparkle 1.4s ease-in-out infinite;
+}
+
+/* Castle Gateway Pulse */
+@keyframes castleDoorGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.4), inset 0 0 12px rgba(0, 0, 0, 0.9);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(251, 191, 36, 0.8), inset 0 0 6px rgba(245, 158, 11, 0.5);
+  }
+}
+
+.animate-castle-door-glow {
+  animation: castleDoorGlow 2s ease-in-out infinite;
+}

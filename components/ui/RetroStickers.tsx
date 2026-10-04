@@ -1,6 +1,14 @@
 import React from "react";
 
-export function RetroGamepad({ className = "w-36 h-28" }: { className?: string }) {
+export function RetroGamepad({
+  className = "w-36 h-28",
+  color = "#ec4899",
+  dpadColor = "#facc15",
+}: {
+  className?: string;
+  color?: string;
+  dpadColor?: string;
+}) {
   return (
     <svg
       viewBox="0 0 200 140"
@@ -23,7 +31,7 @@ export function RetroGamepad({ className = "w-36 h-28" }: { className?: string }
         width="152"
         height="90"
         rx="45"
-        fill="#ec4899"
+        fill={color}
         stroke="#000000"
         strokeWidth="6"
       />
@@ -38,15 +46,15 @@ export function RetroGamepad({ className = "w-36 h-28" }: { className?: string }
       <circle cx="28" cy="18" r="6" fill="#fde047" stroke="#000" strokeWidth="4" />
 
       {/* Left Grip Bump */}
-      <circle cx="45" cy="80" r="32" fill="#ec4899" stroke="#000" strokeWidth="6" />
+      <circle cx="45" cy="80" r="32" fill={color} stroke="#000" strokeWidth="6" />
       {/* Right Grip Bump */}
-      <circle cx="147" cy="80" r="32" fill="#ec4899" stroke="#000" strokeWidth="6" />
+      <circle cx="147" cy="80" r="32" fill={color} stroke="#000" strokeWidth="6" />
 
       {/* D-Pad (Left) */}
       <g transform="translate(32, 60)">
         <path
           d="M10 0 H18 V10 H28 V18 H18 V28 H10 V18 H0 V10 H10 Z"
-          fill="#facc15"
+          fill={dpadColor}
           stroke="#000000"
           strokeWidth="3.5"
           strokeLinejoin="round"
