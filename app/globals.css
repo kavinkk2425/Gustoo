@@ -81,6 +81,9 @@
   --font-unbounded: "Unbounded", sans-serif;
   --font-figtree: var(--font-figtree), "Figtree", sans-serif;
   --font-playfair: var(--font-playfair), "Playfair Display", Georgia, serif;
+
+  --breakpoint-xxs: 360px;
+  --breakpoint-xs: 475px;
 }
 
 /* Unbounded Google Font Utilities */
@@ -4141,6 +4144,25 @@ header.sticky {
     0 14px 6px rgba(0, 0, 0, 0.55);
   transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.18s ease;
   user-select: none;
+}
+
+@media (max-width: 380px) {
+  .mario-letter-span {
+    -webkit-text-stroke: 1.5px #000;
+    margin: 0 0.01em;
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000,
+      -1.5px 0 0 #000,
+      1.5px 0 0 #000,
+      0 2px 0 #000,
+      0 4px 0 #000,
+      0 6px 0 #000,
+      0 8px 0 #000,
+      0 10px 4px rgba(0, 0, 0, 0.5);
+  }
 }
 
 @media (min-width: 640px) {

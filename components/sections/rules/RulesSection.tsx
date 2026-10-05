@@ -84,7 +84,7 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
           <div className="relative w-full flex justify-center items-center my-1">
             <h2
               onClick={triggerJump}
-              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group font-unbounded"
+              className="text-2xl xs:text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 select-none group font-unbounded"
               title="Click to see the letters jump!"
             >
               {/* "Event" with interactive letter wave */}
@@ -150,7 +150,7 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
         </div>
 
         {/* Selected Event Rule Container (Arcade Console Manual) */}
-        <div className="rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black p-4 sm:p-8 md:p-10 shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000]">
+        <div className="rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[4px] border-black p-3.5 xs:p-4 sm:p-8 md:p-10 shadow-[4.5px_4.5px_0px_#000] sm:shadow-[8px_8px_0px_#000]">
           {/* Header Info Banner */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b-[3px] border-black">
             <div>
@@ -208,10 +208,10 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                 {/* Round 1 */}
                 {"round1" in (activeEvent.rules as object) &&
                   (activeEvent.rules as { round1?: EventRuleRound }).round1 && (
-                    <div className="p-6 rounded-2xl bg-[#ec4899]/10 border-[3px] border-black shadow-[4px_4px_0px_#000]">
+                    <div className="p-3.5 xs:p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#ec4899]/10 border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] sm:shadow-[4px_4px_0px_#000]">
                       <div className="flex items-center gap-2 mb-2">
                         <span className="w-3 h-3 rounded-full bg-[#ec4899] border border-black" />
-                        <h4 className="text-lg font-black text-[#3b0764] uppercase">
+                        <h4 className="text-base sm:text-lg font-black text-[#3b0764] uppercase">
                           {(activeEvent.rules as { round1: EventRuleRound }).round1.title}
                         </h4>
                       </div>
@@ -236,10 +236,10 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                 {/* Round 2 */}
                 {"round2" in (activeEvent.rules as object) &&
                   (activeEvent.rules as { round2?: EventRuleRound }).round2 && (
-                    <div className="p-6 rounded-2xl bg-[#84cc16]/15 border-[3px] border-black shadow-[4px_4px_0px_#000]">
+                    <div className="p-3.5 xs:p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#84cc16]/15 border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] sm:shadow-[4px_4px_0px_#000]">
                       <div className="flex items-center gap-2 mb-2">
                         <span className="w-3 h-3 rounded-full bg-[#84cc16] border border-black" />
-                        <h4 className="text-lg font-black text-[#3b0764] uppercase">
+                        <h4 className="text-base sm:text-lg font-black text-[#3b0764] uppercase">
                           {(activeEvent.rules as { round2: EventRuleRound }).round2.title}
                         </h4>
                       </div>
@@ -264,7 +264,7 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                 {/* General Guidelines */}
                 {"general" in (activeEvent.rules as object) &&
                   (activeEvent.rules as { general?: { title: string; rules: string[] } }).general && (
-                    <div className="p-6 rounded-2xl bg-[#fde047]/40 border-[3px] border-black shadow-[4px_4px_0px_#000]">
+                    <div className="p-3.5 xs:p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#fde047]/40 border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] sm:shadow-[4px_4px_0px_#000]">
                       <h4 className="text-base font-black text-black mb-3 flex items-center gap-2 uppercase">
                         <ShieldAlert className="w-5 h-5 text-[#3b0764]" />
                         <span>

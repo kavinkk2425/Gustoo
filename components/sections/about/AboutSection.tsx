@@ -81,7 +81,7 @@ export function AboutSection() {
 
             <h2
               onClick={triggerJump}
-              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group font-unbounded"
+              className="text-2xl xs:text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 select-none group font-unbounded"
               title="Click to see the letters jump!"
             >
               {/* "About" with interactive letter wave */}
@@ -137,10 +137,10 @@ export function AboutSection() {
         </div>
 
         {/* 3 Authentic Retro Gaming Cartridge Boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 sm:mb-14 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-10 sm:mb-14 items-stretch">
           
           {/* CARTRIDGE 01: GUSTO '26 (Cyber Arcade Cartridge) */}
-          <div className="rounded-3xl bg-[#fff5f9] border-[3.5px] border-black shadow-[6px_6px_0px_#000] flex flex-col justify-between h-full hover:-translate-y-2 hover:shadow-[10px_10px_0px_#000] transition-all duration-200 relative overflow-hidden group">
+          <div className="rounded-2xl sm:rounded-3xl bg-[#fff5f9] border-[3px] sm:border-[3.5px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[6px_6px_0px_#000] flex flex-col justify-between h-full hover:-translate-y-2 hover:shadow-[10px_10px_0px_#000] transition-all duration-200 relative overflow-hidden group">
             {/* Corner Hardware Screws */}
             <span className="absolute top-2 left-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
             <span className="absolute top-2 right-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
@@ -153,20 +153,20 @@ export function AboutSection() {
             </div>
 
             {/* Cartridge Header Bar with LED Blinker */}
-            <div className="mx-3.5 mt-1 px-3 py-1.5 rounded-xl bg-[#ec4899] border-2 border-black flex items-center justify-between text-white shadow-[2px_2px_0px_#000]">
+            <div className="mx-2.5 xs:mx-3.5 mt-1 px-2.5 xs:px-3 py-1.5 rounded-xl bg-[#ec4899] border-2 border-black flex items-center justify-between text-white shadow-[2px_2px_0px_#000]">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-lime-400 border border-black animate-pulse" />
-                <span className="text-[10px] font-mono font-black uppercase tracking-wider">
+                <span className="text-[9px] xs:text-[10px] font-mono font-black uppercase tracking-wider">
                   ROM-01 // GUSTO_OS
                 </span>
               </div>
-              <span className="text-[9px] font-mono font-bold bg-black/40 px-1.5 py-0.5 rounded text-yellow-300">
+              <span className="text-[8px] xs:text-[9px] font-mono font-bold bg-black/40 px-1.5 py-0.5 rounded text-yellow-300">
                 64-BIT
               </span>
             </div>
 
             {/* Main Cartridge Body */}
-            <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+            <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   {/* Holographic Logo Chip */}
@@ -240,7 +240,7 @@ export function AboutSection() {
           </div>
 
           {/* CARTRIDGE 02: GCEE ERODE (Hardware / Campus Core Unit) */}
-          <div className="rounded-3xl bg-[#f7fee7] border-[3.5px] border-black shadow-[6px_6px_0px_#000] flex flex-col justify-between h-full hover:-translate-y-2 hover:shadow-[10px_10px_0px_#000] transition-all duration-200 relative overflow-hidden group">
+          <div className="rounded-2xl sm:rounded-3xl bg-[#f7fee7] border-[3px] sm:border-[3.5px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[6px_6px_0px_#000] flex flex-col justify-between h-full hover:-translate-y-2 hover:shadow-[10px_10px_0px_#000] transition-all duration-200 relative overflow-hidden group">
             {/* Corner Hardware Screws */}
             <span className="absolute top-2 left-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
             <span className="absolute top-2 right-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
@@ -253,20 +253,20 @@ export function AboutSection() {
             </div>
 
             {/* Cartridge Header Bar with LED Blinker */}
-            <div className="mx-3.5 mt-1 px-3 py-1.5 rounded-xl bg-[#84cc16] border-2 border-black flex items-center justify-between text-black shadow-[2px_2px_0px_#000]">
+            <div className="mx-2.5 xs:mx-3.5 mt-1 px-2.5 xs:px-3 py-1.5 rounded-xl bg-[#84cc16] border-2 border-black flex items-center justify-between text-black shadow-[2px_2px_0px_#000]">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 border border-black animate-pulse" />
-                <span className="text-[10px] font-mono font-black uppercase tracking-wider">
+                <span className="text-[9px] xs:text-[10px] font-mono font-black uppercase tracking-wider">
                   SECTOR-02 // GCEE_CORE
                 </span>
               </div>
-              <span className="text-[9px] font-mono font-bold bg-black text-lime-400 px-1.5 py-0.5 rounded">
+              <span className="text-[8px] xs:text-[9px] font-mono font-bold bg-black text-lime-400 px-1.5 py-0.5 rounded">
                 ESTD 1984
               </span>
             </div>
 
             {/* Main Cartridge Body */}
-            <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+            <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   {/* Holographic Logo Chip */}
@@ -339,7 +339,7 @@ export function AboutSection() {
           </div>
 
           {/* CARTRIDGE 03: IT DEPARTMENT & AIT (Dev Guild Unit) */}
-          <div className="rounded-3xl bg-[#ecfeff] border-[3.5px] border-black shadow-[6px_6px_0px_#000] flex flex-col justify-between h-full hover:-translate-y-2 hover:shadow-[10px_10px_0px_#000] transition-all duration-200 relative overflow-hidden group">
+          <div className="rounded-2xl sm:rounded-3xl bg-[#ecfeff] border-[3px] sm:border-[3.5px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[6px_6px_0px_#000] flex flex-col justify-between h-full hover:-translate-y-2 hover:shadow-[10px_10px_0px_#000] transition-all duration-200 relative overflow-hidden group">
             {/* Corner Hardware Screws */}
             <span className="absolute top-2 left-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
             <span className="absolute top-2 right-2 text-[9px] font-mono text-zinc-400 select-none">✚</span>
@@ -352,20 +352,20 @@ export function AboutSection() {
             </div>
 
             {/* Cartridge Header Bar with LED Blinker */}
-            <div className="mx-3.5 mt-1 px-3 py-1.5 rounded-xl bg-[#06b6d4] border-2 border-black flex items-center justify-between text-black shadow-[2px_2px_0px_#000]">
+            <div className="mx-2.5 xs:mx-3.5 mt-1 px-2.5 xs:px-3 py-1.5 rounded-xl bg-[#06b6d4] border-2 border-black flex items-center justify-between text-black shadow-[2px_2px_0px_#000]">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-pink-400 border border-black animate-pulse" />
-                <span className="text-[10px] font-mono font-black uppercase tracking-wider">
+                <span className="text-[9px] xs:text-[10px] font-mono font-black uppercase tracking-wider">
                   UNIT-03 // AIT_GUILD
                 </span>
               </div>
-              <span className="text-[9px] font-mono font-bold bg-black text-cyan-300 px-1.5 py-0.5 rounded">
+              <span className="text-[8px] xs:text-[9px] font-mono font-bold bg-black text-cyan-300 px-1.5 py-0.5 rounded">
                 ACTIVE
               </span>
             </div>
 
             {/* Main Cartridge Body */}
-            <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+            <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   {/* Holographic Logo Chip */}

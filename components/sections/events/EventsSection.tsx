@@ -84,7 +84,7 @@ export function EventsSection({
           <div className="relative w-full flex justify-center items-center my-1">
             <h2
               onClick={triggerJump}
-              className="text-4xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group font-unbounded"
+              className="text-2xl xs:text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 select-none group font-unbounded"
               title="Click to see the letters jump!"
             >
               {/* "Symposium" with interactive letter wave */}
@@ -119,13 +119,13 @@ export function EventsSection({
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base font-bold text-zinc-700 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-base font-bold text-zinc-700 leading-relaxed max-w-2xl mx-auto">
             All 9 Technical and Non-Technical events with official venue, timings, rules, team guidelines, and coordinator hotlines.
           </p>
         </div>
 
         {/* Filters and Search Bar in Neo-Brutalist Strip */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 p-4 rounded-3xl bg-white border-[3px] border-black shadow-[6px_6px_0px_#000]">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sm:gap-4 mb-8 sm:mb-10 p-3 sm:p-4 rounded-2xl sm:rounded-3xl bg-white border-[3px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[6px_6px_0px_#000]">
           {/* Category Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
             <button
@@ -312,11 +312,11 @@ export function EventsSection({
                         <a
                           key={idx}
                           href={`tel:${c.phone}`}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-zinc-100 hover:bg-[#fde047] border-[1.5px] border-black transition-colors"
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-zinc-100 hover:bg-[#fde047] border-[1.5px] border-black transition-colors max-w-full"
                         >
-                          <Phone className="w-2.5 h-2.5 text-[#3b0764]" />
-                          <span>{c.name}</span>
-                          <span className="text-[10px] text-zinc-500">({c.phone})</span>
+                          <Phone className="w-2.5 h-2.5 text-[#3b0764] shrink-0" />
+                          <span className="truncate">{c.name}</span>
+                          <span className="text-[10px] text-zinc-500 shrink-0">({c.phone})</span>
                         </a>
                       ))}
                     </div>

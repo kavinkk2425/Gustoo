@@ -638,7 +638,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         <div className="flex flex-col items-center text-center w-full">
           {/* === SUPER MARIO WORLD 1-1 TOP ARCADE HUD (EXACT SCREENSHOT LAYOUT) === */}
           {/* Top Retro Game HUD Bar (Clean Classic: PLAYER 000200, COINS ×01, WORLD 1-1, TIME 245) */}
-          <div className="w-full max-w-3xl sm:max-w-4xl mx-auto px-3 xs:px-4 mb-3 sm:mb-4 flex items-center justify-between font-['Press_Start_2P',monospace] text-white text-[9.5px] xs:text-[11px] sm:text-xs md:text-[13px] tracking-wider select-none z-30 drop-shadow-[1.5px_1.5px_0px_#000]">
+          <div className="w-full max-w-3xl sm:max-w-4xl mx-auto px-2 xs:px-4 mb-3 sm:mb-4 flex items-center justify-between font-['Press_Start_2P',monospace] text-white text-[8px] xxs:text-[9.5px] xs:text-[11px] sm:text-xs md:text-[13px] tracking-wider select-none z-30 drop-shadow-[1.5px_1.5px_0px_#000]">
             <div className="flex flex-col items-start leading-tight">
               <span className="font-bold tracking-wider text-[#ffd000]">PLAYER</span>
               <span className="font-bold tracking-wider text-white mt-0.5">000200</span>
@@ -658,11 +658,11 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
           </div>
 
           {/* Top Symposium Institution Banner (Strict Fixed-Size Mario Signboard: Alternates between College, Department & Association) */}
-          <div className="w-full flex justify-center items-center mb-4 sm:mb-6 md:mb-8 z-20 px-2 sm:px-4 select-none">
+          <div className="w-full flex justify-center items-center mb-3 sm:mb-6 md:mb-8 z-20 px-1.5 xs:px-2 sm:px-4 select-none">
             {/* STRICT FIXED BOX SIZE: Dimensions calibrated for both desktop and mobile legibility */}
             <div
               onClick={handleBannerFlipToggle}
-              className="relative flex items-center justify-between px-2 xs:px-3 sm:px-4 w-full max-w-[580px] xs:max-w-[650px] sm:max-w-[760px] md:max-w-[840px] min-h-[52px] xs:min-h-[56px] sm:min-h-[60px] py-1.5 bg-[#ffd000] border-[3.5px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rounded-xs hover:-translate-y-0.5 active:scale-[0.99] transition-transform duration-150 cursor-pointer overflow-hidden group/sign"
+              className="relative flex items-center justify-between px-1.5 xs:px-3 sm:px-4 w-full max-w-[580px] xs:max-w-[650px] sm:max-w-[760px] md:max-w-[840px] min-h-[48px] xxs:min-h-[52px] xs:min-h-[56px] sm:min-h-[60px] py-1 xs:py-1.5 bg-[#ffd000] border-[3px] sm:border-[4px] border-black shadow-[3.5px_3.5px_0px_#000] sm:shadow-[6px_6px_0px_#000] rounded-xs hover:-translate-y-0.5 active:scale-[0.99] transition-transform duration-150 cursor-pointer overflow-hidden group/sign"
               title="Click to switch: College, Department & Association!"
             >
               {/* Cool Light Sheen Sweep Bar across the fixed box */}
@@ -678,7 +678,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               <div className="absolute bottom-1 right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs z-10" />
 
               {/* Left Institution Dynamic Logo Badge */}
-              <div className="relative w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white border-2 border-black shadow-[2px_2px_0px_#000] flex items-center justify-center p-1 shrink-0 mr-1.5 xs:mr-2.5 sm:mr-3.5 overflow-hidden z-20 transition-transform duration-200 group-hover/sign:scale-105">
+              <div className="relative w-7 h-7 xxs:w-8 xxs:h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white border-[1.5px] sm:border-2 border-black shadow-[1.5px_1.5px_0px_#000] sm:shadow-[2px_2px_0px_#000] flex items-center justify-center p-0.5 sm:p-1 shrink-0 mr-1 xs:mr-2.5 sm:mr-3.5 overflow-hidden z-20 transition-transform duration-200 group-hover/sign:scale-105">
                 <Image
                   src={INSTITUTION_BANNER_ITEMS[bannerIndex].logo}
                   alt={INSTITUTION_BANNER_ITEMS[bannerIndex].logoAlt}
@@ -689,14 +689,14 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
 
               {/* Center Slot-Reel Scrolling Container (Fixed Height & Center-Aligned) */}
-              <div className="flex-1 min-w-0 overflow-hidden h-full flex items-center justify-center px-1 z-10">
+              <div className="flex-1 min-w-0 overflow-hidden h-full flex items-center justify-center px-0.5 xs:px-1 z-10">
                 <div
                   key={`sign-${bannerIndex}`}
                   className={`w-full flex flex-col items-center justify-center text-center drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] ${
                     bannerAnimState === "out" ? "animate-sign-reel-out" : "animate-sign-reel-in"
                   }`}
                 >
-                  <div className="font-['Press_Start_2P',monospace] font-black text-[7.5px] xs:text-[9px] sm:text-[10.5px] md:text-xs lg:text-[13px] text-black tracking-tight sm:tracking-normal uppercase flex flex-col items-center justify-center gap-0.5 sm:gap-1 leading-snug w-full">
+                  <div className="font-['Press_Start_2P',monospace] font-black text-[6.5px] xxs:text-[7.5px] xs:text-[9px] sm:text-[10.5px] md:text-xs lg:text-[13px] text-black tracking-tight sm:tracking-normal uppercase flex flex-col items-center justify-center gap-0.5 sm:gap-1 leading-snug w-full">
                     <span className="whitespace-nowrap max-w-full overflow-hidden text-ellipsis">{INSTITUTION_BANNER_ITEMS[bannerIndex].line1}</span>
                     <span className="whitespace-nowrap max-w-full overflow-hidden text-ellipsis">{INSTITUTION_BANNER_ITEMS[bannerIndex].line2}</span>
                   </div>
@@ -704,7 +704,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               </div>
 
               {/* Right Symposium Gusto Logo Badge */}
-              <div className="relative w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white border-2 border-black shadow-[2px_2px_0px_#000] flex items-center justify-center p-0.5 shrink-0 ml-1.5 xs:ml-2.5 sm:ml-3.5 overflow-hidden z-20 transition-transform duration-200 group-hover/sign:scale-105">
+              <div className="relative w-7 h-7 xxs:w-8 xxs:h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white border-[1.5px] sm:border-2 border-black shadow-[1.5px_1.5px_0px_#000] sm:shadow-[2px_2px_0px_#000] flex items-center justify-center p-0.5 shrink-0 ml-1 xs:ml-2.5 sm:ml-3.5 overflow-hidden z-20 transition-transform duration-200 group-hover/sign:scale-105">
                 <Image
                   src="/logos/GUSTO/gradient.png"
                   alt="GUSTO 2K26 Logo"
@@ -719,11 +719,11 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
           {/* === RETRO 2D PLATFORM TITLE LOGO: "LET THE" & "GUSTO BEGIN" === */}
           <div
             onClick={triggerJump}
-            className="flex flex-col items-center justify-center my-4 sm:my-8 md:my-10 cursor-pointer select-none group w-full animate-gusto-light-float"
+            className="flex flex-col items-center justify-center my-3 sm:my-8 md:my-10 cursor-pointer select-none group w-full animate-gusto-light-float"
             title="Click to see the letters jump!"
           >
             {/* Row 1: "LET" + [GAMING CONSOLE] + "THE" */}
-            <div className="flex items-center justify-center gap-1 xs:gap-2 sm:gap-6 md:gap-8 flex-nowrap animate-gusto-row1-wave w-full max-w-full px-1">
+            <div className="flex items-center justify-center gap-0.5 xxs:gap-1 xs:gap-2 sm:gap-6 md:gap-8 flex-nowrap animate-gusto-row1-wave w-full max-w-full px-1">
               {/* "LET" */}
               <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3 shrink-0">
                 {[
@@ -734,7 +734,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`let-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[3.35rem] xs:text-[4rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.25rem] xxs:text-[2.65rem] xs:text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${
                       isJumping ? "animate-mario-letter-jump" : ""
                     } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
@@ -752,7 +752,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                     arcadeAudio.playJump();
                   } catch { }
                 }}
-                className="relative -mt-1 sm:-mt-5 md:-mt-7 mx-0.5 xs:mx-1 sm:mx-4 animate-idle-wiggle cursor-pointer shrink-0 hover:scale-110 active:scale-95 transition-transform duration-200 select-none group/console z-10"
+                className="relative -mt-0.5 sm:-mt-5 md:-mt-7 mx-0.5 xs:mx-1 sm:mx-4 animate-idle-wiggle cursor-pointer shrink-0 hover:scale-110 active:scale-95 transition-transform duration-200 select-none group/console z-10"
                 title="Click Console to Jump & Sound!"
               >
                 {/* Cute speech bubble on hover */}
@@ -765,7 +765,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 <RetroGamepad
                   color="#e52521"
                   dpadColor="#ffd000"
-                  className="w-13 xs:w-18 sm:w-28 md:w-36 lg:w-44 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[5px_5px_0px_#000]"
+                  className="w-10 xxs:w-12 xs:w-16 sm:w-28 md:w-36 lg:w-44 h-auto drop-shadow-[2.5px_2.5px_0px_#000] sm:drop-shadow-[5px_5px_0px_#000]"
                 />
               </div>
 
@@ -779,7 +779,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`the-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 3) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[3.35rem] xs:text-[4rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.25rem] xxs:text-[2.65rem] xs:text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${
                       isJumping ? "animate-mario-letter-jump" : ""
                     } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
@@ -790,7 +790,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
 
             {/* Row 2: "GUSTO BEGIN" - Well-spaced gap so title lines breathe with arcade punch */}
-            <div className="flex items-center justify-center gap-4 xs:gap-6 sm:gap-8 md:gap-12 flex-nowrap mt-4.5 sm:mt-10 md:mt-14 animate-gusto-row2-wave w-full max-w-full px-1">
+            <div className="flex items-center justify-center gap-2.5 xxs:gap-3.5 xs:gap-6 sm:gap-8 md:gap-12 flex-nowrap mt-3 xxs:mt-4 sm:mt-10 md:mt-14 animate-gusto-row2-wave w-full max-w-full px-1">
               <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3 shrink-0">
                 {[
                   { char: "G", color: "mario-c-red", rotate: "-rotate-3" },
@@ -802,7 +802,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`gusto-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 6) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.35rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.85rem] xxs:text-[2.25rem] xs:text-[2.95rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${
                       isJumping ? "animate-mario-letter-jump" : ""
                     } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
@@ -822,7 +822,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`begin-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 11) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.35rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.85rem] xxs:text-[2.25rem] xs:text-[2.95rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${
                       isJumping ? "animate-mario-letter-jump" : ""
                     } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
@@ -834,14 +834,14 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
           </div>
 
           {/* Retro Pixel Tagline Subtitle - Increased Scale */}
-          <div className="mt-5 sm:mt-10 md:mt-12 mb-4 sm:mb-6 select-none px-3 xs:px-4 max-w-5xl">
-            <p className="font-['Press_Start_2P',monospace] text-white text-[11px] xs:text-[13px] sm:text-sm md:text-base lg:text-lg drop-shadow-[3px_3px_0px_#000] tracking-wider uppercase text-center leading-relaxed font-bold">
+          <div className="mt-4 sm:mt-10 md:mt-12 mb-3 sm:mb-6 select-none px-2 xs:px-4 max-w-5xl">
+            <p className="font-['Press_Start_2P',monospace] text-white text-[9.5px] xxs:text-[11px] xs:text-[13px] sm:text-sm md:text-base lg:text-lg drop-shadow-[2.5px_2.5px_0px_#000] sm:drop-shadow-[3px_3px_0px_#000] tracking-wider uppercase text-center leading-relaxed font-bold">
               A NATIONAL LEVEL TECHNICAL SYMPOSIUM • MARCH 06, 2026 • GCE ERODE
             </p>
           </div>
 
           {/* Retro Arcade Presentation Card - Styled with Playfair Display Font */}
-          <div className="w-full max-w-4xl lg:max-w-5xl mx-auto px-4 xs:px-6 sm:px-10 py-5 sm:py-7 rounded-2xl sm:rounded-3xl bg-black/45 backdrop-blur-md border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[8px_8px_0px_#000] text-center my-4 sm:my-8 select-none relative overflow-hidden group">
+          <div className="w-full max-w-4xl lg:max-w-5xl mx-auto px-3.5 xxs:px-4 xs:px-6 sm:px-10 py-4 sm:py-7 rounded-2xl sm:rounded-3xl bg-black/45 backdrop-blur-md border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[8px_8px_0px_#000] text-center my-3 sm:my-8 select-none relative overflow-hidden group">
             {/* Corner Arcade Screws */}
             <span className="absolute top-2 left-3 text-[10px] font-mono text-white/40 select-none">✚</span>
             <span className="absolute top-2 right-3 text-[10px] font-mono text-white/40 select-none">✚</span>
@@ -851,12 +851,12 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* Top Amber Highlight */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 sm:w-72 h-[3px] bg-gradient-to-r from-transparent via-[#ffd000] to-transparent opacity-80" />
 
-            <div className="font-playfair font-black text-[#ffd000] text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-[32px] mb-2 sm:mb-3 text-center drop-shadow-[2px_2px_0px_#000] tracking-wider uppercase leading-snug flex items-center justify-center gap-2">
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 animate-pulse hidden xs:inline" />
+            <div className="font-playfair font-black text-[#ffd000] text-sm xxs:text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-[32px] mb-1.5 sm:mb-3 text-center drop-shadow-[2px_2px_0px_#000] tracking-wider uppercase leading-snug flex items-center justify-center gap-1.5 sm:gap-2">
+              <Sparkles className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-yellow-300 animate-pulse hidden xs:inline" />
               <span>BEGINNING OUR PRESENTATION // GUSTO 2K26</span>
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 animate-pulse hidden xs:inline" />
+              <Sparkles className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-yellow-300 animate-pulse hidden xs:inline" />
             </div>
-            <p className="font-playfair font-medium text-white/95 text-[15px] xs:text-[16.5px] sm:text-lg md:text-xl lg:text-[22px] leading-relaxed md:leading-relaxed max-w-3xl mx-auto drop-shadow-[1px_1px_2px_rgba(0,0,0,0.9)]">
+            <p className="font-playfair font-medium text-white/95 text-[13px] xxs:text-[15px] xs:text-[16.5px] sm:text-lg md:text-xl lg:text-[22px] leading-relaxed md:leading-relaxed max-w-3xl mx-auto drop-shadow-[1px_1px_2px_rgba(0,0,0,0.9)]">
               Welcome to Gusto 2.0 at Government College of Engineering, Erode. Step into World 1-1 featuring 9 technical &amp; non-technical arenas, cash prize bounty pools, certificates, and free bus transit!
             </p>
           </div>
@@ -1118,46 +1118,46 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               <div className="flex items-stretch w-full rounded-[24px] sm:rounded-[36px] overflow-hidden border-[3.5px] sm:border-[4.5px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[9px_9px_0px_#000]">
 
                 {/* LEFT JOY-CON (Neon Cyan) */}
-                <div className="switch-joycon-left w-7 xs:w-10 sm:w-20 md:w-24 p-1 xs:p-2 sm:p-3 flex flex-col justify-between items-center relative border-r-2 border-black/40 shrink-0">
+                <div className="switch-joycon-left w-6 xxs:w-7 xs:w-10 sm:w-20 md:w-24 p-0.5 xs:p-2 sm:p-3 flex flex-col justify-between items-center relative border-r-2 border-black/40 shrink-0">
                   {/* Minus Button (-) */}
                   <div className="w-full flex justify-end pr-0.5 sm:pr-2 pt-1">
-                    <div className="w-2 sm:w-3.5 h-0.5 sm:h-1.5 bg-[#222] rounded-[1px] border border-black/60 shadow-xs" />
+                    <div className="w-1.5 sm:w-3.5 h-0.5 sm:h-1.5 bg-[#222] rounded-[1px] border border-black/60 shadow-xs" />
                   </div>
 
                   {/* Top Analog Joystick */}
-                  <div className="switch-thumbstick w-5 h-5 xs:w-6 xs:h-6 sm:w-10 sm:h-10 my-0.5 sm:my-1">
+                  <div className="switch-thumbstick w-4 h-4 xxs:w-5 xxs:h-5 xs:w-6 xs:h-6 sm:w-10 sm:h-10 my-0.5 sm:my-1">
                     <div className="switch-thumbstick-inner" />
                   </div>
 
                   {/* D-Pad Buttons (▲, ◀, ▶, ▼) */}
                   <div className="flex flex-col items-center gap-0.5 sm:gap-1 my-0.5 sm:my-1">
-                    <div className="switch-btn w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">▲</div>
+                    <div className="switch-btn w-2.5 h-2.5 xxs:w-3 xxs:h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[5px] xxs:text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">▲</div>
                     <div className="flex items-center gap-0.5 sm:gap-1.5">
-                      <div className="switch-btn w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">◀</div>
-                      <div className="switch-btn w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">▶</div>
+                      <div className="switch-btn w-2.5 h-2.5 xxs:w-3 xxs:h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[5px] xxs:text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">◀</div>
+                      <div className="switch-btn w-2.5 h-2.5 xxs:w-3 xxs:h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[5px] xxs:text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">▶</div>
                     </div>
-                    <div className="switch-btn w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">▼</div>
+                    <div className="switch-btn w-2.5 h-2.5 xxs:w-3 xxs:h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[5px] xxs:text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/80 font-mono">▼</div>
                   </div>
 
                   {/* Square Capture/Record Button */}
-                  <div className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 rounded-[2px] bg-[#383a40] border border-black/60 flex items-center justify-center shadow-inner cursor-pointer active:scale-95">
+                  <div className="w-2.5 h-2.5 xxs:w-3 xxs:h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 rounded-[2px] bg-[#383a40] border border-black/60 flex items-center justify-center shadow-inner cursor-pointer active:scale-95">
                     <div className="w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-[#202226]" />
                   </div>
                 </div>
 
                 {/* CENTER OLED DISPLAY SCREEN */}
-                <div className="switch-screen-outline flex-1 p-1.5 xs:p-2 sm:p-4 md:p-5 flex flex-col justify-between">
+                <div className="switch-screen-outline flex-1 p-1 xs:p-2 sm:p-4 md:p-5 flex flex-col justify-between min-w-0">
                   {/* Top Game Console Status Bar */}
-                  <div className="flex items-center justify-between mb-1.5 sm:mb-3 px-0.5 sm:px-2">
-                    <div className="flex items-center gap-1.5 sm:gap-2">
+                  <div className="flex items-center justify-between mb-1 sm:mb-3 px-0.5 sm:px-2">
+                    <div className="flex items-center gap-1 sm:gap-2">
                       <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 border border-black animate-pulse" />
-                      <span className="text-[8px] xs:text-[9px] sm:text-xs font-['Chakra_Petch',sans-serif] font-black uppercase tracking-wider sm:tracking-widest text-[#fde047] flex items-center gap-1">
+                      <span className="text-[7px] xxs:text-[8px] xs:text-[9px] sm:text-xs font-['Chakra_Petch',sans-serif] font-black uppercase tracking-wider sm:tracking-widest text-[#fde047] flex items-center gap-1">
                         <span>★</span>
                         <span>LEVEL STARTS IN</span>
                         <span className="hidden xs:inline">★</span>
                       </span>
                     </div>
-                    <div className="flex items-center gap-1 sm:gap-2 font-mono text-[8px] sm:text-xs font-bold text-pink-300">
+                    <div className="flex items-center gap-1 sm:gap-2 font-mono text-[7px] xxs:text-[8px] sm:text-xs font-bold text-pink-300">
                       <span>March 06</span>
                       <span className="hidden sm:inline">, 2026</span>
                       <span className="hidden xs:inline px-1 py-0.5 rounded bg-black/60 text-[#84cc16] border border-white/20 text-[8px] sm:text-[9px]">100% 🔋</span>
@@ -1165,44 +1165,44 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   </div>
 
                   {/* Inner Dark Screen Glass with Countdown Blocks */}
-                  <div className="relative rounded-lg xs:rounded-xl sm:rounded-2xl p-1.5 xs:p-2 sm:p-4 bg-black/85 border-2 border-black/60 shadow-[inset_0_0_15px_rgba(0,0,0,0.9)]">
-                    <div className="grid grid-cols-4 gap-1 xs:gap-1.5 sm:gap-3 lg:gap-4">
+                  <div className="relative rounded-lg xs:rounded-xl sm:rounded-2xl p-1 xs:p-2 sm:p-4 bg-black/85 border-2 border-black/60 shadow-[inset_0_0_15px_rgba(0,0,0,0.9)]">
+                    <div className="grid grid-cols-4 gap-0.5 xxs:gap-1 xs:gap-1.5 sm:gap-3 lg:gap-4">
                       {/* Days */}
-                      <div className="flex flex-col items-center p-1.5 xs:p-2 sm:p-4 rounded-lg xs:rounded-xl sm:rounded-2xl bg-[#facc15] border-[1.5px] sm:border-[3px] border-black shadow-[1.5px_1.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
-                        <span className="text-lg xs:text-2xl sm:text-5xl lg:text-6xl font-black text-black font-mono leading-none">
+                      <div className="flex flex-col items-center p-1 xxs:p-1.5 xs:p-2 sm:p-4 rounded-md xxs:rounded-lg xs:rounded-xl sm:rounded-2xl bg-[#facc15] border-[1.5px] sm:border-[3px] border-black shadow-[1px_1px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
+                        <span className="text-base xxs:text-lg xs:text-2xl sm:text-5xl lg:text-6xl font-black text-black font-mono leading-none">
                           {String(timeLeft.days).padStart(2, "0")}
                         </span>
-                        <span className="text-[7.5px] xs:text-[9px] sm:text-xs lg:text-sm font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">
+                        <span className="text-[6.5px] xxs:text-[7.5px] xs:text-[9px] sm:text-xs lg:text-sm font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">
                           Days
                         </span>
                       </div>
 
                       {/* Hours */}
-                      <div className="flex flex-col items-center p-1.5 xs:p-2 sm:p-4 rounded-lg xs:rounded-xl sm:rounded-2xl bg-[#84cc16] border-[1.5px] sm:border-[3px] border-black shadow-[1.5px_1.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
-                        <span className="text-lg xs:text-2xl sm:text-5xl lg:text-6xl font-black text-black font-mono leading-none">
+                      <div className="flex flex-col items-center p-1 xxs:p-1.5 xs:p-2 sm:p-4 rounded-md xxs:rounded-lg xs:rounded-xl sm:rounded-2xl bg-[#84cc16] border-[1.5px] sm:border-[3px] border-black shadow-[1px_1px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
+                        <span className="text-base xxs:text-lg xs:text-2xl sm:text-5xl lg:text-6xl font-black text-black font-mono leading-none">
                           {String(timeLeft.hours).padStart(2, "0")}
                         </span>
-                        <span className="text-[7.5px] xs:text-[9px] sm:text-xs lg:text-sm font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">
+                        <span className="text-[6.5px] xxs:text-[7.5px] xs:text-[9px] sm:text-xs lg:text-sm font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">
                           Hours
                         </span>
                       </div>
 
                       {/* Mins */}
-                      <div className="flex flex-col items-center p-1.5 xs:p-2 sm:p-4 rounded-lg xs:rounded-xl sm:rounded-2xl bg-[#06b6d4] border-[1.5px] sm:border-[3px] border-black shadow-[1.5px_1.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
-                        <span className="text-lg xs:text-2xl sm:text-5xl lg:text-6xl font-black text-black font-mono leading-none">
+                      <div className="flex flex-col items-center p-1 xxs:p-1.5 xs:p-2 sm:p-4 rounded-md xxs:rounded-lg xs:rounded-xl sm:rounded-2xl bg-[#06b6d4] border-[1.5px] sm:border-[3px] border-black shadow-[1px_1px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
+                        <span className="text-base xxs:text-lg xs:text-2xl sm:text-5xl lg:text-6xl font-black text-black font-mono leading-none">
                           {String(timeLeft.minutes).padStart(2, "0")}
                         </span>
-                        <span className="text-[7.5px] xs:text-[9px] sm:text-xs lg:text-sm font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">
+                        <span className="text-[6.5px] xxs:text-[7.5px] xs:text-[9px] sm:text-xs lg:text-sm font-black text-black uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">
                           Mins
                         </span>
                       </div>
 
                       {/* Secs */}
-                      <div className="flex flex-col items-center p-1.5 xs:p-2 sm:p-4 rounded-lg xs:rounded-xl sm:rounded-2xl bg-[#ec4899] border-[1.5px] sm:border-[3px] border-black shadow-[1.5px_1.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
-                        <span className="text-lg xs:text-2xl sm:text-5xl lg:text-6xl font-black text-white font-mono leading-none">
+                      <div className="flex flex-col items-center p-1 xxs:p-1.5 xs:p-2 sm:p-4 rounded-md xxs:rounded-lg xs:rounded-xl sm:rounded-2xl bg-[#ec4899] border-[1.5px] sm:border-[3px] border-black shadow-[1px_1px_0px_#000] sm:shadow-[4px_4px_0px_#000] group hover:-translate-y-1 transition-transform cursor-pointer">
+                        <span className="text-base xxs:text-lg xs:text-2xl sm:text-5xl lg:text-6xl font-black text-white font-mono leading-none">
                           {String(timeLeft.seconds).padStart(2, "0")}
                         </span>
-                        <span className="text-[7.5px] xs:text-[9px] sm:text-xs lg:text-sm font-black text-white uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">
+                        <span className="text-[6.5px] xxs:text-[7.5px] xs:text-[9px] sm:text-xs lg:text-sm font-black text-white uppercase mt-0.5 tracking-wider font-['Chakra_Petch',sans-serif]">
                           Secs
                         </span>
                       </div>
@@ -1218,32 +1218,32 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 </div>
 
                 {/* RIGHT JOY-CON (Neon Red/Coral) */}
-                <div className="switch-joycon-right w-7 xs:w-10 sm:w-20 md:w-24 p-1 xs:p-2 sm:p-3 flex flex-col justify-between items-center relative border-l-2 border-black/40 shrink-0">
+                <div className="switch-joycon-right w-6 xxs:w-7 xs:w-10 sm:w-20 md:w-24 p-0.5 xs:p-2 sm:p-3 flex flex-col justify-between items-center relative border-l-2 border-black/40 shrink-0">
                   {/* Plus Button (+) */}
                   <div className="w-full flex justify-start pl-0.5 sm:pr-2 pt-1">
-                    <div className="relative w-2.5 sm:w-4 h-2.5 sm:h-4 flex items-center justify-center">
-                      <div className="absolute w-2 sm:w-3.5 h-0.5 sm:h-1.5 bg-[#222] rounded-[1px] border border-black/60" />
-                      <div className="absolute w-0.5 sm:w-1.5 h-2 sm:h-3.5 bg-[#222] rounded-[1px] border border-black/60" />
+                    <div className="relative w-2 sm:w-4 h-2 sm:h-4 flex items-center justify-center">
+                      <div className="absolute w-1.5 sm:w-3.5 h-0.5 sm:h-1.5 bg-[#222] rounded-[1px] border border-black/60" />
+                      <div className="absolute w-0.5 sm:w-1.5 h-1.5 sm:h-3.5 bg-[#222] rounded-[1px] border border-black/60" />
                     </div>
                   </div>
 
                   {/* Diamond Action Buttons (X, Y, A, B) */}
                   <div className="flex flex-col items-center gap-0.5 sm:gap-1 my-0.5 sm:my-1">
-                    <div className="switch-btn w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">X</div>
+                    <div className="switch-btn w-2.5 h-2.5 xxs:w-3 xxs:h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[5px] xxs:text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">X</div>
                     <div className="flex items-center gap-0.5 sm:gap-1.5">
-                      <div className="switch-btn w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">Y</div>
-                      <div className="switch-btn w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">A</div>
+                      <div className="switch-btn w-2.5 h-2.5 xxs:w-3 xxs:h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[5px] xxs:text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">Y</div>
+                      <div className="switch-btn w-2.5 h-2.5 xxs:w-3 xxs:h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[5px] xxs:text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">A</div>
                     </div>
-                    <div className="switch-btn w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">B</div>
+                    <div className="switch-btn w-2.5 h-2.5 xxs:w-3 xxs:h-3 xs:w-3.5 xs:h-3.5 sm:w-5 sm:h-5 text-[5px] xxs:text-[6px] xs:text-[7px] sm:text-[9px] flex items-center justify-center text-white/90 font-mono font-bold">B</div>
                   </div>
 
                   {/* Bottom Analog Joystick */}
-                  <div className="switch-thumbstick w-5 h-5 xs:w-6 xs:h-6 sm:w-10 sm:h-10 my-0.5 sm:my-1">
+                  <div className="switch-thumbstick w-4 h-4 xxs:w-5 xxs:h-5 xs:w-6 xs:h-6 sm:w-10 sm:h-10 my-0.5 sm:my-1">
                     <div className="switch-thumbstick-inner" />
                   </div>
 
                   {/* Circular Home Button (⌂) */}
-                  <div className="w-3.5 h-3.5 sm:w-5.5 sm:h-5.5 rounded-full bg-[#383a40] border border-black/60 flex items-center justify-center shadow-inner cursor-pointer active:scale-95 text-white/80 text-[7px] sm:text-[10px]">
+                  <div className="w-3 h-3 xxs:w-3.5 xxs:h-3.5 sm:w-5.5 sm:h-5.5 rounded-full bg-[#383a40] border border-black/60 flex items-center justify-center shadow-inner cursor-pointer active:scale-95 text-white/80 text-[6px] xxs:text-[7px] sm:text-[10px]">
                     ⌂
                   </div>
                 </div>
@@ -1253,14 +1253,14 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* 4. Action Arcade HUD & Controller Action Deck - Scroll Reveal */}
             <div
               ref={ctaRef}
-              className={`relative flex flex-col items-center justify-center gap-3.5 sm:gap-5 w-full max-w-4xl mx-auto px-2 select-none scroll-reveal ${ctaInView ? "is-visible" : ""
+              className={`relative flex flex-col items-center justify-center gap-3.5 sm:gap-5 w-full max-w-4xl mx-auto px-1 xs:px-2 select-none scroll-reveal ${ctaInView ? "is-visible" : ""
                 }`}
             >
               {/* Master Arcade Coin-Op CTA Button ("PRESS START / REGISTER NOW") */}
               <div className="w-full flex justify-center">
                 <button
                   onClick={onOpenRegister}
-                  className="arcade-push-btn group relative overflow-hidden w-full max-w-2xl px-5 sm:px-8 py-3.5 sm:py-4.5 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#ec4899] via-[#f43f5e] to-[#ec4899] border-[3.5px] sm:border-[4.5px] border-black text-white cursor-pointer select-none"
+                  className="arcade-push-btn group relative overflow-hidden w-full max-w-2xl px-3 xs:px-5 sm:px-8 py-3 sm:py-4.5 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#ec4899] via-[#f43f5e] to-[#ec4899] border-[3px] sm:border-[4.5px] border-black text-white cursor-pointer select-none"
                 >
                   {/* Glowing Laser Sweep Animation */}
                   <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -1273,18 +1273,18 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span className="absolute bottom-2 left-2.5 text-[9px] font-mono text-white/50 select-none">✚</span>
                   <span className="absolute bottom-2 right-2.5 text-[9px] font-mono text-white/50 select-none">✚</span>
 
-                  <div className="relative flex items-center justify-center gap-3 sm:gap-4 py-0.5">
+                  <div className="relative flex items-center justify-center gap-2 xs:gap-3 sm:gap-4 py-0.5">
                     {/* Center: Bold Arcade Text */}
-                    <div className="flex items-center gap-2 sm:gap-3 text-center">
-                      <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-yellow-300 animate-pulse hidden xs:inline" />
-                      <span className="font-['Chakra_Petch',sans-serif] font-black text-base xs:text-lg sm:text-2xl md:text-3xl text-white tracking-wider uppercase drop-shadow-[2px_2px_0px_#000]">
+                    <div className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 text-center">
+                      <Sparkles className="w-3.5 h-3.5 sm:w-6 sm:h-6 text-yellow-300 animate-pulse hidden xs:inline" />
+                      <span className="font-['Chakra_Petch',sans-serif] font-black text-[13px] xxs:text-sm xs:text-lg sm:text-2xl md:text-3xl text-white tracking-tight xs:tracking-wider uppercase drop-shadow-[2px_2px_0px_#000]">
                         PRESS START • REGISTER NOW
                       </span>
                     </div>
 
                     {/* Right: Controller Arrow Trigger */}
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-black border-2 border-white/40 flex items-center justify-center group-hover:translate-x-1.5 transition-transform shadow-[2px_2px_0px_#000] shrink-0">
-                      <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300" />
+                    <div className="w-7 h-7 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-black border-2 border-white/40 flex items-center justify-center group-hover:translate-x-1.5 transition-transform shadow-[2px_2px_0px_#000] shrink-0">
+                      <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6 text-yellow-300" />
                     </div>
                   </div>
                 </button>

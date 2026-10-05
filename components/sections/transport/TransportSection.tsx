@@ -42,7 +42,7 @@ export function TransportSection() {
           <div className="relative w-full flex justify-center items-center my-1">
             <h2
               onClick={triggerJump}
-              className="text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 select-none group font-unbounded"
+              className="text-2xl xs:text-3xl sm:text-6xl font-black tracking-tight text-[#3b0764] mb-3 drop-shadow-[2px_2px_0px_#000] cursor-pointer flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 select-none group font-unbounded"
               title="Click to see the letters jump!"
             >
               {/* "Venue &" with interactive letter wave */}
@@ -83,18 +83,18 @@ export function TransportSection() {
         </div>
 
         {/* Verified College Bus Notice Banner */}
-        <div className="mb-10 sm:mb-12 p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#fde047] border-[3px] sm:border-[3.5px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000]">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="mb-8 sm:mb-12 p-3.5 xs:p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#fde047] border-[3px] sm:border-[3.5px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6">
             <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#3b0764] text-white border-2 border-black flex items-center justify-center shrink-0 shadow-[3px_3px_0px_#000]">
-                <Bus className="w-6 h-6 sm:w-8 sm:h-8 text-[#facc15]" />
+              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-[#3b0764] text-white border-2 border-black flex items-center justify-center shrink-0 shadow-[3px_3px_0px_#000]">
+                <Bus className="w-5.5 h-5.5 sm:w-8 sm:h-8 text-[#facc15]" />
               </div>
               <div>
                 <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#3b0764] mb-1">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
                   Official College Facility
                 </span>
-                <h3 className="text-xl sm:text-3xl font-black text-black mb-1.5 sm:mb-2">
+                <h3 className="text-lg xs:text-xl sm:text-3xl font-black text-black mb-1.5 sm:mb-2">
                   College Bus Transportation
                 </h3>
                 <p className="text-xs sm:text-sm font-bold text-zinc-800 leading-relaxed max-w-2xl">
@@ -117,11 +117,11 @@ export function TransportSection() {
         </div>
 
         {/* 4 Transit Point Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12">
           {TRANSPORT_DATA.transitHubs.map((hub, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-3xl bg-white border-[3.5px] border-black shadow-[5px_5px_0px_#000] flex flex-col justify-between"
+              className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border-[3px] sm:border-[3.5px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[5px_5px_0px_#000] flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
