@@ -20,9 +20,8 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
     { name: "All Events", href: "#events", tag: "r1" },
     { name: "Rules", href: "#rules", tag: "r2" },
     { name: "About", href: "#about", tag: "r3" },
-    { name: "Teaser", href: "#youtube", tag: "r4" },
-    { name: "Transport", href: "#transport", tag: "r5" },
-    { name: "Contacts", href: "#contact", tag: "r6" },
+    { name: "Transport", href: "#transport", tag: "r4" },
+    { name: "Contacts", href: "#contact", tag: "r5" },
   ];
 
   // Classic retro gaming palette with uniform high-contrast black pixel text
@@ -30,7 +29,6 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
     "ALL EVENTS": "bg-[#00d8f8] hover:bg-[#5ce6fc] text-black",
     "RULES": "bg-[#ff9900] hover:bg-[#ffb033] text-black",
     "ABOUT": "bg-[#48d050] hover:bg-[#68e06f] text-black",
-    "TEASER": "bg-[#ff4d4a] hover:bg-[#ff706e] text-black",
     "TRANSPORT": "bg-[#ffd000] hover:bg-[#ffe04d] text-black",
     "CONTACTS": "bg-[#f472b6] hover:bg-[#f9a8d4] text-black",
   };

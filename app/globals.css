@@ -79,6 +79,8 @@
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
   --font-caveat: "Caveat", cursive;
   --font-unbounded: "Unbounded", sans-serif;
+  --font-figtree: var(--font-figtree), "Figtree", sans-serif;
+  --font-playfair: var(--font-playfair), "Playfair Display", Georgia, serif;
 }
 
 /* Unbounded Google Font Utilities */
@@ -111,6 +113,104 @@
 
 .unbounded-black {
   font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Figtree Google Font Utilities */
+.font-figtree {
+  font-family: var(--font-figtree), "Figtree", sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.figtree-normal {
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.figtree-medium {
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.figtree-semibold {
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.figtree-bold {
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.figtree-extrabold {
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.figtree-black {
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Playfair Display Google Font Utilities */
+.font-playfair {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.playfair-display-normal {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playfair-display-medium {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.playfair-display-semibold {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.playfair-display-bold {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.playfair-display-extrabold {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.playfair-display-black {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
   font-optical-sizing: auto;
   font-weight: 900;
   font-style: normal;
@@ -5261,6 +5361,7 @@ body {
 
 /* Mobile Tactile Press Feedback */
 .arcade-push-btn,
+.arcade-game-plunger,
 .arcade-face-btn,
 .arcade-reg-btn,
 .btn-tap-tactile {

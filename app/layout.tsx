@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Figtree, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +10,18 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const figtree = Figtree({
+  variable: "--font-figtree",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const viewport: Viewport = {
@@ -44,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} ${figtree.variable} ${playfair.variable} dark h-full antialiased scroll-smooth`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,7 +69,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Chakra+Petch:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Orbitron:wght@700;800;900&family=Press+Start+2P&family=Titan+One&family=Luckiest+Guy&family=Unbounded:wght@200..900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Chakra+Petch:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Figtree:ital,wght@0,300..900;1,300..900&family=Orbitron:wght@700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Press+Start+2P&family=Titan+One&family=Luckiest+Guy&family=Unbounded:wght@200..900&display=swap"
           rel="stylesheet"
         />
       </head>

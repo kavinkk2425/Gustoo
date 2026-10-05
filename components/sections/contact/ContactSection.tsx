@@ -276,46 +276,46 @@ export function ContactSection() {
         </div>
 
         {/* Institution & Socials Banner */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-white border-[4px] border-black shadow-[8px_8px_0px_#000] flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="flex items-start gap-3">
+        <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[8px_8px_0px_#000] flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 overflow-hidden">
+          <div className="flex items-start gap-3 min-w-0">
             <MapPin className="w-6 h-6 text-[#3b0764] shrink-0 mt-0.5" />
-            <div>
-              <h4 className="text-lg font-black text-black">
+            <div className="min-w-0">
+              <h4 className="text-base sm:text-lg font-black text-black">
                 {ABOUT_DATA.institution} ({ABOUT_DATA.formerlyKnownAs})
               </h4>
-              <p className="text-xs font-bold text-zinc-700 mt-1">
+              <p className="text-xs font-bold text-zinc-700 mt-1 leading-relaxed">
                 {ABOUT_DATA.venueAddress.campus}, {ABOUT_DATA.venueAddress.road}, {ABOUT_DATA.venueAddress.district}, {ABOUT_DATA.venueAddress.state} - {ABOUT_DATA.venueAddress.pincode}
               </p>
               <p className="text-xs font-bold text-zinc-700 mt-1">
                 Official Email:{" "}
-                <a href={`mailto:${ABOUT_DATA.contactEmail}`} className="text-[#3b0764] underline font-black">
+                <a href={`mailto:${ABOUT_DATA.contactEmail}`} className="text-[#3b0764] underline font-black break-all">
                   {ABOUT_DATA.contactEmail}
                 </a>
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex flex-wrap xs:flex-nowrap items-center gap-2.5 sm:gap-3 w-full md:w-auto shrink-0 pt-1 md:pt-0">
             <a
               href={ABOUT_DATA.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="neo-btn flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#ec4899] text-white text-xs font-black uppercase tracking-wider"
+              className="neo-btn flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-[#ec4899] text-white text-[11px] sm:text-xs font-black uppercase tracking-wider flex-1 xs:flex-initial whitespace-nowrap"
             >
-              <InstagramIcon className="w-4 h-4" />
+              <InstagramIcon className="w-4 h-4 shrink-0" />
               <span>@gcee_gusto_</span>
-              <ExternalLink className="w-3 h-3 opacity-80" />
+              <ExternalLink className="w-3 h-3 opacity-80 shrink-0" />
             </a>
 
             <a
               href={ABOUT_DATA.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="neo-btn flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#ef4444] text-white text-xs font-black uppercase tracking-wider"
+              className="neo-btn flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-[#ef4444] text-white text-[11px] sm:text-xs font-black uppercase tracking-wider flex-1 xs:flex-initial whitespace-nowrap"
             >
-              <YouTubeIcon className="w-4 h-4" />
+              <YouTubeIcon className="w-4 h-4 shrink-0" />
               <span>@gusto-25</span>
-              <ExternalLink className="w-3 h-3 opacity-80" />
+              <ExternalLink className="w-3 h-3 opacity-80 shrink-0" />
             </a>
           </div>
         </div>

@@ -87,9 +87,8 @@ export function PacmanGhostLoader() {
       role="dialog"
       aria-label="Gusto '26 Loading"
       onClick={triggerExit}
-      className={`fixed inset-0 z-[999999] flex flex-col items-center justify-center p-6 bg-[#070709] cursor-pointer transition-all duration-500 ease-in-out select-none ${
-        isExiting ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
-      }`}
+      className={`fixed inset-0 z-[999999] flex flex-col items-center justify-center p-6 bg-[#070709] cursor-pointer transition-all duration-500 ease-in-out select-none ${isExiting ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 scale-100"
+        }`}
       style={{
         backgroundImage:
           "radial-gradient(circle at center, rgba(239, 68, 68, 0.08) 0%, transparent 70%), linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)",

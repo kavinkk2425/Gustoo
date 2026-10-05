@@ -401,7 +401,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   const [bumpedBlock, setBumpedBlock] = useState<string | null>(null);
   const [poppedBlock, setPoppedBlock] = useState<string | null>(null);
 
-  // Retro Mario Platform Signboard: Auto-switching between College and Department with 3D flip effect
+  // Retro Mario Platform Signboard: Auto-switching between College, Department, and Association with 3D flip effect
   const INSTITUTION_BANNER_ITEMS = [
     {
       line1: "GOVERNMENT COLLEGE OF",
@@ -412,6 +412,11 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
       line1: "DEPARTMENT OF",
       line2: "INFORMATION TECHNOLOGY",
       label: "ORGANIZING DEPARTMENT",
+    },
+    {
+      line1: "ASSOCIATION OF",
+      line2: "INFORMATION TECHNOLOGY",
+      label: "ORGANIZING ASSOCIATION",
     },
   ];
 
@@ -594,13 +599,13 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Top Symposium Institution Banner (Strict Fixed-Size Mario Signboard: Alternates between College & Department) */}
+          {/* Top Symposium Institution Banner (Strict Fixed-Size Mario Signboard: Alternates between College, Department & Association) */}
           <div className="w-full flex justify-center items-center mb-5 sm:mb-8 md:mb-10 z-20 px-2 sm:px-4 select-none">
             {/* STRICT FIXED BOX SIZE: Dimensions never change or resize during transitions */}
             <div
               onClick={handleBannerFlipToggle}
               className="relative flex items-center justify-between px-3 xs:px-4 sm:px-6 w-[96%] max-w-[560px] xs:max-w-[600px] sm:max-w-[690px] md:max-w-[760px] h-[58px] xs:h-[64px] sm:h-[50px] md:h-[54px] bg-[#ffd000] border-[3.5px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rounded-xs hover:-translate-y-0.5 active:scale-[0.99] transition-transform duration-150 cursor-pointer overflow-hidden group/sign"
-              title="Click to switch: College & Department!"
+              title="Click to switch: College, Department & Association!"
             >
               {/* Cool Light Sheen Sweep Bar across the fixed box */}
               <div
@@ -754,12 +759,23 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </p>
           </div>
 
-          {/* Retro Arcade Presentation Card - Balanced mobile & desktop */}
-          <div className="w-full max-w-4xl lg:max-w-5xl mx-auto px-4 xs:px-6 sm:px-10 py-5 sm:py-8 rounded-2xl bg-white/15 backdrop-blur-xs border-[3.5px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] text-center my-4 sm:my-8 select-none">
-            <div className="font-['Press_Start_2P',monospace] text-[#ffd000] text-[12.5px] xs:text-[14.5px] sm:text-base md:text-xl lg:text-2xl mb-2.5 sm:mb-4 text-center drop-shadow-[2px_2px_0px_#000] tracking-wider uppercase font-black leading-snug">
-              BEGINNING OUR PRESENTATION // GUSTO 2K26
+          {/* Retro Arcade Presentation Card - Styled with Playfair Display Font */}
+          <div className="w-full max-w-4xl lg:max-w-5xl mx-auto px-4 xs:px-6 sm:px-10 py-5 sm:py-7 rounded-2xl sm:rounded-3xl bg-black/45 backdrop-blur-md border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[8px_8px_0px_#000] text-center my-4 sm:my-8 select-none relative overflow-hidden group">
+            {/* Corner Arcade Screws */}
+            <span className="absolute top-2 left-3 text-[10px] font-mono text-white/40 select-none">✚</span>
+            <span className="absolute top-2 right-3 text-[10px] font-mono text-white/40 select-none">✚</span>
+            <span className="absolute bottom-2 left-3 text-[10px] font-mono text-white/40 select-none">✚</span>
+            <span className="absolute bottom-2 right-3 text-[10px] font-mono text-white/40 select-none">✚</span>
+
+            {/* Top Amber Highlight */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 sm:w-72 h-[3px] bg-gradient-to-r from-transparent via-[#ffd000] to-transparent opacity-80" />
+
+            <div className="font-playfair font-black text-[#ffd000] text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-[32px] mb-2 sm:mb-3 text-center drop-shadow-[2px_2px_0px_#000] tracking-wider uppercase leading-snug flex items-center justify-center gap-2">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 animate-pulse hidden xs:inline" />
+              <span>BEGINNING OUR PRESENTATION // GUSTO 2K26</span>
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300 animate-pulse hidden xs:inline" />
             </div>
-            <p className="font-['Press_Start_2P',monospace] text-white text-[10.5px] xs:text-[12px] sm:text-sm md:text-base lg:text-[17px] leading-relaxed md:leading-loose max-w-3xl mx-auto drop-shadow-[1.5px_1.5px_0px_#000]">
+            <p className="font-playfair font-medium text-white/95 text-[15px] xs:text-[16.5px] sm:text-lg md:text-xl lg:text-[22px] leading-relaxed md:leading-relaxed max-w-3xl mx-auto drop-shadow-[1px_1px_2px_rgba(0,0,0,0.9)]">
               Welcome to Gusto 2.0 at Government College of Engineering, Erode. Step into World 1-1 featuring 9 technical &amp; non-technical arenas, cash prize bounty pools, certificates, and free bus transit!
             </p>
           </div>
@@ -1194,18 +1210,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span className="absolute bottom-2 left-2.5 text-[9px] font-mono text-white/50 select-none">✚</span>
                   <span className="absolute bottom-2 right-2.5 text-[9px] font-mono text-white/50 select-none">✚</span>
 
-                  <div className="relative flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-                    {/* Left: Glowing Coin Slot Graphic */}
-                    <div className="flex items-center gap-2 bg-black/35 backdrop-blur-xs px-3 sm:px-4 py-1.5 rounded-xl border border-white/30">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-200 border border-black flex items-center justify-center animate-coin-bounce shadow-[0_0_8px_#facc15]">
-                        <span className="text-[10px] font-black text-black">₹</span>
-                      </div>
-                      <div className="flex flex-col text-left">
-                        <span className="text-[8.5px] font-mono font-bold text-yellow-300 uppercase leading-none">INSERT COIN</span>
-                        <span className="text-xs sm:text-sm font-['Chakra_Petch',sans-serif] font-black text-white leading-tight">₹{ABOUT_DATA.registrationFee} PASS</span>
-                      </div>
-                    </div>
-
+                  <div className="relative flex items-center justify-center gap-3 sm:gap-4 py-0.5">
                     {/* Center: Bold Arcade Text */}
                     <div className="flex items-center gap-2 sm:gap-3 text-center">
                       <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-yellow-300 animate-pulse hidden xs:inline" />
@@ -1215,24 +1220,21 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                     </div>
 
                     {/* Right: Controller Arrow Trigger */}
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-black border-2 border-white/40 flex items-center justify-center group-hover:translate-x-1.5 transition-transform shadow-[2px_2px_0px_#000]">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-black border-2 border-white/40 flex items-center justify-center group-hover:translate-x-1.5 transition-transform shadow-[2px_2px_0px_#000] shrink-0">
                       <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300" />
                     </div>
                   </div>
                 </button>
               </div>
 
-              {/* Arcade Controller Face Buttons [A] [B] [X] */}
-              <div className="w-full max-w-2xl grid grid-cols-3 gap-2 sm:gap-3.5">
-                {/* [A] Button: 9 Events */}
+              {/* Quick Action Buttons: 9 Events & Rules */}
+              <div className="w-full max-w-2xl grid grid-cols-2 gap-2 sm:gap-3.5">
+                {/* Button: 9 Events */}
                 <a
                   href="#events"
-                  className="arcade-face-btn group relative overflow-hidden p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#84cc16] border-[3px] sm:border-[3.5px] border-black text-black flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 text-center cursor-pointer"
+                  className="arcade-face-btn group relative overflow-hidden p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#84cc16] border-[3px] sm:border-[3.5px] border-black text-black flex items-center justify-center text-center cursor-pointer"
                 >
-                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black text-[#84cc16] font-mono font-black text-xs sm:text-sm flex items-center justify-center border border-black shadow-inner shrink-0 group-hover:scale-110 transition-transform">
-                    A
-                  </span>
-                  <div className="flex flex-col text-center sm:text-left">
+                  <div className="flex flex-col text-center">
                     <span className="font-['Chakra_Petch',sans-serif] font-black text-[13px] sm:text-base leading-tight uppercase">
                       9 Events
                     </span>
@@ -1242,38 +1244,17 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   </div>
                 </a>
 
-                {/* [B] Button: Rules */}
+                {/* Button: Rules */}
                 <a
                   href="#rules"
-                  className="arcade-face-btn group relative overflow-hidden p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[3px] sm:border-[3.5px] border-black text-black flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 text-center cursor-pointer"
+                  className="arcade-face-btn group relative overflow-hidden p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border-[3px] sm:border-[3.5px] border-black text-black flex items-center justify-center text-center cursor-pointer"
                 >
-                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black text-white font-mono font-black text-xs sm:text-sm flex items-center justify-center border border-black shadow-inner shrink-0 group-hover:scale-110 transition-transform">
-                    B
-                  </span>
-                  <div className="flex flex-col text-center sm:text-left">
+                  <div className="flex flex-col text-center">
                     <span className="font-['Chakra_Petch',sans-serif] font-black text-[13px] sm:text-base leading-tight uppercase">
                       Rules
                     </span>
                     <span className="text-[9px] sm:text-[9.5px] font-mono font-extrabold text-zinc-700 uppercase opacity-75">
                       📜 CODEX
-                    </span>
-                  </div>
-                </a>
-
-                {/* [X] Button: Teaser */}
-                <a
-                  href="#youtube"
-                  className="arcade-face-btn group relative overflow-hidden p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#ef4444] border-[3px] sm:border-[3.5px] border-black text-white flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 text-center cursor-pointer"
-                >
-                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-black text-[#ef4444] font-mono font-black text-xs sm:text-sm flex items-center justify-center border border-black shadow-inner shrink-0 group-hover:scale-110 transition-transform">
-                    X
-                  </span>
-                  <div className="flex flex-col text-center sm:text-left">
-                    <span className="font-['Chakra_Petch',sans-serif] font-black text-[13px] sm:text-base leading-tight uppercase">
-                      Teaser
-                    </span>
-                    <span className="text-[9px] sm:text-[9.5px] font-mono font-extrabold text-white uppercase opacity-75">
-                      🎬 TRAILER
                     </span>
                   </div>
                 </a>
