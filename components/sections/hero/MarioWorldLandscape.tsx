@@ -819,8 +819,8 @@ export function MarioWorldLandscape({ onOpenRegister }: MarioWorldLandscapeProps
                     clipPath: "polygon(0% 0%, 100% 0%, 91% 50%, 100% 100%, 0% 100%)",
                   }}
                   className={`relative w-[62px] xs:w-[74px] sm:w-[98px] md:w-[112px] h-5.5 xs:h-6.5 sm:h-8 flex items-center pl-1 xs:pl-1.5 sm:pl-2 pr-2.5 xs:pr-3 sm:pr-4 border-l-2 border-black transition-colors duration-500 shadow-[2px_3px_6px_rgba(0,0,0,0.5)] overflow-hidden shrink-0 ${hasReachedCastle
-                      ? "bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#d97706]"
-                      : "bg-gradient-to-r from-[#dc2626] via-[#e11d48] to-[#991b1b]"
+                    ? "bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#d97706]"
+                    : "bg-gradient-to-r from-[#dc2626] via-[#e11d48] to-[#991b1b]"
                     }`}
                 >
                   <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-[#ffd000] border-b border-black/50" />

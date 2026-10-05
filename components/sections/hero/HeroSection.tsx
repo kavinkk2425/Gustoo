@@ -19,6 +19,9 @@ import {
   Coins,
   Zap,
   Flame,
+  GraduationCap,
+  Award,
+  Ticket,
 } from "lucide-react";
 import {
   RetroGamepad,
@@ -382,6 +385,58 @@ function GustoPixelMascot() {
   );
 }
 
+// Color-coded professional announcement marquee items (White Neo-Brutalist Theme)
+const MARQUEE_TICKER_ITEMS = [
+  {
+    icon: Trophy,
+    label: "NATIONAL LEVEL TECHNICAL SYMPOSIUM",
+    badgeColor: "bg-amber-50 border-amber-300 text-amber-950",
+    iconColor: "text-amber-600",
+  },
+  {
+    icon: Calendar,
+    label: "MARCH 06, 2026",
+    badgeColor: "bg-pink-50 border-pink-300 text-pink-950",
+    iconColor: "text-pink-600",
+  },
+  {
+    icon: MapPin,
+    label: "GCE ERODE (IRTT)",
+    badgeColor: "bg-sky-50 border-sky-300 text-sky-950",
+    iconColor: "text-sky-600",
+  },
+  {
+    icon: GraduationCap,
+    label: "DEPT OF IT & AIT",
+    badgeColor: "bg-emerald-50 border-emerald-300 text-emerald-950",
+    iconColor: "text-emerald-700",
+  },
+  {
+    icon: Gamepad2,
+    label: "9 ARENAS (TECH & NON-TECH)",
+    badgeColor: "bg-purple-50 border-purple-300 text-purple-950",
+    iconColor: "text-purple-700",
+  },
+  {
+    icon: Award,
+    label: "CASH PRIZES & CERTIFICATES",
+    badgeColor: "bg-yellow-50 border-yellow-300 text-yellow-950",
+    iconColor: "text-yellow-700",
+  },
+  {
+    icon: Bus,
+    label: "FREE BUS TRANSIT AVAILABLE",
+    badgeColor: "bg-cyan-50 border-cyan-300 text-cyan-950",
+    iconColor: "text-cyan-700",
+  },
+  {
+    icon: Ticket,
+    label: "REGISTER NOW • ₹250 PASS",
+    badgeColor: "bg-rose-50 border-rose-300 text-rose-950",
+    iconColor: "text-rose-600",
+  },
+];
+
 export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   const targetDate = new Date("2026-03-06T09:00:00+05:30").getTime();
 
@@ -406,17 +461,20 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
     {
       line1: "GOVERNMENT COLLEGE OF",
       line2: "ENGINEERING, ERODE",
-      label: "CAMPUS HOST",
+      logo: "/logos/GCEE/bronze.png",
+      logoAlt: "GCEE College Crest",
     },
     {
       line1: "DEPARTMENT OF",
       line2: "INFORMATION TECHNOLOGY",
-      label: "ORGANIZING DEPARTMENT",
+      logo: "/logos/AIT/gold.png",
+      logoAlt: "IT Department Logo",
     },
     {
-      line1: "ASSOCIATION OF",
+      line1: "ASSOCIATION OF (AIT)",
       line2: "INFORMATION TECHNOLOGY",
-      label: "ORGANIZING ASSOCIATION",
+      logo: "/logos/AIT/gold.png",
+      logoAlt: "AIT Association Logo",
     },
   ];
 
@@ -424,16 +482,16 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   const [bannerAnimState, setBannerAnimState] = useState<"in" | "out">("in");
   const [sheenKey, setSheenKey] = useState(0);
 
-  // Cycle the institution signboard every 4 seconds with cool arcade reel roll & light sweep
+  // Cycle the institution signboard with a smooth, lag-free slide & fade transition
   useEffect(() => {
     const bannerTimer = setInterval(() => {
       setBannerAnimState("out");
-      setSheenKey((k) => k + 1);
       setTimeout(() => {
         setBannerIndex((prev) => (prev + 1) % INSTITUTION_BANNER_ITEMS.length);
         setBannerAnimState("in");
-      }, 280);
-    }, 4000);
+        setSheenKey((k) => k + 1);
+      }, 400);
+    }, 4500);
 
     return () => clearInterval(bannerTimer);
   }, [INSTITUTION_BANNER_ITEMS.length]);
@@ -443,11 +501,11 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
       arcadeAudio.playCoin();
     } catch { }
     setBannerAnimState("out");
-    setSheenKey((k) => k + 1);
     setTimeout(() => {
       setBannerIndex((prev) => (prev + 1) % INSTITUTION_BANNER_ITEMS.length);
       setBannerAnimState("in");
-    }, 240);
+      setSheenKey((k) => k + 1);
+    }, 360);
   };
 
   // Decrement game timer like an authentic arcade clock
@@ -518,7 +576,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   }, [targetDate]);
 
   return (
-    <section className="relative min-h-[92vh] bg-retro-yellow-grid overflow-hidden pt-16 sm:pt-20 pb-0 border-b-[4px] border-black">
+    <section className="relative min-h-[92vh] bg-retro-yellow-grid overflow-hidden pt-2 xs:pt-2.5 sm:pt-3 md:pt-4 pb-0 border-b-[4px] border-black">
       {/* === SUPER MARIO WORLD 1-1 ARCADE ENVIRONMENT LAYER === */}
 
       {/* Retro Pixel Super Mario Horizon Cloud Drift System (Authentic Parallax Movement) */}
@@ -580,31 +638,31 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         <div className="flex flex-col items-center text-center w-full">
           {/* === SUPER MARIO WORLD 1-1 TOP ARCADE HUD (EXACT SCREENSHOT LAYOUT) === */}
           {/* Top Retro Game HUD Bar (Clean Classic: PLAYER 000200, COINS ×01, WORLD 1-1, TIME 245) */}
-          <div className="w-full max-w-4xl mx-auto px-2 xs:px-4 mb-3 sm:mb-6 flex items-center justify-between font-['Press_Start_2P',monospace] text-white text-[10px] xs:text-[11.5px] sm:text-xs md:text-sm tracking-wider select-none z-30 drop-shadow-[2px_2px_0px_#000]">
-            <div className="flex flex-col items-start leading-snug">
-              <span className="font-black tracking-widest text-[#ffd000]">PLAYER</span>
-              <span className="font-extrabold tracking-widest text-white">000200</span>
+          <div className="w-full max-w-3xl sm:max-w-4xl mx-auto px-3 xs:px-4 mb-3 sm:mb-4 flex items-center justify-between font-['Press_Start_2P',monospace] text-white text-[9.5px] xs:text-[11px] sm:text-xs md:text-[13px] tracking-wider select-none z-30 drop-shadow-[1.5px_1.5px_0px_#000]">
+            <div className="flex flex-col items-start leading-tight">
+              <span className="font-bold tracking-wider text-[#ffd000]">PLAYER</span>
+              <span className="font-bold tracking-wider text-white mt-0.5">000200</span>
             </div>
-            <div className="flex items-center gap-1 sm:gap-2 leading-snug">
-              <span className="inline-block animate-coin-spin text-sm sm:text-base">🪙</span>
-              <span className="font-extrabold tracking-wider text-white">×01</span>
+            <div className="flex items-center gap-1 sm:gap-1.5 leading-tight">
+              <span className="inline-block animate-coin-spin text-sm xs:text-base sm:text-lg">🪙</span>
+              <span className="font-bold tracking-wider text-white">×01</span>
             </div>
-            <div className="flex flex-col items-center leading-snug">
-              <span className="font-black tracking-widest text-[#ffd000]">WORLD</span>
-              <span className="font-extrabold tracking-widest text-white">1-1</span>
+            <div className="flex flex-col items-center leading-tight">
+              <span className="font-bold tracking-wider text-[#ffd000]">WORLD</span>
+              <span className="font-bold tracking-wider text-white mt-0.5">1-1</span>
             </div>
-            <div className="flex flex-col items-end leading-snug">
-              <span className="font-black tracking-widest text-[#ffd000]">TIME</span>
-              <span className="font-extrabold tracking-widest text-white">245</span>
+            <div className="flex flex-col items-end leading-tight">
+              <span className="font-bold tracking-wider text-[#ffd000]">TIME</span>
+              <span className="font-bold tracking-wider text-white mt-0.5">245</span>
             </div>
           </div>
 
           {/* Top Symposium Institution Banner (Strict Fixed-Size Mario Signboard: Alternates between College, Department & Association) */}
-          <div className="w-full flex justify-center items-center mb-5 sm:mb-8 md:mb-10 z-20 px-2 sm:px-4 select-none">
-            {/* STRICT FIXED BOX SIZE: Dimensions never change or resize during transitions */}
+          <div className="w-full flex justify-center items-center mb-4 sm:mb-6 md:mb-8 z-20 px-2 sm:px-4 select-none">
+            {/* STRICT FIXED BOX SIZE: Dimensions calibrated for both desktop and mobile legibility */}
             <div
               onClick={handleBannerFlipToggle}
-              className="relative flex items-center justify-between px-3 xs:px-4 sm:px-6 w-[96%] max-w-[560px] xs:max-w-[600px] sm:max-w-[690px] md:max-w-[760px] h-[58px] xs:h-[64px] sm:h-[50px] md:h-[54px] bg-[#ffd000] border-[3.5px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rounded-xs hover:-translate-y-0.5 active:scale-[0.99] transition-transform duration-150 cursor-pointer overflow-hidden group/sign"
+              className="relative flex items-center justify-between px-2 xs:px-3 sm:px-4 w-full max-w-[580px] xs:max-w-[650px] sm:max-w-[760px] md:max-w-[840px] min-h-[52px] xs:min-h-[56px] sm:min-h-[60px] py-1.5 bg-[#ffd000] border-[3.5px] sm:border-[4px] border-black shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rounded-xs hover:-translate-y-0.5 active:scale-[0.99] transition-transform duration-150 cursor-pointer overflow-hidden group/sign"
               title="Click to switch: College, Department & Association!"
             >
               {/* Cool Light Sheen Sweep Bar across the fixed box */}
@@ -619,23 +677,42 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               <div className="absolute bottom-1 left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs z-10" />
               <div className="absolute bottom-1 right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#804000] border border-black rounded-xs z-10" />
 
-              {/* Left Spinning Coin */}
-              <span className="text-[14px] xs:text-base sm:text-base animate-coin-spin shrink-0 z-10 select-none">🪙</span>
+              {/* Left Institution Dynamic Logo Badge */}
+              <div className="relative w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white border-2 border-black shadow-[2px_2px_0px_#000] flex items-center justify-center p-1 shrink-0 mr-1.5 xs:mr-2.5 sm:mr-3.5 overflow-hidden z-20 transition-transform duration-200 group-hover/sign:scale-105">
+                <Image
+                  src={INSTITUTION_BANNER_ITEMS[bannerIndex].logo}
+                  alt={INSTITUTION_BANNER_ITEMS[bannerIndex].logoAlt}
+                  width={36}
+                  height={36}
+                  className="object-contain w-full h-full"
+                />
+              </div>
 
               {/* Center Slot-Reel Scrolling Container (Fixed Height & Center-Aligned) */}
-              <div className="flex-1 overflow-hidden h-full flex items-center justify-center px-0.5 xs:px-1 sm:px-2 z-10">
+              <div className="flex-1 min-w-0 overflow-hidden h-full flex items-center justify-center px-1 z-10">
                 <div
                   key={`sign-${bannerIndex}`}
-                  className={`font-['Press_Start_2P',monospace] font-black text-[8px] xs:text-[9.5px] sm:text-xs md:text-sm lg:text-[14.5px] text-black tracking-wider uppercase text-center leading-relaxed sm:leading-snug drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] flex flex-col sm:flex-row items-center justify-center ${bannerAnimState === "out" ? "animate-sign-reel-out" : "animate-sign-reel-in"
-                    }`}
+                  className={`w-full flex flex-col items-center justify-center text-center drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] ${
+                    bannerAnimState === "out" ? "animate-sign-reel-out" : "animate-sign-reel-in"
+                  }`}
                 >
-                  <span className="whitespace-nowrap">{INSTITUTION_BANNER_ITEMS[bannerIndex].line1}</span>
-                  <span className="sm:ml-1.5 whitespace-nowrap">{INSTITUTION_BANNER_ITEMS[bannerIndex].line2}</span>
+                  <div className="font-['Press_Start_2P',monospace] font-black text-[7.5px] xs:text-[9px] sm:text-[10.5px] md:text-xs lg:text-[13px] text-black tracking-tight sm:tracking-normal uppercase flex flex-col items-center justify-center gap-0.5 sm:gap-1 leading-snug w-full">
+                    <span className="whitespace-nowrap max-w-full overflow-hidden text-ellipsis">{INSTITUTION_BANNER_ITEMS[bannerIndex].line1}</span>
+                    <span className="whitespace-nowrap max-w-full overflow-hidden text-ellipsis">{INSTITUTION_BANNER_ITEMS[bannerIndex].line2}</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Right Spinning Coin */}
-              <span className="text-[14px] xs:text-base sm:text-base animate-coin-spin shrink-0 z-10 select-none">🪙</span>
+              {/* Right Symposium Gusto Logo Badge */}
+              <div className="relative w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white border-2 border-black shadow-[2px_2px_0px_#000] flex items-center justify-center p-0.5 shrink-0 ml-1.5 xs:ml-2.5 sm:ml-3.5 overflow-hidden z-20 transition-transform duration-200 group-hover/sign:scale-105">
+                <Image
+                  src="/logos/GUSTO/gradient.png"
+                  alt="GUSTO 2K26 Logo"
+                  width={36}
+                  height={36}
+                  className="object-contain w-full h-full"
+                />
+              </div>
             </div>
           </div>
 
@@ -646,7 +723,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             title="Click to see the letters jump!"
           >
             {/* Row 1: "LET" + [GAMING CONSOLE] + "THE" */}
-            <div className="flex items-center justify-center gap-1.5 xs:gap-2.5 sm:gap-6 md:gap-8 flex-nowrap animate-gusto-row1-wave w-full max-w-full px-1">
+            <div className="flex items-center justify-center gap-1 xs:gap-2 sm:gap-6 md:gap-8 flex-nowrap animate-gusto-row1-wave w-full max-w-full px-1">
               {/* "LET" */}
               <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3 shrink-0">
                 {[
@@ -657,8 +734,9 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`let-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.85rem] xs:text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
-                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[3.35rem] xs:text-[4rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${
+                      isJumping ? "animate-mario-letter-jump" : ""
+                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
@@ -674,8 +752,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                     arcadeAudio.playJump();
                   } catch { }
                 }}
-                className="relative -mt-1 sm:-mt-5 md:-mt-7 mx-0.5 xs:mx-1.5 sm:mx-4 animate-idle-wiggle cursor-pointer shrink-0 hover:scale-110 active:scale-95 transition-transform duration-200 select-none group/console z-10"
-                title="Click Console to Jump &amp; Sound!"
+                className="relative -mt-1 sm:-mt-5 md:-mt-7 mx-0.5 xs:mx-1 sm:mx-4 animate-idle-wiggle cursor-pointer shrink-0 hover:scale-110 active:scale-95 transition-transform duration-200 select-none group/console z-10"
+                title="Click Console to Jump & Sound!"
               >
                 {/* Cute speech bubble on hover */}
                 <div className="absolute -top-7 sm:-top-9 left-1/2 -translate-x-1/2 px-2 sm:px-2.5 py-0.5 sm:py-1 bg-white border-2 border-black rounded-lg shadow-[2px_2px_0px_#000] opacity-0 group-hover/console:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-30">
@@ -687,7 +765,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 <RetroGamepad
                   color="#e52521"
                   dpadColor="#ffd000"
-                  className="w-16 xs:w-22 sm:w-28 md:w-36 lg:w-44 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[5px_5px_0px_#000]"
+                  className="w-13 xs:w-18 sm:w-28 md:w-36 lg:w-44 h-auto drop-shadow-[3px_3px_0px_#000] sm:drop-shadow-[5px_5px_0px_#000]"
                 />
               </div>
 
@@ -701,8 +779,9 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`the-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 3) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.85rem] xs:text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
-                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[3.35rem] xs:text-[4rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${
+                      isJumping ? "animate-mario-letter-jump" : ""
+                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
@@ -711,7 +790,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             </div>
 
             {/* Row 2: "GUSTO BEGIN" - Well-spaced gap so title lines breathe with arcade punch */}
-            <div className="flex items-center justify-center gap-1.5 xs:gap-3 sm:gap-6 md:gap-10 flex-nowrap mt-3.5 sm:mt-10 md:mt-14 animate-gusto-row2-wave w-full max-w-full px-1">
+            <div className="flex items-center justify-center gap-4 xs:gap-6 sm:gap-8 md:gap-12 flex-nowrap mt-4.5 sm:mt-10 md:mt-14 animate-gusto-row2-wave w-full max-w-full px-1">
               <div className="inline-flex items-center gap-0.5 xs:gap-1 sm:gap-2.5 md:gap-3 shrink-0">
                 {[
                   { char: "G", color: "mario-c-red", rotate: "-rotate-3" },
@@ -723,8 +802,9 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`gusto-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 6) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.55rem] xs:text-[3.15rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
-                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.35rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${
+                      isJumping ? "animate-mario-letter-jump" : ""
+                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
@@ -742,8 +822,9 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`begin-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 11) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.55rem] xs:text-[3.15rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
-                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.7rem] xs:text-[3.35rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${
+                      isJumping ? "animate-mario-letter-jump" : ""
+                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
@@ -783,47 +864,41 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
 
           {/* === NATIONAL LEVEL TECHNICAL SYMPOSIUM BRIEFING (EXPANDED TO FIT PAGE PROPORTIONATELY WITH SCROLL REVEAL) === */}
           <div className="w-full max-w-6xl mx-auto mt-6 sm:mt-12 px-2 sm:px-4 relative z-20">
-            {/* 1. Top Continuous Moving Text Marquee Capsule - Scroll Reveal */}
+            {/* 1. Top Continuous Moving Text Marquee Capsule - White Theme Scroll Reveal */}
             <div
               ref={marqueeRef}
-              className={`w-full max-w-5xl mx-auto mb-8 sm:mb-10 rounded-full bg-white border-[3px] sm:border-[4px] border-black shadow-[5px_5px_0px_#000] sm:shadow-[8px_8px_0px_#000] py-3 sm:py-4 px-6 sm:px-8 overflow-hidden select-none hover:shadow-[10px_10px_0px_#000] hover:-translate-y-0.5 transition-all duration-300 scroll-reveal ${marqueeInView ? "is-visible" : ""
-                }`}
+              className={`w-full max-w-5xl mx-auto mb-8 sm:mb-10 rounded-2xl sm:rounded-full bg-white border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[8px_8px_0px_#000] py-2 sm:py-2.5 px-3 sm:px-4 overflow-hidden select-none hover:shadow-[10px_10px_0px_#000] hover:-translate-y-0.5 transition-all duration-300 relative group scroll-reveal flex items-center ${
+                marqueeInView ? "is-visible" : ""
+              }`}
             >
-              <div className="flex w-max animate-marquee">
-                <span className="font-['Chakra_Petch',sans-serif] font-black text-sm sm:text-lg md:text-xl text-[#3b0764] tracking-wider uppercase flex items-center gap-5 sm:gap-6 pr-8">
-                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500 inline shrink-0 animate-spin [animation-duration:4s]" />
-                  <span>NATIONAL LEVEL TECHNICAL SYMPOSIUM</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-[#ec4899]">MARCH 06, 2026</span>
-                  <span className="text-zinc-400">•</span>
-                  <span>GCEE ERODE</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-[#65a30d]">DEPARTMENT OF IT</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-[#2563eb]">9 COMPETITIONS</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-[#d97706]">CASH PRIZES &amp; CERTIFICATES</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-[#ec4899]">REGISTER NOW (₹250)</span>
-                  <span className="text-zinc-400">•</span>
-                </span>
-                <span className="font-['Chakra_Petch',sans-serif] font-black text-sm sm:text-lg md:text-xl text-[#3b0764] tracking-wider uppercase flex items-center gap-5 sm:gap-6 pr-8" aria-hidden="true">
-                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-amber-500 inline shrink-0 animate-spin [animation-duration:4s]" />
-                  <span>NATIONAL LEVEL TECHNICAL SYMPOSIUM</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-[#ec4899]">MARCH 06, 2026</span>
-                  <span className="text-zinc-400">•</span>
-                  <span>GCEE ERODE</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-[#65a30d]">DEPARTMENT OF IT</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-[#2563eb]">9 COMPETITIONS</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-[#d97706]">CASH PRIZES &amp; CERTIFICATES</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-[#ec4899]">REGISTER NOW (₹250)</span>
-                  <span className="text-zinc-400">•</span>
-                </span>
+              {/* Edge Gradient Faders for Smooth Ticker Fade */}
+              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-white to-transparent z-10" />
+              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-white to-transparent z-10" />
+
+              {/* Ticker Content Wrapper */}
+              <div className="flex-1 overflow-hidden">
+                <div className="flex w-max animate-marquee items-center">
+                  {[1, 2].map((loop) => (
+                    <div key={`marquee-loop-${loop}`} className="flex items-center gap-3.5 sm:gap-5 pr-3.5 sm:pr-5">
+                      {MARQUEE_TICKER_ITEMS.map((item, idx) => {
+                        const IconComponent = item.icon;
+                        return (
+                          <div key={`m-item-${loop}-${idx}`} className="flex items-center gap-3.5 sm:gap-5">
+                            <span
+                              className={`inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full border-[1.5px] ${item.badgeColor} font-['Chakra_Petch',sans-serif] font-bold text-xs sm:text-[13px] tracking-wider uppercase whitespace-nowrap shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-colors`}
+                            >
+                              <IconComponent className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${item.iconColor} shrink-0`} />
+                              <span>{item.label}</span>
+                            </span>
+                            <span className="text-black/35 text-[10px] sm:text-xs select-none">
+                              ◆
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 

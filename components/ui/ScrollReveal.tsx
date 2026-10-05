@@ -43,41 +43,41 @@ interface ScrollRevealProps {
 
 // The hidden (before reveal) styles for each variant
 const hiddenStyles: Record<RevealVariant, CSSProperties> = {
-  "platform-drop":  { opacity: 0, transform: "translateY(-80px) scaleY(0.7)", transformOrigin: "top center" },
-  "rise-up":        { opacity: 0, transform: "translateY(90px) scale(0.92)"  },
-  "slide-left":     { opacity: 0, transform: "translateX(100px)"             },
-  "slide-right":    { opacity: 0, transform: "translateX(-100px)"            },
-  "pixel-pop":      { opacity: 0, transform: "scale(0.4) rotate(-6deg)"      },
-  "flip-in":        { opacity: 0, transform: "perspective(600px) rotateX(60deg)", transformOrigin: "top center" },
-  "glitch-in":      { opacity: 0, transform: "translateX(-18px) skewX(-6deg)" },
-  "stagger-grid":   { opacity: 0, transform: "translateY(50px) scale(0.95)"  },
-  "fade-up":        { opacity: 0, transform: "translateY(36px)"              },
+  "platform-drop": { opacity: 0, transform: "translateY(-80px) scaleY(0.7)", transformOrigin: "top center" },
+  "rise-up": { opacity: 0, transform: "translateY(90px) scale(0.92)" },
+  "slide-left": { opacity: 0, transform: "translateX(100px)" },
+  "slide-right": { opacity: 0, transform: "translateX(-100px)" },
+  "pixel-pop": { opacity: 0, transform: "scale(0.4) rotate(-6deg)" },
+  "flip-in": { opacity: 0, transform: "perspective(600px) rotateX(60deg)", transformOrigin: "top center" },
+  "glitch-in": { opacity: 0, transform: "translateX(-18px) skewX(-6deg)" },
+  "stagger-grid": { opacity: 0, transform: "translateY(50px) scale(0.95)" },
+  "fade-up": { opacity: 0, transform: "translateY(36px)" },
 };
 
 // The visible (after reveal) styles for each variant
 const visibleStyles: Record<RevealVariant, CSSProperties> = {
-  "platform-drop":  { opacity: 1, transform: "translateY(0) scaleY(1)"                          },
-  "rise-up":        { opacity: 1, transform: "translateY(0) scale(1)"                           },
-  "slide-left":     { opacity: 1, transform: "translateX(0)"                                    },
-  "slide-right":    { opacity: 1, transform: "translateX(0)"                                    },
-  "pixel-pop":      { opacity: 1, transform: "scale(1) rotate(0deg)"                            },
-  "flip-in":        { opacity: 1, transform: "perspective(600px) rotateX(0deg)"                 },
-  "glitch-in":      { opacity: 1, transform: "translateX(0) skewX(0deg)"                        },
-  "stagger-grid":   { opacity: 1, transform: "translateY(0) scale(1)"                           },
-  "fade-up":        { opacity: 1, transform: "translateY(0)"                                    },
+  "platform-drop": { opacity: 1, transform: "translateY(0) scaleY(1)" },
+  "rise-up": { opacity: 1, transform: "translateY(0) scale(1)" },
+  "slide-left": { opacity: 1, transform: "translateX(0)" },
+  "slide-right": { opacity: 1, transform: "translateX(0)" },
+  "pixel-pop": { opacity: 1, transform: "scale(1) rotate(0deg)" },
+  "flip-in": { opacity: 1, transform: "perspective(600px) rotateX(0deg)" },
+  "glitch-in": { opacity: 1, transform: "translateX(0) skewX(0deg)" },
+  "stagger-grid": { opacity: 1, transform: "translateY(0) scale(1)" },
+  "fade-up": { opacity: 1, transform: "translateY(0)" },
 };
 
 // Per-variant easing and duration multipliers
 const timingMap: Record<RevealVariant, { easing: string; durationScale: number }> = {
   "platform-drop": { easing: "cubic-bezier(0.34, 1.56, 0.64, 1)", durationScale: 1.1 },
-  "rise-up":       { easing: "cubic-bezier(0.22, 1, 0.36, 1)",     durationScale: 1.0 },
-  "slide-left":    { easing: "cubic-bezier(0.22, 1, 0.36, 1)",     durationScale: 0.9 },
-  "slide-right":   { easing: "cubic-bezier(0.22, 1, 0.36, 1)",     durationScale: 0.9 },
-  "pixel-pop":     { easing: "cubic-bezier(0.34, 1.72, 0.64, 1)",  durationScale: 0.85},
-  "flip-in":       { easing: "cubic-bezier(0.25, 1, 0.5, 1)",      durationScale: 1.0 },
-  "glitch-in":     { easing: "cubic-bezier(0.16, 1, 0.3, 1)",      durationScale: 0.7 },
-  "stagger-grid":  { easing: "cubic-bezier(0.22, 1, 0.36, 1)",     durationScale: 0.9 },
-  "fade-up":       { easing: "cubic-bezier(0.22, 1, 0.36, 1)",     durationScale: 1.0 },
+  "rise-up": { easing: "cubic-bezier(0.22, 1, 0.36, 1)", durationScale: 1.0 },
+  "slide-left": { easing: "cubic-bezier(0.22, 1, 0.36, 1)", durationScale: 0.9 },
+  "slide-right": { easing: "cubic-bezier(0.22, 1, 0.36, 1)", durationScale: 0.9 },
+  "pixel-pop": { easing: "cubic-bezier(0.34, 1.72, 0.64, 1)", durationScale: 0.85 },
+  "flip-in": { easing: "cubic-bezier(0.25, 1, 0.5, 1)", durationScale: 1.0 },
+  "glitch-in": { easing: "cubic-bezier(0.16, 1, 0.3, 1)", durationScale: 0.7 },
+  "stagger-grid": { easing: "cubic-bezier(0.22, 1, 0.36, 1)", durationScale: 0.9 },
+  "fade-up": { easing: "cubic-bezier(0.22, 1, 0.36, 1)", durationScale: 1.0 },
 };
 
 export function ScrollReveal({

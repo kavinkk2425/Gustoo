@@ -135,9 +135,8 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.name)}
-                className={`button button-item nav-bubble-btn flex-1 max-w-[170px] ${
-                  isActive ? "is-active" : ""
-                }`}
+                className={`button button-item nav-bubble-btn flex-1 max-w-[170px] ${isActive ? "is-active" : ""
+                  }`}
                 title={link.name}
               >
                 <span className="button-bg">
@@ -289,9 +288,8 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.name, true)}
-                  className={`button button-item nav-bubble-btn nav-bubble-btn-mobile ${
-                    isActive ? "is-active" : ""
-                  }`}
+                  className={`button button-item nav-bubble-btn nav-bubble-btn-mobile ${isActive ? "is-active" : ""
+                    }`}
                 >
                   <span className="button-bg">
                     <span className="button-bg-layers">

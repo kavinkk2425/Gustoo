@@ -322,10 +322,10 @@ export function RegisterModal({
                         key={event.id}
                         onClick={() => toggleEvent(event.id, event.isSlotsFull)}
                         className={`flex items-center justify-between p-2 rounded-lg text-xs font-bold cursor-pointer transition-colors ${event.isSlotsFull
-                            ? "opacity-50 cursor-not-allowed bg-red-100"
-                            : isSelected
-                              ? "bg-[#ec4899] text-white border border-black shadow-[2px_2px_0px_#000]"
-                              : "bg-white hover:bg-zinc-100 text-black border border-black"
+                          ? "opacity-50 cursor-not-allowed bg-red-100"
+                          : isSelected
+                            ? "bg-[#ec4899] text-white border border-black shadow-[2px_2px_0px_#000]"
+                            : "bg-white hover:bg-zinc-100 text-black border border-black"
                           }`}
                       >
                         <div className="flex items-center gap-2 truncate">
