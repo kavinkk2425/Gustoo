@@ -109,40 +109,58 @@ export function Footer() {
             <h4 className="text-sm font-black uppercase tracking-wider text-[#84cc16]">
               ★ Student Leads
             </h4>
-            <div className="space-y-3 text-xs font-bold">
+            <div className="space-y-3.5 text-xs">
               <div>
-                <p className="text-pink-300 text-[11px] uppercase">Secretaries</p>
-                {secretaries.map((sec) => (
-                  <div key={sec.id} className="mt-1 flex items-center justify-between text-zinc-200">
-                    <span className="font-black text-white">{sec.name}</span>
-                    <a href={`tel:${sec.phone}`} className="text-[#fde047] hover:underline flex items-center gap-1">
-                      <Phone className="w-3 h-3" />
-                      {sec.phone}
-                    </a>
-                  </div>
-                ))}
+                <p className="text-pink-300 text-[11px] font-black uppercase tracking-wider mb-2">
+                  Secretaries
+                </p>
+                <div className="space-y-2.5">
+                  {secretaries.map((sec) => (
+                    <div key={sec.id} className="flex flex-col">
+                      <span className="font-black text-white text-xs tracking-tight">
+                        {sec.name}
+                      </span>
+                      <a
+                        href={`tel:${sec.phone}`}
+                        className="text-[#fde047] hover:underline inline-flex items-center gap-1.5 font-mono text-[11px] font-bold mt-0.5"
+                      >
+                        <Phone className="w-3 h-3 text-[#84cc16] shrink-0" />
+                        <span>{sec.phone}</span>
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="pt-2 border-t border-white/10">
-                <p className="text-pink-300 text-[11px] uppercase">Registration Desks</p>
-                {regCoordinators.map((reg) => (
-                  <div key={reg.id} className="mt-1 flex items-center justify-between text-zinc-200">
-                    <span className="font-black text-white">{reg.name}</span>
-                    <a href={`tel:${reg.phone}`} className="text-[#fde047] hover:underline flex items-center gap-1">
-                      <Phone className="w-3 h-3" />
-                      {reg.phone}
-                    </a>
-                  </div>
-                ))}
+              <div className="pt-2.5 border-t border-white/10">
+                <p className="text-pink-300 text-[11px] font-black uppercase tracking-wider mb-2">
+                  Registration Desks
+                </p>
+                <div className="space-y-2.5">
+                  {regCoordinators.map((reg) => (
+                    <div key={reg.id} className="flex flex-col">
+                      <span className="font-black text-white text-xs tracking-tight">
+                        {reg.name}
+                      </span>
+                      <a
+                        href={`tel:${reg.phone}`}
+                        className="text-[#fde047] hover:underline inline-flex items-center gap-1.5 font-mono text-[11px] font-bold mt-0.5"
+                      >
+                        <Phone className="w-3 h-3 text-[#84cc16] shrink-0" />
+                        <span>{reg.phone}</span>
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="pt-2 border-t border-white/10">
+              <div className="pt-2.5 border-t border-white/10">
                 <a
                   href={`mailto:${ABOUT_DATA.contactEmail}`}
-                  className="flex items-center gap-2 text-[#fde047] hover:underline"
+                  className="inline-flex items-center gap-2 text-[#fde047] hover:underline text-xs font-bold"
                 >
-                  <Mail className="w-3.5 h-3.5" />
-                  <span>{ABOUT_DATA.contactEmail}</span>
+                  <Mail className="w-3.5 h-3.5 shrink-0" />
+                  <span className="break-all">{ABOUT_DATA.contactEmail}</span>
                 </a>
               </div>
             </div>

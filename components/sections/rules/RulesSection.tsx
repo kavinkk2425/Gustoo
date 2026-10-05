@@ -14,6 +14,9 @@ import {
   Sparkles,
   Gamepad2,
   ShieldAlert,
+  ChevronDown,
+  ChevronUp,
+  BookOpen,
 } from "lucide-react";
 
 interface RulesSectionProps {
@@ -25,6 +28,7 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
   const [activeEventId, setActiveEventId] = useState<string>(
     selectedEventId || GUSTO_EVENTS[0]?.id || ""
   );
+  const [showDetailedContent, setShowDetailedContent] = useState(false);
   const [letterAnimationKey, setLetterAnimationKey] = useState(0);
   const [isJumping, setIsJumping] = useState(false);
 
@@ -32,6 +36,16 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
     setLetterAnimationKey((prev) => prev + 1);
     setIsJumping(true);
   };
+
+  useEffect(() => {
+    if (selectedEventId) {
+      setActiveEventId(selectedEventId);
+    }
+  }, [selectedEventId]);
+
+  useEffect(() => {
+    setShowDetailedContent(false);
+  }, [activeEventId]);
 
   useEffect(() => {
     if (isJumping) {
@@ -93,9 +107,8 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                   <span
                     key={`ev-rule-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 55}ms` }}
-                    className={`inline-block text-[#3b0764] ${
-                      isJumping ? "animate-purple-jump" : ""
-                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`inline-block text-[#3b0764] ${isJumping ? "animate-purple-jump" : ""
+                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
                   >
                     {letter}
                   </span>
@@ -108,9 +121,8 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                   <span
                     key={`rules-w-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 5) * 55}ms` }}
-                    className={`inline-block text-[#84cc16] [-webkit-text-stroke:2px_#000] drop-shadow-[2px_2px_0px_#000] ${
-                      isJumping ? "animate-lime-jump" : ""
-                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`inline-block text-[#84cc16] [-webkit-text-stroke:2px_#000] drop-shadow-[2px_2px_0px_#000] ${isJumping ? "animate-lime-jump" : ""
+                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
                   >
                     {letter}
                   </span>
@@ -134,8 +146,8 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                   key={event.id}
                   onClick={() => setActiveEventId(event.id)}
                   className={`neo-btn px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl text-xs font-black uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-2 cursor-pointer ${isActive
-                      ? "bg-[#3b0764] text-white shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] scale-102"
-                      : "bg-white text-black hover:bg-zinc-100"
+                    ? "bg-[#3b0764] text-white shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] scale-102"
+                    : "bg-white text-black hover:bg-zinc-100"
                     }`}
                 >
                   <span
@@ -157,8 +169,8 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
               <div className="flex flex-wrap items-center gap-2 mb-2">
                 <span
                   className={`px-3 py-1 rounded-xl text-xs font-black uppercase tracking-wider border-2 border-black ${activeEvent.category === "Technical"
-                      ? "bg-[#84cc16] text-black"
-                      : "bg-[#ec4899] text-white"
+                    ? "bg-[#84cc16] text-black"
+                    : "bg-[#ec4899] text-white"
                     }`}
                 >
                   {activeEvent.category} Event
@@ -223,7 +235,12 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                       <ul className="space-y-2">
                         {(activeEvent.rules as { round1: EventRuleRound }).round1.rules.map(
                           (rule, idx) => (
-                            <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-black">
+                            <li
+                              key={idx}
+                              className={`items-start gap-2.5 text-xs sm:text-sm font-bold text-black ${
+                                !showDetailedContent && idx >= 2 ? "hidden sm:flex" : "flex"
+                              }`}
+                            >
                               <span className="text-[#ec4899] font-black">•</span>
                               <span className="leading-relaxed">{rule}</span>
                             </li>
@@ -233,10 +250,31 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                     </div>
                   )}
 
-                {/* Round 2 */}
+                {/* Round 2 Preview Pill (Mobile when collapsed) */}
+                {"round2" in (activeEvent.rules as object) &&
+                  (activeEvent.rules as { round2?: EventRuleRound }).round2 &&
+                  !showDetailedContent && (
+                    <div className="sm:hidden p-3.5 rounded-xl bg-[#84cc16]/15 border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#84cc16] border border-black" />
+                        <span className="text-xs font-black uppercase text-[#3b0764]">
+                          {(activeEvent.rules as { round2: EventRuleRound }).round2.title}
+                        </span>
+                      </div>
+                      <span className="text-[10px] font-black bg-white px-2 py-0.5 rounded-md border border-black text-black">
+                        {(activeEvent.rules as { round2: EventRuleRound }).round2.rules?.length || 0} rules
+                      </span>
+                    </div>
+                  )}
+
+                {/* Round 2 Full Details */}
                 {"round2" in (activeEvent.rules as object) &&
                   (activeEvent.rules as { round2?: EventRuleRound }).round2 && (
-                    <div className="p-3.5 xs:p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#84cc16]/15 border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] sm:shadow-[4px_4px_0px_#000]">
+                    <div
+                      className={`p-3.5 xs:p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#84cc16]/15 border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] ${
+                        !showDetailedContent ? "hidden sm:block" : "block"
+                      }`}
+                    >
                       <div className="flex items-center gap-2 mb-2">
                         <span className="w-3 h-3 rounded-full bg-[#84cc16] border border-black" />
                         <h4 className="text-base sm:text-lg font-black text-[#3b0764] uppercase">
@@ -261,10 +299,31 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                     </div>
                   )}
 
-                {/* General Guidelines */}
+                {/* General Guidelines Preview Pill (Mobile when collapsed) */}
+                {"general" in (activeEvent.rules as object) &&
+                  (activeEvent.rules as { general?: { title: string; rules: string[] } }).general &&
+                  !showDetailedContent && (
+                    <div className="sm:hidden p-3.5 rounded-xl bg-[#fde047]/40 border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
+                      <div className="flex items-center gap-2">
+                        <ShieldAlert className="w-4 h-4 text-[#3b0764]" />
+                        <span className="text-xs font-black uppercase text-black">
+                          {(activeEvent.rules as { general: { title: string; rules: string[] } }).general.title}
+                        </span>
+                      </div>
+                      <span className="text-[10px] font-black bg-white px-2 py-0.5 rounded-md border border-black text-black">
+                        {(activeEvent.rules as { general: { title: string; rules: string[] } }).general.rules?.length || 0} guidelines
+                      </span>
+                    </div>
+                  )}
+
+                {/* General Guidelines Full Details */}
                 {"general" in (activeEvent.rules as object) &&
                   (activeEvent.rules as { general?: { title: string; rules: string[] } }).general && (
-                    <div className="p-3.5 xs:p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#fde047]/40 border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] sm:shadow-[4px_4px_0px_#000]">
+                    <div
+                      className={`p-3.5 xs:p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-[#fde047]/40 border-[3px] border-black shadow-[3.5px_3.5px_0px_#000] sm:shadow-[4px_4px_0px_#000] ${
+                        !showDetailedContent ? "hidden sm:block" : "block"
+                      }`}
+                    >
                       <h4 className="text-base font-black text-black mb-3 flex items-center gap-2 uppercase">
                         <ShieldAlert className="w-5 h-5 text-[#3b0764]" />
                         <span>
@@ -285,16 +344,18 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                   )}
               </div>
             ) : (
-              <div className="p-6 rounded-2xl bg-zinc-50 border-[3px] border-black shadow-[4px_4px_0px_#000]">
-                <h4 className="text-base font-black text-[#3b0764] mb-4 flex items-center gap-2 uppercase">
+              <div className="p-4 sm:p-6 rounded-2xl bg-zinc-50 border-[3px] border-black shadow-[4px_4px_0px_#000]">
+                <h4 className="text-sm sm:text-base font-black text-[#3b0764] mb-4 flex items-center gap-2 uppercase">
                   <FileText className="w-4 h-4 text-black" />
-                  <span>Official Regulations & Submission Guidelines</span>
+                  <span>Official Regulations &amp; Submission Guidelines</span>
                 </h4>
                 <div className="space-y-2.5">
                   {(activeEvent.rules as string[]).map((rule, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 p-3 rounded-xl bg-white border-2 border-black"
+                      className={`items-start gap-3 p-3 rounded-xl bg-white border-2 border-black ${
+                        !showDetailedContent && idx >= 3 ? "hidden sm:flex" : "flex"
+                      }`}
                     >
                       <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-[#3b0764] text-white font-mono text-xs font-black shrink-0 mt-0.5">
                         {idx + 1}
@@ -307,6 +368,32 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
                 </div>
               </div>
             )}
+
+            {/* Mobile Expand / Collapse Trigger */}
+            <div className="sm:hidden mt-5">
+              {!showDetailedContent ? (
+                <button
+                  onClick={() => setShowDetailedContent(true)}
+                  className="neo-btn w-full py-3.5 px-4 rounded-2xl bg-[#fde047] hover:bg-[#facc15] border-[3px] border-black text-black font-black uppercase text-xs tracking-wider shadow-[4px_4px_0px_#000] flex items-center justify-center gap-2 cursor-pointer transition-all active:translate-y-1 active:shadow-[1px_1px_0px_#000]"
+                >
+                  <BookOpen className="w-4 h-4 text-black" />
+                  <span>Click to Show All Detailed Content</span>
+                  <ChevronDown className="w-4 h-4 text-black stroke-[3]" />
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setShowDetailedContent(false);
+                    const el = document.getElementById("rules");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="neo-btn w-full py-2.5 px-4 rounded-xl bg-white hover:bg-zinc-100 border-[2.5px] border-black text-black font-black uppercase text-xs tracking-wider shadow-[3px_3px_0px_#000] flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Hide Detailed Content (Show Compact View)</span>
+                  <ChevronUp className="w-4 h-4 text-black stroke-[3]" />
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Coordinators Bar */}

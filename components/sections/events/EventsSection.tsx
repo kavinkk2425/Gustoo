@@ -16,6 +16,8 @@ import {
   Search,
   ArrowRight,
   Flame,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 interface EventsSectionProps {
@@ -32,6 +34,8 @@ export function EventsSection({
   const [selectedCategory, setSelectedCategory] = useState<"All" | "Technical" | "Non-Technical">("All");
   const [localSearch, setLocalSearch] = useState("");
   const [selectedType, setSelectedType] = useState<string>("All");
+  const [showAllEvents, setShowAllEvents] = useState(false);
+  const [selectedEventId, setSelectedEventId] = useState<string>("all");
   const [letterAnimationKey, setLetterAnimationKey] = useState(0);
   const [isJumping, setIsJumping] = useState(false);
 
@@ -66,6 +70,21 @@ export function EventsSection({
     return matchesCategory && matchesType && matchesSearch;
   });
 
+  const effectiveEvents = filteredEvents.filter((event) => {
+    if (selectedEventId !== "all") {
+      return event.id === selectedEventId;
+    }
+    return true;
+  });
+
+  const isSearchOrFilterActive = effectiveSearch.trim() !== "" || selectedCategory !== "All" || selectedType !== "All";
+
+  // Show 3 events first unless expanded or search/filter or specific event picked
+  const displayedEvents =
+    showAllEvents || selectedEventId !== "all" || isSearchOrFilterActive
+      ? effectiveEvents
+      : effectiveEvents.slice(0, 3);
+
   const techCount = GUSTO_EVENTS.filter((e) => e.category === "Technical").length;
   const nonTechCount = GUSTO_EVENTS.filter((e) => e.category === "Non-Technical").length;
 
@@ -93,9 +112,8 @@ export function EventsSection({
                   <span
                     key={`symp-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 55}ms` }}
-                    className={`inline-block text-[#3b0764] ${
-                      isJumping ? "animate-purple-jump" : ""
-                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`inline-block text-[#3b0764] ${isJumping ? "animate-purple-jump" : ""
+                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
                   >
                     {letter}
                   </span>
@@ -108,9 +126,8 @@ export function EventsSection({
                   <span
                     key={`events-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 9) * 55}ms` }}
-                    className={`inline-block text-[#ec4899] drop-shadow-[2px_2px_0px_#000] ${
-                      isJumping ? "animate-pink-jump" : ""
-                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`inline-block text-[#ec4899] drop-shadow-[2px_2px_0px_#000] ${isJumping ? "animate-pink-jump" : ""
+                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
                   >
                     {letter}
                   </span>
@@ -130,31 +147,28 @@ export function EventsSection({
           <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
             <button
               onClick={() => setSelectedCategory("All")}
-              className={`neo-btn px-4 py-2 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider whitespace-nowrap cursor-pointer ${
-                selectedCategory === "All"
-                  ? "bg-[#3b0764] text-white shadow-[3px_3px_0px_#000]"
-                  : "bg-white text-black hover:bg-zinc-100"
-              }`}
+              className={`neo-btn px-4 py-2 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider whitespace-nowrap cursor-pointer ${selectedCategory === "All"
+                ? "bg-[#3b0764] text-white shadow-[3px_3px_0px_#000]"
+                : "bg-white text-black hover:bg-zinc-100"
+                }`}
             >
               All Events ({GUSTO_EVENTS.length})
             </button>
             <button
               onClick={() => setSelectedCategory("Technical")}
-              className={`neo-btn px-4 py-2 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider whitespace-nowrap cursor-pointer ${
-                selectedCategory === "Technical"
-                  ? "bg-[#84cc16] text-black shadow-[3px_3px_0px_#000]"
-                  : "bg-white text-black hover:bg-zinc-100"
-              }`}
+              className={`neo-btn px-4 py-2 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider whitespace-nowrap cursor-pointer ${selectedCategory === "Technical"
+                ? "bg-[#84cc16] text-black shadow-[3px_3px_0px_#000]"
+                : "bg-white text-black hover:bg-zinc-100"
+                }`}
             >
               Technical ({techCount})
             </button>
             <button
               onClick={() => setSelectedCategory("Non-Technical")}
-              className={`neo-btn px-4 py-2 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider whitespace-nowrap cursor-pointer ${
-                selectedCategory === "Non-Technical"
-                  ? "bg-[#ec4899] text-white shadow-[3px_3px_0px_#000]"
-                  : "bg-white text-black hover:bg-zinc-100"
-              }`}
+              className={`neo-btn px-4 py-2 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider whitespace-nowrap cursor-pointer ${selectedCategory === "Non-Technical"
+                ? "bg-[#ec4899] text-white shadow-[3px_3px_0px_#000]"
+                : "bg-white text-black hover:bg-zinc-100"
+                }`}
             >
               Non-Technical ({nonTechCount})
             </button>
@@ -195,9 +209,8 @@ export function EventsSection({
             >
               {/* Event Header Ribbon */}
               <div
-                className={`px-4 py-2 border-b-[3px] border-black flex items-center justify-between ${
-                  event.category === "Technical" ? "bg-[#84cc16]" : "bg-[#ec4899]"
-                }`}
+                className={`px-4 py-2 border-b-[3px] border-black flex items-center justify-between ${event.category === "Technical" ? "bg-[#84cc16]" : "bg-[#ec4899]"
+                  }`}
               >
                 <span className="text-xs font-black uppercase tracking-wider text-black">
                   {event.category}
@@ -346,6 +359,52 @@ export function EventsSection({
             </div>
           ))}
         </div>
+
+        {/* Expand / View All Events Controls */}
+        {!showAllEvents && selectedEventId === "all" && !isSearchOrFilterActive && effectiveEvents.length > 3 && (
+          <div className="mt-10 sm:mt-12 flex flex-col items-center justify-center gap-3">
+            <button
+              onClick={() => setShowAllEvents(true)}
+              className="neo-btn px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-[#fde047] hover:bg-[#facc15] border-[3.5px] border-black text-black font-black uppercase text-xs sm:text-sm tracking-wider shadow-[5px_5px_0px_#000] hover:shadow-[7px_7px_0px_#000] flex items-center gap-2.5 cursor-pointer transition-all active:translate-y-1 active:shadow-[2px_2px_0px_#000]"
+            >
+              <span>View All {effectiveEvents.length} Events ({effectiveEvents.length - 3} More)</span>
+              <ChevronDown className="w-4 h-4 text-black stroke-[3]" />
+            </button>
+            <span className="text-xs font-bold text-zinc-600">
+              Showing first 3 featured events • Expand or select from dropdown to see all
+            </span>
+          </div>
+        )}
+
+        {showAllEvents && selectedEventId === "all" && !isSearchOrFilterActive && (
+          <div className="mt-10 sm:mt-12 flex flex-col items-center justify-center gap-3">
+            <button
+              onClick={() => {
+                setShowAllEvents(false);
+                const el = document.getElementById("events");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="neo-btn px-6 py-3 rounded-2xl bg-white hover:bg-zinc-100 border-[3px] border-black text-black font-black uppercase text-xs tracking-wider shadow-[4px_4px_0px_#000] flex items-center gap-2 cursor-pointer"
+            >
+              <span>Show First 3 Events Only</span>
+              <ChevronUp className="w-4 h-4 text-black stroke-[3]" />
+            </button>
+          </div>
+        )}
+
+        {selectedEventId !== "all" && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => {
+                setSelectedEventId("all");
+                setShowAllEvents(false);
+              }}
+              className="neo-btn px-5 py-2.5 rounded-xl bg-white border-2 border-black text-xs font-black text-black shadow-[3px_3px_0px_#000] hover:bg-zinc-100 flex items-center gap-2 cursor-pointer"
+            >
+              <span>Clear Filter (Show First 3 Events)</span>
+            </button>
+          </div>
+        )}
 
         {filteredEvents.length === 0 && (
           <div className="text-center py-12">

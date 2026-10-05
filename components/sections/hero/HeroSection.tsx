@@ -692,9 +692,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               <div className="flex-1 min-w-0 overflow-hidden h-full flex items-center justify-center px-0.5 xs:px-1 z-10">
                 <div
                   key={`sign-${bannerIndex}`}
-                  className={`w-full flex flex-col items-center justify-center text-center drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] ${
-                    bannerAnimState === "out" ? "animate-sign-reel-out" : "animate-sign-reel-in"
-                  }`}
+                  className={`w-full flex flex-col items-center justify-center text-center drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] ${bannerAnimState === "out" ? "animate-sign-reel-out" : "animate-sign-reel-in"
+                    }`}
                 >
                   <div className="font-['Press_Start_2P',monospace] font-black text-[6.5px] xxs:text-[7.5px] xs:text-[9px] sm:text-[10.5px] md:text-xs lg:text-[13px] text-black tracking-tight sm:tracking-normal uppercase flex flex-col items-center justify-center gap-0.5 sm:gap-1 leading-snug w-full">
                     <span className="whitespace-nowrap max-w-full overflow-hidden text-ellipsis">{INSTITUTION_BANNER_ITEMS[bannerIndex].line1}</span>
@@ -734,9 +733,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`let-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.25rem] xxs:text-[2.65rem] xs:text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${
-                      isJumping ? "animate-mario-letter-jump" : ""
-                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.25rem] xxs:text-[2.65rem] xs:text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
@@ -779,9 +777,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`the-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 3) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.25rem] xxs:text-[2.65rem] xs:text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${
-                      isJumping ? "animate-mario-letter-jump" : ""
-                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[2.25rem] xxs:text-[2.65rem] xs:text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
@@ -802,9 +799,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`gusto-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 6) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.85rem] xxs:text-[2.25rem] xs:text-[2.95rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${
-                      isJumping ? "animate-mario-letter-jump" : ""
-                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.85rem] xxs:text-[2.25rem] xs:text-[2.95rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
@@ -822,9 +818,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   <span
                     key={`begin-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 11) * 60}ms` }}
-                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.85rem] xxs:text-[2.25rem] xs:text-[2.95rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${
-                      isJumping ? "animate-mario-letter-jump" : ""
-                    } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
+                    className={`mario-letter-span ${item.color} ${item.rotate} text-[1.85rem] xxs:text-[2.25rem] xs:text-[2.95rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] ${isJumping ? "animate-mario-letter-jump" : ""
+                      } hover:-translate-y-2 hover:scale-105 transition-transform duration-150`}
                   >
                     {item.char}
                   </span>
@@ -867,9 +862,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* 1. Top Continuous Moving Text Marquee Capsule - White Theme Scroll Reveal */}
             <div
               ref={marqueeRef}
-              className={`w-full max-w-5xl mx-auto mb-8 sm:mb-10 rounded-2xl sm:rounded-full bg-white border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[8px_8px_0px_#000] py-2 sm:py-2.5 px-3 sm:px-4 overflow-hidden select-none hover:shadow-[10px_10px_0px_#000] hover:-translate-y-0.5 transition-all duration-300 relative group scroll-reveal flex items-center ${
-                marqueeInView ? "is-visible" : ""
-              }`}
+              className={`w-full max-w-5xl mx-auto mb-8 sm:mb-10 rounded-2xl sm:rounded-full bg-white border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[8px_8px_0px_#000] py-2 sm:py-2.5 px-3 sm:px-4 overflow-hidden select-none hover:shadow-[10px_10px_0px_#000] hover:-translate-y-0.5 transition-all duration-300 relative group scroll-reveal flex items-center ${marqueeInView ? "is-visible" : ""
+                }`}
             >
               {/* Edge Gradient Faders for Smooth Ticker Fade */}
               <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-white to-transparent z-10" />
@@ -910,9 +904,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               {/* Mario Block 01: Event Date (Golden Coin & Star Block) */}
               <div
                 style={{ transitionDelay: statsInView ? "0ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#ffd000] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${
-                  statsInView ? "is-visible" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#ffd000] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${statsInView ? "is-visible" : ""
+                  }`}
               >
                 {/* 4 Corner Mario Block Rivet Screws */}
                 <div className="absolute top-1.5 left-1.5 xs:top-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#804000] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
@@ -960,9 +953,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               {/* Mario Block 02: Reg. Last Date (Fire Flower Coral Block) */}
               <div
                 style={{ transitionDelay: statsInView ? "120ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#ff5b5b] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${
-                  statsInView ? "is-visible" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#ff5b5b] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${statsInView ? "is-visible" : ""
+                  }`}
               >
                 {/* 4 Corner Mario Block Rivet Screws */}
                 <div className="absolute top-1.5 left-1.5 xs:top-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#7f1d1d] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
@@ -1010,9 +1002,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               {/* Mario Block 03: Competitions (Electric Aqua Ice Flower Block) */}
               <div
                 style={{ transitionDelay: statsInView ? "240ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#00d8f8] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${
-                  statsInView ? "is-visible" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#00d8f8] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${statsInView ? "is-visible" : ""
+                  }`}
               >
                 {/* 4 Corner Mario Block Rivet Screws */}
                 <div className="absolute top-1.5 left-1.5 xs:top-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#0369a1] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
@@ -1060,9 +1051,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               {/* Mario Block 04: Campus Venue (1-UP Emerald Green Block) */}
               <div
                 style={{ transitionDelay: statsInView ? "360ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#34d399] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${
-                  statsInView ? "is-visible" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#34d399] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${statsInView ? "is-visible" : ""
+                  }`}
               >
                 {/* 4 Corner Mario Block Rivet Screws */}
                 <div className="absolute top-1.5 left-1.5 xs:top-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#065f46] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />

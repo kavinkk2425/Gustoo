@@ -54,15 +54,10 @@ export default function Home() {
         {/* ── HERO — no reveal (always visible on load) ── */}
         <HeroSection onOpenRegister={() => setRegisterOpen(true)} />
 
-        {/* ── ABOUT — platform drops in from above ── */}
-        <ScrollReveal variant="platform-drop" threshold={0.08}>
-          <AboutSection />
-        </ScrollReveal>
-
         {/* Level-up text divider */}
         <SectionDivider variant="level-up" />
 
-        {/* ── EVENTS — slides in from right (like a side-scrolling level) ── */}
+        {/* ── EVENTS — slides in from right (like a side-scrolling level) — First! ── */}
         <ScrollReveal variant="slide-left" threshold={0.06}>
           <EventsSection
             onSelectEventForRules={handleSelectEventForRules}
@@ -100,6 +95,14 @@ export default function Home() {
 
         {/* Warp divider */}
         <SectionDivider variant="warp" />
+
+        {/* ── ABOUT — platform drops in from above (placed right above contact) ── */}
+        <ScrollReveal variant="platform-drop" threshold={0.08}>
+          <AboutSection />
+        </ScrollReveal>
+
+        {/* Level-up text divider */}
+        <SectionDivider variant="level-up" />
 
         {/* ── CONTACT — slides in from left (final boss door) ── */}
         <ScrollReveal variant="slide-right" threshold={0.06}>

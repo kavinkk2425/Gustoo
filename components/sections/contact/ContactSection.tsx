@@ -75,9 +75,8 @@ export function ContactSection() {
                   <span
                     key={`ct-get-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${idx * 55}ms` }}
-                    className={`inline-block text-[#3b0764] ${
-                      isJumping ? "animate-purple-jump" : ""
-                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`inline-block text-[#3b0764] ${isJumping ? "animate-purple-jump" : ""
+                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
                   >
                     {letter === " " ? "\u00A0" : letter}
                   </span>
@@ -90,9 +89,8 @@ export function ContactSection() {
                   <span
                     key={`ct-touch-${idx}-${letterAnimationKey}`}
                     style={{ animationDelay: `${(idx + 6) * 55}ms` }}
-                    className={`inline-block text-[#ec4899] drop-shadow-[2px_2px_0px_#000] ${
-                      isJumping ? "animate-pink-jump" : ""
-                    } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
+                    className={`inline-block text-[#ec4899] drop-shadow-[2px_2px_0px_#000] ${isJumping ? "animate-pink-jump" : ""
+                      } hover:-translate-y-2 hover:scale-110 transition-transform duration-150`}
                   >
                     {letter}
                   </span>
@@ -190,41 +188,37 @@ export function ContactSection() {
           <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
             <button
               onClick={() => setSelectedCategory("All")}
-              className={`neo-btn px-3.5 py-1.5 rounded-xl text-xs font-black uppercase whitespace-nowrap cursor-pointer ${
-                selectedCategory === "All"
-                  ? "bg-[#3b0764] text-white shadow-[2px_2px_0px_#000]"
-                  : "bg-white text-black hover:bg-zinc-100"
-              }`}
+              className={`neo-btn px-3.5 py-1.5 rounded-xl text-xs font-black uppercase whitespace-nowrap cursor-pointer ${selectedCategory === "All"
+                ? "bg-[#3b0764] text-white shadow-[2px_2px_0px_#000]"
+                : "bg-white text-black hover:bg-zinc-100"
+                }`}
             >
               All ({ALL_CONTACTS.length})
             </button>
             <button
               onClick={() => setSelectedCategory("Secretary")}
-              className={`neo-btn px-3.5 py-1.5 rounded-xl text-xs font-black uppercase whitespace-nowrap cursor-pointer ${
-                selectedCategory === "Secretary"
-                  ? "bg-[#ec4899] text-white shadow-[2px_2px_0px_#000]"
-                  : "bg-white text-black hover:bg-zinc-100"
-              }`}
+              className={`neo-btn px-3.5 py-1.5 rounded-xl text-xs font-black uppercase whitespace-nowrap cursor-pointer ${selectedCategory === "Secretary"
+                ? "bg-[#ec4899] text-white shadow-[2px_2px_0px_#000]"
+                : "bg-white text-black hover:bg-zinc-100"
+                }`}
             >
               Secretaries
             </button>
             <button
               onClick={() => setSelectedCategory("Registration Coordinator")}
-              className={`neo-btn px-3.5 py-1.5 rounded-xl text-xs font-black uppercase whitespace-nowrap cursor-pointer ${
-                selectedCategory === "Registration Coordinator"
-                  ? "bg-[#84cc16] text-black shadow-[2px_2px_0px_#000]"
-                  : "bg-white text-black hover:bg-zinc-100"
-              }`}
+              className={`neo-btn px-3.5 py-1.5 rounded-xl text-xs font-black uppercase whitespace-nowrap cursor-pointer ${selectedCategory === "Registration Coordinator"
+                ? "bg-[#84cc16] text-black shadow-[2px_2px_0px_#000]"
+                : "bg-white text-black hover:bg-zinc-100"
+                }`}
             >
               Registration
             </button>
             <button
               onClick={() => setSelectedCategory("Event Coordinator")}
-              className={`neo-btn px-3.5 py-1.5 rounded-xl text-xs font-black uppercase whitespace-nowrap cursor-pointer ${
-                selectedCategory === "Event Coordinator"
-                  ? "bg-[#06b6d4] text-black shadow-[2px_2px_0px_#000]"
-                  : "bg-white text-black hover:bg-zinc-100"
-              }`}
+              className={`neo-btn px-3.5 py-1.5 rounded-xl text-xs font-black uppercase whitespace-nowrap cursor-pointer ${selectedCategory === "Event Coordinator"
+                ? "bg-[#06b6d4] text-black shadow-[2px_2px_0px_#000]"
+                : "bg-white text-black hover:bg-zinc-100"
+                }`}
             >
               Event Leads
             </button>

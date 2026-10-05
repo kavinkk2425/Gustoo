@@ -19,8 +19,8 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
   const navLinks = [
     { name: "All Events", href: "#events", tag: "r1" },
     { name: "Rules", href: "#rules", tag: "r2" },
-    { name: "About", href: "#about", tag: "r3" },
-    { name: "Transport", href: "#transport", tag: "r4" },
+    { name: "Transport", href: "#transport", tag: "r3" },
+    { name: "About", href: "#about", tag: "r4" },
     { name: "Contacts", href: "#contact", tag: "r5" },
   ];
 
