@@ -905,205 +905,205 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* 2. 4 Quick Stat Cards — Super Mario World 1-1 Power-Up Stage Blocks */}
             <div
               ref={statsRef}
-              className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 w-full mb-8 sm:mb-12"
+              className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 xs:gap-3.5 sm:gap-5 w-full mb-8 sm:mb-12"
             >
               {/* Mario Block 01: Event Date (Golden Coin & Star Block) */}
               <div
                 style={{ transitionDelay: statsInView ? "0ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#ffd000] border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer scroll-reveal ${
+                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#ffd000] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${
                   statsInView ? "is-visible" : ""
                 }`}
               >
                 {/* 4 Corner Mario Block Rivet Screws */}
-                <div className="absolute top-2 left-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#804000] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute top-2 right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#804000] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute bottom-2 left-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#804000] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute bottom-2 right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#804000] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute top-1.5 left-1.5 xs:top-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#804000] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute top-1.5 right-1.5 xs:top-2 xs:right-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#804000] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute bottom-1.5 left-1.5 xs:bottom-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#804000] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute bottom-1.5 right-1.5 xs:bottom-2 xs:right-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#804000] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
 
                 {/* Top Inner Specular Bevel */}
                 <div className="absolute top-0 inset-x-0 h-1.5 bg-white/40 pointer-events-none" />
 
                 {/* Mario Stage Header Ribbon */}
-                <div className="mx-2.5 sm:mx-3 mt-2.5 mb-1.5 px-2 sm:px-2.5 py-1 rounded-lg sm:rounded-xl bg-white border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-amber-400 border border-black animate-pulse" />
-                    <span className="text-[8px] xs:text-[9px] font-['Press_Start_2P',monospace] font-bold uppercase text-black tracking-wider">
-                      ★ STAGE 01
+                <div className="mx-1.5 xs:mx-2.5 sm:mx-3.5 mt-2 sm:mt-2.5 mb-1 sm:mb-1.5 px-1.5 xs:px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md sm:rounded-xl bg-white border-[1.5px] sm:border-2 border-black flex items-center justify-between shadow-[1.5px_1.5px_0px_#000] sm:shadow-[2px_2px_0px_#000]">
+                  <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-400 border border-black animate-pulse shrink-0" />
+                    <span className="text-[6.5px] xs:text-[7.5px] sm:text-[9px] font-['Press_Start_2P',monospace] font-bold uppercase text-black tracking-tight sm:tracking-wider truncate">
+                      STAGE 01
                     </span>
                   </div>
-                  <span className="text-[7.5px] xs:text-[8px] font-['Press_Start_2P',monospace] font-black bg-amber-100 text-amber-950 px-1.5 py-0.5 rounded border border-black/30 uppercase">
+                  <span className="text-[6px] xs:text-[7px] sm:text-[8px] font-['Press_Start_2P',monospace] font-black bg-amber-100 text-amber-950 px-1 xs:px-1.5 py-0.5 rounded border border-black/30 uppercase shrink-0">
                     DATE
                   </span>
                 </div>
 
                 {/* Main Content */}
-                <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-200">
-                    <Calendar className="w-6 h-6 sm:w-7 sm:h-7 text-[#b45309]" />
+                <div className="px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
+                  <div className="w-9 h-9 xs:w-11 xs:h-11 sm:w-14 sm:h-14 rounded-lg xs:rounded-xl sm:rounded-2xl bg-white border-[2px] sm:border-[2.5px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000] flex items-center justify-center mb-1.5 sm:mb-2 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-200">
+                    <Calendar className="w-4.5 h-4.5 xs:w-5.5 xs:h-5.5 sm:w-7 sm:h-7 text-[#b45309]" />
                   </div>
-                  <span className="text-[9px] xs:text-[9.5px] sm:text-[10px] font-['Press_Start_2P',monospace] font-black text-black/85 uppercase tracking-wide block mb-1 drop-shadow-[0_1px_0_rgba(255,255,255,0.7)]">
+                  <span className="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-['Press_Start_2P',monospace] font-black text-black/85 uppercase tracking-tight sm:tracking-wide block mb-0.5 sm:mb-1 drop-shadow-[0_1px_0_rgba(255,255,255,0.7)]">
                     Event Date
                   </span>
-                  <span className="text-base xs:text-lg sm:text-xl lg:text-[22px] font-['Chakra_Petch',sans-serif] font-black text-black leading-tight drop-shadow-[1px_1px_0px_rgba(255,255,255,0.6)]">
+                  <span className="text-[12.5px] xs:text-[14.5px] sm:text-xl lg:text-[22px] font-['Chakra_Petch',sans-serif] font-black text-black leading-tight drop-shadow-[1px_1px_0px_rgba(255,255,255,0.6)]">
                     {ABOUT_DATA.eventDate}
                   </span>
                 </div>
 
                 {/* Bottom Mario Block Base Studs */}
-                <div className="pb-2.5 px-6 flex justify-center items-center gap-1.5 opacity-85">
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
+                <div className="pb-1.5 xs:pb-2 sm:pb-2.5 px-4 flex justify-center items-center gap-1 sm:gap-1.5 opacity-85">
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
                 </div>
               </div>
 
               {/* Mario Block 02: Reg. Last Date (Fire Flower Coral Block) */}
               <div
                 style={{ transitionDelay: statsInView ? "120ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#ff5b5b] border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer scroll-reveal ${
+                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#ff5b5b] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${
                   statsInView ? "is-visible" : ""
                 }`}
               >
                 {/* 4 Corner Mario Block Rivet Screws */}
-                <div className="absolute top-2 left-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#7f1d1d] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute top-2 right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#7f1d1d] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute bottom-2 left-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#7f1d1d] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute bottom-2 right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#7f1d1d] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute top-1.5 left-1.5 xs:top-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#7f1d1d] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute top-1.5 right-1.5 xs:top-2 xs:right-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#7f1d1d] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute bottom-1.5 left-1.5 xs:bottom-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#7f1d1d] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute bottom-1.5 right-1.5 xs:bottom-2 xs:right-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#7f1d1d] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
 
                 {/* Top Inner Specular Bevel */}
                 <div className="absolute top-0 inset-x-0 h-1.5 bg-white/40 pointer-events-none" />
 
                 {/* Mario Stage Header Ribbon */}
-                <div className="mx-2.5 sm:mx-3 mt-2.5 mb-1.5 px-2 sm:px-2.5 py-1 rounded-lg sm:rounded-xl bg-white border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-rose-500 border border-black animate-pulse" />
-                    <span className="text-[8px] xs:text-[9px] font-['Press_Start_2P',monospace] font-bold uppercase text-black tracking-wider">
-                      ⏰ STAGE 02
+                <div className="mx-1.5 xs:mx-2.5 sm:mx-3.5 mt-2 sm:mt-2.5 mb-1 sm:mb-1.5 px-1.5 xs:px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md sm:rounded-xl bg-white border-[1.5px] sm:border-2 border-black flex items-center justify-between shadow-[1.5px_1.5px_0px_#000] sm:shadow-[2px_2px_0px_#000]">
+                  <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-rose-500 border border-black animate-pulse shrink-0" />
+                    <span className="text-[6.5px] xs:text-[7.5px] sm:text-[9px] font-['Press_Start_2P',monospace] font-bold uppercase text-black tracking-tight sm:tracking-wider truncate">
+                      STAGE 02
                     </span>
                   </div>
-                  <span className="text-[7.5px] xs:text-[8px] font-['Press_Start_2P',monospace] font-black bg-rose-100 text-rose-950 px-1.5 py-0.5 rounded border border-black/30 uppercase">
+                  <span className="text-[6px] xs:text-[7px] sm:text-[8px] font-['Press_Start_2P',monospace] font-black bg-rose-100 text-rose-950 px-1 xs:px-1.5 py-0.5 rounded border border-black/30 uppercase shrink-0">
                     DEADLINE
                   </span>
                 </div>
 
                 {/* Main Content */}
-                <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-200">
-                    <Clock className="w-6 h-6 sm:w-7 sm:h-7 text-[#dc2626]" />
+                <div className="px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
+                  <div className="w-9 h-9 xs:w-11 xs:h-11 sm:w-14 sm:h-14 rounded-lg xs:rounded-xl sm:rounded-2xl bg-white border-[2px] sm:border-[2.5px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000] flex items-center justify-center mb-1.5 sm:mb-2 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-200">
+                    <Clock className="w-4.5 h-4.5 xs:w-5.5 xs:h-5.5 sm:w-7 sm:h-7 text-[#dc2626]" />
                   </div>
-                  <span className="text-[9px] xs:text-[9.5px] sm:text-[10px] font-['Press_Start_2P',monospace] font-black text-black/85 uppercase tracking-wide block mb-1 drop-shadow-[0_1px_0_rgba(255,255,255,0.7)]">
+                  <span className="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-['Press_Start_2P',monospace] font-black text-black/85 uppercase tracking-tight sm:tracking-wide block mb-0.5 sm:mb-1 drop-shadow-[0_1px_0_rgba(255,255,255,0.7)]">
                     Reg. Last Date
                   </span>
-                  <span className="text-sm xs:text-base sm:text-base lg:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight drop-shadow-[1px_1px_0px_rgba(255,255,255,0.6)]">
+                  <span className="text-[12px] xs:text-[13.5px] sm:text-base lg:text-lg font-['Chakra_Petch',sans-serif] font-black text-black leading-tight drop-shadow-[1px_1px_0px_rgba(255,255,255,0.6)]">
                     {ABOUT_DATA.registrationLastDate}
                   </span>
                 </div>
 
                 {/* Bottom Mario Block Base Studs */}
-                <div className="pb-2.5 px-6 flex justify-center items-center gap-1.5 opacity-85">
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
+                <div className="pb-1.5 xs:pb-2 sm:pb-2.5 px-4 flex justify-center items-center gap-1 sm:gap-1.5 opacity-85">
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
                 </div>
               </div>
 
               {/* Mario Block 03: Competitions (Electric Aqua Ice Flower Block) */}
               <div
                 style={{ transitionDelay: statsInView ? "240ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#00d8f8] border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer scroll-reveal ${
+                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#00d8f8] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${
                   statsInView ? "is-visible" : ""
                 }`}
               >
                 {/* 4 Corner Mario Block Rivet Screws */}
-                <div className="absolute top-2 left-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#0369a1] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute top-2 right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#0369a1] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute bottom-2 left-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#0369a1] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute bottom-2 right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#0369a1] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute top-1.5 left-1.5 xs:top-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#0369a1] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute top-1.5 right-1.5 xs:top-2 xs:right-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#0369a1] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute bottom-1.5 left-1.5 xs:bottom-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#0369a1] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute bottom-1.5 right-1.5 xs:bottom-2 xs:right-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#0369a1] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
 
                 {/* Top Inner Specular Bevel */}
                 <div className="absolute top-0 inset-x-0 h-1.5 bg-white/40 pointer-events-none" />
 
                 {/* Mario Stage Header Ribbon */}
-                <div className="mx-2.5 sm:mx-3 mt-2.5 mb-1.5 px-2 sm:px-2.5 py-1 rounded-lg sm:rounded-xl bg-white border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-cyan-500 border border-black animate-pulse" />
-                    <span className="text-[8px] xs:text-[9px] font-['Press_Start_2P',monospace] font-bold uppercase text-black tracking-wider">
-                      🏆 STAGE 03
+                <div className="mx-1.5 xs:mx-2.5 sm:mx-3.5 mt-2 sm:mt-2.5 mb-1 sm:mb-1.5 px-1.5 xs:px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md sm:rounded-xl bg-white border-[1.5px] sm:border-2 border-black flex items-center justify-between shadow-[1.5px_1.5px_0px_#000] sm:shadow-[2px_2px_0px_#000]">
+                  <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-cyan-500 border border-black animate-pulse shrink-0" />
+                    <span className="text-[6.5px] xs:text-[7.5px] sm:text-[9px] font-['Press_Start_2P',monospace] font-bold uppercase text-black tracking-tight sm:tracking-wider truncate">
+                      STAGE 03
                     </span>
                   </div>
-                  <span className="text-[7.5px] xs:text-[8px] font-['Press_Start_2P',monospace] font-black bg-sky-100 text-sky-950 px-1.5 py-0.5 rounded border border-black/30 uppercase">
+                  <span className="text-[6px] xs:text-[7px] sm:text-[8px] font-['Press_Start_2P',monospace] font-black bg-sky-100 text-sky-950 px-1 xs:px-1.5 py-0.5 rounded border border-black/30 uppercase shrink-0">
                     ARENAS
                   </span>
                 </div>
 
                 {/* Main Content */}
-                <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-200">
-                    <Trophy className="w-6 h-6 sm:w-7 sm:h-7 text-[#0284c7]" />
+                <div className="px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
+                  <div className="w-9 h-9 xs:w-11 xs:h-11 sm:w-14 sm:h-14 rounded-lg xs:rounded-xl sm:rounded-2xl bg-white border-[2px] sm:border-[2.5px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000] flex items-center justify-center mb-1.5 sm:mb-2 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-200">
+                    <Trophy className="w-4.5 h-4.5 xs:w-5.5 xs:h-5.5 sm:w-7 sm:h-7 text-[#0284c7]" />
                   </div>
-                  <span className="text-[9px] xs:text-[9.5px] sm:text-[10px] font-['Press_Start_2P',monospace] font-black text-black/85 uppercase tracking-wide block mb-1 drop-shadow-[0_1px_0_rgba(255,255,255,0.7)]">
+                  <span className="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-['Press_Start_2P',monospace] font-black text-black/85 uppercase tracking-tight sm:tracking-wide block mb-0.5 sm:mb-1 drop-shadow-[0_1px_0_rgba(255,255,255,0.7)]">
                     Competitions
                   </span>
-                  <span className="text-base xs:text-lg sm:text-xl lg:text-[22px] font-['Chakra_Petch',sans-serif] font-black text-black leading-tight drop-shadow-[1px_1px_0px_rgba(255,255,255,0.6)]">
+                  <span className="text-[12.5px] xs:text-[14.5px] sm:text-xl lg:text-[22px] font-['Chakra_Petch',sans-serif] font-black text-black leading-tight drop-shadow-[1px_1px_0px_rgba(255,255,255,0.6)]">
                     {GUSTO_EVENTS?.length || 9} Total Events
                   </span>
                 </div>
 
                 {/* Bottom Mario Block Base Studs */}
-                <div className="pb-2.5 px-6 flex justify-center items-center gap-1.5 opacity-85">
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
+                <div className="pb-1.5 xs:pb-2 sm:pb-2.5 px-4 flex justify-center items-center gap-1 sm:gap-1.5 opacity-85">
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
                 </div>
               </div>
 
               {/* Mario Block 04: Campus Venue (1-UP Emerald Green Block) */}
               <div
                 style={{ transitionDelay: statsInView ? "360ms" : "0ms" }}
-                className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#34d399] border-[3.5px] sm:border-[4px] border-black shadow-[6px_6px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer scroll-reveal ${
+                className={`group relative overflow-hidden rounded-xl xs:rounded-2xl sm:rounded-3xl bg-[#34d399] border-[3px] sm:border-[4px] border-black shadow-[4.5px_4.5px_0px_#000] sm:shadow-[7px_7px_0px_#000] hover:shadow-[10px_10px_0px_#000] hover:-translate-y-2 active:translate-y-0.5 transition-all duration-200 flex flex-col justify-between text-center select-none cursor-pointer min-h-[155px] xs:min-h-[175px] sm:min-h-[210px] scroll-reveal ${
                   statsInView ? "is-visible" : ""
                 }`}
               >
                 {/* 4 Corner Mario Block Rivet Screws */}
-                <div className="absolute top-2 left-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#065f46] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute top-2 right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#065f46] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute bottom-2 left-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#065f46] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
-                <div className="absolute bottom-2 right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 bg-[#065f46] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute top-1.5 left-1.5 xs:top-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#065f46] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute top-1.5 right-1.5 xs:top-2 xs:right-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#065f46] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute bottom-1.5 left-1.5 xs:bottom-2 xs:left-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#065f46] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
+                <div className="absolute bottom-1.5 right-1.5 xs:bottom-2 xs:right-2 w-1.5 h-1.5 sm:w-2.5 sm:h-2.5 bg-[#065f46] border border-black rounded-xs shadow-[0.5px_0.5px_0_rgba(255,255,255,0.4)] pointer-events-none z-10" />
 
                 {/* Top Inner Specular Bevel */}
                 <div className="absolute top-0 inset-x-0 h-1.5 bg-white/40 pointer-events-none" />
 
                 {/* Mario Stage Header Ribbon */}
-                <div className="mx-2.5 sm:mx-3 mt-2.5 mb-1.5 px-2 sm:px-2.5 py-1 rounded-lg sm:rounded-xl bg-white border-2 border-black flex items-center justify-between shadow-[2px_2px_0px_#000]">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 border border-black animate-pulse" />
-                    <span className="text-[8px] xs:text-[9px] font-['Press_Start_2P',monospace] font-bold uppercase text-black tracking-wider">
-                      📍 STAGE 04
+                <div className="mx-1.5 xs:mx-2.5 sm:mx-3.5 mt-2 sm:mt-2.5 mb-1 sm:mb-1.5 px-1.5 xs:px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md sm:rounded-xl bg-white border-[1.5px] sm:border-2 border-black flex items-center justify-between shadow-[1.5px_1.5px_0px_#000] sm:shadow-[2px_2px_0px_#000]">
+                  <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500 border border-black animate-pulse shrink-0" />
+                    <span className="text-[6.5px] xs:text-[7.5px] sm:text-[9px] font-['Press_Start_2P',monospace] font-bold uppercase text-black tracking-tight sm:tracking-wider truncate">
+                      STAGE 04
                     </span>
                   </div>
-                  <span className="text-[7.5px] xs:text-[8px] font-['Press_Start_2P',monospace] font-black bg-emerald-100 text-emerald-950 px-1.5 py-0.5 rounded border border-black/30 uppercase">
+                  <span className="text-[6px] xs:text-[7px] sm:text-[8px] font-['Press_Start_2P',monospace] font-black bg-emerald-100 text-emerald-950 px-1 xs:px-1.5 py-0.5 rounded border border-black/30 uppercase shrink-0">
                     VENUE
                   </span>
                 </div>
 
                 {/* Main Content */}
-                <div className="px-3 sm:px-4 py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] flex items-center justify-center mb-2 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-200">
-                    <MapPin className="w-6 h-6 sm:w-7 sm:h-7 text-[#059669]" />
+                <div className="px-2 xs:px-3 sm:px-4 py-1.5 xs:py-2 sm:py-3 flex-1 flex flex-col items-center justify-center">
+                  <div className="w-9 h-9 xs:w-11 xs:h-11 sm:w-14 sm:h-14 rounded-lg xs:rounded-xl sm:rounded-2xl bg-white border-[2px] sm:border-[2.5px] border-black shadow-[2px_2px_0px_#000] sm:shadow-[3px_3px_0px_#000] flex items-center justify-center mb-1.5 sm:mb-2 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-200">
+                    <MapPin className="w-4.5 h-4.5 xs:w-5.5 xs:h-5.5 sm:w-7 sm:h-7 text-[#059669]" />
                   </div>
-                  <span className="text-[9px] xs:text-[9.5px] sm:text-[10px] font-['Press_Start_2P',monospace] font-black text-black/85 uppercase tracking-wide block mb-1 drop-shadow-[0_1px_0_rgba(255,255,255,0.7)]">
+                  <span className="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-['Press_Start_2P',monospace] font-black text-black/85 uppercase tracking-tight sm:tracking-wide block mb-0.5 sm:mb-1 drop-shadow-[0_1px_0_rgba(255,255,255,0.7)]">
                     Campus Venue
                   </span>
-                  <span className="text-base xs:text-lg sm:text-xl lg:text-[22px] font-['Chakra_Petch',sans-serif] font-black text-black leading-tight drop-shadow-[1px_1px_0px_rgba(255,255,255,0.6)]">
+                  <span className="text-[12.5px] xs:text-[14.5px] sm:text-xl lg:text-[22px] font-['Chakra_Petch',sans-serif] font-black text-black leading-tight drop-shadow-[1px_1px_0px_rgba(255,255,255,0.6)]">
                     GCEE, Erode
                   </span>
                 </div>
 
                 {/* Bottom Mario Block Base Studs */}
-                <div className="pb-2.5 px-6 flex justify-center items-center gap-1.5 opacity-85">
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 border border-black/20" />
+                <div className="pb-1.5 xs:pb-2 sm:pb-2.5 px-4 flex justify-center items-center gap-1 sm:gap-1.5 opacity-85">
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-black/40 border border-black/20" />
                 </div>
               </div>
             </div>
