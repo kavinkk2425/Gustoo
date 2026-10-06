@@ -61,24 +61,39 @@
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
-  --font-caveat: "Caveat", cursive;
+  --font-caveat: var(--font-caveat), "Caveat", cursive;
+  --font-chakra: var(--font-chakra-petch), "Chakra Petch", monospace, sans-serif;
+  --font-orbitron: var(--font-orbitron), "Orbitron", monospace, sans-serif;
+  --font-press-start: var(--font-press-start-2p), "Press Start 2P", monospace, sans-serif;
 }
 
-/* Caveat Google Font Utilities */
+/* Typography Utilities */
 .font-caveat {
-  font-family: "Caveat", cursive;
+  font-family: var(--font-caveat), "Caveat", cursive;
   font-optical-sizing: auto;
 }
 
+.font-chakra {
+  font-family: var(--font-chakra-petch), "Chakra Petch", monospace, sans-serif;
+}
+
+.font-orbitron {
+  font-family: var(--font-orbitron), "Orbitron", monospace, sans-serif;
+}
+
+.font-press-start {
+  font-family: var(--font-press-start-2p), "Press Start 2P", monospace, sans-serif;
+}
+
 .caveat-handwritten {
-  font-family: "Caveat", cursive;
+  font-family: var(--font-caveat), "Caveat", cursive;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
 }
 
 .caveat-badge {
-  font-family: "Caveat", cursive;
+  font-family: var(--font-caveat), "Caveat", cursive;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;

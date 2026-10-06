@@ -15,6 +15,16 @@ function playRetroClick(_type: "nav" | "action" | "logo" = "nav") {
   // Silent - sound disabled
 }
 
+const NAV_LINKS = [
+  { name: "All Events", href: "#events", tag: "r1" },
+  { name: "Rules", href: "#rules", tag: "r2" },
+  { name: "About", href: "#about", tag: "r3" },
+  { name: "Gallery", href: "#gallery", tag: "r4" },
+  { name: "Teaser", href: "#youtube", tag: "r5" },
+  { name: "Transport", href: "#transport", tag: "r6" },
+  { name: "Contacts", href: "#contact", tag: "r7" },
+];
+
 export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -26,32 +36,36 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
     onSearchChange?.(e.target.value);
   };
 
-  const navLinks = [
-    { name: "All Events", href: "#events", tag: "r1" },
-    { name: "Rules", href: "#rules", tag: "r2" },
-    { name: "About", href: "#about", tag: "r3" },
-    { name: "Gallery", href: "#gallery", tag: "r4" },
-    { name: "Teaser", href: "#youtube", tag: "r5" },
-    { name: "Transport", href: "#transport", tag: "r6" },
-    { name: "Contacts", href: "#contact", tag: "r7" },
-  ];
-
-  // Scroll spy to dynamically track and highlight active section
+  // Scroll spy to dynamically track and highlight active section with rAF throttling
   useEffect(() => {
-    const handleScroll = () => {
+    let rAfId: number | null = null;
+
+    const checkActiveSection = () => {
       const scrollPos = window.scrollY + 120;
-      for (let i = navLinks.length - 1; i >= 0; i--) {
-        const id = navLinks[i].href.replace("#", "");
+      for (let i = NAV_LINKS.length - 1; i >= 0; i--) {
+        const id = NAV_LINKS[i].href.replace("#", "");
         const elem = document.getElementById(id);
         if (elem && elem.offsetTop <= scrollPos) {
-          setActiveLink(navLinks[i].name);
+          setActiveLink(NAV_LINKS[i].name);
           break;
         }
       }
+      rAfId = null;
     };
+
+    const handleScroll = () => {
+      if (rAfId === null) {
+        rAfId = requestAnimationFrame(checkActiveSection);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [navLinks]);
+    checkActiveSection();
+    return () => {
+      if (rAfId !== null) cancelAnimationFrame(rAfId);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Click handler with tactile animation, audio blip, and smooth scroll offset
   const handleNavClick = (
@@ -129,7 +143,7 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
 
           {/* Center Navigation Links featuring Cyberpunk Glitch Radio Buttons */}
           <nav className="hidden lg:flex items-center justify-center gap-1.5 xl:gap-2.5 2xl:gap-3.5 min-w-0">
-            {navLinks.map((link) => {
+            {NAV_LINKS.map((link) => {
               const isActive = activeLink === link.name;
               const isClicked = clickedLink === link.name;
 
@@ -318,9 +332,9 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
           </div>
 
           <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-            {navLinks.map((link, index) => {
+            {NAV_LINKS.map((link, index) => {
               const isActive = activeLink === link.name;
-              const isLastItem = index === navLinks.length - 1;
+              const isLastItem = index === NAV_LINKS.length - 1;
               return (
                 <a
                   key={link.name}

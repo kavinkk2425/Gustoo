@@ -105,3 +105,25 @@ export interface YouTubeMedia {
   embedUrl: string;
   description: string;
 }
+
+export type AttendanceStatus = "Present" | "Absent" | "Pending";
+export type PaymentStatus = "Verified" | "Unverified" | "Rejected";
+
+export interface StudentRegistration {
+  id: string; // Pass code e.g. "GUSTO26-849201"
+  timestamp: string;
+  fullName: string;
+  phone: string;
+  email: string;
+  college: string;
+  department: string;
+  year: string;
+  selectedEvents: string[]; // Array of event IDs
+  transactionId: string; // UPI UTR reference number
+  paymentScreenshotUrl: string; // Google Drive image link or uploaded base64 data URL
+  paymentStatus: PaymentStatus;
+  attendance: AttendanceStatus;
+  attendanceUpdatedAt?: string;
+  notes?: string;
+}
+

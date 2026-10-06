@@ -189,8 +189,9 @@ export function GameScrollProvider() {
   const lastScrollTime = useRef(0);
   const moveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const speedDecayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const rAfRef = useRef<number | null>(null);
 
-  const handleScroll = useCallback(() => {
+  const updateScroll = useCallback(() => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const p = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
@@ -222,33 +223,30 @@ export function GameScrollProvider() {
       }, 280);
     }
     prevPctRef.current = p;
-
-    // Parallax drivers for background sections
-    const slow = document.querySelectorAll<HTMLElement>(".parallax-slow");
-    const med = document.querySelectorAll<HTMLElement>(".parallax-med");
-    const fast = document.querySelectorAll<HTMLElement>(".parallax-fast");
-    slow.forEach((el) => {
-      el.style.transform = `translateY(${scrollTop * 0.04}px)`;
-    });
-    med.forEach((el) => {
-      el.style.transform = `translateY(${scrollTop * 0.08}px)`;
-    });
-    fast.forEach((el) => {
-      el.style.transform = `translateY(${scrollTop * 0.14}px)`;
-    });
   }, []);
+
+  const handleScroll = useCallback(() => {
+    if (rAfRef.current === null) {
+      rAfRef.current = requestAnimationFrame(() => {
+        updateScroll();
+        rAfRef.current = null;
+      });
+    }
+  }, [updateScroll]);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     window.addEventListener("scroll", handleScroll, { passive: true });
-    const rAF = requestAnimationFrame(handleScroll);
+    updateScroll();
     return () => {
-      cancelAnimationFrame(rAF);
+      if (rAfRef.current !== null) {
+        cancelAnimationFrame(rAfRef.current);
+      }
       window.removeEventListener("scroll", handleScroll);
       if (moveTimerRef.current) clearTimeout(moveTimerRef.current);
       if (speedDecayRef.current) clearTimeout(speedDecayRef.current);
     };
-  }, [handleScroll]);
+  }, [handleScroll, updateScroll]);
 
   return (
     <div
