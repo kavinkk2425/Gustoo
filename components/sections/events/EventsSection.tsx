@@ -297,51 +297,78 @@ export function EventsSection({
                     </div>
                   </div>
 
-                  {/* Abstract Email if present */}
+                  {/* Abstract / Submission Email Box - High Precision Alignment */}
                   {event.submissionEmail && (
-                    <div className="p-2.5 rounded-xl bg-[#fef08a] border-2 border-black shadow-[2px_2px_0px_#000] text-xs font-bold mb-4 flex items-start gap-2">
-                      <Mail className="w-4 h-4 text-black shrink-0 mt-0.5" />
-                      <div className="overflow-hidden">
-                        <span className="text-black block font-black text-[11px] uppercase">
-                          {event.submissionName}:
+                    <div className="p-3 rounded-2xl bg-[#fef08a] border-2 border-black shadow-[2.5px_2.5px_0px_#000] mb-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-1.5 min-w-0">
+                          <div className="w-5 h-5 rounded-md bg-black text-[#fef08a] flex items-center justify-center shrink-0">
+                            <Mail className="w-3 h-3 text-[#fef08a]" />
+                          </div>
+                          <span className="text-[10px] sm:text-[11px] font-['Chakra_Petch',sans-serif] font-black uppercase text-black tracking-wider truncate">
+                            {event.submissionName || "Submission Email"}
+                          </span>
+                        </div>
+                        <span className="text-[8.5px] font-mono font-black uppercase px-1.5 py-0.5 rounded bg-black text-[#fef08a] shrink-0 ml-1">
+                          Online
                         </span>
-                        <a
-                          href={`mailto:${event.submissionEmail}`}
-                          className="text-[#3b0764] underline truncate block text-xs"
-                        >
-                          {event.submissionEmail}
-                        </a>
                       </div>
+                      <a
+                        href={`mailto:${event.submissionEmail}`}
+                        title={`Send abstract to ${event.submissionEmail}`}
+                        className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl bg-white hover:bg-black text-[#3b0764] hover:text-[#fde047] border-[1.5px] border-black transition-all shadow-[1.5px_1.5px_0px_#000] group"
+                      >
+                        <span className="truncate font-mono font-bold text-[11px] sm:text-xs">
+                          {event.submissionEmail}
+                        </span>
+                        <span className="text-[10px] font-black text-black group-hover:text-yellow-300 shrink-0 ml-1.5 flex items-center gap-0.5">
+                          Send ↗
+                        </span>
+                      </a>
                     </div>
                   )}
 
-                  {/* Coordinators */}
+                  {/* Event Coordinators - Perfect Full-Width Alignment */}
                   <div className="mb-4">
-                    <p className="text-[10px] font-black uppercase text-zinc-500 mb-1.5">
-                      Event Coordinators:
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 text-xs font-bold">
+                    <div className="flex items-center justify-between mb-2 px-0.5">
+                      <p className="text-[10px] font-black uppercase text-zinc-500 tracking-wider font-['Chakra_Petch',sans-serif]">
+                        Event Coordinators
+                      </p>
+                      <span className="text-[9px] font-bold text-zinc-400 uppercase font-mono tracking-wider">
+                        Tap to call
+                      </span>
+                    </div>
+                    <div className="space-y-1.5">
                       {event.coordinators.map((c, idx) => (
                         <a
                           key={idx}
                           href={`tel:${c.phone}`}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-zinc-100 hover:bg-[#fde047] border-[1.5px] border-black transition-colors max-w-full"
+                          title={`Call ${c.name} (${c.phone})`}
+                          className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl bg-zinc-50 hover:bg-[#fde047] border-[1.5px] border-black transition-all shadow-[1.5px_1.5px_0px_#000] hover:shadow-[2.5px_2.5px_0px_#000] hover:-translate-y-0.5 group"
                         >
-                          <Phone className="w-2.5 h-2.5 text-[#3b0764] shrink-0" />
-                          <span className="truncate">{c.name}</span>
-                          <span className="text-[10px] text-zinc-500 shrink-0">({c.phone})</span>
+                          <span className="flex items-center gap-2 min-w-0">
+                            <span className="w-5 h-5 rounded-md bg-purple-100 border border-black/30 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-yellow-300 transition-colors">
+                              <Phone className="w-2.5 h-2.5 text-[#3b0764] group-hover:text-yellow-300" />
+                            </span>
+                            <span className="truncate font-black text-black text-[11px] sm:text-xs uppercase tracking-tight">
+                              {c.name}
+                            </span>
+                          </span>
+                          <span className="text-[10px] sm:text-[11px] font-mono font-black text-zinc-800 bg-white group-hover:bg-black group-hover:text-white px-2 py-0.5 rounded-md border border-black/25 shrink-0 ml-2 transition-colors">
+                            {c.phone}
+                          </span>
                         </a>
                       ))}
                     </div>
                   </div>
                 </div>
 
-                {/* Card Action Buttons */}
-                <div className="pt-2 flex items-center gap-2">
+                {/* Card Action Buttons - Full-width Aligned Neo Buttons */}
+                <div className="pt-2 flex items-center gap-2.5">
                   <a
                     href="#rules"
                     onClick={() => onSelectEventForRules?.(event.id)}
-                    className="neo-btn flex-1 py-2.5 px-3 rounded-xl bg-white hover:bg-zinc-100 text-xs font-black text-black text-center flex items-center justify-center gap-1 uppercase tracking-wider"
+                    className="neo-btn flex-1 py-2.5 px-3 rounded-xl bg-white hover:bg-zinc-100 text-xs font-black text-black text-center flex items-center justify-center gap-1.5 uppercase tracking-wider"
                   >
                     <FileText className="w-3.5 h-3.5 text-[#3b0764]" />
                     <span>Rules</span>
@@ -349,7 +376,7 @@ export function EventsSection({
 
                   <button
                     onClick={onOpenRegister}
-                    className="neo-btn flex-1 py-2.5 px-3 rounded-xl bg-[#ec4899] hover:bg-[#db2777] text-xs font-black text-white text-center flex items-center justify-center gap-1 cursor-pointer uppercase tracking-wider"
+                    className="neo-btn flex-1 py-2.5 px-3 rounded-xl bg-[#ec4899] hover:bg-[#db2777] text-xs font-black text-white text-center flex items-center justify-center gap-1.5 cursor-pointer uppercase tracking-wider"
                   >
                     <span>Register</span>
                     <ArrowRight className="w-3 h-3" />
