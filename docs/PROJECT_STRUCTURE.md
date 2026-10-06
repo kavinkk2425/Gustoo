@@ -15,6 +15,8 @@ gusto-26-2.0/
 │   ├── layout.tsx                # Root HTML/Body layout, global fonts, Navbar & Footer wrapper
 │   ├── page.tsx                  # Home / Landing page (/)
 │   ├── globals.css               # Tailwind CSS v4 (@import "tailwindcss") & CSS custom properties
+│   ├── admin/                    # Registration & Attendance Management Dashboard (/admin)
+│   │   └── page.tsx              # PIN passcode auth, search/filter, Drive proof lightbox, 1-click attendance
 │   ├── events/                   # Events catalog & details routes
 │   │   ├── page.tsx              # All Events listing & category filter (/events)
 │   │   └── [slug]/               # Dynamic event detail route (/events/[slug])
@@ -36,15 +38,20 @@ gusto-26-2.0/
 │       ├── home/                 # HeroSection, CountdownTimer, HighlightsBento, SponsorsMarquee
 │       ├── events/               # EventCard, EventFilterBar, EventDetailHero, RulesAccordion
 │       ├── schedule/             # TimelineTrack, ScheduleItemCard
-│       └── register/             # RegistrationForm, EventSelector, FeeSummary
+│       └── register/             # RegisterModal (with Drive screenshot upload & schedule conflict checks)
 │
-├── data/                         # Structured static data (Single Source of Truth for Symposium info)
-│   ├── site-config.ts            # Symposium name, date, venue, social links, registration URLs
-│   ├── events.ts                 # Technical, Non-Technical, Workshop, & Gaming event definitions
-│   ├── schedule.ts               # Time slots, venues, and event mappings
-│   ├── team.ts                   # Staff advisors, student coordinators, and committee members
-│   ├── sponsors.ts               # Sponsor tiers and logos
-│   └── faqs.ts                   # Frequently asked questions
+├── src/data/                     # Structured static symposium data
+│   ├── events.ts                 # Technical, Non-Technical, and Online event definitions
+│   ├── about.ts                  # Symposium overview, registration fee, dates, and college info
+│   ├── contacts.ts               # Student secretaries and registration coordinators
+│   ├── mockRegistrations.ts      # Initial offline dataset & format for registered participants
+│   ├── types.ts                  # Symposium, event, registration, and attendance TypeScript types
+│   ├── gallery.ts                # Photo gallery data
+│   ├── transport.ts              # Bus routes, college bus facilities, transit hubs
+│   └── youtube.ts                # Promo video embed config
+│
+├── scripts/                      # Deployment & automation helpers
+│   └── google-apps-script.js     # Turnkey Apps Script for Google Sheet row sync & Drive image saving
 │
 ├── types/                        # Shared TypeScript interfaces & types
 │   └── symposium.ts              # EventItem, EventCategory, ScheduleSlot, Coordinator, Sponsor, etc.
@@ -64,7 +71,8 @@ gusto-26-2.0/
 │   ├── PROJECT_STRUCTURE.md      # This file — canonical folder & file layout
 │   ├── ARCHITECTURE_AND_STACK.md # Tech stack, Next.js 16 conventions, & styling guide
 │   ├── TEAM_WORKFLOW.md          # 3-member ownership boundaries, Git rules, & prompt rules
-│   └── CHANGELOG_AND_STATUS.md   # Living feature status & prompt changelog
+│   ├── CHANGELOG_AND_STATUS.md   # Living feature status & prompt changelog
+│   └── GOOGLE_APPS_SCRIPT_SETUP.md # Google Sheets & Drive backend webhook setup instructions
 │
 ├── AGENTS.md                     # Auto-loaded rules for Antigravity / AI coding agents
 ├── CLAUDE.md                     # Pointer to @AGENTS.md

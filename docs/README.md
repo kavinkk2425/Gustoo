@@ -13,6 +13,7 @@ Welcome to the central documentation hub for the **Gusto '26 (2.0)** College Sym
 | [ARCHITECTURE_AND_STACK.md](./ARCHITECTURE_AND_STACK.md) | Next.js 16.3.6, React 19, Tailwind CSS v4, TypeScript conventions, and design system rules. | Read before writing UI or server/client logic; update when adding packages or global tokens. |
 | [TEAM_WORKFLOW.md](./TEAM_WORKFLOW.md) | 3-member role split, Git branching strategy, conflict prevention, and prompt templates. | Read before starting a feature or editing shared files. |
 | [CHANGELOG_AND_STATUS.md](./CHANGELOG_AND_STATUS.md) | Living registry of routes, components, data models, and recent prompt changes. | **MUST be updated after every prompt** that modifies code or structure. |
+| [GOOGLE_APPS_SCRIPT_SETUP.md](./GOOGLE_APPS_SCRIPT_SETUP.md) | Setup guide for Google Sheets & Google Drive webhook for admin sync & screenshot storage. | Read when setting up or updating Google Sheets / Drive integration. |
 
 ---
 

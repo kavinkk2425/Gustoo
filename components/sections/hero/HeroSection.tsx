@@ -55,8 +55,10 @@ function useInView(options = { threshold: 0.12 }) {
   return [ref, isInView] as const;
 }
 
+// Static target timestamp for symposium inauguration countdown
+const TARGET_SYMPOSIUM_TIMESTAMP = new Date("2026-03-06T09:00:00+05:30").getTime();
+
 export function HeroSection({ onOpenRegister }: HeroSectionProps) {
-  const targetDate = new Date("2026-03-06T09:00:00+05:30").getTime();
 
   // Scroll reveal observers for cascading view animation
   const [marqueeRef, marqueeInView] = useInView({ threshold: 0.1 });
@@ -92,8 +94,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
 
   useEffect(() => {
     const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+      const now = Date.now();
+      const difference = TARGET_SYMPOSIUM_TIMESTAMP - now;
 
       if (difference > 0) {
         setTimeLeft({
@@ -110,7 +112,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, [targetDate]);
+  }, []);
 
   return (
     <section className="relative min-h-[92vh] bg-retro-yellow-grid overflow-hidden pt-16 sm:pt-20 pb-20 border-b-[4px] border-black">

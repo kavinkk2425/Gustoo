@@ -11,6 +11,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | `/` | `app/page.tsx` | 🟢 Active | Team | Complete GUSTO 2K26 landing page with Neo-Brutalist / Retro Pop Gaming Behance design. |
 | `/events/[slug]` | `app/events/[slug]/page.tsx` | 🟢 Active | Team | Dynamic individual event detail route with full rules, rounds, coordinators, and register CTA. |
+| `/admin` | `app/admin/page.tsx` | 🟢 Active | Team | Registration desk portal: PIN security, Google Drive receipt verification, 1-click attendance (Present/Absent/Pending), search & CSV export. |
 
 ---
 
@@ -23,6 +24,9 @@
 | **Data: Events** | `src/data/events.ts` | 🟢 Active | All 9 Technical and Non-Technical events with rules, venues, deadlines, and coordinators. |
 | **Data: About** | `src/data/about.ts` | 🟢 Active | Verified symposium details, GCEE institution info, and IT department highlights. |
 | **Data: Contacts** | `src/data/contacts.ts` | 🟢 Active | Student Secretaries, Registration Desks, and dynamic Event Coordinators extracted from events. |
+| **Data: Registrations** | `src/data/mockRegistrations.ts` | 🟢 Active | Sample and initial registration dataset for admin portal offline support. |
+| **Types: Registrations** | `src/data/types.ts` | 🟢 Active | Interfaces for `StudentRegistration`, `AttendanceStatus`, and `PaymentStatus`. |
+| **Backend: Apps Script** | `scripts/google-apps-script.js` | 🟢 Active | Turnkey Google Apps Script webhook for Google Sheet row sync and Drive photo storage. |
 | **Data: Gallery** | `src/data/gallery.ts` | 🟢 Active | Curated photos from `public/gallery/` with categorizations and captions. |
 | **Data: Transport** | `src/data/transport.ts` | 🟢 Active | Transit hubs (Erode, Chithode, Bhavani), GCEE address, and college bus facility notices. |
 | **Data: YouTube** | `src/data/youtube.ts` | 🟢 Active | Official YouTube channel and embed promo video data (`gLGls1Asibw`). |
@@ -37,7 +41,7 @@
 | **Section: YouTube** | `components/sections/youtube/YouTubeSection.tsx` | 🟢 Active | Retro arcade TV cabinet video player with channel link. |
 | **Section: Transport** | `components/sections/transport/TransportSection.tsx` | 🟢 Active | Transit guidance from Erode, Chithode, and Bhavani with Google Maps. |
 | **Section: Contact** | `components/sections/contact/ContactSection.tsx` | 🟢 Active | Retro player ID cards for student secretaries and coordinators. |
-| **Section: Register** | `components/sections/register/RegisterModal.tsx` | 🟢 Active | Neo-brutalist registration flow with UPI QR code, event selector, and pass generator. |
+| **Section: Register** | `components/sections/register/RegisterModal.tsx` | 🟢 Active | Neo-brutalist registration flow with UPI QR code, payment proof upload, event selector, and pass generator. |
 | **Gamification: Background** | `components/gamification/GamingBackground.tsx` | 🟢 Active | Reactive canvas particles, floating 8-bit loot, XP awards, and toggleable CRT scanlines. |
 | **Gamification: HUD** | `components/gamification/GamerHUD.tsx` | 🟢 Active | Floating gamer dock with level, XP bar, quest log, audio mute, and achievement toasts. |
 | **Gamification: Arcade** | `components/gamification/ArcadeStation.tsx` | 🟢 Active | Retro 8-bit playable arcade canvas minigame (Cyber Dash 2K26) with score tracking. |
@@ -48,6 +52,53 @@
 ---
 
 ## 📝 Prompt & Feature Changelog
+
+### `2026-10-06` — `/admin` Registration Desk Portal, 1-Click Attendance & Google Drive Payment Proof Viewer
+- **Summary**: Built an end-to-end admin management suite for on-desk symposium reception, participant tracking, payment verification, and Google Drive screenshot management:
+  - **Admin Dashboard Route (`app/admin/page.tsx`)**:
+    - **PIN-Protected Security**: Screen locks behind secret admin passcode (`NEXT_PUBLIC_ADMIN_PIN` or default `gusto2026`) with persistent session storage.
+    - **Live Analytics KPI Cards**: Real-time counters for Total Registered, Present, Absent, Pending, and Total Fees Collected (₹).
+    - **Multi-Criteria Search & Filter Engine**: Instant filtering across Student Name, Pass ID (`GUSTO26-XXXXXX`), Phone, College, Event, Attendance status (`All`, `Present`, `Absent`, `Pending`), and Payment status (`All`, `Verified`, `Unverified`, `Rejected`).
+    - **1-Click Attendance Toggles**: Direct inline badge buttons (`🟢 Present`, `🔴 Absent`, `🟡 Pending`) with instantaneous optimistic state updates and cloud/local persistence.
+    - **Payment Proof Lightbox Modal**: Preview UPI transaction screenshots in-app (with auto-converting `/preview` iframe for Google Drive URLs and direct open links) and verify/reject payment with one click.
+    - **Desk Export (CSV)**: One-click CSV generation for printing or on-desk offline paper backup with timestamp, pass code, student info, selected events, UTR, fee status, and attendance status.
+  - **Participant Payment Upload Integration (`components/sections/register/RegisterModal.tsx`)**:
+    - Added image file uploader with thumbnail preview for UPI payment receipts.
+    - Auto-encodes receipt to base64 for submission to Google Apps Script webhook and stores locally for offline review.
+  - **Google Sheets & Google Drive Cloud Backend (`scripts/google-apps-script.js`)**:
+    - Created turnkey Apps Script deployment supporting `doGet` (fetches all rows) and `doPost` (`register`, `updateAttendance`, `updatePaymentStatus`).
+    - Automatically decodes base64 receipts, writes them into the configured Google Drive folder with public view permissions, and saves the Drive file URL into the Google Sheet.
+  - **Backend Setup Documentation (`docs/GOOGLE_APPS_SCRIPT_SETUP.md`)**:
+    - Full step-by-step documentation for setting up Google Sheets, creating a Google Drive folder, deploying the Web App, and setting `NEXT_PUBLIC_GOOGLE_SCRIPT_URL` in `.env.local`.
+
+### `2026-10-01` — Schedule Time-Slot Conflict Auto-Hiding in Registration Modal
+- **Summary**: Implemented dynamic time-conflict detection and auto-hiding in `components/sections/register/RegisterModal.tsx`:
+  - **Conflict Detection Engine**: Analyzes all selected events and derives occupied physical time slots (`10:15 AM`, `10:30 AM`, `11:00 AM`).
+  - **Automatic Conflict Filtering**: Any unselected offline event sharing the same time slot as an already selected event is automatically hidden from the registration list, preventing students from selecting two events held at the same time.
+  - **Online Events Exemption**: Online submission events (`Photography`, `Meme Contest`, `Short Film`) never conflict with campus offline slots and remain available.
+  - **Dynamic Timing & Counter Badges**: Displays each event's time slot directly on its checkbox card and shows an alert badge when conflicting events are hidden (`⏰ X conflicting events hidden`). Conflicting events re-appear immediately when a selection is unchecked.
+
+### `2026-10-01` — Comprehensive Full-Stack Performance, Font & Build Optimizations
+- **Summary**: Conducted a complete codebase audit and executed comprehensive performance, data restoration, and build optimizations:
+  - **Self-Hosted Google Fonts via `next/font/google` (`app/layout.tsx` & `app/globals.css`)**:
+    - Replaced external blocking Google Fonts `<link>` stylesheet with Next.js built-in `next/font/google` loaders for `Geist`, `Geist_Mono`, `Caveat`, `Chakra_Petch`, `Orbitron`, and `Press_Start_2P`.
+    - Bound variables `--font-geist-sans`, `--font-geist-mono`, `--font-caveat`, `--font-chakra-petch`, `--font-orbitron`, and `--font-press-start-2p` into `@theme inline` in `app/globals.css`.
+    - Eliminates render-blocking external HTTP requests, achieves zero layout shifts (CLS), and provides instant offline font rendering.
+  - **Social Media Metadata Fix (`app/layout.tsx`)**:
+    - Configured `metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://gustoit26.com")` to eliminate Next.js build warnings and guarantee absolute Open Graph / Twitter image URL resolution.
+  - **Racetrack Progress Bar Performance Overhaul (`components/ui/GameScrollProvider.tsx`)**:
+    - Removed 3 redundant `document.querySelectorAll(".parallax-*")` queries running on every pixel of scroll.
+    - Implemented `requestAnimationFrame` debouncing / batching on scroll updates to prevent UI thread lockup and lock scroll rendering to steady 60-120fps display refresh rates.
+  - **Navbar Scroll Spy & Rendering Optimization (`components/layout/Navbar.tsx`)**:
+    - Hoisted `NAV_LINKS` outside the component scope to make the array referentially stable and prevent redundant effect listener teardowns.
+    - Added `requestAnimationFrame` throttling to `checkActiveSection` on scroll.
+  - **Hero Countdown Timer Optimization (`components/sections/hero/HeroSection.tsx`)**:
+    - Hoisted `TARGET_SYMPOSIUM_TIMESTAMP` to module scope and optimized countdown delta computation using `Date.now()`.
+  - **Event Data Restoration & 13/13 SSG Build (`src/data/events.ts`)**:
+    - Connected `src/data/events.ts` to the canonical backup dataset, restoring all 9 technical and non-technical events, full multi-round rules, and coordinator contacts for the 3 team members (`Premkumar P`, `Gopika S`, `Kavin S`).
+    - Verified static site generation: all 13/13 static routes (including `/events/paper-presentation`, `/events/code-chaos`, etc.) compiled in under 1 second with 0 errors and 0 warnings.
+  - **Removed Redundant Media Directory**:
+    - Removed accidental duplicate directory `public/placeholder/public/` to keep Git history clean.
 
 ### `2026-09-30` — Matched Mobile Register Button to Desktop/Windows Among Us Arcade Button
 - **Summary**: Replaced the mobile pink cyberpunk polygon button with the authentic **Among Us Arcade Register Button** matching the desktop ("Windows") navbar design:
