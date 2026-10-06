@@ -134,9 +134,9 @@ export function RegisterModal({
             <div className="p-4 rounded-xl bg-zinc-100 border-2 border-black text-xs font-bold text-left space-y-1.5">
               <p className="font-black text-[#3b0764] uppercase">Important Instructions:</p>
               <ul className="list-disc list-inside space-y-1 text-zinc-700">
-                <li>Show this pass code <strong className="text-black">{regCode}</strong> at the GCEE campus registration desk on March 06, 2026.</li>
-                <li>For Paper or Project Presentation, the team leader must submit the abstract with team member codes on or before March 04, 2026.</li>
-                <li>For Online Submissions (Photography, Meme, Short Film), send entries to the event email before March 05, 2026 (12:00 PM).</li>
+                <li>Show this pass code <strong className="text-black">{regCode}</strong> at the GCEE campus registration desk on October 23, 2026.</li>
+                <li>For Paper or Project Presentation, the team leader must submit the abstract with team member codes on or before October 21, 2026.</li>
+                <li>For Online Submissions (Photography, Meme, Short Film), send entries to the event email before October 22, 2026 (12:00 PM).</li>
               </ul>
             </div>
 

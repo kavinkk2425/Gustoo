@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GUSTO '26 | National Level Technical Symposium",
     description:
-      "National Level Technical Symposium on March 06, 2026 at Government College of Engineering, Erode.",
+      "National Level Technical Symposium on October 23, 2026 at Government College of Engineering, Erode.",
     images: ["/logos/GUSTO/gradient.png"],
   },
 };

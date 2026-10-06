@@ -395,7 +395,7 @@ const MARQUEE_TICKER_ITEMS = [
   },
   {
     icon: Calendar,
-    label: "MARCH 06, 2026",
+    label: "OCTOBER 23, 2026",
     badgeColor: "bg-pink-50 border-pink-300 text-pink-950",
     iconColor: "text-pink-600",
   },
@@ -438,7 +438,7 @@ const MARQUEE_TICKER_ITEMS = [
 ];
 
 export function HeroSection({ onOpenRegister }: HeroSectionProps) {
-  const targetDate = new Date("2026-03-06T09:00:00+05:30").getTime();
+  const targetDate = new Date("2026-10-23T09:00:00+05:30").getTime();
 
   // Scroll reveal observers for cascading view animation
   const [marqueeRef, marqueeInView] = useInView({ threshold: 0.1 });
@@ -831,7 +831,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
           {/* Retro Pixel Tagline Subtitle - Increased Scale */}
           <div className="mt-4 sm:mt-10 md:mt-12 mb-3 sm:mb-6 select-none px-2 xs:px-4 max-w-5xl">
             <p className="font-['Press_Start_2P',monospace] text-white text-[9.5px] xxs:text-[11px] xs:text-[13px] sm:text-sm md:text-base lg:text-lg drop-shadow-[2.5px_2.5px_0px_#000] sm:drop-shadow-[3px_3px_0px_#000] tracking-wider uppercase text-center leading-relaxed font-bold">
-              A NATIONAL LEVEL TECHNICAL SYMPOSIUM • MARCH 06, 2026 • GCE ERODE
+              A NATIONAL LEVEL TECHNICAL SYMPOSIUM • OCTOBER 23, 2026 • GCE ERODE
             </p>
           </div>
 
@@ -1148,7 +1148,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                       </span>
                     </div>
                     <div className="flex items-center gap-1 sm:gap-2 font-mono text-[7px] xxs:text-[8px] sm:text-xs font-bold text-pink-300">
-                      <span>March 06</span>
+                      <span>October 23</span>
                       <span className="hidden sm:inline">, 2026</span>
                       <span className="hidden xs:inline px-1 py-0.5 rounded bg-black/60 text-[#84cc16] border border-white/20 text-[8px] sm:text-[9px]">100% 🔋</span>
                     </div>

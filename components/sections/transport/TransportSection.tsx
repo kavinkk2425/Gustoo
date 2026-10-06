@@ -189,7 +189,7 @@ export function TransportSection() {
                 Transit Assistance Desk
               </h4>
               <p className="text-xs font-bold text-pink-200 mb-4">
-                Need bus or route assistance on March 06, 2026? Contact our coordinators:
+                Need bus or route assistance on October 23, 2026? Contact our coordinators:
               </p>
               <div className="space-y-3">
                 {regCoordinators.map((c) => (
