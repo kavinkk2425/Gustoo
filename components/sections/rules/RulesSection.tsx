@@ -192,23 +192,46 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
               </p>
             </div>
 
-            {/* Quick Meta Badges */}
-            <div className="flex flex-wrap lg:flex-col gap-2 shrink-0">
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-yellow-100 border-2 border-black text-xs font-black">
-                <Clock className="w-3.5 h-3.5 text-[#8b5cf6]" />
-                <span>{activeEvent.time}</span>
+            {/* Quick Meta Badges - Structured Neo-Brutalist Grid Bar */}
+            <div className="grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 gap-2 sm:gap-2.5 w-full lg:w-[380px] xl:w-[420px] shrink-0 mt-4 lg:mt-0">
+              <div className="flex items-center gap-2 sm:gap-2.5 p-2.5 sm:px-3 sm:py-2.5 rounded-xl bg-yellow-100 border-2 border-black text-xs font-black shadow-[2px_2px_0px_#000] min-w-0">
+                <div className="w-7 h-7 rounded-lg bg-yellow-200 border border-black/40 flex items-center justify-center shrink-0">
+                  <Clock className="w-3.5 h-3.5 text-[#8b5cf6]" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <span className="text-[8.5px] uppercase tracking-wider text-black/60 block font-bold leading-none mb-0.5">Schedule</span>
+                  <span className="truncate block font-black text-black text-xs">{activeEvent.time}</span>
+                </div>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-100 border-2 border-black text-xs font-black">
-                <MapPin className="w-3.5 h-3.5 text-[#10b981]" />
-                <span>{activeEvent.venue}</span>
+
+              <div className="flex items-center gap-2 sm:gap-2.5 p-2.5 sm:px-3 sm:py-2.5 rounded-xl bg-purple-100 border-2 border-black text-xs font-black shadow-[2px_2px_0px_#000] min-w-0">
+                <div className="w-7 h-7 rounded-lg bg-purple-200 border border-black/40 flex items-center justify-center shrink-0">
+                  <MapPin className="w-3.5 h-3.5 text-[#10b981]" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <span className="text-[8.5px] uppercase tracking-wider text-black/60 block font-bold leading-none mb-0.5">Venue</span>
+                  <span className="truncate block font-black text-black text-xs" title={activeEvent.venue}>{activeEvent.venue}</span>
+                </div>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-100 border-2 border-black text-xs font-black">
-                <Users className="w-3.5 h-3.5 text-[#ec4899]" />
-                <span>{activeEvent.teamSize}</span>
+
+              <div className="flex items-center gap-2 sm:gap-2.5 p-2.5 sm:px-3 sm:py-2.5 rounded-xl bg-pink-100 border-2 border-black text-xs font-black shadow-[2px_2px_0px_#000] min-w-0">
+                <div className="w-7 h-7 rounded-lg bg-pink-200 border border-black/40 flex items-center justify-center shrink-0">
+                  <Users className="w-3.5 h-3.5 text-[#ec4899]" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <span className="text-[8.5px] uppercase tracking-wider text-black/60 block font-bold leading-none mb-0.5">Team Size</span>
+                  <span className="truncate block font-black text-black text-xs">{activeEvent.teamSize}</span>
+                </div>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-100 border-2 border-black text-xs font-black">
-                <Calendar className="w-3.5 h-3.5 text-[#f59e0b]" />
-                <span>Deadline: {activeEvent.registrationDeadline}</span>
+
+              <div className="flex items-center gap-2 sm:gap-2.5 p-2.5 sm:px-3 sm:py-2.5 rounded-xl bg-emerald-100 border-2 border-black text-xs font-black shadow-[2px_2px_0px_#000] min-w-0">
+                <div className="w-7 h-7 rounded-lg bg-emerald-200 border border-black/40 flex items-center justify-center shrink-0">
+                  <Calendar className="w-3.5 h-3.5 text-[#f59e0b]" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <span className="text-[8.5px] uppercase tracking-wider text-black/60 block font-bold leading-none mb-0.5">Deadline</span>
+                  <span className="truncate block font-black text-black text-xs" title={activeEvent.registrationDeadline}>{activeEvent.registrationDeadline}</span>
+                </div>
               </div>
             </div>
           </div>
