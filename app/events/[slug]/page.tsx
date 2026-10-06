@@ -260,16 +260,18 @@ export default async function EventDetailPage({
               <p className="text-xs text-zinc-400 mb-3">
                 For questions regarding {event.title} rules and rounds:
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                 {event.coordinators.map((c, i) => (
                   <a
                     key={i}
                     href={`tel:${c.phone}`}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-white"
+                    className="flex items-center justify-between gap-2 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-white transition-colors"
                   >
-                    <Phone className="w-3 h-3 text-indigo-400" />
-                    <span>{c.name}</span>
-                    <span className="text-zinc-400">({c.phone})</span>
+                    <span className="flex items-center gap-2 min-w-0">
+                      <Phone className="w-3 h-3 text-indigo-400 shrink-0" />
+                      <span className="truncate font-bold">{c.name}</span>
+                    </span>
+                    <span className="font-mono text-[11px] text-zinc-400 shrink-0 ml-1">({c.phone})</span>
                   </a>
                 ))}
               </div>

@@ -419,32 +419,57 @@ export function RulesSection({ selectedEventId, onOpenRegister }: RulesSectionPr
             </div>
           </div>
 
-          {/* Coordinators Bar */}
-          <div className="mt-8 pt-6 border-t-[3px] border-black flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-black uppercase text-zinc-600">
-                Inquiries for {activeEvent.title}:
-              </span>
-              {activeEvent.coordinators.map((c, idx) => (
-                <a
-                  key={idx}
-                  href={`tel:${c.phone}`}
-                  className="neo-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white text-xs font-black text-black"
-                >
-                  <Phone className="w-3 h-3 text-[#3b0764]" />
-                  <span>{c.name}</span>
-                  <span className="text-zinc-600">({c.phone})</span>
-                </a>
-              ))}
+          {/* Coordinators & Registration Footer - Symmetrical Neo-Brutalist Layout */}
+          <div className="mt-8 pt-6 border-t-[3px] border-black flex flex-col gap-5">
+            {/* Top: Coordinators Section */}
+            <div>
+              <div className="flex items-center justify-between mb-2.5 px-0.5">
+                <span className="text-[11px] sm:text-xs font-black uppercase text-zinc-600 font-['Chakra_Petch',sans-serif] tracking-wider">
+                  Inquiries for {activeEvent.title}:
+                </span>
+                <span className="text-[9.5px] font-mono font-bold text-zinc-400 uppercase tracking-wider">
+                  Tap to call
+                </span>
+              </div>
+
+              {/* Symmetrical Full-Width Grid for Coordinators */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2.5">
+                {activeEvent.coordinators.map((c, idx) => (
+                  <a
+                    key={idx}
+                    href={`tel:${c.phone}`}
+                    title={`Call ${c.name} (${c.phone})`}
+                    className="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-zinc-50 hover:bg-[#fde047] border-[2px] border-black transition-all shadow-[2px_2px_0px_#000] hover:shadow-[3px_3px_0px_#000] hover:-translate-y-0.5 group cursor-pointer"
+                  >
+                    <span className="flex items-center gap-2 min-w-0">
+                      <span className="w-5 h-5 rounded-md bg-purple-100 border border-black/30 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-yellow-300 transition-colors">
+                        <Phone className="w-2.5 h-2.5 text-[#3b0764] group-hover:text-yellow-300" />
+                      </span>
+                      <span className="truncate font-black text-black text-xs uppercase tracking-tight">
+                        {c.name}
+                      </span>
+                    </span>
+                    <span className="text-[10.5px] font-mono font-black text-zinc-800 bg-white group-hover:bg-black group-hover:text-white px-2 py-0.5 rounded-md border border-black/25 shrink-0 ml-2 transition-colors">
+                      {c.phone}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
 
-            <button
-              onClick={onOpenRegister}
-              className="neo-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-black text-xs sm:text-sm text-white bg-[#ec4899] hover:bg-[#db2777] uppercase tracking-wider cursor-pointer"
-            >
-              <Sparkles className="w-4 h-4 text-yellow-300" />
-              <span>Register for GUSTO &apos;26</span>
-            </button>
+            {/* Bottom Action: Prominent Symmetrical Register CTA Bar */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <span className="text-xs font-bold text-zinc-600 hidden sm:inline">
+                Ready to compete in <strong className="text-black">{activeEvent.title}</strong>? Secure your entry pass now!
+              </span>
+              <button
+                onClick={onOpenRegister}
+                className="neo-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl font-black text-xs sm:text-sm text-white bg-[#ec4899] hover:bg-[#db2777] uppercase tracking-wider cursor-pointer shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] active:translate-y-0.5"
+              >
+                <Sparkles className="w-4 h-4 text-yellow-300" />
+                <span>Register for GUSTO &apos;26</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
