@@ -81,6 +81,9 @@
   --font-unbounded: "Unbounded", sans-serif;
   --font-figtree: var(--font-figtree), "Figtree", sans-serif;
   --font-playfair: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-chakra: var(--font-chakra-petch), "Chakra Petch", monospace, sans-serif;
+  --font-orbitron: var(--font-orbitron), "Orbitron", monospace, sans-serif;
+  --font-press-start: var(--font-press-start-2p), "Press Start 2P", monospace, sans-serif;
 
   --breakpoint-xxs: 360px;
   --breakpoint-xs: 475px;
@@ -266,6 +269,19 @@ footer h4 {
 }
 
 /* Caveat Google Font Utilities */
+/* Additional arcade font utilities from main */
+.font-chakra {
+  font-family: var(--font-chakra-petch), "Chakra Petch", monospace, sans-serif;
+}
+
+.font-orbitron {
+  font-family: var(--font-orbitron), "Orbitron", monospace, sans-serif;
+}
+
+.font-press-start {
+  font-family: var(--font-press-start-2p), "Press Start 2P", monospace, sans-serif;
+}
+
 .font-caveat {
   font-family: "Caveat", cursive;
   font-optical-sizing: auto;
@@ -327,7 +343,26 @@ textarea {
 /* --------------------------------------------------------------------------
    4. SHARED SYMPOSIUM UTILITIES & KEYFRAMES (Additive Only)
    -------------------------------------------------------------------------- */
-.bg-retro-yellow-grid,
+.bg-retro-yellow-grid {
+  background-color: #fec800;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.09) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1.5px, transparent 1.5px);
+  background-size: 38px 38px;
+  animation: gridDrift 28s linear infinite;
+}
+
+/* Animated grid drift — merged from main */
+@keyframes gridDrift {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: 76px 76px;
+  }
+}
+
 .bg-mario-sky {
   background-color: #5c94fc;
 }
@@ -3029,6 +3064,95 @@ header.sticky {
 .arcade-reg-btn-mobile .now {
   font-size: 8.5px !important;
 }
+
+/* ==========================================================================
+   AMONG US ARCADE REGISTER BUTTON
+   ========================================================================== */
+.among-reg-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px 0 4px;
+  color: white;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.45);
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid black;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 13px;
+  background-color: hsl(49deg 98% 60%);
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.5s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.among-reg-btn:active {
+  transform: scale(0.92);
+  transition: all 100ms ease;
+}
+
+.among-reg-btn-mobile {
+  height: 35px !important;
+  padding: 0 10px 0 2px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.5px !important;
+}
+
+.among-reg-btn-mobile svg {
+  width: 29px !important;
+  height: 29px !important;
+}
+
+.among-reg-btn svg {
+  transition: all 0.5s ease;
+  z-index: 2;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.among-reg-btn .play {
+  transition: all 0.5s ease;
+  transition-delay: 200ms;
+  display: inline-block;
+  line-height: 1;
+}
+
+.among-reg-btn:hover svg {
+  transform: scale(2.8) translate(30%);
+}
+
+.among-reg-btn .now {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  z-index: 2;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 2px 0px #000;
+  letter-spacing: 1.5px;
+}
+
+.among-reg-btn:hover .now {
+  transform: translateX(12px);
+  transition-delay: 250ms;
+}
+
+.among-reg-btn:hover .play {
+  transform: translateX(250%);
+  transition-delay: 200ms;
+}
+
 
 /* ==========================================================================
    REALISTIC PROGRESS BAR CAR ANIMATIONS

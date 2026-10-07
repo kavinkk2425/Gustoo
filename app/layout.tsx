@@ -1,27 +1,68 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Figtree, Playfair_Display } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Caveat,
+  Chakra_Petch,
+  Orbitron,
+  Press_Start_2P,
+  Figtree,
+  Playfair_Display,
+} from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+
+const chakraPetch = Chakra_Petch({
+  variable: "--font-chakra-petch",
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+});
+
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  display: "swap",
+});
+
+const pressStart2P = Press_Start_2P({
+  variable: "--font-press-start-2p",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
 });
 
 const figtree = Figtree({
   variable: "--font-figtree",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -32,7 +73,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://gusto26.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://gustoit26.com"
   ),
   title: "GUSTO '26 | National Level Technical Symposium | GCEE",
   description:
@@ -56,11 +97,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${figtree.variable} ${playfair.variable} dark h-full antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} ${chakraPetch.variable} ${orbitron.variable} ${pressStart2P.variable} ${figtree.variable} ${playfair.variable} dark h-full antialiased scroll-smooth`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           rel="preload"
           href="/fonts/SuperMario256.ttf"
@@ -73,6 +118,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
+
       <body className="min-h-full flex flex-col bg-black text-white w-full max-w-full overflow-x-hidden relative">
         {children}
       </body>

@@ -555,8 +555,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
 
   useEffect(() => {
     const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+      const now = Date.now();
+      const difference = TARGET_SYMPOSIUM_TIMESTAMP - now;
 
       if (difference > 0) {
         setTimeLeft({
@@ -573,7 +573,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, [targetDate]);
+  }, []);
 
   return (
     <section className="relative min-h-[92vh] bg-retro-yellow-grid overflow-hidden pt-2 xs:pt-2.5 sm:pt-3 md:pt-4 pb-0 border-b-[4px] border-black">

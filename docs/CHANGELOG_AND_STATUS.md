@@ -11,6 +11,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | `/` | `app/page.tsx` | 🟢 Active | Team | Complete GUSTO 2K26 landing page with Neo-Brutalist / Retro Pop Gaming Behance design. |
 | `/events/[slug]` | `app/events/[slug]/page.tsx` | 🟢 Active | Team | Dynamic individual event detail route with full rules, rounds, coordinators, and register CTA. |
+| `/admin` | `app/admin/page.tsx` | 🟢 Active | Team | Registration desk portal: PIN security, Google Drive receipt verification, 1-click attendance (Present/Absent/Pending), search & CSV export. |
 
 ---
 
@@ -23,6 +24,9 @@
 | **Data: Events** | `src/data/events.ts` | 🟢 Active | All 9 Technical and Non-Technical events with rules, venues, deadlines, and coordinators. |
 | **Data: About** | `src/data/about.ts` | 🟢 Active | Verified symposium details, GCEE institution info, and IT department highlights. |
 | **Data: Contacts** | `src/data/contacts.ts` | 🟢 Active | Student Secretaries, Registration Desks, and dynamic Event Coordinators extracted from events. |
+| **Data: Registrations** | `src/data/mockRegistrations.ts` | 🟢 Active | Sample and initial registration dataset for admin portal offline support. |
+| **Types: Registrations** | `src/data/types.ts` | 🟢 Active | Interfaces for `StudentRegistration`, `AttendanceStatus`, and `PaymentStatus`. |
+| **Backend: Apps Script** | `scripts/google-apps-script.js` | 🟢 Active | Turnkey Google Apps Script webhook for Google Sheet row sync and Drive photo storage. |
 | **Data: Gallery** | `src/data/gallery.ts` | 🟢 Active | Curated photos from `public/gallery/` with categorizations and captions. |
 | **Data: Transport** | `src/data/transport.ts` | 🟢 Active | Transit hubs (Erode, Chithode, Bhavani), GCEE address, and college bus facility notices. |
 | **Data: YouTube** | `src/data/youtube.ts` | 🟢 Active | Official YouTube channel and embed promo video data (`gLGls1Asibw`). |
@@ -37,7 +41,7 @@
 | **Section: YouTube** | `components/sections/youtube/YouTubeSection.tsx` | 🟢 Active | Retro arcade TV cabinet video player with channel link. |
 | **Section: Transport** | `components/sections/transport/TransportSection.tsx` | 🟢 Active | Transit guidance from Erode, Chithode, and Bhavani with Google Maps. |
 | **Section: Contact** | `components/sections/contact/ContactSection.tsx` | 🟢 Active | Retro player ID cards for student secretaries and coordinators. |
-| **Section: Register** | `components/sections/register/RegisterModal.tsx` | 🟢 Active | Neo-brutalist registration flow with UPI QR code, event selector, and pass generator. |
+| **Section: Register** | `components/sections/register/RegisterModal.tsx` | 🟢 Active | Neo-brutalist registration flow with UPI QR code, payment proof upload, event selector, and pass generator. |
 | **Gamification: Background** | `components/gamification/GamingBackground.tsx` | 🟢 Active | Reactive canvas particles, floating 8-bit loot, XP awards, and toggleable CRT scanlines. |
 | **Gamification: HUD** | `components/gamification/GamerHUD.tsx` | 🟢 Active | Floating gamer dock with level, XP bar, quest log, audio mute, and achievement toasts. |
 | **Gamification: Arcade** | `components/gamification/ArcadeStation.tsx` | 🟢 Active | Retro 8-bit playable arcade canvas minigame (Cyber Dash 2K26) with score tracking. |
@@ -50,114 +54,6 @@
 ---
 
 ## 📝 Prompt & Feature Changelog
-
-### `2026-10-04` — Netlify & Vercel Deployment Configurations & Fast Loader Optimization
-- **Netlify & Vercel Build Compatibility**:
-  - Added [`netlify.toml`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/netlify.toml) configured with `@netlify/plugin-nextjs` and Node 20 runtime.
-  - Added [`vercel.json`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/vercel.json) to enforce the Next.js framework build preset.
-  - Configured `images: { unoptimized: true }` in [`next.config.ts`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/next.config.ts) to eliminate image CDN 500 errors on serverless hosts.
-  - Added `metadataBase` in [`app/layout.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/app/layout.tsx) to resolve social card generation warnings.
-- **Fast Retro Loader Transition (`PacmanGhostLoader.tsx`)**:
-  - Reduced loader duration from 5000ms to 2200ms so visitors aren't stuck on a 5-second black screen on production deployments.
-  - Added foolproof body `overflow: ""` restoration so the page scroll never gets locked on mobile or desktop.
-- **Pushed to Remote**:
-  - Successfully committed and pushed all changes to `personal` (`https://github.com/kavinkk2425/Gustoo.git`) on both `main` and `mario` branches.
-
-### `2026-10-04` — Removed "Scroll to Play / Tap to Jump" Prompt per User Request
-- Removed the floating `MobileScrollGuide` prompt ("SCROLL TO PLAY" / "OR TAP TO JUMP") from [`HeroSection.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/hero/HeroSection.tsx) as requested.
-- Kept the sleek real-time level progress scroller (`MobileScrollHUD.tsx`) under the navbar and the rich multi-particle mobile tap/click FX engine (`MobileTouchFX.tsx`).
-- **Mobile Scroll & Tap Guide (`MobileScrollGuide.tsx`)**:
-  - Added a floating interactive prompt docked at the bottom of the mobile viewport (`sm:hidden`).
-  - Features an animated bouncing Mario pixel finger (`animate-mobile-scroll-bounce`), glowing laser sweep, text prompt `"SCROLL TO PLAY • OR TAP TO JUMP"`, and cascading animated chevrons.
-  - Tapping or clicking it triggers an arcade jump audio cue, subtle mobile haptic feedback, and a smooth scroll down into the next section (`#about`).
-  - Automatically hides via smooth slide-down fade (`opacity-0 translate-y-8`) once the user starts scrolling (`scrollY > 70px`), reappearing when scrolled back to the top.
-- **Global Mobile Click & Tap FX Engine (`MobileTouchFX.tsx`)**:
-  - Implemented dynamic retro tap feedback across the entire mobile view.
-  - Every touch/click spawns an expanding neon shockwave ripple ring (`animate-mobile-tap-ripple`) and floating score label (`+100`, `★`, `GUSTO!`, `LEVEL UP!`) with haptic vibration.
-  - Lightweight DOM cleanup ensures 0 memory leaks and fluid 60fps performance on all mobile phones.
-- **Mobile Responsive Fit & Anti-Overflow Optimizations**:
-  - **Signboard**: Refined font sizes (`text-[6.5px] xs:text-[8px] sm:text-xs`) to ensure long department names never clip or break on narrow 320px–360px viewports (iPhone SE / Android).
-  - **Title Typography**: Calibrated `"LET THE"` and `"GUSTO BEGIN"` spans and mascot gamepad for compact mobile viewports without line breaks or clipping.
-  - **Nintendo Switch Countdown**: Compacted joycon widths (`w-7 xs:w-10`) on small phones so the 4 countdown tiles receive maximum width without horizontal layout compression.
-  - **Anti-Overflow & Touch Ergonomics**: Added `overflow-x: hidden; -webkit-tap-highlight-color: transparent; touch-action: manipulation;` and springy `.arcade-push-btn:active` / `.arcade-face-btn:active` tactile tap feedback in `app/globals.css`.
-
-### `2026-10-04` — Retro Typewriter Typing Effect for "Entering into Gusto 2.0..."
-- **Retro Typewriter Effect**:
-  - Implemented a character-by-character typewriter effect in [`components/ui/PacmanGhostLoader.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/ui/PacmanGhostLoader.tsx) for **`Entering into Gusto 2.0`**.
-  - Characters type out sequentially with a ~65ms arcade cadence accompanied by a blinking retro terminal block cursor (`█`).
-  - Once typing completes, the 8-bit loading dots cycle smoothly (`.` ➔ `..` ➔ `...`) until the entrance transition triggers.
-  - Retained minimalist, text-only styling in authentic `'Press Start 2P', monospace` font with 3D black drop shadow.
-  - Retained instant skip on click/tap or any keypress.
-
-### `2026-10-04` — Fixed-Dimension Arcade Signboard with Cool Slot-Reel Roll & Light Sheen Sweep
-- **Strict Fixed Box Size**:
-  - Locked the yellow Mario signboard in [`HeroSection.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/hero/HeroSection.tsx) to strict, permanent dimensions (`w-[94%] max-w-[560px] xs:max-w-[600px] sm:max-w-[690px] md:max-w-[760px] h-[52px] xs:h-[58px] sm:h-[50px] md:h-[54px]`), guaranteeing that the outer yellow board **never resizes, twitches, or changes width/height** when alternating texts.
-- **Cool Arcade Reel Roll & Light Sheen**:
-  - Implemented a 3D slot-machine reel roll (`@keyframes marioReelRollOut` and `marioReelRollIn` in [`app/globals.css`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/app/globals.css)).
-  - Added an arcade light sheen sweep (`@keyframes marioSignSheenSweep`) that sweeps an angled gleam across the signboard with each transition.
-- **Clean Borderless Aesthetic**:
-  - Completely removed the indicator dots from the bottom of the sign as requested, leaving a clean, authentic, uninterrupted retro platformer signboard.
-  - Alternates every 4.0s (or on user tap) between:
-    1. `GOVERNMENT COLLEGE OF ENGINEERING, ERODE`
-    2. `DEPARTMENT OF INFORMATION TECHNOLOGY`
-
-### `2026-10-04` — Ultra Lag-Free GPU Scroll Engine, Authentic Super Mario Sprite & Mobile Fit
-- **Lag-Free 60fps/120fps GPU Scroll Architecture**:
-  - Re-architected [`MarioWorldLandscape.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/hero/MarioWorldLandscape.tsx) to eliminate React reconciliation during continuous scrolling.
-  - Replaced continuous `setScrollProgress` state churn with direct DOM GPU transforms (`translate3d(x, y, 0)` with `will-change: transform`), preventing layout thrashing/reflows and frame drops.
-  - Stripped conflicting CSS `transition-transform duration-75` that caused micro-stuttering and rubber-banding during scrolling.
-  - Replaced 90 separate `<span className="grass-scallop">` DOM nodes with a single GPU-composited hardware SVG `<pattern>`.
-  - Discrete state updates (`facingLeft`, `isJumping`, `hasReachedCastle`, `isRunning`) now dispatch only when state boundaries cross.
-- **Authentic Super Mario Sprite Engine**:
-  - Replaced the purple-haired, distorted test sprite with a brand new, crisp, high-definition `SuperMarioSprite`:
-    - Cap & Shirt in Super Mario Red (`#dc2626` / `#ef4444`) with visor and brim.
-    - Hair & sideburns in authentic brunette (`#3b1402`), warm peach skin (`#fed7aa`), and jet black mustache (`#111827`).
-    - Blue dungarees (`#2563eb`) with golden coin buttons (`#ffd000`), white gloves (`#ffffff`), and brown leather boots (`#78350f`).
-    - 4 distinct sprite frames: `jump` (iconic punching fist punch, tucked legs), `run` (alternating run stride with pumping arms), `victory` (peace sign with spinning Super Star overhead), and `idle` (hands on hips).
-    - Scaled up to clear, crisp proportions (`w-7.5 h-9.5 xs:w-8.5 xs:h-11 sm:w-10 sm:h-13 md:w-11 md:h-14`).
-- **Mobile Responsive Fit**:
-  - Adjusted castle positioning (`right-[4%] xs:right-[7%] sm:right-[10%]`) and calibrated flag width (`w-[62px] xs:w-[76px] sm:w-[98px]`) to guarantee zero horizontal overflow or clipping on 320px–420px mobile screens.
-  - Positioned Warp Pipe at `left-[6%] xs:left-[10%]` and Center Floating Bricks at `left-[44%] xs:left-[45%]`, maintaining balanced breathing room across viewports.
-  - Calibrated Mario's destination target so he stops right on the stone threshold of the Gusto 2.0 castle portal on both mobile and desktop.
-  - Added `touch-manipulation` and `active:scale-95` on interactive elements to eliminate mobile tap latency.
-
-### `2026-10-04` — Fixed PostCSS CSS Parsing Error & Added Mario Sky Blinking Stars Effect
-- **Build Fix**: Resolved CSS parsing failure (`@import rules must precede all rules aside from @charset and @layer statements`). Removed any `@import url(...)` statements from inside [`app/globals.css`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/app/globals.css) and consolidated Google Fonts loading (`Unbounded`, `Press Start 2P`, `Orbitron`, etc.) cleanly inside `<link rel="stylesheet">` in [`app/layout.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/app/layout.tsx). Production build compiles with code 0 (`Compiled successfully`).
-- **Mario Sky Blinking Stars Engine**:
-  - Implemented authentic Mario retro star components in [`HeroSection.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/hero/HeroSection.tsx):
-    - `MarioSuperStar`: 5-point yellow Power Star with black pixel border, golden highlight gradient, specular shine, and authentic vertical oval eyes `(• •)`.
-    - `PixelStarCross`: 8-bit cross sparkle with glowing white core and yellow perimeter.
-    - `PixelSparkleDiamond`: 4-point diamond sparkle.
-    - `MarioSkyStarsLayer`: Positioned stars organically across the empty blue sky regions (top arcade HUD bar, flanking college signboard, flanking "LET THE GUSTO BEGIN", and above the Mario world landscape).
-  - Added CSS animations in [`app/globals.css`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/app/globals.css): `@keyframes marioStarTwinkle1`, `marioStarTwinkle2`, `marioStarTwinkle3`, `marioStarFloatBlink`, and classes `.animate-star-blink-1`, `.animate-star-blink-2`, `.animate-star-blink-3`, `.animate-star-float-blink` with staggered delays and reduced-motion fallback.
-
-### `2026-10-04` — Integrated "Unbounded" Google Font for About Gusto Section and All Sections Below
-- **Summary**: Implemented the Google Font **"Unbounded"** (`sans-serif`, weights 200..900) across the About Gusto section and all subsequent page sections:
-  - **Font Integration (`app/layout.tsx` & `app/globals.css`)**:
-    - Added Google Fonts `<link>` preload with `family=Unbounded:wght@200..900&display=swap` to `app/layout.tsx`.
-    - Added `@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap')` and CSS custom property `--font-unbounded` to `app/globals.css`.
-    - Created utility classes: `.font-unbounded`, `.unbounded-regular`, `.unbounded-medium`, `.unbounded-bold`, and `.unbounded-black`.
-  - **Applied Across All Post-Hero Sections**:
-    - Scoped `font-family: "Unbounded", sans-serif;` to `#about`, `#events`, `#rules`, `#youtube`, `#transport`, `#contact`, and `footer`.
-    - Updated section headers, interactive title letters ("About GUSTO '26", "Symposium Events", "Event Rules", "Watch Video", "Venue & Transport", "Committee Directory"), and card titles across [`AboutSection.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/about/AboutSection.tsx), [`EventsSection.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/events/EventsSection.tsx), [`RulesSection.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/rules/RulesSection.tsx), [`YouTubeSection.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/youtube/YouTubeSection.tsx), [`TransportSection.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/transport/TransportSection.tsx), [`ContactSection.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/sections/contact/ContactSection.tsx), and [`Footer.tsx`](file:///c:/Users/manom/OneDrive/Pictures/Screenshots/Gusto-2.0/gusto-26-2.0/components/layout/Footer.tsx).
-
-
-### `2026-10-04` — Mobile Responsiveness & Floating Effect for "Let The Gusto Begin" + Removed Golden Jump Effect
-- **Summary**: Implemented continuous gentle floating motion for "Let The Gusto Begin", eliminated the golden color/shadow flash when clicking letters, and fully optimized the hero typography and Mario World Landscape for mobile devices:
-  - **Color-Preserving Letter Jump (`app/globals.css`)**:
-    - Created `@keyframes marioLetterJump` and `.animate-mario-letter-jump` featuring pure spring cartoon bounce physics (`translateY`, `rotate`, `scale`) with zero `color` or `text-shadow` mutation.
-    - Letters retain their authentic 4-color Mario palette (Blue, Yellow, Red, Green) and multi-layer 3D extrusion black shadows when clicked, completely removing the unwanted golden yellow tint and glow.
-  - **Light Floating & Bobbing Effect (`app/globals.css` & `HeroSection.tsx`)**:
-    - Added `@keyframes gustoTitleLightFloat` (`.animate-gusto-light-float`) for continuous, gentle airborne floating of the main title container.
-    - Added `@keyframes gustoRow1Wave` and `gustoRow2Wave` (`.animate-gusto-row1-wave`, `.animate-gusto-row2-wave`) with phased breathing motion between Row 1 and Row 2.
-    - Integrated with `@media (prefers-reduced-motion: reduce)` for accessibility.
-  - **Mobile Typography Fix (`HeroSection.tsx` & `app/globals.css`)**:
-    - Balanced Row 1 ("LET" + Console + "THE") with uniform font sizing (`text-[1.85rem] xs:text-[2.6rem]`) and matched gamepad dimensions (`w-13 xs:w-18`).
-    - Enforced `flex-nowrap` on Row 2 ("GUSTO BEGIN") with proportional font sizing (`text-[1.65rem] xs:text-[2.35rem]`), completely eliminating awkward 3-line word wrapping and horizontal overflow on small phone screens (320px–420px).
-    - Tuned `.mario-letter-span` default mobile stroke (`2.2px`) and 3D shadow depth (`14px`) so letterforms remain readable, crisp, and uncluttered on mobile devices.
-  - **Mario World Landscape Mobile Scaling (`MarioWorldLandscape.tsx`)**:
-    - Adjusted the Fortress Castle placement (`right-[14%] xs:right-[16%]`) and scaled the swallowtail flag pennant (`w-[76px] xs:w-[88px]`) so the flag never clips off the right screen edge.
-    - Proportionalized pipe, piranha plant, suspended brick blocks, and Mario running distance so all interactive elements fit comfortably without overlapping.
 
 ### `2026-09-30` — Matched Mobile Register Button to Desktop/Windows Among Us Arcade Button
 - **Summary**: Replaced the mobile pink cyberpunk polygon button with the authentic **Among Us Arcade Register Button** matching the desktop ("Windows") navbar design:

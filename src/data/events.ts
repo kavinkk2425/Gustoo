@@ -21,9 +21,21 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: true,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      { name: "DHAYANITHI S", phone: "9344347148", role: "Event Coordinator" },
-      { name: "SANDHIYA D", phone: "8248147117", role: "Event Coordinator" },
-      { name: "PRAVEENRAJ V", phone: "8838828045", role: "Event Coordinator" },
+      {
+        name: "DHAYANITHI S",
+        phone: "9344347148",
+        role: "Event Coordinator",
+      },
+      {
+        name: "SANDHIYA D",
+        phone: "8248147117",
+        role: "Event Coordinator",
+      },
+      {
+        name: "PRAVEENRAJ V",
+        phone: "8838828045",
+        role: "Event Coordinator",
+      },
     ],
     rules: [
       "Solo and Team Participation of maximum three members are allowed.",
@@ -59,9 +71,21 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      { name: "KAVIKUMAR B", phone: "8870822957", role: "Event Coordinator" },
-      { name: "NIGIL KUMAR M", phone: "9597209198", role: "Event Coordinator" },
-      { name: "SARASWATHI D", phone: "9600759940", role: "Event Coordinator" },
+      {
+        name: "KAVIKUMAR B",
+        phone: "8870822957",
+        role: "Event Coordinator",
+      },
+      {
+        name: "NIGIL KUMAR M",
+        phone: "9597209198",
+        role: "Event Coordinator",
+      },
+      {
+        name: "SARASWATHI D",
+        phone: "9600759940",
+        role: "Event Coordinator",
+      },
     ],
     rules: [
       "The participants could be solo, a team of two or three.",
@@ -96,9 +120,21 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: true,
     coordinators: [
-      { name: "NANDHAKUMAR S", phone: "7695966279", role: "Event Coordinator" },
-      { name: "GANGA B", phone: "8072017045", role: "Event Coordinator" },
-      { name: "MANISHA M", phone: "9942011161", role: "Event Coordinator" },
+      {
+        name: "NANDHAKUMAR S",
+        phone: "7695966279",
+        role: "Event Coordinator",
+      },
+      {
+        name: "GANGA B",
+        phone: "8072017045",
+        role: "Event Coordinator",
+      },
+      {
+        name: "MANISHA M",
+        phone: "9942011161",
+        role: "Event Coordinator",
+      },
     ],
     rules: {
       round1: {
@@ -159,14 +195,27 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: true,
     coordinators: [
-      { name: "SANUKTHA A", phone: "9361334075", role: "Event Coordinator" },
-      { name: "DIVYASRI K", phone: "8667797100", role: "Event Coordinator" },
-      { name: "SURYA P", phone: "6383150516", role: "Event Coordinator" },
+      {
+        name: "SANUKTHA A",
+        phone: "9361334075",
+        role: "Event Coordinator",
+      },
+      {
+        name: "DIVYASRI K",
+        phone: "8667797100",
+        role: "Event Coordinator",
+      },
+      {
+        name: "SURYA P",
+        phone: "6383150516",
+        role: "Event Coordinator",
+      },
     ],
     rules: {
       round1: {
         title: "Level 1 — Blind Coding (30 Minutes)",
-        description: "Solve a programming problem without any trial-and-error execution feedback.",
+        description:
+          "Solve a programming problem without any trial-and-error execution feedback.",
         rules: [
           "Individual participation only.",
           "A problem statement with input and output format will be provided.",
@@ -178,7 +227,8 @@ export const GUSTO_EVENTS: GustoEvent[] = [
       },
       round2: {
         title: "Level 2 — Hunt Debugging (30 Minutes)",
-        description: "Identify and correct logical flaws in a given program to produce the targeted output.",
+        description:
+          "Identify and correct logical flaws in a given program to produce the targeted output.",
         rules: [
           "A code containing logical flaws will be provided.",
           "Participants must analyze, modify, and provide the mentioned output.",
@@ -217,10 +267,26 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: true,
     coordinators: [
-      { name: "SUVETHARANI C", phone: "9688656958", role: "Event Coordinator" },
-      { name: "SANJAYKANTH C", phone: "7904546645", role: "Event Coordinator" },
-      { name: "RASIGA M", phone: "9345128184", role: "Event Coordinator" },
-      { name: "SWETHA M", phone: "7418185974", role: "Event Coordinator" },
+      {
+        name: "SUVETHARANI C",
+        phone: "9688656958",
+        role: "Event Coordinator",
+      },
+      {
+        name: "SANJAYKANTH C",
+        phone: "7904546645",
+        role: "Event Coordinator",
+      },
+      {
+        name: "RASIGA M",
+        phone: "9345128184",
+        role: "Event Coordinator",
+      },
+      {
+        name: "SWETHA M",
+        phone: "7418185974",
+        role: "Event Coordinator",
+      },
     ],
     rules: {
       round1: {
@@ -283,8 +349,16 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      { name: "RAKAVI R", phone: "8610544687", role: "Event Coordinator" },
-      { name: "GAJIN S", phone: "9025732774", role: "Event Coordinator" },
+      {
+        name: "RAKAVI R",
+        phone: "8610544687",
+        role: "Event Coordinator",
+      },
+      {
+        name: "GAJIN S",
+        phone: "9025732774",
+        role: "Event Coordinator",
+      },
     ],
     rules: [
       "Mode: Online Event.",
@@ -320,8 +394,16 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      { name: "VINUBHARATHI M S", phone: "6385923217", role: "Event Coordinator" },
-      { name: "MAHATHMA E", phone: "6374655791", role: "Event Coordinator" },
+      {
+        name: "VINUBHARATHI M S",
+        phone: "6385923217",
+        role: "Event Coordinator",
+      },
+      {
+        name: "MAHATHMA E",
+        phone: "6374655791",
+        role: "Event Coordinator",
+      },
     ],
     rules: [
       "Themes: AI Technologies / College Life (Student Struggles, Final Year Project, Exams, Hostel Life, etc.) / Job vs Entrepreneurship.",
@@ -357,8 +439,16 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      { name: "DEEPAK M", phone: "6374294597", role: "Event Coordinator" },
-      { name: "MARI SANGEETH S", phone: "6383575163", role: "Event Coordinator" },
+      {
+        name: "DEEPAK M",
+        phone: "6374294597",
+        role: "Event Coordinator",
+      },
+      {
+        name: "MARI SANGEETH S",
+        phone: "6383575163",
+        role: "Event Coordinator",
+      },
     ],
     rules: [
       "Each team may consist of 1 to 5 members. Open to students from all departments and colleges.",
@@ -394,13 +484,22 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: true,
     coordinators: [
-      { name: "SANTHOSH KUMAR P", phone: "8637424695", role: "Event Coordinator" },
-      { name: "KANIMOZHI B", phone: "8220802872", role: "Event Coordinator" },
+      {
+        name: "SANTHOSH KUMAR P",
+        phone: "8637424695",
+        role: "Event Coordinator",
+      },
+      {
+        name: "KANIMOZHI B",
+        phone: "8220802872",
+        role: "Event Coordinator",
+      },
     ],
     rules: {
       round1: {
         title: "Round 1 — Logo Guessing Game",
-        description: "Identify IT companies, software, and application logos from partial or disguised clues.",
+        description:
+          "Identify IT companies, software, and application logos from partial or disguised clues.",
         rules: [
           "Half logos will be displayed, and participants must guess the complete logo name.",
           "A logo image will be shown, and participants must identify the correct software/company.",
@@ -411,7 +510,8 @@ export const GUSTO_EVENTS: GustoEvent[] = [
       },
       round2: {
         title: "Round 2 — Connection Game",
-        description: "Connect visual image clues to deduce technical terminology and concepts.",
+        description:
+          "Connect visual image clues to deduce technical terminology and concepts.",
         rules: [
           "By connecting the given images, participants must identify the correct technical word or concept.",
           "Similar images may be displayed to find a common connection.",
