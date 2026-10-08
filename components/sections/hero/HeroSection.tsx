@@ -481,8 +481,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
       logoAlt: "IT Department Logo",
     },
     {
-      line1: "ASSOCIATION OF (AIT)",
-      line2: "INFORMATION TECHNOLOGISTS",
+      line1: "ASSOCIATION OF INFORMATION TECHNOLOGISTS",
+      line2: "(AIT)",
       logo: "/logos/AIT/gold.png",
       logoAlt: "AIT Association Logo",
     },
