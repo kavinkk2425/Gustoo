@@ -344,10 +344,10 @@ textarea {
    4. SHARED SYMPOSIUM UTILITIES & KEYFRAMES (Additive Only)
    -------------------------------------------------------------------------- */
 .bg-retro-yellow-grid {
-  background-color: #fec800;
+  background-color: #5c94fc;
   background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.09) 1.5px, transparent 1.5px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1.5px, transparent 1.5px);
+    linear-gradient(to right, rgba(0, 0, 0, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 1.5px, transparent 1.5px);
   background-size: 38px 38px;
   animation: gridDrift 28s linear infinite;
 }

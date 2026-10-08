@@ -437,9 +437,10 @@ const MARQUEE_TICKER_ITEMS = [
   },
 ];
 
-export function HeroSection({ onOpenRegister }: HeroSectionProps) {
-  const targetDate = new Date("2026-10-23T09:00:00+05:30").getTime();
+// Static target timestamp for symposium inauguration countdown (October 23, 2026 9:00 AM IST)
+const TARGET_SYMPOSIUM_TIMESTAMP = new Date("2026-10-23T09:00:00+05:30").getTime();
 
+export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   // Scroll reveal observers for cascading view animation
   const [marqueeRef, marqueeInView] = useInView({ threshold: 0.1 });
   const [statsRef, statsInView] = useInView({ threshold: 0.1 });
@@ -448,6 +449,15 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
 
   const [letterAnimationKey, setLetterAnimationKey] = useState(0);
   const [isJumping, setIsJumping] = useState(false);
+
+  // Desktop-only: disable all game interactions & audio on mobile for lag-free experience
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   // Retro Arcade Live Game State
   const [score, setScore] = useState(200);
@@ -472,7 +482,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
     },
     {
       line1: "ASSOCIATION OF (AIT)",
-      line2: "INFORMATION TECHNOLOGY",
+      line2: "INFORMATION TECHNOLOGISTS",
       logo: "/logos/AIT/gold.png",
       logoAlt: "AIT Association Logo",
     },
@@ -497,6 +507,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   }, [INSTITUTION_BANNER_ITEMS.length]);
 
   const handleBannerFlipToggle = () => {
+    if (!isDesktop) return; // no interaction on mobile
     try {
       arcadeAudio.playCoin();
     } catch { }
@@ -517,11 +528,13 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   }, []);
 
   const triggerJump = () => {
+    if (!isDesktop) return; // desktop-only interaction
     setLetterAnimationKey((prev) => prev + 1);
     setIsJumping(true);
   };
 
   const handleHitBlock = (blockId: string) => {
+    if (!isDesktop) return; // desktop-only game interaction
     triggerJump();
     setBumpedBlock(blockId);
     setPoppedBlock(blockId);
@@ -579,8 +592,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
     <section className="relative min-h-[92vh] bg-retro-yellow-grid overflow-hidden pt-2 xs:pt-2.5 sm:pt-3 md:pt-4 pb-0 border-b-[4px] border-black">
       {/* === SUPER MARIO WORLD 1-1 ARCADE ENVIRONMENT LAYER === */}
 
-      {/* Retro Pixel Super Mario Horizon Cloud Drift System (Authentic Parallax Movement) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1] select-none">
+      {/* Retro Pixel Super Mario Horizon Cloud Drift System (Authentic Parallax Movement) — Desktop only */}
+      <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none z-[1] select-none">
         {/* Cloud 1: High Sky Large Mario Cloud (Slow Parallax Drift) */}
         <div
           className="hidden sm:block absolute top-4 sm:top-6 left-0 animate-cloud-drift-slow"
@@ -630,15 +643,15 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* Retro Mario Sky Twinkling/Blinking Stars Layer */}
-      <MarioSkyStarsLayer />
+      {/* Retro Mario Sky Twinkling/Blinking Stars Layer — Desktop only */}
+      <div className="hidden md:block"><MarioSkyStarsLayer /></div>
 
       {/* Main Hero Container */}
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 relative z-10">
         <div className="flex flex-col items-center text-center w-full">
-          {/* === SUPER MARIO WORLD 1-1 TOP ARCADE HUD (EXACT SCREENSHOT LAYOUT) === */}
+          {/* === SUPER MARIO WORLD 1-1 TOP ARCADE HUD — Desktop only === */}
           {/* Top Retro Game HUD Bar (Clean Classic: PLAYER 000200, COINS ×01, WORLD 1-1, TIME 245) */}
-          <div className="w-full max-w-3xl sm:max-w-4xl mx-auto px-2 xs:px-4 mb-3 sm:mb-4 flex items-center justify-between font-['Press_Start_2P',monospace] text-white text-[8px] xxs:text-[9.5px] xs:text-[11px] sm:text-xs md:text-[13px] tracking-wider select-none z-30 drop-shadow-[1.5px_1.5px_0px_#000]">
+          <div className="hidden md:flex w-full max-w-3xl sm:max-w-4xl mx-auto px-2 xs:px-4 mb-3 sm:mb-4 items-center justify-between font-['Press_Start_2P',monospace] text-white text-[8px] xxs:text-[9.5px] xs:text-[11px] sm:text-xs md:text-[13px] tracking-wider select-none z-30 drop-shadow-[1.5px_1.5px_0px_#000]">
             <div className="flex flex-col items-start leading-tight">
               <span className="font-bold tracking-wider text-[#ffd000]">PLAYER</span>
               <span className="font-bold tracking-wider text-white mt-0.5">000200</span>
@@ -695,7 +708,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                   className={`w-full flex flex-col items-center justify-center text-center drop-shadow-[1px_1px_0px_rgba(255,255,255,0.7)] ${bannerAnimState === "out" ? "animate-sign-reel-out" : "animate-sign-reel-in"
                     }`}
                 >
-                  <div className="font-['Press_Start_2P',monospace] font-black text-[6.5px] xxs:text-[7.5px] xs:text-[9px] sm:text-[10.5px] md:text-xs lg:text-[13px] text-black tracking-tight sm:tracking-normal uppercase flex flex-col items-center justify-center gap-0.5 sm:gap-1 leading-snug w-full">
+                  <div className="font-['Press_Start_2P',monospace] font-black text-[5.5px] xxs:text-[6.5px] xs:text-[8px] sm:text-[9.5px] md:text-[11px] lg:text-[12px] text-black tracking-tight uppercase flex flex-col items-center justify-center gap-0.5 sm:gap-1 leading-snug w-full">
                     <span className="whitespace-nowrap max-w-full overflow-hidden text-ellipsis">{INSTITUTION_BANNER_ITEMS[bannerIndex].line1}</span>
                     <span className="whitespace-nowrap max-w-full overflow-hidden text-ellipsis">{INSTITUTION_BANNER_ITEMS[bannerIndex].line2}</span>
                   </div>
@@ -744,6 +757,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               {/* RETRO GAMING CONSOLE / GAMEPAD MASCOT in between "LET" and "THE" */}
               <div
                 onClick={(e) => {
+                  if (!isDesktop) return; // desktop-only sound & interaction
                   e.stopPropagation();
                   triggerJump();
                   try {
@@ -1317,8 +1331,8 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* ── SUPER MARIO WORLD 2.0 ARCADE GAME (3 LEVELS, 60FPS) ── */}
-      <div className="w-full">
+      {/* ── SUPER MARIO WORLD 2.0 ARCADE GAME — Desktop only ── */}
+      <div className="hidden md:block w-full">
         <MarioWorldLandscape onOpenRegister={onOpenRegister} />
       </div>
     </section>

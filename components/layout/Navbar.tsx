@@ -21,7 +21,6 @@ const NAV_LINKS = [
   { name: "All Events", href: "#events", tag: "r1" },
   { name: "Rules", href: "#rules", tag: "r2" },
   { name: "About", href: "#about", tag: "r3" },
-  { name: "Gallery", href: "#gallery", tag: "r4" },
   { name: "Teaser", href: "#youtube", tag: "r5" },
   { name: "Transport", href: "#transport", tag: "r6" },
   { name: "Contacts", href: "#contact", tag: "r7" },
