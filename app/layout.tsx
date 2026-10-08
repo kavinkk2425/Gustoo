@@ -79,7 +79,13 @@ export const metadata: Metadata = {
   description:
     "Official website for GUSTO 2K26 - National Level Technical Symposium organized by the Department of Information Technology & AIT, Government College of Engineering, Erode (Formerly IRTT).",
   icons: {
-    icon: "/logos/GUSTO/gradient.png",
+    icon: [
+      { url: "/logos/GUSTO/gradient.png" },
+      { url: "/logos/GUSTO/gradient.png", sizes: "32x32", type: "image/png" },
+      { url: "/logos/GUSTO/gradient.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/logos/GUSTO/gradient.png",
+    apple: "/logos/GUSTO/gradient.png",
   },
   openGraph: {
     title: "GUSTO '26 | National Level Technical Symposium",
@@ -100,6 +106,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} ${chakraPetch.variable} ${orbitron.variable} ${pressStart2P.variable} ${figtree.variable} ${playfair.variable} dark h-full antialiased scroll-smooth`}
     >
       <head>
+        <link rel="icon" href="/logos/GUSTO/gradient.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/logos/GUSTO/gradient.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logos/GUSTO/gradient.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

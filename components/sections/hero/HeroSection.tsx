@@ -1317,13 +1317,10 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* ── SUPER MARIO WORLD LIVE ANIMATED LANDSCAPE & COIN ENGINE (Desktop Only) ── */}
-      <div className="hidden sm:block">
+      {/* ── SUPER MARIO WORLD 2.0 ARCADE GAME (3 LEVELS, 60FPS) ── */}
+      <div className="w-full">
         <MarioWorldLandscape onOpenRegister={onOpenRegister} />
       </div>
-
-      {/* Clean Retro Turf Ground Baseline for Mobile View */}
-      <div className="sm:hidden w-full h-8 bg-[#22c55e] border-t-[3.5px] border-black shadow-[inset_0_3px_0_#4ade80]" />
     </section>
   );
 }

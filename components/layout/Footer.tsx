@@ -16,8 +16,14 @@ export function Footer() {
           {/* Column 1: Brand & Institution */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#ec4899] border-2 border-black flex items-center justify-center p-1 shadow-[3px_3px_0px_#000]">
-                <RetroGamepad className="w-10 h-8" />
+              <div className="relative w-12 h-12 rounded-2xl bg-white border-2 border-black flex items-center justify-center p-1 shadow-[3px_3px_0px_#000] overflow-hidden shrink-0">
+                <Image
+                  src="/logos/GUSTO/gradient.png"
+                  alt="GUSTO '26 Logo"
+                  fill
+                  sizes="48px"
+                  className="object-contain p-1"
+                />
               </div>
               <div>
                 <h3 className="text-2xl font-black text-[#fde047] tracking-tight">

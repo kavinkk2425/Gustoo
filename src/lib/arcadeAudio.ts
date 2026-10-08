@@ -9,8 +9,12 @@ class ArcadeAudioEngine {
 
   constructor() {
     if (typeof window !== "undefined") {
-      const storedMute = localStorage.getItem("gusto_arcade_muted");
-      this.isMuted = storedMute !== "false"; // Default to silent
+      try {
+        const storedMute = localStorage.getItem("gusto_arcade_muted");
+        this.isMuted = storedMute !== "false"; // Default to silent
+      } catch {
+        this.isMuted = true;
+      }
     }
   }
 
@@ -37,7 +41,11 @@ class ArcadeAudioEngine {
   public setMuted(muted: boolean) {
     this.isMuted = muted;
     if (typeof window !== "undefined") {
-      localStorage.setItem("gusto_arcade_muted", String(muted));
+      try {
+        localStorage.setItem("gusto_arcade_muted", String(muted));
+      } catch {
+        // Safe fallback if storage is restricted
+      }
     }
   }
 
@@ -195,6 +203,74 @@ class ArcadeAudioEngine {
 
       osc.start(now);
       osc.stop(now + 0.38);
+    } catch {
+      // fallback
+    }
+  }
+
+  public playStomp() {
+    if (this.isMuted) return;
+    const ctx = this.initContext();
+    if (!ctx) return;
+    try {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(450, now);
+      osc.frequency.exponentialRampToValueAtTime(100, now + 0.12);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.12);
+    } catch {
+      // fallback
+    }
+  }
+
+  public playBump() {
+    if (this.isMuted) return;
+    const ctx = this.initContext();
+    if (!ctx) return;
+    try {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(180, now);
+      osc.frequency.exponentialRampToValueAtTime(60, now + 0.08);
+      gain.gain.setValueAtTime(0.06, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.08);
+    } catch {
+      // fallback
+    }
+  }
+
+  public playStageClear() {
+    if (this.isMuted) return;
+    const ctx = this.initContext();
+    if (!ctx) return;
+    try {
+      const now = ctx.currentTime;
+      const notes = [261.63, 329.63, 392.0, 523.25, 659.25, 783.99, 1046.5];
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "square";
+        osc.frequency.setValueAtTime(freq, now + idx * 0.09);
+        gain.gain.setValueAtTime(0.05, now + idx * 0.09);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.09 + 0.14);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + idx * 0.09);
+        osc.stop(now + idx * 0.09 + 0.14);
+      });
     } catch {
       // fallback
     }

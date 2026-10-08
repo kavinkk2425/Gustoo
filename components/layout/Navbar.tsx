@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { ABOUT_DATA } from "@/src/data/about";
 import { Menu, X, Search } from "lucide-react";
 import { RetroGamepad } from "@/components/ui/RetroStickers";
@@ -143,8 +144,15 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
             className="flex items-center gap-2.5 sm:gap-3 group select-none cursor-pointer"
             title="Gusto '26 - Return to Top"
           >
-            <div className="relative w-10 h-10 sm:w-11 sm:h-11 xl:w-12 xl:h-12 rounded-lg bg-gradient-to-br from-[#ec4899] to-[#8b5cf6] border-[2.5px] border-black shadow-[3px_3px_0px_#000] group-hover:-translate-y-0.5 group-hover:shadow-[4px_4px_0px_#000] group-active:translate-y-0.5 group-active:shadow-[1px_1px_0px_#000] transition-all duration-150 flex items-center justify-center p-1 overflow-hidden shrink-0">
-              <RetroGamepad className="w-6 h-5 sm:w-7 sm:h-6 xl:w-8 xl:h-7" />
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11 xl:w-12 xl:h-12 rounded-lg bg-white border-[2.5px] border-black shadow-[3px_3px_0px_#000] group-hover:-translate-y-0.5 group-hover:shadow-[4px_4px_0px_#000] group-active:translate-y-0.5 group-active:shadow-[1px_1px_0px_#000] transition-all duration-150 flex items-center justify-center p-1 overflow-hidden shrink-0">
+              <Image
+                src="/logos/GUSTO/gradient.png"
+                alt="Gusto '26 Logo"
+                fill
+                sizes="(max-width: 640px) 40px, 48px"
+                className="object-contain p-0.5"
+                priority
+              />
             </div>
 
             <div className="flex flex-col justify-center leading-none">
