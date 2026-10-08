@@ -9,7 +9,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     subCategory: "Group / Abstract",
     eventType: "ABSTRACT",
     date: "2026-03-06",
-    time: "10:30 AM",
+    time: "11:00 AM",
     venue: "Seminar Hall & HOD Lab",
     description:
       "The Paper Presentation technical event provides a platform for students to present their innovative ideas and research work. The event focuses on evaluating participants' understanding of the topics, originality of ideas, communication skills, and presentation abilities.",
@@ -21,9 +21,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: true,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      { name: "DHAYANITHI S", phone: "9344347148", role: "Event Coordinator" },
-      { name: "SANDHIYA D", phone: "8248147117", role: "Event Coordinator" },
-      { name: "PRAVEENRAJ V", phone: "8838828045", role: "Event Coordinator" },
+      { name: "Praveen Raj V", phone: "8838828045", role: "Event Coordinator" },
     ],
     rules: [
       "Solo and Team Participation of maximum three members are allowed.",
@@ -47,8 +45,8 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     subCategory: "Group / Abstract",
     eventType: "ABSTRACT",
     date: "2026-03-06",
-    time: "10:30 AM",
-    venue: "IT Computer Lab 1",
+    time: "11:00 AM",
+    venue: "AD23 (final year class)",
     description:
       "Demonstrate your engineering skills by presenting a working project or prototype. Explain your design process, implementation challenges, and results in this showcase of technical innovation.",
     teamSize: "1-3 Members",
@@ -59,9 +57,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      { name: "KAVIKUMAR B", phone: "8870822957", role: "Event Coordinator" },
-      { name: "NIGIL KUMAR M", phone: "9597209198", role: "Event Coordinator" },
-      { name: "SARASWATHI D", phone: "9600759940", role: "Event Coordinator" },
+      { name: "S. Sivaranjani", phone: "8220174412", role: "Event Coordinator" },
     ],
     rules: [
       "The participants could be solo, a team of two or three.",
@@ -86,8 +82,8 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     subCategory: "Individual / Direct",
     eventType: "DIRECT",
     date: "2026-03-06",
-    time: "10:15 AM",
-    venue: "Hardware Lab & IT-Lab 2",
+    time: "11:45 AM",
+    venue: "Hardware Lab",
     description:
       "Think like a Compiler is a technical programming event designed to evaluate participants' ability to analyse, interpret, and correct code with precision. The event challenges participants to approach programming problems from a compiler's perspective by focusing on syntax accuracy, logical correctness, and output prediction.",
     teamSize: "Individual (Solo)",
@@ -96,9 +92,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: true,
     coordinators: [
-      { name: "NANDHAKUMAR S", phone: "7695966279", role: "Event Coordinator" },
-      { name: "GANGA B", phone: "8072017045", role: "Event Coordinator" },
-      { name: "MANISHA M", phone: "9942011161", role: "Event Coordinator" },
+      { name: "Manisha M", phone: "9942011161", role: "Event Coordinator" },
     ],
     rules: {
       round1: {
@@ -149,8 +143,8 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     subCategory: "Individual / Direct",
     eventType: "DIRECT",
     date: "2026-03-06",
-    time: "11:00 AM",
-    venue: "IT-Lab 1 & IT-Lab 3",
+    time: "11:45 AM",
+    venue: "Third Lab",
     description:
       "Code Chaos is a two-stage programming challenge designed to evaluate precision, logic building, and debugging ability under time pressure. Participants must first demonstrate accuracy by writing flawless code without feedback, and then prove analytical strength by correcting and optimizing faulty logic.",
     teamSize: "Individual (Solo)",
@@ -159,9 +153,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: true,
     coordinators: [
-      { name: "SANUKTHA A", phone: "9361334075", role: "Event Coordinator" },
-      { name: "DIVYASRI K", phone: "8667797100", role: "Event Coordinator" },
-      { name: "SURYA P", phone: "6383150516", role: "Event Coordinator" },
+      { name: "Surya P", phone: "6383150516", role: "Event Coordinator" },
     ],
     rules: {
       round1: {
@@ -202,13 +194,13 @@ export const GUSTO_EVENTS: GustoEvent[] = [
   // 5. PROMPTX
   {
     id: "promptx",
-    title: "PROMPTX",
+    title: "Prompt X",
     category: "Technical",
     subCategory: "Individual / Direct",
     eventType: "DIRECT",
     date: "2026-03-06",
-    time: "11:00 AM",
-    venue: "AD-21 IT Department",
+    time: "11:45 AM",
+    venue: "AD21 (second year class)",
     description:
       "PROMPTX is an individual AI-based competition that evaluates participants on prompt engineering skills, accuracy, efficiency, and time management. The event challenges participants to generate precise AI outputs using well-structured prompts across two distinct rounds.",
     teamSize: "Individual (Solo)",
@@ -217,10 +209,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: true,
     coordinators: [
-      { name: "SUVETHARANI C", phone: "9688656958", role: "Event Coordinator" },
-      { name: "SANJAYKANTH C", phone: "7904546645", role: "Event Coordinator" },
-      { name: "RASIGA M", phone: "9345128184", role: "Event Coordinator" },
-      { name: "SWETHA M", phone: "7418185974", role: "Event Coordinator" },
+      { name: "Karthick B", phone: "6383208735", role: "Event Coordinator" },
     ],
     rules: {
       round1: {
@@ -283,7 +272,6 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      { name: "RAKAVI R", phone: "8610544687", role: "Event Coordinator" },
       { name: "GAJIN S", phone: "9025732774", role: "Event Coordinator" },
     ],
     rules: [
@@ -320,7 +308,6 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      { name: "VINUBHARATHI M S", phone: "6385923217", role: "Event Coordinator" },
       { name: "MAHATHMA E", phone: "6374655791", role: "Event Coordinator" },
     ],
     rules: [
@@ -357,8 +344,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      { name: "DEEPAK M", phone: "6374294597", role: "Event Coordinator" },
-      { name: "MARI SANGEETH S", phone: "6383575163", role: "Event Coordinator" },
+      { name: "Mari Sangeeth S", phone: "6383575163", role: "Event Coordinator" },
     ],
     rules: [
       "Each team may consist of 1 to 5 members. Open to students from all departments and colleges.",
@@ -376,16 +362,16 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     ],
   },
 
-  // 9. Icon IQ
+  // 9. Think Sync
   {
     id: "icon-iq",
-    title: "Icon IQ",
+    title: "Think Sync",
     category: "Non-Technical",
     subCategory: "Offline Interactive",
     eventType: "DIRECT",
     date: "2026-03-06",
-    time: "10:15 AM",
-    venue: "AD-22 IT Department",
+    time: "2:00 PM",
+    venue: "AD21 (second year class) & AD22 (third year class)",
     description:
       "Icon IQ is a challenging and interactive non-technical event that tests participants' visual intelligence, logical thinking, and IT awareness through logo deduction and connection puzzles.",
     teamSize: "Individual (Solo)",
@@ -394,8 +380,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: true,
     coordinators: [
-      { name: "SANTHOSH KUMAR P", phone: "8637424695", role: "Event Coordinator" },
-      { name: "KANIMOZHI B", phone: "8220802872", role: "Event Coordinator" },
+      { name: "Bharath Kumar P", phone: "6379478168", role: "Event Coordinator" },
     ],
     rules: {
       round1: {

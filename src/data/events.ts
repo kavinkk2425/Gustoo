@@ -9,7 +9,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     subCategory: "Group / Abstract",
     eventType: "ABSTRACT",
     date: "2026-10-23",
-    time: "10:30 AM",
+    time: "11:00 AM",
     venue: "Seminar Hall & HOD Lab",
     description:
       "The Paper Presentation technical event provides a platform for students to present their innovative ideas and research work. The event focuses on evaluating participants' understanding of the topics, originality of ideas, communication skills, and presentation abilities.",
@@ -22,17 +22,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     onSpotRegistrationAvailable: false,
     coordinators: [
       {
-        name: "DHAYANITHI S",
-        phone: "9344347148",
-        role: "Event Coordinator",
-      },
-      {
-        name: "SANDHIYA D",
-        phone: "8248147117",
-        role: "Event Coordinator",
-      },
-      {
-        name: "PRAVEENRAJ V",
+        name: "Praveen Raj V",
         phone: "8838828045",
         role: "Event Coordinator",
       },
@@ -43,7 +33,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
       "Papers will be shortlisted based on the Quality, Relevance and Originality of the Abstract.",
       "Author of the shortlisted paper will receive the mail from 22nd of October 2026 or before.",
       "Accepted authors will receive instructions on how to proceed with full paper submission.",
-      "Authors of accepted papers are asked to be ready with oral PowerPoint presentation for 7 to 10 min which will be the stage event.",
+      "Authors of accepted papers are asked to be ready with oral PowerPoint presentation for 5 to 8 min which will be the stage event (1 projector provided).",
       "Winning contestants will be rewarded by attractive cash prizes.",
       "Each member of the team must register individually. However, the abstract should be submitted only once by the designated team leader on behalf of the team.",
       "When submitting the abstract, the team leader should include their name, department, year, phone number, college name, names of all team members, and the registration codes of all team members in the email.",
@@ -59,8 +49,8 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     subCategory: "Group / Abstract",
     eventType: "ABSTRACT",
     date: "2026-10-23",
-    time: "10:30 AM",
-    venue: "IT Computer Lab 1",
+    time: "11:00 AM",
+    venue: "AD23 (final year class)",
     description:
       "Demonstrate your engineering skills by presenting a working project or prototype. Explain your design process, implementation challenges, and results in this showcase of technical innovation.",
     teamSize: "1-3 Members",
@@ -72,18 +62,8 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     onSpotRegistrationAvailable: false,
     coordinators: [
       {
-        name: "KAVIKUMAR B",
-        phone: "8870822957",
-        role: "Event Coordinator",
-      },
-      {
-        name: "NIGIL KUMAR M",
-        phone: "9597209198",
-        role: "Event Coordinator",
-      },
-      {
-        name: "SARASWATHI D",
-        phone: "9600759940",
+        name: "S. Sivaranjani",
+        phone: "8220174412",
         role: "Event Coordinator",
       },
     ],
@@ -91,7 +71,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
       "The participants could be solo, a team of two or three.",
       "The participants must upload their project abstract, along with the existing system, proposed solutions with methodology, and scope, with a maximum of 5 pages as a soft copy during registration.",
       "The participants must bring their working project model and presentation slides.",
-      "Presentation will approximately take 5-10 minutes per team, followed by a live demonstration of the project.",
+      "Presentation and live demonstration duration will be decided by the jury members based on project weightage.",
       "The participants must provide their project report (hard copy).",
       "Batches will be allocated based on registration. The last date to send the abstract is 21st October 2026, and the shortlisted will get the mail on 22nd of October 2026 or before.",
       "The winners will be determined by juries.",
@@ -110,8 +90,8 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     subCategory: "Individual / Direct",
     eventType: "DIRECT",
     date: "2026-10-23",
-    time: "10:15 AM",
-    venue: "Hardware Lab & IT-Lab 2",
+    time: "11:45 AM",
+    venue: "Hardware Lab",
     description:
       "Think like a Compiler is a technical programming event designed to evaluate participants' ability to analyse, interpret, and correct code with precision. The event challenges participants to approach programming problems from a compiler's perspective by focusing on syntax accuracy, logical correctness, and output prediction.",
     teamSize: "Individual (Solo)",
@@ -121,26 +101,16 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     onSpotRegistrationAvailable: true,
     coordinators: [
       {
-        name: "NANDHAKUMAR S",
-        phone: "7695966279",
-        role: "Event Coordinator",
-      },
-      {
-        name: "GANGA B",
-        phone: "8072017045",
-        role: "Event Coordinator",
-      },
-      {
-        name: "MANISHA M",
+        name: "Manisha M",
         phone: "9942011161",
         role: "Event Coordinator",
       },
     ],
     rules: {
       round1: {
-        title: "Level 1 — Think Like a Compiler (30 Minutes)",
+        title: "Level 1 — Think Like a Compiler (25 Minutes)",
         description:
-          "Analyze the given code without using a system or compiler. Use reasoning skills to identify errors, logical mistakes, or predict output step by step.",
+          "Question paper and worksheet based round. Analyze the given code without using a system or compiler. Use reasoning skills to identify errors, logical mistakes, or predict output step by step.",
         rules: [
           "Participants must not use any computer, compiler, mobile phone, or external devices during the event.",
           "All answers must be based only on logical thinking and manual analysis of the given code.",
@@ -185,8 +155,8 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     subCategory: "Individual / Direct",
     eventType: "DIRECT",
     date: "2026-10-23",
-    time: "11:00 AM",
-    venue: "IT-Lab 1 & IT-Lab 3",
+    time: "11:45 AM",
+    venue: "Third Lab",
     description:
       "Code Chaos is a two-stage programming challenge designed to evaluate precision, logic building, and debugging ability under time pressure. Participants must first demonstrate accuracy by writing flawless code without feedback, and then prove analytical strength by correcting and optimizing faulty logic.",
     teamSize: "Individual (Solo)",
@@ -196,28 +166,18 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     onSpotRegistrationAvailable: true,
     coordinators: [
       {
-        name: "SANUKTHA A",
-        phone: "9361334075",
-        role: "Event Coordinator",
-      },
-      {
-        name: "DIVYASRI K",
-        phone: "8667797100",
-        role: "Event Coordinator",
-      },
-      {
-        name: "SURYA P",
+        name: "Surya P",
         phone: "6383150516",
         role: "Event Coordinator",
       },
     ],
     rules: {
       round1: {
-        title: "Level 1 — Blind Coding (30 Minutes)",
+        title: "Level 1 — Blind Coding on HackerRank (30 Minutes)",
         description:
-          "Solve a programming problem without any trial-and-error execution feedback.",
+          "First round is system based on HackerRank. Solve a programming problem without any trial-and-error execution feedback. Worksheets provided for logic formulation.",
         rules: [
-          "Individual participation only.",
+          "Individual participation only on HackerRank.",
           "A problem statement with input and output format will be provided.",
           "Allowed programming languages: C, Python, Java.",
           "Participants must type and submit the complete program.",
@@ -226,11 +186,11 @@ export const GUSTO_EVENTS: GustoEvent[] = [
         ],
       },
       round2: {
-        title: "Level 2 — Hunt Debugging (30 Minutes)",
+        title: "Level 2 — Hunt Debugging on HackerRank (30 Minutes)",
         description:
-          "Identify and correct logical flaws in a given program to produce the targeted output.",
+          "Second round is also conducted on HackerRank. Identify and correct logical flaws in a given program to produce the targeted output.",
         rules: [
-          "A code containing logical flaws will be provided.",
+          "A code containing logical flaws will be provided on HackerRank.",
           "Participants must analyze, modify, and provide the mentioned output.",
           "Multiple executions are allowed within the allotted time.",
           "Difficulty level: Medium.",
@@ -252,13 +212,13 @@ export const GUSTO_EVENTS: GustoEvent[] = [
   // 5. PROMPTX
   {
     id: "promptx",
-    title: "PROMPTX",
+    title: "Prompt X",
     category: "Technical",
     subCategory: "Individual / Direct",
     eventType: "DIRECT",
     date: "2026-10-23",
-    time: "11:00 AM",
-    venue: "AD-21 IT Department",
+    time: "11:45 AM",
+    venue: "AD21 (second year class)",
     description:
       "PROMPTX is an individual AI-based competition that evaluates participants on prompt engineering skills, accuracy, efficiency, and time management. The event challenges participants to generate precise AI outputs using well-structured prompts across two distinct rounds.",
     teamSize: "Individual (Solo)",
@@ -268,49 +228,34 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     onSpotRegistrationAvailable: true,
     coordinators: [
       {
-        name: "SUVETHARANI C",
-        phone: "9688656958",
-        role: "Event Coordinator",
-      },
-      {
-        name: "SANJAYKANTH C",
-        phone: "7904546645",
-        role: "Event Coordinator",
-      },
-      {
-        name: "RASIGA M",
-        phone: "9345128184",
-        role: "Event Coordinator",
-      },
-      {
-        name: "SWETHA M",
-        phone: "7418185974",
+        name: "Karthick B",
+        phone: "6383208735",
         role: "Event Coordinator",
       },
     ],
     rules: {
       round1: {
-        title: "Round 1 — Image Recreation",
+        title: "Round 1 — Image Recreation (20 Minutes)",
         description:
-          "Participants are provided with AI-generated reference images. Each image must be recreated accurately using prompt engineering.",
+          "No question paper; questions are projected through the projector (1 projector). Each image must be recreated accurately using prompt engineering.",
         rules: [
-          "Participants will be provided with 3 AI-generated reference images.",
+          "Participants will be provided with AI-generated reference images projected on-screen.",
           "Each image must be recreated as accurately as possible using AI image generation tools.",
           "Allowed AI Tools: ChatGPT, Gemini.",
-          "Time limit: 6 minutes per image.",
+          "Round 1 duration: 20 minutes.",
           "Maximum of 5 prompts allowed per image.",
         ],
       },
       round2: {
-        title: "Round 2 — Web Page Replication",
+        title: "Round 2 — Web Page Replication (30 Minutes)",
         description:
-          "Participants will be given 2 web page design references (screenshots). Each web page must be replicated using AI-generated vanilla HTML, CSS, and JavaScript only.",
+          "Web page design references are projected on-screen. Each web page must be replicated using AI-generated vanilla HTML, CSS, and JavaScript only.",
         rules: [
-          "Participants will be given 2 web page design references (screenshots).",
+          "Participants will be given 2 web page design references projected on-screen.",
           "Each web page must be replicated using AI-generated code.",
           "The designs must be recreated using vanilla HTML, CSS, and JavaScript only.",
           "Allowed AI Tools: ChatGPT, Claude, Gemini.",
-          "Time limit: 10 minutes per webpage.",
+          "Round 2 duration: 30 minutes.",
           "Maximum of 5 prompts allowed per webpage.",
         ],
       },
@@ -349,11 +294,6 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     isSlotsFull: false,
     onSpotRegistrationAvailable: false,
     coordinators: [
-      {
-        name: "RAKAVI R",
-        phone: "8610544687",
-        role: "Event Coordinator",
-      },
       {
         name: "GAJIN S",
         phone: "9025732774",
@@ -395,11 +335,6 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     onSpotRegistrationAvailable: false,
     coordinators: [
       {
-        name: "VINUBHARATHI M S",
-        phone: "6385923217",
-        role: "Event Coordinator",
-      },
-      {
         name: "MAHATHMA E",
         phone: "6374655791",
         role: "Event Coordinator",
@@ -440,12 +375,7 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     onSpotRegistrationAvailable: false,
     coordinators: [
       {
-        name: "DEEPAK M",
-        phone: "6374294597",
-        role: "Event Coordinator",
-      },
-      {
-        name: "MARI SANGEETH S",
+        name: "Mari Sangeeth S",
         phone: "6383575163",
         role: "Event Coordinator",
       },
@@ -466,18 +396,18 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     ],
   },
 
-  // 9. Icon IQ
+  // 9. Think Sync
   {
     id: "icon-iq",
-    title: "Icon IQ",
+    title: "Think Sync",
     category: "Non-Technical",
     subCategory: "Offline Interactive",
     eventType: "DIRECT",
     date: "2026-10-23",
-    time: "10:15 AM",
-    venue: "AD-22 IT Department",
+    time: "2:00 PM",
+    venue: "AD21 (second year class) & AD22 (third year class)",
     description:
-      "Icon IQ is a challenging and interactive non-technical event that tests participants' visual intelligence, logical thinking, and IT awareness through logo deduction and connection puzzles.",
+      "Think Sync is an engaging offline non-technical event that tests participants' visual intelligence, logical thinking, and IT deduction through logo puzzles, connection games, and interactive rounds.",
     teamSize: "Individual (Solo)",
     image: "/events/tech/project-present.png",
     registrationDeadline: "October 22, 2026 (12:00 PM)",
@@ -485,47 +415,44 @@ export const GUSTO_EVENTS: GustoEvent[] = [
     onSpotRegistrationAvailable: true,
     coordinators: [
       {
-        name: "SANTHOSH KUMAR P",
-        phone: "8637424695",
-        role: "Event Coordinator",
-      },
-      {
-        name: "KANIMOZHI B",
-        phone: "8220802872",
+        name: "Bharath Kumar P",
+        phone: "6379478168",
         role: "Event Coordinator",
       },
     ],
     rules: {
       round1: {
-        title: "Round 1 — Logo Guessing Game",
+        title: "Level 1 — Logo Guessing & IT Deduction (50 Minutes)",
         description:
-          "Identify IT companies, software, and application logos from partial or disguised clues.",
+          "Worksheet-based round with questions projected across 2 projectors. Identify IT companies, software, and application logos from partial or disguised clues.",
         rules: [
-          "Half logos will be displayed, and participants must guess the complete logo name.",
-          "A logo image will be shown, and participants must identify the correct software/company.",
-          "Questions will be based on IT companies, software, applications, and technology-related logos.",
+          "Questions are projected on-screen via projectors (2 projectors utilized).",
+          "Participants must write answers on official worksheets provided.",
+          "Questions will be based on IT companies, software, applications, and technology logos.",
           "Any wrong answer or rule violation may lead to elimination.",
-          "Participants with the best accuracy and performance will be shortlisted for Round 2.",
+          "Participants with the highest accuracy qualify for Level 2.",
         ],
       },
       round2: {
-        title: "Round 2 — Connection Game",
+        title: "Level 2 & Level 3 — Connections & Final Showdown (30 + 30 Minutes)",
         description:
-          "Connect visual image clues to deduce technical terminology and concepts.",
+          "Connect visual image clues to deduce technical terminology and concepts. Level 2 duration is 30 minutes; Level 3 duration is 30 minutes.",
         rules: [
-          "By connecting the given images, participants must identify the correct technical word or concept.",
-          "Similar images may be displayed to find a common connection.",
-          "Tests logical thinking, technical knowledge, and analytical skills.",
-          "The participant who provides the best output will be declared the winner.",
+          "Level 2 (30 Mins): Connect given projected images to deduce the correct technical concept on worksheets.",
+          "Level 3 (30 Mins): Final high-speed connection round for top finalists.",
+          "Tests logical thinking, technical deduction, and speed.",
+          "Worksheets provided for submitting responses.",
+          "The participant with the highest aggregate score will be declared the winner.",
         ],
       },
       general: {
         title: "General Guidelines",
         rules: [
-          "This is an individual Non-Technical event.",
-          "This is an offline event.",
-          "Participants must answer only based on the images and clues provided.",
+          "This is an individual Non-Technical offline event.",
+          "Venue: AD21 (second year class) & AD22 (third year class) at 2:00 PM.",
+          "Worksheets and two projectors are utilized during the event.",
           "Use of mobile phones, internet access, or external assistance is strictly prohibited.",
+          "Event batches and end time depend on registration count; all events conclude by 3:30 PM.",
           "Judges' decision will be final and binding.",
           "On-spot registration is available.",
         ],
