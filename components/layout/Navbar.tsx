@@ -394,9 +394,22 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
             <Search className="w-4 h-4 text-black absolute right-3 pointer-events-none" />
           </div>
 
-          <div className="grid grid-cols-2 gap-2.5">
-            {navLinks.map((link) => {
+          <div className="grid grid-cols-2 gap-2.5 pt-1">
+            {navLinks.map((link, idx) => {
               const isActive = activeLink === link.name;
+              const isLastOdd = idx === navLinks.length - 1 && navLinks.length % 2 !== 0;
+              const mobileButtonConfig: Record<string, { bg: string; text: string; dot: string }> = {
+                "All Events": { bg: "bg-[#00d8f8] hover:bg-[#5ce6fc]", text: "text-black", dot: "bg-black" },
+                "Rules": { bg: "bg-[#ff9900] hover:bg-[#ffb033]", text: "text-black", dot: "bg-black" },
+                "About": { bg: "bg-[#48d050] hover:bg-[#68e06f]", text: "text-black", dot: "bg-black" },
+                "Transport": { bg: "bg-[#ffd000] hover:bg-[#ffe04d]", text: "text-black", dot: "bg-black" },
+                "Contacts": { bg: "bg-[#ec4899] hover:bg-[#f472b6]", text: "text-white", dot: "bg-white" },
+              };
+              const config = mobileButtonConfig[link.name] || {
+                bg: "bg-[#ffd000] hover:bg-[#ffe04d]",
+                text: "text-black",
+                dot: "bg-black",
+              };
 
               return (
                 <a
@@ -410,26 +423,14 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
                       true
                     )
                   }
-                  className={`button button-item nav-bubble-btn nav-bubble-btn-mobile ${
-                    isActive ? "is-active" : ""
+                  className={`h-[44px] px-3.5 rounded-xl border-[2.5px] border-black shadow-[3px_3px_0px_#000] active:translate-y-0.5 active:shadow-[1px_1px_0px_#000] transition-all flex items-center justify-center gap-2 font-['Chakra_Petch',sans-serif] font-black text-xs uppercase tracking-wider select-none cursor-pointer ${
+                    config.bg
+                  } ${config.text} ${isLastOdd ? "col-span-2" : ""} ${
+                    isActive ? "ring-2 ring-white scale-[1.01]" : ""
                   }`}
                 >
-                  <span className="button-bg">
-                    <span className="button-bg-layers">
-                      <span className="button-bg-layer button-bg-layer-1 -purple"></span>
-                      <span className="button-bg-layer button-bg-layer-2 -turquoise"></span>
-                      <span className="button-bg-layer button-bg-layer-3 -yellow"></span>
-                    </span>
-                  </span>
-
-                  <span className="button-inner">
-                    <span className="button-inner-static">
-                      {link.name}
-                    </span>
-                    <span className="button-inner-hover">
-                      {link.name}
-                    </span>
-                  </span>
+                  <span className={`w-2 h-2 rounded-full border border-black/30 shrink-0 ${config.dot}`} />
+                  <span>{link.name}</span>
                 </a>
               );
             })}

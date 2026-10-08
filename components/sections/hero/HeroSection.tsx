@@ -31,7 +31,6 @@ import {
   ComicStar,
   HandwrittenSticker,
 } from "@/components/ui/RetroStickers";
-import { arcadeAudio } from "@/src/lib/arcadeAudio";
 import { MarioWorldLandscape } from "./MarioWorldLandscape";
 
 interface HeroSectionProps {
@@ -507,10 +506,6 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   }, [INSTITUTION_BANNER_ITEMS.length]);
 
   const handleBannerFlipToggle = () => {
-    if (!isDesktop) return; // no interaction on mobile
-    try {
-      arcadeAudio.playCoin();
-    } catch { }
     setBannerAnimState("out");
     setTimeout(() => {
       setBannerIndex((prev) => (prev + 1) % INSTITUTION_BANNER_ITEMS.length);
@@ -528,7 +523,6 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
   }, []);
 
   const triggerJump = () => {
-    if (!isDesktop) return; // desktop-only interaction
     setLetterAnimationKey((prev) => prev + 1);
     setIsJumping(true);
   };
@@ -757,15 +751,12 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
               {/* RETRO GAMING CONSOLE / GAMEPAD MASCOT in between "LET" and "THE" */}
               <div
                 onClick={(e) => {
-                  if (!isDesktop) return; // desktop-only sound & interaction
+                  if (!isDesktop) return; // desktop-only interaction
                   e.stopPropagation();
                   triggerJump();
-                  try {
-                    arcadeAudio.playJump();
-                  } catch { }
                 }}
                 className="relative -mt-0.5 sm:-mt-5 md:-mt-7 mx-0.5 xs:mx-1 sm:mx-4 animate-idle-wiggle cursor-pointer shrink-0 hover:scale-110 active:scale-95 transition-transform duration-200 select-none group/console z-10"
-                title="Click Console to Jump & Sound!"
+                title="Click Console to Jump!"
               >
                 {/* Cute speech bubble on hover */}
                 <div className="absolute -top-7 sm:-top-9 left-1/2 -translate-x-1/2 px-2 sm:px-2.5 py-0.5 sm:py-1 bg-white border-2 border-black rounded-lg shadow-[2px_2px_0px_#000] opacity-0 group-hover/console:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-30">
