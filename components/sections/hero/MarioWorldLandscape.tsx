@@ -590,7 +590,7 @@ export function MarioWorldLandscape({ onOpenRegister }: MarioWorldLandscapeProps
                       id: Math.random(),
                       x: block.x,
                       y: block.y - 18,
-                      text: "🍄 POWER UP",
+                      text: "POWER UP",
                       color: "#ef4444",
                       opacity: 1,
                       vy: -2,
@@ -1296,7 +1296,7 @@ export function MarioWorldLandscape({ onOpenRegister }: MarioWorldLandscapeProps
                 onClick={restartLevel}
                 className="px-4 py-2 rounded-xl bg-white text-black font-['Press_Start_2P',monospace] text-xs font-black uppercase border-2 border-black shadow-[3px_3px_0px_#000] hover:bg-yellow-300 active:translate-y-0.5 cursor-pointer"
               >
-                TRY AGAIN 🔄
+                TRY AGAIN
               </button>
             </div>
           </div>
@@ -1306,7 +1306,6 @@ export function MarioWorldLandscape({ onOpenRegister }: MarioWorldLandscapeProps
         {gameWon && (
           <div className="absolute inset-0 bg-black/90 backdrop-blur-xs flex flex-col items-center justify-center p-4 z-50 animate-in fade-in duration-200">
             <div className="p-5 sm:p-8 rounded-2xl bg-gradient-to-r from-[#ffd000] via-[#facc15] to-[#f59e0b] border-4 border-black shadow-[8px_8px_0px_#000] text-center max-w-md text-black">
-              <div className="text-4xl mb-2">👑 🍄 🌟</div>
               <h3 className="font-['Press_Start_2P',monospace] text-xs sm:text-base font-black uppercase mb-2">
                 GUSTO 2.0 CHAMPION!
               </h3>
@@ -1318,13 +1317,13 @@ export function MarioWorldLandscape({ onOpenRegister }: MarioWorldLandscapeProps
                   onClick={onOpenRegister}
                   className="px-4 py-2 rounded-xl bg-[#ec4899] text-white font-['Press_Start_2P',monospace] text-xs font-black uppercase border-2 border-black shadow-[3px_3px_0px_#000] hover:scale-105 active:translate-y-0.5 cursor-pointer"
                 >
-                  REGISTER NOW 🎟️
+                  REGISTER NOW
                 </button>
                 <button
                   onClick={restartLevel}
                   className="px-4 py-2 rounded-xl bg-white text-black font-['Press_Start_2P',monospace] text-xs font-black uppercase border-2 border-black shadow-[3px_3px_0px_#000] hover:bg-zinc-100 active:translate-y-0.5 cursor-pointer"
                 >
-                  PLAY AGAIN 🔄
+                  PLAY AGAIN
                 </button>
               </div>
             </div>
@@ -1335,7 +1334,7 @@ export function MarioWorldLandscape({ onOpenRegister }: MarioWorldLandscapeProps
         {isPaused && (
           <div className="absolute inset-0 bg-black/60 flex items-center justify-center z-40">
             <div className="px-5 py-3 rounded-xl bg-white border-2 border-black shadow-[4px_4px_0px_#000] font-['Press_Start_2P',monospace] text-xs font-black text-black">
-              PAUSED ⏸️
+              PAUSED
             </div>
           </div>
         )}
@@ -1344,7 +1343,7 @@ export function MarioWorldLandscape({ onOpenRegister }: MarioWorldLandscapeProps
       {/* ── KEYBOARD CONTROLS TIP ── */}
       <div className="w-full max-w-5xl mx-auto mt-2.5 px-2 sm:px-4 flex items-center justify-center z-30">
         <div className="flex items-center gap-2 bg-white/90 border-2 border-black rounded-lg px-3 py-1 shadow-[2px_2px_0px_#000] text-[8.5px] sm:text-[9.5px] font-['Press_Start_2P',monospace] text-black">
-          <span>🎮 CONTROLS:</span>
+          <span>CONTROLS:</span>
           <span className="bg-zinc-200 px-1 py-0.5 rounded border border-black/40">◀ ▶ / A D</span>
           <span>RUN</span>
           <span className="bg-zinc-200 px-1 py-0.5 rounded border border-black/40">SPACE / ▲</span>

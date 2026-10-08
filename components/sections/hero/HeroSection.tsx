@@ -770,7 +770,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                 {/* Cute speech bubble on hover */}
                 <div className="absolute -top-7 sm:-top-9 left-1/2 -translate-x-1/2 px-2 sm:px-2.5 py-0.5 sm:py-1 bg-white border-2 border-black rounded-lg shadow-[2px_2px_0px_#000] opacity-0 group-hover/console:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-30">
                   <span className="font-['Press_Start_2P',monospace] text-[8px] sm:text-[10px] text-black font-bold tracking-wider">
-                    LET'S PLAY! 🍄
+                    LET'S PLAY!
                   </span>
                 </div>
 
@@ -1306,7 +1306,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                       9 Events
                     </span>
                     <span className="text-[9px] sm:text-[9.5px] font-mono font-extrabold text-zinc-900 uppercase opacity-75">
-                      ⚔️ ARENA
+                      ARENA
                     </span>
                   </div>
                 </a>
@@ -1321,7 +1321,7 @@ export function HeroSection({ onOpenRegister }: HeroSectionProps) {
                       Rules
                     </span>
                     <span className="text-[9px] sm:text-[9.5px] font-mono font-extrabold text-zinc-700 uppercase opacity-75">
-                      📜 CODEX
+                      CODEX
                     </span>
                   </div>
                 </a>
