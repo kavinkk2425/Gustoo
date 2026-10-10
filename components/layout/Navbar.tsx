@@ -193,11 +193,9 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
                 onClick={(e) =>
                   handleNavClick(e, link.href, link.name)
                 }
-                className={`button button-item nav-bubble-btn flex-1 max-w-[170px] ${
-                  isActive ? "is-active" : ""
-                } ${
-                  isClicked ? "scale-90" : "active:scale-95"
-                }`}
+                className={`button button-item nav-bubble-btn flex-1 max-w-[170px] ${isActive ? "is-active" : ""
+                  } ${isClicked ? "scale-90" : "active:scale-95"
+                  }`}
                 title={link.name}
               >
                 <span className="button-bg">
@@ -423,11 +421,9 @@ export function Navbar({ onOpenRegister, onSearchChange }: NavbarProps) {
                       true
                     )
                   }
-                  className={`h-[44px] px-3.5 rounded-xl border-[2.5px] border-black shadow-[3px_3px_0px_#000] active:translate-y-0.5 active:shadow-[1px_1px_0px_#000] transition-all flex items-center justify-center gap-2 font-['Chakra_Petch',sans-serif] font-black text-xs uppercase tracking-wider select-none cursor-pointer ${
-                    config.bg
-                  } ${config.text} ${isLastOdd ? "col-span-2" : ""} ${
-                    isActive ? "ring-2 ring-white scale-[1.01]" : ""
-                  }`}
+                  className={`h-[44px] px-3.5 rounded-xl border-[2.5px] border-black shadow-[3px_3px_0px_#000] active:translate-y-0.5 active:shadow-[1px_1px_0px_#000] transition-all flex items-center justify-center gap-2 font-['Chakra_Petch',sans-serif] font-black text-xs uppercase tracking-wider select-none cursor-pointer ${config.bg
+                    } ${config.text} ${isLastOdd ? "col-span-2" : ""} ${isActive ? "ring-2 ring-white scale-[1.01]" : ""
+                    }`}
                 >
                   <span className={`w-2 h-2 rounded-full border border-black/30 shrink-0 ${config.dot}`} />
                   <span>{link.name}</span>

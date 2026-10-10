@@ -103,6 +103,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} ${chakraPetch.variable} ${orbitron.variable} ${pressStart2P.variable} ${figtree.variable} ${playfair.variable} dark h-full antialiased scroll-smooth`}
     >
       <head>
@@ -128,7 +129,10 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="min-h-full flex flex-col bg-black text-white w-full max-w-full overflow-x-hidden relative">
+      <body
+        suppressHydrationWarning
+        className="min-h-full flex flex-col bg-black text-white w-full max-w-full overflow-x-hidden relative"
+      >
         {children}
       </body>
     </html>
